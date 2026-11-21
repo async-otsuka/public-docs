@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>天下統一への道 第3章</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style>.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+
+.cfig{background:#F7FAFD;border:1px solid #DCE4EE;border-radius:8px;padding:16px 18px}
+.ppl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ppl .pg{margin:0}
+.mapwrap{display:flex;gap:16px;align-items:flex-start}
+footer a{color:var(--navy)}
+.tlh{font-size:15px;color:var(--navy);margin:1.4em 0 .3em}
+</style><style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style></head>
+<body>
+<div class="page">
+<p class="series">天下統一への道 解説資料</p>
+<article class="sheet">
+<div class="band">第三章 ・ 1582 ― 1590</div>
+<header class="ch">
+<h1>秀吉の天下統一</h1>
+<p class="lead">信長の一家臣から、わずか8年で全国を従えた</p>
+</header>
+<div class="body">
+<figure><button class="figbtn" type="button" aria-label="図3-1 この章の年表を拡大"><svg viewBox="0 0 680 270" role="img"><title>図3-1 この章の年表</title><desc>1583 賤ヶ岳の戦い、大坂城の築城開始、1584 小牧・長久手の戦い、1585 関白に就任、四国を平定、1586 太政大臣に、豊臣の姓を受ける、1587 九州を平定、1590 小田原攻め・奥州仕置</desc><rect x="50" y="146" width="580" height="8" rx="3" fill="#1F4E8C"/><line x1="60.0" y1="118" x2="60.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="60.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1583</text><text x="60.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">賤ヶ岳の戦い、大坂城の築城開始</text><circle cx="60.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="140.0" y1="154" x2="140.0" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="140.0" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1584</text><text x="140.0" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">小牧・長久手の戦い</text><circle cx="140.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="220.0" y1="78" x2="220.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="220.0" y="56" text-anchor="start" class="h" style="fill:#1F4E8C">1585</text><text x="220.0" y="72" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">関白に就任、四国を平定</text><circle cx="220.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="300.0" y1="118" x2="300.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="300.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1586</text><text x="300.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">太政大臣に、豊臣の姓を受ける</text><circle cx="300.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="380.0" y1="154" x2="380.0" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="380.0" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1587</text><text x="380.0" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">九州を平定</text><circle cx="380.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="620.0" y1="118" x2="620.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="620.0" y="96" text-anchor="end" class="h" style="fill:#1F4E8C">1590</text><text x="620.0" y="112" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:700">小田原攻め・奥州仕置</text><circle cx="620.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/></svg></button><figcaption><span><b>図3-1</b>この章の年表</span><span class="hint">クリックで拡大</span></figcaption></figure>
+<figure><div class="cfig"><div class="ppl"><div class="pg t"><h4>秀吉と争った人々</h4><ul><li><b><span class="rb">柴田勝家<span class="rt" aria-hidden="true">しばたかついえ</span></span></b><span class="pd">織田家の筆頭家老。賤ヶ岳の戦いで敗れ、北ノ庄で自害</span></li><li><b>徳川家康・<span class="rb">織田信雄<span class="rt" aria-hidden="true">おだのぶかつ</span></span></b><span class="pd">小牧・長久手の戦いで秀吉と戦うが、のちに従う</span></li></ul></div><div class="pg n"><h4>秀吉に降った大名</h4><ul><li><b><span class="rb">長宗我部元親<span class="rt" aria-hidden="true">ちょうそかべもとちか</span></span></b><span class="pd">四国をほぼ統一したが、1585年に降伏し土佐一国を認められる</span></li><li><b><span class="rb">島津義久<span class="rt" aria-hidden="true">しまづよしひさ</span></span></b><span class="pd">九州の大半を押さえたが、1587年に降伏</span></li><li><b><span class="rb">北条氏政<span class="rt" aria-hidden="true">ほうじょううじまさ</span></span>・<span class="rb">北条氏直<span class="rt" aria-hidden="true">ほうじょううじなお</span></span></b><span class="pd">関東の大名。1590年の小田原攻めで降伏</span></li><li><b><span class="rb">伊達政宗<span class="rt" aria-hidden="true">だてまさむね</span></span></b><span class="pd">奥羽の大名。小田原に参陣して秀吉に従う</span></li></ul></div></div></div><figcaption><span><b>図3-2</b>この章の登場人物</span></figcaption></figure>
+<h2><span class="no">第1節</span>織田家の家臣から天下人へ</h2>
+<p><span class="rb">清洲<span class="rt" aria-hidden="true">きよす</span></span>会議の後、<span class="rb">羽柴秀吉<span class="rt" aria-hidden="true">はしばひでよし</span></span>と<span class="rb">柴田勝家<span class="rt" aria-hidden="true">しばたかついえ</span></span>の対立は深まった。1583年、両者は<span class="rb">近江<span class="rt" aria-hidden="true">おうみ</span></span>北部の<span class="rb">賤ヶ岳<span class="rt" aria-hidden="true">しずがたけ</span></span>で戦い、秀吉が勝った。勝家は<span class="rb">越前<span class="rt" aria-hidden="true">えちぜん</span></span>の<span class="rb">北ノ庄<span class="rt" aria-hidden="true">きたのしょう</span></span>城に逃れ、妻のお市(信長の妹)とともに自害した。同じ年、秀吉は石山<span class="rb">本願寺<span class="rt" aria-hidden="true">ほんがんじ</span></span>の跡地に<span class="rb">大坂<span class="rt" aria-hidden="true">おおさか</span></span>城を築き始めた。</p>
+<p>1584年、信長の子の<span class="rb">織田信雄<span class="rt" aria-hidden="true">おだのぶかつ</span></span>が徳川家康と手を結び、秀吉と対立した。<span class="rb">尾張<span class="rt" aria-hidden="true">おわり</span></span>の<span class="rb">小牧・長久手<span class="rt" aria-hidden="true">こまき・ながくて</span></span>で戦いとなり、長久手では秀吉方の<span class="rb">池田恒興<span class="rt" aria-hidden="true">いけだつねおき</span></span>らが家康の軍に討たれた。しかし秀吉は信雄と講和を結び、戦う理由を失った家康も兵を引いた。家康は1586年に上洛し、秀吉に従うことになる。</p>
+<figure><div class="cfig"><ol class="steps"><li><span class="num t">1</span><span><b>1583年 賤ヶ岳の戦い</b><span class="d">柴田勝家を破り、織田家の家臣の中で第一の地位に</span></span></li><li><span class="num t">2</span><span><b>1584年 小牧・長久手の戦い</b><span class="d">家康・信雄と戦う。戦いでは苦戦したが、信雄と講和して家康も兵を引く</span></span></li><li><span class="num t">3</span><span><b>1585年 関白・四国平定</b><span class="d">朝廷の最高の地位に就き、長宗我部氏を降伏させる</span></span></li><li><span class="num t">4</span><span><b>1587年 九州平定</b><span class="d">島津氏を降伏させる</span></span></li><li><span class="num t">5</span><span><b>1590年 小田原攻め・奥州仕置</b><span class="d">北条氏を滅ぼし、東北の大名を従えて全国を統一</span></span></li></ol></div><figcaption><span><b>図3-3</b>天下統一の歩み</span></figcaption></figure>
+<h2><span class="no">第2節</span>関白秀吉</h2>
+<p>1585年、秀吉は<span class="rb">関白<span class="rt" aria-hidden="true">かんぱく</span></span>に就任した。関白は、天皇を補佐して政治を行う朝廷の最高の地位で、本来は藤原氏の一部の家柄の者しか就けなかった。秀吉は公家の<span class="rb">近衛<span class="rt" aria-hidden="true">このえ</span></span>家の養子という形をとってこの地位に就いた。翌1586年には<span class="rb">太政大臣<span class="rt" aria-hidden="true">だじょうだいじん</span></span>となり、朝廷から新たに「豊臣」の姓を与えられた。</p>
+<p>関白となった秀吉は、天皇の権威を背景に、各地の大名に戦いをやめるよう命じた。この方針を「<span class="rb">惣無事<span class="rt" aria-hidden="true">そうぶじ</span></span>」と呼ぶ。命令に従わない大名は、天皇の意思に背く者として攻め滅ぼすことができた。武力に加えて朝廷の権威を使ったところに、秀吉の天下統一の特徴がある。</p>
+<figure><div class="cfig"><div class="flow"><div class="fs s"><em>1585年</em><b>関白に就任</b><span class="d">天皇を補佐する朝廷の最高の地位</span></div><div class="fs "><b>天皇の権威を背景に、大名どうしの戦いをやめるよう命じる</b><span class="d">「惣無事」と呼ばれる。従わない大名は攻め滅ぼす理由になった</span></div><div class="pair"><div class="fs t"><em>九州</em><b>島津氏が従わない</b><span class="d">1587年に九州へ出兵</span></div><div class="fs t"><em>関東</em><b>北条氏が命令に背く</b><span class="d">1590年に小田原を攻める</span></div></div><div class="fs dk"><b>1590年、全国の大名が秀吉に従う</b><span class="d">約120年続いた戦国の争乱が収まる</span></div></div></div><figcaption><span><b>図3-4</b>関白秀吉の命令</span></figcaption></figure>
+<h2><span class="no">第3節</span>四国・九州の平定</h2>
+<p>1585年、秀吉は<span class="rb">紀伊<span class="rt" aria-hidden="true">きい</span></span>の<span class="rb">根来<span class="rt" aria-hidden="true">ねごろ</span></span>や<span class="rb">雑賀<span class="rt" aria-hidden="true">さいか</span></span>の勢力を攻め、続いて四国に大軍を送った。四国をほぼ統一していた<span class="rb">長宗我部元親<span class="rt" aria-hidden="true">ちょうそかべもとちか</span></span>は降伏し、<span class="rb">土佐<span class="rt" aria-hidden="true">とさ</span></span>一国だけを認められた。同じ年、<span class="rb">越中<span class="rt" aria-hidden="true">えっちゅう</span></span>の<span class="rb">佐々成政<span class="rt" aria-hidden="true">さっさなりまさ</span></span>も降伏している。</p>
+<figure><button class="figbtn" type="button" aria-label="図3-5 秀吉の天下統一の進み方を拡大"><svg viewBox="0 0 640 505" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>秀吉の天下統一の進み方</title><desc>年は秀吉がその地域を従えた年。位置はおおよそ</desc><rect width="640" height="505" fill="#EAF2FB"/><path d="M624.7,0L622.4,1.6L616.7,15.8L612.6,39.4L594,43.7L586.4,56.2L584.7,69.2L588.6,85.7L590.3,100.7L586.8,130.9L577.7,140.9L569.1,163L566.3,180.5L568.9,191.4L576,205.1L581.9,212.8L569.8,216.8L560.4,226.3L558.3,241.7L555.2,247.2L539.7,256.2L532.7,264.9L526.4,261.3L528.6,257.9L527.9,239.9L541.2,224.5L536.2,216.3L528.2,217L524.7,227.3L518.8,232.7L523.6,242.7L518,249.6L509.6,239.8L498.1,241.1L491.1,252.5L491.4,261.3L486,275.2L479.9,282L472.9,277.5L474.9,260.2L480.1,257.1L470.6,250.8L463.4,253.1L451.5,268.2L443.3,284L432.5,281.2L410.1,279.8L385.2,284.8L396.9,277.3L396.1,272.9L383.7,273.4L376.1,270.8L374.4,254.9L366,259.6L357.8,278.8L362.1,284.5L375.7,294.1L374.4,301L358.4,305.2L347.4,310.2L326.1,348.5L314.5,353.1L302.1,348.9L296.5,338.5L287.8,327.6L285.4,320.8L283.9,303.3L292.4,297.5L298.6,290L300.2,282.6L297.1,280.3L280.9,281.9L265.3,273.4L257.3,273L237.8,277.6L225.5,288.3L198.4,294.3L182.8,302.4L176.5,300.7L157.7,305.9L145.6,299.2L140.1,301L136.2,307.1L131.3,331.3L110.5,318L96.8,320L84.3,324.5L76,319.9L68,322.7L66.5,304.9L72.4,296.7L90.5,295.4L103.7,282.8L116.5,275.9L127.3,264.9L137.3,257.2L155.9,239.2L160,232.2L171.5,226.3L189.3,223.5L194.9,229.6L207.3,226.3L220,227.3L238.2,224.5L250.6,218.9L272.6,216.7L287.8,211.4L292.4,212.9L290.8,221.2L295.6,225.4L313.8,226.8L325.3,220.3L335.2,210L330.7,195.9L338.3,180.9L348.9,172.1L366.4,147.7L369,134.1L367.5,118.2L373.8,106.3L398.5,97.1L399.3,102.7L389.8,112.7L378.1,119.9L381.6,129.3L382.7,141.5L388.3,145.6L399.6,145.8L408.4,134.1L429,126.9L450,116.8L461.9,105.6L470.1,94.6L479.2,76.2L497.9,65.4L505.9,56.6L509.8,39.7L515,26.6L526.6,7.8L528.5,0L624.7,0ZM245.6,305.2L259.9,307.2L259.9,318.5L265.3,332.5L255.5,338.1L246.5,345.6L239.7,356L236.5,367.9L225,355.5L219.6,352.7L208.1,351.6L190.2,361L180.8,381.4L176.3,384.1L174.3,392.8L168.7,398.3L157,397.7L160.5,389.1L149.4,388.2L146,379.5L150.3,365L144.7,362.7L145.1,356.6L128.4,362.1L157,340.5L164.4,321.8L175,315.7L182.4,325.8L205.5,320.1L208.6,312.9L206.6,306.1L212,306.4L224.4,299.6L230.9,298.9ZM0,366.7L3.1,360.6L12.6,363.3L11.7,356.1L24.3,351L29.3,346.2L39.6,344L45.7,331.5L57.6,325.8L69.8,329.2L75.2,341.6L81.4,345.9L81.4,345.9L93.8,347.1L102.4,342.8L108.1,345.9L108.9,352.2L99.9,366.2L118.5,367.5L116.1,375.9L121.3,380.2L119.3,384.7L124.3,388.1L122.6,392.7L110,408.2L101.4,430.8L96,451.4L96,464.4L89.7,480.4L76,478.6L74.1,482.1L77.3,489.5L67.2,498.2L56.1,504L61.5,488.6L57,470L60.9,468.4L60.7,462.1L54.4,461.4L47.9,477.1L53.9,488.7L51.1,494.1L31,487.3L28.2,480.2L35.8,477.7L37.3,468.6L30.3,458.4L31.6,453.5L30.6,438.8L37.1,435.6L44.6,425.8L53.7,406.6L46.4,404.2L50,399.4L48.8,393.5L40.3,377.5L32.9,372.2L27.1,376.7L29.7,392.3L37.5,392.2L38.3,401.5L33.2,403L23.4,397.2L8.7,409.4L11.7,400L4.6,390.8L4.1,379.5L11.9,389.7L20.2,392.3L15.4,381.7L0,369.3L0,366.7ZM24.9,430.4L20.8,432.5L19.5,423.3L21.2,412.5L29.3,411.3L31,423.6ZM451.3,77.5L448.1,75.5L450.2,66.5L446.3,66.3L449.4,55.4L459.5,45.2L456.9,60.9L463.2,61.6L459.1,72.2ZM275.2,303.3L269.6,308.6L264.8,308.2L261.6,302.9L270.1,291.8L278.9,287.3L273.9,296.4Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><defs><marker id="artk3n640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="artk3t640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="artk3k640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="artk3g640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><circle cx="340.1" cy="220.7" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="340.1" y="197.2" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="340.1" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">賤ヶ岳</tspan><tspan x="340.1" dy="14.5" style="font-size:11.0px" fill="#5A6878">1583</tspan></text><circle cx="377.3" cy="240.3" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="385.3" y="250.3" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="385.3" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">小牧・長久手</tspan><tspan x="385.3" dy="14.5" style="font-size:11.0px" fill="#5A6878">1584</tspan></text><circle cx="306.1" cy="278.1" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="298.1" y="278.1" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="298.1" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">大坂城</tspan><tspan x="298.1" dy="14.5" style="font-size:11.0px" fill="#5A6878">1583〜</tspan></text><circle cx="295.2" cy="303.2" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="295.2" y="320.2" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="295.2" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">紀伊(根来・雑賀)</tspan><tspan x="295.2" dy="14.5" style="font-size:11.0px" fill="#5A6878">1585</tspan></text><circle cx="206.5" cy="346.1" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="206.5" y="363.1" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="206.5" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">四国(長宗我部)</tspan><tspan x="206.5" dy="14.5" style="font-size:11.0px" fill="#5A6878">1585</tspan></text><circle cx="392.8" cy="150.4" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="392.8" y="126.9" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="392.8" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">越中(佐々成政)</tspan><tspan x="392.8" dy="14.5" style="font-size:11.0px" fill="#5A6878">1585</tspan></text><circle cx="49.5" cy="468.6" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="57.5" y="472.6" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="57.5" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">九州(島津)</tspan><tspan x="57.5" dy="14.5" style="font-size:11.0px" fill="#5A6878">1587</tspan></text><circle cx="492.9" cy="242.8" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="492.9" y="259.8" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="492.9" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">小田原(北条)</tspan><tspan x="492.9" dy="14.5" style="font-size:11.0px" fill="#5A6878">1590</tspan></text><circle cx="533.2" cy="99.2" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="541.2" y="103.2" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="541.2" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">会津</tspan><tspan x="541.2" dy="14.5" style="font-size:11.0px" fill="#5A6878">1590 奥州仕置</tspan></text></svg></button><div style=margin-top:6px><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">年は秀吉がその地域を従えた年。位置はおおよそ</p></div><figcaption><span><b>図3-5</b>秀吉の天下統一の進み方</span><span class="hint">クリックで拡大</span></figcaption></figure>
+<p>九州では、<span class="rb">薩摩<span class="rt" aria-hidden="true">さつま</span></span>の<span class="rb">島津義久<span class="rt" aria-hidden="true">しまづよしひさ</span></span>が大友氏を追い詰め、九州全体を手に入れようとしていた。秀吉は戦いをやめるよう命じたが、島津氏は従わなかった。1587年、秀吉は自ら20万ともいわれる大軍を率いて九州に渡り、島津氏を降伏させた。秀吉は、降伏した大名を滅ぼさず、領地を減らしたうえで家を残すことが多かった。</p>
+<h2><span class="no">第4節</span>小田原攻めと全国統一</h2>
+<p>関東の北条氏は、秀吉への服従をためらっていた。1589年、北条氏の家臣が<span class="rb">真田<span class="rt" aria-hidden="true">さなだ</span></span>氏の城を奪うと、秀吉はこれを命令違反として攻めることを決めた。1590年、秀吉は全国の大名を動員して小田原城を囲んだ。約3か月の<span class="rb">籠城<span class="rt" aria-hidden="true">ろうじょう</span></span>の末、<span class="rb">北条氏直<span class="rt" aria-hidden="true">ほうじょううじなお</span></span>は降伏し、父の氏政らは切腹させられた。</p>
+<p>この間、奥羽の<span class="rb">伊達政宗<span class="rt" aria-hidden="true">だてまさむね</span></span>らも小田原に参陣して秀吉に従った。秀吉は<span class="rb">会津<span class="rt" aria-hidden="true">あいづ</span></span>に入って東北の大名の領地を定め(<span class="rb">奥州仕置<span class="rt" aria-hidden="true">おうしゅうしおき</span></span>)、ここに全国の統一が完成した。北条氏の旧領には徳川家康が移され、家康は江戸を本拠とすることになる。信長の死からわずか8年後のことであった。</p>
+<section class="points" aria-labelledby="pt">
+<h3 id="pt">この章の要点</h3>
+<ul>
+<li>秀吉は1583年に賤ヶ岳の戦いで柴田勝家を破り、1584年の小牧・長久手の戦いの後、家康も従えた。</li>
+<li>1585年に関白、1586年に太政大臣となり、天皇の権威を背景に大名に戦いをやめるよう命じた。</li>
+<li>1585年に四国、1587年に九州を平定し、降伏した大名には領地の一部を認めた。</li>
+<li>1590年に小田原の北条氏を降伏させ、奥州仕置によって全国の統一を完成させた。</li>
+</ul>
+</section>
+<section class="column" aria-labelledby="col">
+<h3 id="col">コラム なぜ秀吉は将軍ではなく関白になったのか</h3>
+<p>秀吉が将軍にならなかった理由として、<span class="rb">足利義昭<span class="rt" aria-hidden="true">あしかがよしあき</span></span>の養子になろうとして断られたという話がある。しかし、この話は江戸時代に書かれた書物に見えるもので、確かな史料では確認できない。</p>
+<p>近年は、秀吉はそもそも将軍を目指していなかったとする見方が有力である。将軍は武士の<span class="rb">棟梁<span class="rt" aria-hidden="true">とうりょう</span></span>として武家を従える地位だが、関白は天皇に代わって政治を行う朝廷の最高の地位であり、大名だけでなく公家や寺社にも命令できた。信長の家臣という出自の秀吉にとって、天皇の権威と結びついた関白の地位は、かつての同僚や主家の織田氏を従えるうえで都合がよかったと考えられている。</p>
+</section>
+</div>
+</article>
+<div class="navs"><a href="pc_ch2.html">← 第2章</a><a href="index.html">目次</a><a href="pc_ch4.html">第4章 →</a></div>
+<footer>第3章 ・ 全8章のうちの1章</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>

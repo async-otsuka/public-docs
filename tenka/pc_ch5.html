@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>天下統一への道 第5章</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style>.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+
+.cfig{background:#F7FAFD;border:1px solid #DCE4EE;border-radius:8px;padding:16px 18px}
+.ppl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ppl .pg{margin:0}
+.mapwrap{display:flex;gap:16px;align-items:flex-start}
+footer a{color:var(--navy)}
+.tlh{font-size:15px;color:var(--navy);margin:1.4em 0 .3em}
+</style><style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style></head>
+<body>
+<div class="page">
+<p class="series">天下統一への道 解説資料</p>
+<article class="sheet">
+<div class="band">第五章 ・ 1580 ― 1597</div>
+<header class="ch">
+<h1>南蛮貿易とキリスト教の行方</h1>
+<p class="lead">ヨーロッパへ渡った少年たちと、天下人の禁教</p>
+</header>
+<div class="body">
+<figure><button class="figbtn" type="button" aria-label="図5-1 この章の年表を拡大"><svg viewBox="0 0 680 270" role="img"><title>図5-1 この章の年表</title><desc>1580 大村純忠が長崎をイエズス会に寄進、1582 天正遣欧使節が長崎を出発、1585 使節がローマ教皇に会う、1587 バテレン追放令、1588 長崎を直轄地に、海賊停止令、1590 使節が帰国、活字印刷機をもたらす、1597 二十六聖人の殉教</desc><rect x="50" y="146" width="580" height="8" rx="3" fill="#1F4E8C"/><line x1="60.0" y1="118" x2="60.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="60.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1580</text><text x="60.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">大村純忠が長崎をイエズス会に寄進</text><circle cx="60.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="125.9" y1="154" x2="125.9" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="125.9" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1582</text><text x="125.9" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">天正遣欧使節が長崎を出発</text><circle cx="125.9" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="224.7" y1="78" x2="224.7" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="224.7" y="56" text-anchor="start" class="h" style="fill:#1F4E8C">1585</text><text x="224.7" y="72" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">使節がローマ教皇に会う</text><circle cx="224.7" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="290.6" y1="118" x2="290.6" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="290.6" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1587</text><text x="290.6" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">バテレン追放令</text><circle cx="290.6" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="323.5" y1="154" x2="323.5" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="323.5" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1588</text><text x="323.5" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">長崎を直轄地に、海賊停止令</text><circle cx="323.5" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="389.4" y1="78" x2="389.4" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="389.4" y="56" text-anchor="start" class="h" style="fill:#2F7F86">1590</text><text x="389.4" y="72" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">使節が帰国、活字印刷機をもたらす</text><circle cx="389.4" cy="150" r="4.5" fill="#fff" stroke="#2F7F86" stroke-width="2"/><line x1="620.0" y1="118" x2="620.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="620.0" y="96" text-anchor="end" class="h" style="fill:#1F4E8C">1597</text><text x="620.0" y="112" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:700">二十六聖人の殉教</text><circle cx="620.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/></svg></button><figcaption><span><b>図5-1</b>この章の年表</span><span class="hint">クリックで拡大</span></figcaption></figure>
+<figure><div class="cfig"><div class="ppl"><div class="pg t"><h4>キリスト教を広めた人々</h4><ul><li><b><span class="rb">ヴァリニャーノ<span class="rt" aria-hidden="true">ヴァリニャーノ</span></span></b><span class="pd">イエズス会の巡察師。日本人による布教を重んじ、遣欧使節を企画した</span></li><li><b>大友<span class="rb">宗麟<span class="rt" aria-hidden="true">そうりん</span></span>・<span class="rb">大村純忠<span class="rt" aria-hidden="true">おおむらすみただ</span></span>・<span class="rb">有馬晴信<span class="rt" aria-hidden="true">ありまはるのぶ</span></span></b><span class="pd">九州のキリシタン大名。使節は3人の名代として送られた</span></li></ul></div><div class="pg n"><h4>天正遣欧使節の4人</h4><ul><li><b><span class="rb">伊東マンショ<span class="rt" aria-hidden="true">いとうマンショ</span></span>・<span class="rb">千々石ミゲル<span class="rt" aria-hidden="true">ちぢわミゲル</span></span></b><span class="pd">正使。10代前半で長崎を出発した</span></li><li><b><span class="rb">原マルチノ<span class="rt" aria-hidden="true">はらマルチノ</span></span>・<span class="rb">中浦ジュリアン<span class="rt" aria-hidden="true">なかうらジュリアン</span></span></b><span class="pd">副使。中浦ジュリアンはのちに殉教する</span></li></ul></div><div class="pg g"><h4>政権の側</h4><ul><li><b>豊臣秀吉</b><span class="pd">初めは布教を認めたが、1587年にバテレン追放令を出す</span></li></ul></div></div></div><figcaption><span><b>図5-2</b>この章の登場人物</span></figcaption></figure>
+<h2><span class="no">第1節</span>広がるキリスト教</h2>
+<p>ザビエルの来日から30年ほどの間に、キリスト教は九州を中心に広まった。大友<span class="rb">宗麟<span class="rt" aria-hidden="true">そうりん</span></span>や<span class="rb">大村純忠<span class="rt" aria-hidden="true">おおむらすみただ</span></span>、<span class="rb">有馬晴信<span class="rt" aria-hidden="true">ありまはるのぶ</span></span>のように、自ら洗礼を受けたキリシタン大名も現れた。1580年、大村純忠は長崎をイエズス会に寄進し、長崎はポルトガル船が来航する港として大きく発展した。</p>
+<p>信長も、宣教師ルイス・フロイスらを厚くもてなし、京都や<span class="rb">安土<span class="rt" aria-hidden="true">あづち</span></span>での布教を認めた。安土には宣教師の学校(セミナリオ)も建てられた。16世紀の終わりには、日本の信者の数は20万人を超えたとされる。</p>
+<h2><span class="no">第2節</span>天正遣欧使節</h2>
+<p>イエズス会の巡察師<span class="rb">ヴァリニャーノ<span class="rt" aria-hidden="true">ヴァリニャーノ</span></span>は、日本での布教の成果をヨーロッパに示し、日本の若者にヨーロッパを見せようと考えた。1582年、九州の3人のキリシタン大名の<span class="rb">名代<span class="rt" aria-hidden="true">みょうだい</span></span>として、<span class="rb">伊東マンショ<span class="rt" aria-hidden="true">いとうマンショ</span></span>・<span class="rb">千々石ミゲル<span class="rt" aria-hidden="true">ちぢわミゲル</span></span>・<span class="rb">原マルチノ<span class="rt" aria-hidden="true">はらマルチノ</span></span>・<span class="rb">中浦ジュリアン<span class="rt" aria-hidden="true">なかうらジュリアン</span></span>の4人の少年が長崎を出発した。これを<span class="rb">天正遣欧使節<span class="rt" aria-hidden="true">てんしょうけんおうしせつ</span></span>という。</p>
+<figure><button class="figbtn" type="button" aria-label="図5-3 天正遣欧使節の旅(1582〜1590年)を拡大"><svg viewBox="0 0 640 407" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>天正遣欧使節の旅(1582〜1590年)</title><desc>帰りもほぼ同じ道をたどり、1590年に長崎に戻った。航路は模式図</desc><rect width="640" height="407" fill="#EAF2FB"/><path d="M260.2,286.4L261.9,293.3L248.4,334.7L241.6,337.6L236.2,334.9L233,322.1L237.5,313.6L235.8,302.4L237.8,297.4L245.3,295.6L250.8,290.7L256.8,280.2ZM640,398.6L639.5,398.3L634.4,400.3L622.5,396.3L618.3,386.9L612.5,384.3L612.8,378.3L607.3,382.5L611.2,371.1L604,380.7L597.1,369.8L585.3,364.5L564.6,367.9L556.9,371.4L554.6,375.9L539.6,376.3L532.1,381.6L520.1,377.3L523.2,367.8L520.2,355L516.7,348.9L513.6,332.3L516.6,320.8L543.4,312L549,305.7L552,298.2L562.7,289.1L568.3,287.4L573.4,291.8L577.6,289.9L582.5,282.2L590.3,280.5L589.4,276.4L601.2,281L607.8,281.4L601.7,291.2L617,302.2L623.5,302.2L626.8,292.5L626.8,281.7L630.1,274.6L634.2,287.2L634.2,287.2L640,291.2L640,398.6ZM494.5,258.8L503,257.5L511.9,262.1L522.8,265.2L518.3,266.8L493.1,262.8L481.5,259.1L484.2,255.3ZM640,262.6L639,262.2L630.5,269.1L620.6,264.9L610.5,265.4L614.7,261L611.7,253.2L594.7,245.8L591.9,248.1L588.9,240.5L582.1,235.4L589.5,233.1L596.6,236.2L596.6,236.2L597.7,242.7L601.8,245.1L605.2,240.9L613.3,238.4L638.3,247.1L640,249L640,262.6ZM561,225.9L557.7,229.9L540.7,230.7L543.7,237.3L553.4,234.1L546,239.3L552.7,253L548.9,252.8L541.2,243.4L541.7,253.8L537.5,253.2L538,245.6L535.1,242.8L540.1,229.4L543.5,226.4L556.3,228ZM483.3,255.1L478.8,255.2L470.3,248.5L454.4,224.3L441.5,211.7L449.9,210.6L462.6,223.2L466.6,223.3L475.4,231.2L479.6,241L484.4,243.9ZM531.5,224.3L530.1,234.8L526.2,237.6L524.6,247.7L519.5,248.1L513,244.1L500.9,243.4L496.4,233.5L498.6,223.6L504.7,224.2L512,219.2L528.5,203.9L536.7,210L529.3,218.7ZM565.5,197.9L561.6,209.3L556.9,206.9L554.4,200.2L548.3,204L549.3,199.4L564.9,194.3ZM545.3,156.3L550.1,162.2L546.6,167.1L546.9,173.7L555.8,176L542.5,175.7L540.3,171.1L542.9,156.3ZM623.9,71.4L621,81.3L608.9,83.9L603.2,89.4L600.3,84L583.9,87.4L588,91L585.3,99L577.6,90.2L590.5,79.9L602.7,79.4L606.9,70.6L609.6,73L617.7,66L621.2,50.5L625.5,49.5L627.5,61ZM640,40.9L632.7,46.2L626.5,42.5L619.8,48.5L621.3,38.9L625.5,38.6L627.9,26.5L635.6,34.3L635.6,34.3L640,33.4L640,40.9ZM636.3,0L638.6,6.3L632.7,4.3L630.2,13L634.1,19.1L628.4,24.1L628.7,0L636.3,0ZM256.4,50L258.5,53.8L255.4,62.9L256.8,69.2L263.4,72.8L275.3,72.3L275.5,62.2L271.7,52.2L278.9,51.8L274.9,45.5L265.4,40L261.2,31.8L272.2,28.2L272.2,19L264.8,17.8L250.7,26L246.7,31.8ZM621.9,0L620.2,9.5L612.9,22.2L599.5,38.6L594.2,41.8L589.1,39.2L578.7,48.3L578.8,52.1L570.1,58.1L577.8,73.2L576.4,81.6L565.9,85L564.7,68.3L558.8,66.5L561.5,60L557.1,57.2L544.2,62.5L548.7,54.6L546.6,51.8L530.1,63.3L538.8,71.3L543.3,67.7L550.1,72.5L544.4,73.9L536.6,82.5L540.9,85.1L547.6,97.9L545.1,102.6L548.4,106.5L534.6,130.3L523.6,138L515.2,139L503.1,144L494.1,142.6L486.9,147L482.7,154L495.5,169.8L496.8,184.6L480.6,197.1L480.3,191.8L474,188.9L470.3,182.5L460.4,177.5L456.6,191.6L461.8,201.8L473.5,212.2L474.1,226.7L465.6,220.6L458.1,202.2L452.6,198.1L455.1,185.6L448.7,162.9L441.5,168L436.8,166.6L437.3,157.5L428.3,144.9L425.7,138.1L421.1,142.1L407.9,143.6L406,149.3L400.2,152.2L388.8,162.5L381.3,167.2L379.4,190L370.2,199.7L366.4,195.9L354.1,166.8L350.5,144.2L341.9,146.2L338.6,139.4L329.8,132.9L325.5,126.4L306,128L289.6,125L286,118.7L278.9,121.7L266.1,115.5L260.5,105.1L251.9,105.9L255.2,116.3L263,126.2L266.4,124.8L267.2,132.6L276,132.2L285.4,122.1L285.6,128.6L294.9,134.6L299.2,140L291.2,153.9L281.1,161.7L269.5,165.2L268.7,168.5L254.7,175.1L233.9,180.7L230.6,163.5L223.8,152.1L216.6,144.4L216.3,138.9L200.5,114.6L199.8,108.7L195.7,116.5L190.9,111.7L207.5,141.4L209.9,155.8L213.6,158.4L217.1,167.1L233.3,181.7L230.9,184.4L236.5,189.6L246.6,188.1L264.4,183.2L264.2,188.8L257.8,204.3L246.3,220.2L232.5,230.5L221.1,241.9L215.2,257.6L216.8,265.7L221.9,275L223.1,291.1L217.8,299.5L209.6,303.1L199.1,312.4L202.3,322.3L200.2,332.7L192.1,336.5L189.9,349.7L172.9,370.5L163.1,376.1L150.3,375.7L138.5,380.4L133,375.8L132.9,365.3L120.8,344.3L117,322.4L107.2,305.1L106.6,299.3L111,284.6L114.5,280.1L112.9,266L107.7,251.8L95.2,236.1L99.2,219.3L94,212.5L83.6,214.6L77.3,206.5L64.2,207.9L52.1,212.8L44,210.9L29.9,214.3L24,212.3L8.2,200.3L0.6,187.9L0,187.4L0,126.8L0,126.8L2.2,122.7L9.5,114.7L13.2,114.2L21.7,106L20.7,100.3L25.4,90.5L32.3,86.3L36.3,78.3L51.3,81.2L65.9,74.1L98,70.4L102.4,75.1L100.6,85.3L104.4,90.3L121,95.2L122.8,99.3L136.3,104.5L143.4,93.1L175.7,101.7L180.4,98.9L197.1,100.1L204,83.7L204.6,78L198.9,73.1L190,76.6L182.5,73.7L178.8,76.4L170.6,73.8L165.3,66L164.7,59.6L177,50.4L184.6,51.1L194.1,46.1L200.7,46L213.4,51.8L226.2,48.7L225.8,42.7L206.7,28.3L216.5,16.6L203.3,20.2L200.1,25.9L206.1,27L195.5,33.2L189.8,27.8L194.3,24.8L183,20.6L175.4,30.1L170.7,43.1L175.2,51.2L165.4,56L164.2,52.5L151.3,54.3L151.9,62.1L156.1,66L146.7,72.9L144.5,65.5L137.6,55.5L138.2,47.7L124.1,38L119.6,29.2L112.6,25.4L110.4,34.7L123.6,48.6L133.5,54.9L127.5,54.5L128.7,59.8L124.4,67.1L121.7,56.5L111.5,50.2L95.6,33.2L86.1,40.1L72.4,40.4L72.2,46.8L63.2,51.4L60.4,63.3L51.4,73.8L42.5,73.7L38.5,77.4L33.9,72.4L24.4,72.8L21.9,63.3L24.9,52.8L22.4,40.6L28.1,36.6L52.4,38.4L55.2,23.8L41.6,8.1L53.5,8.3L64.3,0L621.9,0Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><defs><marker id="artk5n640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="artk5t640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="artk5k640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="artk5g640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><path d="M573.8,97.0 Q541.1,108.9 519.9,136.4" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#artk5n640)"/><path d="M510.8,146.6 Q481.7,176.2 472.4,216.7" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#artk5n640)"/><path d="M462.7,219.8 Q418.6,182.2 361.5,171.9" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#artk5n640)"/><path d="M350.1,173.7 Q219.5,247.1 139.1,373.5" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#artk5n640)"/><path d="M130.4,372.3 Q105.0,329.1 76.0,280.0" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4"/><path d="M76.0,280.0 Q42.0,239.8 8.0,199.5" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4"/><path d="M8.0,199.5 Q15.7,131.5 22.6,70.5" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#artk5n640)"/><path d="M30.3,62.2 Q68.7,65.5 103.1,48.0" fill="none" stroke="#B4532A" stroke-width="2" marker-end="url(#artk5k640)"/><circle cx="579.5" cy="92.9" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="579.5" y="109.9" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="579.5" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">長崎</tspan><tspan x="579.5" dy="14.5" style="font-size:11.0px" fill="#5A6878">1582年2月 出発</tspan></text><circle cx="514.2" cy="140.5" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="522.2" y="144.5" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="522.2" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">マカオ</tspan></text><circle cx="469" cy="222.8" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="469.0" y="239.8" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="469.0" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">マラッカ</tspan></text><circle cx="355.2" cy="168.9" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="355.2" y="185.9" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="355.2" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">ゴア</tspan></text><circle cx="134" cy="378.3" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="134.0" y="395.3" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="134.0" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">喜望峰</tspan></text><circle cx="23.4" cy="63.5" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="42.1" y="80.5" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="42.1" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">リスボン</tspan><tspan x="42.1" dy="14.5" style="font-size:11.0px" fill="#5A6878">1584年 到着</tspan></text><circle cx="110" cy="46.7" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="110.0" y="23.2" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="110.0" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">ローマ</tspan><tspan x="110.0" dy="14.5" style="font-size:11.0px" fill="#5A6878">1585年 教皇に会う</tspan></text></svg></button><div style=margin-top:6px><div class="legend"><span><i class="nd"></i>往路の海の道(おおよそ)</span></div><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">帰りもほぼ同じ道をたどり、1590年に長崎に戻った。航路は模式図</p></div><figcaption><span><b>図5-3</b>天正遣欧使節の旅(1582〜1590年)</span><span class="hint">クリックで拡大</span></figcaption></figure>
+<p>一行はマカオやインドのゴアを経て、アフリカ南端の喜望峰を回り、1584年にポルトガルのリスボンに着いた。翌1585年にはローマで教皇グレゴリウス13世に会い、各地で大歓迎を受けた。1590年、一行は8年半ぶりに長崎に戻った。彼らが持ち帰った活字印刷機で、キリスト教の書物や日本の古典などが印刷された。しかしそのころ、日本のキリスト教をめぐる状況は大きく変わっていた。</p>
+<h2><span class="no">第3節</span>バテレン追放令</h2>
+<p>秀吉は初め、信長と同じように布教を認めていた。しかし1587年、九州を平定して<span class="rb">博多<span class="rt" aria-hidden="true">はかた</span></span>に入った秀吉は、突然<span class="rb">バテレン追放令<span class="rt" aria-hidden="true">バテレンついほうれい</span></span>を出した(バテレンは宣教師のこと)。日本は神国であるとして、宣教師に20日以内に国外へ去るよう命じたのである。</p>
+<figure><div class="cfig"><div class="card t" style="margin-bottom:10px"><div class="hd">1587年6月 博多で出された命令</div><div class="bd"><div class="rows"><div><b>第1条</b><span>日本は神国であり、キリスト教国から邪な教えを広めるのはよくない</span></div><div><b>第2条</b><span>大名の領民を信者にし、寺社を壊すのはけしからぬことである</span></div><div><b>第3条</b><span>宣教師は20日以内に日本から去ること</span></div><div><b>第4条</b><span>ポルトガル船は商売のためなので、別のこととする(貿易は続けてよい)</span></div></div></div></div></div><figcaption><span><b>図5-4</b>バテレン追放令のおもな内容</span></figcaption></figure>
+<p>秀吉が態度を変えた理由としては、長崎がイエズス会の領地になっていたこと、信者が寺社を壊したこと、ポルトガル商人が日本人を奴隷として海外に売っていたことなどが挙げられている。一方で追放令は、ポルトガル船との貿易は続けてよいとしていた。宣教師は貿易の仲立ちも担っていたため、追放は徹底されず、多くの宣教師は目立たないように国内にとどまった。翌年、秀吉は長崎を直轄地とし、海賊を取り締まる命令も出して、海外との貿易を自らの管理のもとに置こうとした。</p>
+<h2><span class="no">第4節</span>二十六聖人の殉教</h2>
+<p>1590年代になると、フィリピンを拠点とするスペインのフランシスコ会の宣教師も来日し、京都や<span class="rb">大坂<span class="rt" aria-hidden="true">おおさか</span></span>で公然と布教を行った。1596年、スペイン船サン・フェリペ号が<span class="rb">土佐<span class="rt" aria-hidden="true">とさ</span></span>の<span class="rb">浦戸<span class="rt" aria-hidden="true">うらど</span></span>に流れ着いた。その乗組員の発言が、スペインは宣教師を送り込んで他国を征服すると受け取られたと伝えられる。</p>
+<p>1597年、秀吉はフランシスコ会の宣教師や日本人信者ら26人を捕らえ、長崎の<span class="rb">西坂<span class="rt" aria-hidden="true">にしざか</span></span>で処刑した。これを<span class="rb">二十六聖人<span class="rt" aria-hidden="true">にじゅうろくせいじん</span></span>の<span class="rb">殉教<span class="rt" aria-hidden="true">じゅんきょう</span></span>という。それでも、信者の数はその後も増え続け、17世紀の初めには30万人を超えたともいわれる。キリスト教への対応は、江戸幕府の大きな課題として引き継がれていった。</p>
+<figure><div class="cfig"><div class="flow"><div class="fs s"><em>〜1587年</em><b>布教を認める</b><span class="d">ポルトガル船との貿易の利益を重んじた</span></div><div class="fs t"><em>1587年6月</em><b>バテレン追放令</b><span class="d">宣教師に20日以内の国外退去を命じる。ただし貿易は続けてよいとした</span></div><div class="fs "><b>追放は徹底されず、宣教師の多くは国内にとどまる</b><span class="d">貿易と布教が結びついていたため、切り離すことは難しかった</span></div><div class="fs dk"><em>1597年</em><b>二十六聖人の殉教</b><span class="d">スペイン船の事件をきっかけに、宣教師と信者26人が長崎で処刑される</span></div></div></div><figcaption><span><b>図5-5</b>秀吉のキリスト教への対応</span></figcaption></figure>
+<section class="points" aria-labelledby="pt">
+<h3 id="pt">この章の要点</h3>
+<ul>
+<li>ザビエルの来日以後、キリスト教は九州を中心に広まり、キリシタン大名も現れた。長崎はイエズス会に寄進された。</li>
+<li>1582年、4人の少年が天正遣欧使節としてヨーロッパに渡り、1585年にローマ教皇に会った。</li>
+<li>1587年、秀吉はバテレン追放令を出したが、貿易は続けさせたため、追放は徹底されなかった。</li>
+<li>1597年、宣教師と信者26人が長崎で処刑された(二十六聖人の殉教)。禁教は江戸幕府に引き継がれた。</li>
+</ul>
+</section>
+<section class="column" aria-labelledby="col">
+<h3 id="col">コラム キリシタン版 ― 日本で最初の活版印刷</h3>
+<p>天正遣欧使節が持ち帰った西洋の活字印刷機は、日本で初めての本格的な活版印刷をもたらした。この印刷機で作られた本を「キリシタン版」という。</p>
+<p>キリシタン版には、キリスト教の教えを説く本のほか、ローマ字で書かれた『平家物語』や、イソップ物語を訳した『<span class="rb">伊曽保物語<span class="rt" aria-hidden="true">いそほものがたり</span></span>』、日本語とポルトガル語の辞書などがある。宣教師が日本語を学ぶための本でもあったため、当時の話し言葉の発音がローマ字で記録されている。これらは、16世紀の日本語の姿を知る貴重な資料として、今も研究に使われている。</p>
+</section>
+</div>
+</article>
+<div class="navs"><a href="pc_ch4.html">← 第4章</a><a href="index.html">目次</a><a href="pc_ch6.html">第6章 →</a></div>
+<footer>第5章 ・ 全8章のうちの1章</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>天下統一への道 第7章</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style>.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+
+.cfig{background:#F7FAFD;border:1px solid #DCE4EE;border-radius:8px;padding:16px 18px}
+.ppl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ppl .pg{margin:0}
+.mapwrap{display:flex;gap:16px;align-items:flex-start}
+footer a{color:var(--navy)}
+.tlh{font-size:15px;color:var(--navy);margin:1.4em 0 .3em}
+</style><style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style></head>
+<body>
+<div class="page">
+<p class="series">天下統一への道 解説資料</p>
+<article class="sheet">
+<div class="band">第七章 ・ 1598 ― 1603</div>
+<header class="ch">
+<h1>関ヶ原への道</h1>
+<p class="lead">秀吉の死から2年、天下分け目の戦いを経て、家康が新しい幕府を開いた</p>
+</header>
+<div class="body">
+<figure><button class="figbtn" type="button" aria-label="図7-1 この章の年表を拡大"><svg viewBox="0 0 680 270" role="img"><title>図7-1 この章の年表</title><desc>1598 秀吉が死去、五大老・五奉行の体制、1599 前田利家が死去、三成が奉行を退く、1600 関ヶ原の戦い(9月15日)、1603 家康が征夷大将軍に、1605 秀忠が2代将軍に、1615 大坂夏の陣、豊臣氏が滅ぶ</desc><rect x="50" y="146" width="580" height="8" rx="3" fill="#1F4E8C"/><line x1="60.0" y1="118" x2="60.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="60.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1598</text><text x="60.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">秀吉が死去、五大老・五奉行の体制</text><circle cx="60.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="92.9" y1="154" x2="92.9" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="92.9" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1599</text><text x="92.9" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">前田利家が死去、三成が奉行を退く</text><circle cx="92.9" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="125.9" y1="78" x2="125.9" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="125.9" y="56" text-anchor="start" class="h" style="fill:#1F4E8C">1600</text><text x="125.9" y="72" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">関ヶ原の戦い(9月15日)</text><circle cx="125.9" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="224.7" y1="154" x2="224.7" y2="226" stroke="#9AAABB" stroke-width=".8"/><text x="224.7" y="240" text-anchor="start" class="h" style="fill:#1F4E8C">1603</text><text x="224.7" y="256" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">家康が征夷大将軍に</text><circle cx="224.7" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="290.6" y1="118" x2="290.6" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="290.6" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1605</text><text x="290.6" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">秀忠が2代将軍に</text><circle cx="290.6" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="620.0" y1="118" x2="620.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="620.0" y="96" text-anchor="end" class="h" style="fill:#2F7F86">1615</text><text x="620.0" y="112" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:400">大坂夏の陣、豊臣氏が滅ぶ</text><circle cx="620.0" cy="150" r="4.5" fill="#fff" stroke="#2F7F86" stroke-width="2"/></svg></button><figcaption><span><b>図7-1</b>この章の年表</span><span class="hint">クリックで拡大</span></figcaption></figure>
+<figure><div class="cfig"><div class="ppl"><div class="pg n"><h4>東軍</h4><ul><li><b>徳川家康</b><span class="pd">五大老の筆頭。関東に250万石を超える領地をもつ最大の大名</span></li><li><b><span class="rb">福島正則<span class="rt" aria-hidden="true">ふくしままさのり</span></span>・<span class="rb">加藤清正<span class="rt" aria-hidden="true">かとうきよまさ</span></span></b><span class="pd">秀吉子飼いの武将。三成と対立し、家康に味方した</span></li></ul></div><div class="pg t"><h4>西軍</h4><ul><li><b><span class="rb">石田三成<span class="rt" aria-hidden="true">いしだみつなり</span></span></b><span class="pd">五奉行の一人。家康を討つため挙兵する</span></li><li><b><span class="rb">毛利輝元<span class="rt" aria-hidden="true">もうりてるもと</span></span></b><span class="pd">五大老の一人。西軍の総大将として大坂城に入る</span></li><li><b><span class="rb">宇喜多秀家<span class="rt" aria-hidden="true">うきたひでいえ</span></span>・<span class="rb">小西行長<span class="rt" aria-hidden="true">こにしゆきなが</span></span></b><span class="pd">西軍の主力として関ヶ原で戦う</span></li></ul></div><div class="pg g"><h4>勝敗を分けた人々</h4><ul><li><b><span class="rb">小早川秀秋<span class="rt" aria-hidden="true">こばやかわひであき</span></span></b><span class="pd">西軍として布陣したが、戦いの途中で東軍に寝返った</span></li><li><b><span class="rb">吉川広家<span class="rt" aria-hidden="true">きっかわひろいえ</span></span></b><span class="pd">毛利家の一族。ひそかに家康と通じ、毛利軍を動かさなかった</span></li></ul></div></div></div><figcaption><span><b>図7-2</b>この章の登場人物</span></figcaption></figure>
+<h2><span class="no">第1節</span>秀吉の死と五大老・五奉行</h2>
+<p>1598年8月、豊臣秀吉は<span class="rb">伏見城<span class="rt" aria-hidden="true">ふしみじょう</span></span>で62歳の生涯を閉じた。跡継ぎの<span class="rb">豊臣秀頼<span class="rt" aria-hidden="true">とよとみひでより</span></span>はまだ6歳だった。秀吉は死の前に、有力な大名である<span class="rb">五大老<span class="rt" aria-hidden="true">ごたいろう</span></span>と、政権の実務を担う<span class="rb">五奉行<span class="rt" aria-hidden="true">ごぶぎょう</span></span>に、秀頼を支えて政治を行うよう託した。五大老の筆頭が、関東に広大な領地をもつ徳川家康であった。</p>
+<figure><div class="cfig"><div class="flow"><div class="fs dk"><em>幼い跡継ぎ</em><b>豊臣秀頼(6歳)</b><span class="d">大坂城で成長を待つ</span></div><div class="pair"><div class="fs s"><em>五大老 ― 有力な大名</em><b>徳川家康・前田利家・毛利輝元・宇喜多秀家・上杉景勝</b><span class="d">重要な政治を話し合って決める</span></div><div class="fs t"><em>五奉行 ― 政権の実務</em><b>石田三成・浅野長政・増田長盛・長束正家・前田玄以</b><span class="d">検地や財政、京都の政治などを担う</span></div></div><div class="fs "><b>秀吉は、大名どうしが勝手に縁組みすることなどを禁じていた</b><span class="d">家康はこの決まりを破り、勢力を広げていく</span></div></div></div><figcaption><span><b>図7-3</b>秀吉が残した政治の仕組み(1598年)</span></figcaption></figure>
+<p>しかし家康は、秀吉が禁じていた大名どうしの勝手な縁組みを進め、自らの勢力を広げ始めた。これに対し、五大老の<span class="rb">前田利家<span class="rt" aria-hidden="true">まえだとしいえ</span></span>や五奉行の<span class="rb">石田三成<span class="rt" aria-hidden="true">いしだみつなり</span></span>らは強く反発した。</p>
+<h2><span class="no">第2節</span>三成と家康の対立</h2>
+<p>1599年<span class="rb">閏<span class="rt" aria-hidden="true">うるう</span></span>3月、家康を抑えていた前田利家が亡くなった。その直後、朝鮮出兵のころから三成と対立していた<span class="rb">加藤清正<span class="rt" aria-hidden="true">かとうきよまさ</span></span>・<span class="rb">福島正則<span class="rt" aria-hidden="true">ふくしままさのり</span></span>らの武将たちが、三成を襲おうとした。三成は難を逃れたものの、奉行を退いて<span class="rb">近江<span class="rt" aria-hidden="true">おうみ</span></span>の<span class="rb">佐和山<span class="rt" aria-hidden="true">さわやま</span></span>城に引きこもった。家康は伏見城に入り、政治の中心に立った。</p>
+<p>1600年、家康は、<span class="rb">会津<span class="rt" aria-hidden="true">あいづ</span></span>の<span class="rb">上杉景勝<span class="rt" aria-hidden="true">うえすぎかげかつ</span></span>に謀反の疑いがあるとして、諸大名を率いて東へ向かった。家康が<span class="rb">大坂<span class="rt" aria-hidden="true">おおさか</span></span>を離れたこの機会に、三成は<span class="rb">毛利輝元<span class="rt" aria-hidden="true">もうりてるもと</span></span>を総大将に迎えて兵を挙げた。西軍は家康の家臣が守る伏見城を攻め落とした。知らせを受けた家康は、<span class="rb">下野<span class="rt" aria-hidden="true">しもつけ</span></span>の小山で軍を西へ返したと伝えられる。</p>
+<figure><button class="figbtn" type="button" aria-label="図7-4 1600年の両軍の動きを拡大"><svg viewBox="0 0 640 529" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>1600年の両軍の動き</title><desc>経路はおおよそ。家康の子の秀忠は中山道を進み、決戦に間に合わなかった</desc><rect width="640" height="529" fill="#EAF2FB"/><path d="M0,316.6L1,316.5L3.1,315L6.1,317.2L7.4,319.9L9.1,321.2L10.8,323.9L12.5,327.3L12.5,329.8L11.7,331.8L9.5,330.3L7,332L4.8,336.9L4,338.2L0.6,342.1L0,342.9L0,316.6ZM0,348.9L1,348.7L1,346.3L2.7,344.8L4,342.6L5.7,341.4L6.5,344.6L8.2,345.5L7.4,346.5L4.8,346.3L4.4,348.7L12.1,352.9L13.8,352.2L14.6,351.2L15.9,353.7L15.5,355.6L14.6,356.9L13.4,360.8L14.2,362.5L15.5,361.5L18.1,356.6L20.2,356.9L23.2,358.3L24,357.4L24,353.9L20.6,354.6L17.6,353.4L16.4,349.5L18.9,347L20.6,346.5L24,346.3L25.7,345.8L27.9,343.1L28.3,341.6L31.3,339.9L30.4,342.1L30,344.3L32.1,345.3L33.4,346.3L33,348.5L33.4,350L33,351.5L34.3,351.7L35.1,351.5L36,350.2L36.8,347.8L36.8,350.5L36.4,353.2L36.8,355.1L39,355.9L42.4,356.1L43.7,355.9L47.1,354.2L47.9,352.4L50.5,350.2L53,348.5L55.6,349.7L55.2,350.5L52.2,351.7L51.3,355.9L50.1,356.9L52.6,357.6L59,356.1L62,356.1L63.7,354.9L65,352.9L65,350L61.6,351.7L60.3,349L58.2,348.3L59.9,345.8L63.7,344.6L65,345.5L65.8,347.8L68.4,347.5L70.5,350.2L72.2,351L75.2,349.7L74,349.2L73.1,348L71.4,344.8L71.8,343.8L73.1,343.6L74.4,344.8L75.7,344.1L77.8,343.3L77.4,342.3L75.7,340.4L75.2,338.4L74.8,337.7L73.1,335.7L72.7,334L74,333.7L76.1,335.5L77.4,336.7L79.1,337.7L83.3,336.7L84.2,338.2L85.5,339.2L87.6,337.7L88.9,335.9L91.4,336.4L92.7,335.7L92.7,334L90.6,332.3L91.9,327.1L91.4,325.4L89.7,325.6L89.7,321.4L92.7,319.9L97,316.2L98.7,318.9L98.7,320.2L99.6,322.4L100.4,325.1L100,326.8L98.7,326.8L97.8,328.6L100,330L100.4,331.8L103,331.3L103.8,328.8L104.7,328.1L104.7,325.1L106,323.4L106,319.4L106.8,317L106.8,314.5L105.1,311.8L103.8,309.3L103,307.4L100.4,305.4L96.1,300.7L94,298.7L94.4,294.5L94,291.3L91.4,287.6L89.7,285.9L90.6,281.9L93.2,280.2L94.9,278.2L97,273.5L98.7,270L100,265.6L106,258.1L107.7,254.7L108.9,252.4L110.6,249L108.9,245.7L109.4,244.7L111.9,244.5L114.1,244.7L118.3,243L127.7,234.6L130.3,230.8L135.8,228.1L140.1,224.4L145.6,218.2L170.8,184.3L176.4,174.3L184.9,153.5L185.7,150.8L185.7,147.3L184.9,146.3L183.6,145.3L184.9,141.5L185.7,137.3L184.9,134.3L182.8,132.3L181.5,127.2L180.2,126.2L179.8,123L181,115.5L180.2,113.2L178.9,112.2L177.6,112.4L177.2,114.2L175.1,113.9L174.2,112.2L174.6,108.2L175.5,104.9L176.8,102.4L178.5,100.4L177.6,98.9L179.3,97.1L181,94.4L181.9,92.1L180.6,90.1L180.2,86L183.6,81L187.9,78.7L194.7,75L199.4,73.7L202,75L205.8,75L218.6,67.7L222,66.9L224.1,63.9L226.7,61.9L243.8,56.3L248.5,55.3L253.6,57.3L254.9,59.1L254,61.9L254.4,63.6L255.7,64.9L255.7,66.9L254.9,67.9L251.9,68.9L249.7,68.9L247.2,68.4L243.3,70.4L242.5,72.7L241.6,77.7L242.9,81.3L245,81.5L244.6,83.8L244.6,85.8L243.8,87.6L241.6,89.6L240.8,90.8L238.2,90.8L233.1,89.6L226.3,92.3L224.1,95.6L221.6,98.9L221.6,101.9L219.9,103.1L217.3,103.9L216.5,105.9L215.2,106.9L210.9,105.2L208.8,103.7L207.1,102.1L208.4,100.4L208.8,99.4L207.5,99.6L206.6,100.9L204.9,101.4L204.5,102.6L203.2,104.9L200.7,108.7L199,112.9L201.1,113.7L200.7,117L199.8,118L197.7,118L197.7,121.2L196.8,123L198.5,124L200.7,123.5L203.2,122.2L205.4,122.5L208.8,126.7L210.9,127.5L213.9,126.2L216,120.2L217.7,119.2L219,119.7L219.9,122.5L219,131L219.9,139.3L216.5,143.5L216.5,147L211.8,153.5L213.9,158.8L219.4,162.3L222.9,165.5L228.4,167.5L231.8,169.8L236.5,170.3L242.1,169.3L248.9,170.3L252.7,169.5L254.9,166.5L258.7,164L260,160L261.7,157.3L262.1,154.8L263,152.5L262.5,149.5L263.8,146L266.4,144.3L272.4,141L283,138.8L294.1,136.3L309,129.8L319.7,125.7L331.7,118L338.1,115L341,112.2L343.6,108.9L351.3,110.4L356.4,109.2L360.7,107.2L370.5,100.1L383.7,86.6L396.9,78.2L400.4,74.5L402.5,69.7L405.5,63.4L410.2,56.3L417,50.3L420.4,45.5L422.5,39.9L427.7,20.9L429.8,15.4L433.6,10.8L442.2,3.7L447.5,0L640,0L640,234.4L637.6,237L635.9,240.3L635.9,245.7L637.6,258.1L640,265L640,332.5L640,332.5L639.7,332.7L626.1,345.3L619.2,356.1L614.5,372.1L617.1,379.7L618,383.6L616.7,389.7L616.2,395.1L615.4,398.8L613.7,401.8L610.3,401.3L608.1,404.4L608.6,406.9L606.9,408.6L604.7,408.1L603.9,406.2L601.7,408.4L598.8,407.9L597,411.1L592.8,410.8L587.2,410.3L584.7,409.6L581.3,413.3L580.8,416.4L577.8,418.9L575.3,418.9L571.4,421.8L567.6,424.5L566.8,426.2L565.9,428.9L564.6,430.9L564.6,433.3L564.2,436L563.3,437.7L560.4,440.9L554.8,441.6L553.5,441.1L551.8,441.6L550.1,441.8L549.7,441.1L548,440.1L548,436.7L546.3,435.5L542.9,434L539.9,433.8L539.4,432.6L539.4,430.9L541.2,430.9L544.6,431.3L546.3,430.9L547.6,430.1L548.4,428.9L550.1,428.7L552.2,429.4L553.1,428.7L553.5,427.4L553.1,425.5L551.8,424.3L549.3,423.5L549.3,422.1L550.5,420.6L551,418.9L551,417.4L549.7,414.7L549.3,413L549.7,407.9L547.6,404.4L548,402.7L547.6,400.5L548,398.6L551.4,396.4L553.1,394.9L553.1,391.7L551,388L551,384.8L542.9,381.9L542.9,381.2L545.4,381.4L548,379.7L548,377L549.7,375.3L550.5,372.8L556.1,374.5L557.8,372.6L557.8,370.4L556.9,365.9L558.6,364.5L562.1,363.2L564.2,361.3L566.8,360.8L569.7,358.6L571.4,356.1L577.4,348.5L579.6,349L580.4,346.8L580.8,345.1L579.1,345.1L578.3,339.6L574.4,335.7L569.7,331.5L568.5,332L566.8,330.3L562.9,329.8L559.5,331.3L561.6,335L558.6,336.7L556.5,338.2L556.1,336.9L554.8,336.7L553.5,335.7L552.7,335.7L551,334.7L550.1,335.9L549.7,338.2L548,336.9L547.6,334.7L545.8,334.7L545.4,337.4L543.7,339.9L542,337.7L542.4,334.2L541.2,332.5L540.3,335.7L541.6,340.1L543.3,343.1L543.3,344.8L545,349L543.7,351L543.7,353.2L542.4,354.6L538.6,357.1L535.2,360.1L531.8,360.5L529.2,359.6L527.5,360.1L526.6,361.5L528.8,362.5L530.9,363.7L531.8,364.7L531.3,366.7L531.8,369.4L530.5,369.1L527.5,367.9L525.8,369.1L526.6,371.1L528.4,372.8L527.9,378.2L527.5,379.9L527.5,382.4L527.1,384.1L528.4,385.8L529.2,384.1L530.5,385.1L532.6,388.5L537.3,389L538.6,391.2L536.5,393.7L537.3,395.1L536.5,397.3L532.2,397.1L529.2,399.3L528.8,401.5L529.6,404.2L530.9,405.7L531.8,407.1L529.2,407.9L526.2,407.1L524.5,408.4L523.2,407.9L522.8,406.9L523.2,405.2L523.2,402.2L521.5,398.1L524.5,396.6L523.7,395.6L522,394.9L521.1,392.7L517.7,388.5L517.7,387.3L516.8,385.8L515.6,385.6L514.7,382.6L513,383.6L510.4,383.4L507.9,383.9L505.7,381.9L499.3,381.2L489.5,383.4L484,384.4L478,386.1L472,389.3L467.8,393.4L467.3,400.8L469,407.6L464.8,405.7L460.9,411.5L459.7,416.4L459.2,419.6L463.1,420.3L462.2,423L461.8,425.7L460.5,427.7L462.2,431.1L466.1,432.3L467.3,435.7L467.8,441.1L466.9,446L464.4,446.5L462.2,448.2L460.9,450.1L460.5,452.1L459.2,455L457.5,457.4L456.7,459.4L455.4,460.9L453.7,461.3L452.4,462.8L450.3,466L450.7,467.7L449.8,468.6L449,470.6L448.6,473L449.4,477.9L448.1,478.6L447.3,478.6L446,477.7L443.4,476.4L437.9,481.1L434.1,483.2L430.6,485.7L428.9,484.7L427.2,483.2L426,481.3L423.4,478.4L424.2,476L422.5,474.2L420.8,473.3L420.4,472.1L420.4,469.4L420,466.5L421.7,465.2L422.1,463.8L423.8,463.3L421.7,458.9L420.4,454.3L421.7,452.1L422.1,449.6L422.1,446.2L421.3,444.8L422.1,442.8L423.8,441.1L425.5,440.9L423.4,437.2L422.5,433.8L422.1,430.4L423.8,426.9L425.1,423.5L429.8,424L433.2,424.7L435.8,424.5L437.9,424.5L439.6,423L433.2,415.9L431.1,413L427.2,409.8L420,407.9L414.4,407.4L407.2,410.6L401.2,410.8L397.4,413.5L394.4,420.1L391,422.8L390.5,427.2L391.8,428.7L391.8,425.7L393.5,424.5L394.8,425L392.7,430.4L387.6,433.3L382.9,435.5L375.2,439.4L373.9,441.3L373,443.5L371.8,445.5L370.9,448.4L370.9,449.6L372.2,452.6L370.5,455.3L369.2,456.5L366.6,461.3L361.5,465L357.3,468.9L355.6,476.4L354.7,479.1L355.6,482L358.5,482.8L360.2,484.7L359.4,485.9L354.3,484.9L337.6,477.2L327.8,475.5L319.3,475.5L307.3,479.4L294.5,475L283.9,474L278.3,474L263.8,475.5L253.6,478.4L230.1,486.7L224.6,486.2L218.6,487.9L216.9,488.1L215.2,488.1L216,486.4L216.9,485.4L218.2,482.5L219.4,478.4L222,475.7L225.4,479.6L226.3,481.5L227.6,480.3L227.6,479.6L229.7,478.6L231.4,477.7L233.1,476.9L236.9,474.5L242.1,471.1L244.2,470.1L246.8,466.2L248.9,466.7L248.9,469.6L248.5,472.1L249.3,472.3L250.2,469.9L250.2,466.9L252.7,467.7L253.6,466.9L250.2,465.5L251.4,462.8L251.9,461.1L251.4,460.1L248.5,456.7L246.3,455L245,455.7L242.5,455L239.9,454L237.8,456L236.5,455.3L235.7,460.6L233.5,461.6L233.5,458.7L231.8,458.9L230.1,457.9L227.6,457.9L225.4,458.4L223.7,459.6L222,458.4L219.4,459.6L216.9,459.1L215.6,458.7L213.5,456L210.5,452.6L208.4,451.6L208.8,447.9L211.3,442.1L210.9,438.4L209.6,440.1L208.4,444L206.2,447.4L205.4,449.6L204.5,452.3L203.2,459.9L204.5,461.6L205.8,464L208.8,465.7L210.1,468.9L210.1,471.3L207.1,470.8L203.2,469.1L199,466.7L196.4,465L195.1,463L194.7,460.9L196,458.2L196.4,455.5L197.3,453.3L197.3,451.1L196.4,448.2L194.7,446L193,446L192.1,442.6L192.1,436.2L192.6,434L193.4,431.3L194.7,428.9L196.4,426.2L197.3,423.8L199,421.1L199.4,417.2L199.8,414.5L198.1,414L196.4,418.4L195.6,421.6L194.7,418.6L194.7,416.4L193,415.9L194.3,422.8L191.3,423.5L190.9,420.3L189.6,420.3L189.6,424L187,424.5L184,423.5L183.2,424L180.6,423.5L175.5,427.2L172.9,429.6L171.7,431.8L171.7,432.8L170.8,435L171.2,435.7L173.4,436L171.2,437.4L171.7,440.1L170.4,443.5L167.8,448.7L161.8,456.2L158,461.3L157.2,467.7L156.3,473.5L158,476.4L159.7,477.7L158.9,481.3L158.9,482.8L160.1,484.9L162.3,485.7L167.4,485.7L170,486.4L171.7,488.1L175.1,491.8L184,497.6L190,500.3L191.3,501.5L192.6,501L194.3,501L196,501.5L196.8,502.4L197.7,504.1L198.5,507.1L199.4,508.5L201.1,509L203.2,509L204.5,510.5L204.5,512.1L203.7,517.2L202,516.5L200.7,516.5L199.4,517L198.5,518.2L199,519.2L199.8,520.2L201.1,520.4L202.8,520.4L200.7,522.1L199.4,524.3L200.2,525.7L201.1,528.1L201.2,529L196.3,529L196.3,529L195.1,527.2L193,526.5L190.4,527.2L190.9,528.1L190.5,529L189,529L189,529L186.6,527.2L184.5,528.9L183.9,529L178.6,529L178.6,529L178.1,528.9L178.9,526.7L180.6,523.8L178.5,523.3L175.1,524.5L171.7,526.2L173.8,526.9L173.8,528.6L173.5,529L0,529L0,522.4L1,522.1L6.5,517.2L14.2,509.7L18.1,504.1L20.6,501.7L20.6,496.9L22.8,496.1L23.6,494.7L24.9,493.7L25.3,491.3L25.3,488.1L25.7,483.7L24.5,480.1L24,476.7L25.3,471.8L23.6,472.8L21.5,473.5L19.3,472.3L16.8,469.4L10.4,469.9L10.4,473.5L6.5,474L6.5,470.6L2.3,472.1L4.8,477.9L1.4,477.2L0.6,474L0,474.1L0,348.9ZM482.3,514.6L483.6,513.6L484.8,511.9L486.1,511.4L486.1,513.8L485.7,518.5L484,523.1L482.3,525L480.6,522.3L480.6,520.6L481.8,515.5ZM200.7,500L201.5,499L202.4,499.3L202.4,500.3L202,501.5L200.2,502.4L199.4,503.2L199,502L198.1,500.7ZM200.2,494.9L201.1,493.9L202.8,493.7L202,494.9L202,495.9L200.2,496.4L198.5,497.6L196.4,498.1L195.6,497.3ZM189.6,445.3L190.9,445.3L192.6,447.4L192.6,449.2L191.3,449.6L191.3,450.6L190.4,450.6ZM219,111.7L218.6,112.7L218.6,115.5L217.7,116.5L216,117.5L213.9,117.5L211.8,118.2L210.1,119.2L208.8,119.2L206.6,120L205.8,118.2L203.2,115.5L202,112.9L202.8,111.9L203.7,112.4L204.1,113.4L204.9,113.9L205.4,113.2L207.5,112.9L209.2,111.7L210.9,111.9L212.2,112.7L213,113.7L214.3,113.4L215.2,112.9L216.5,111.2L218.2,110.7ZM499.8,459.1L502.3,460.4L503.6,462.6L504.5,465.2L504.9,468.6L504.5,472.1L504,473.8L502.8,474L500.2,474L492.9,470.4L492.1,467.9L492.1,461.1L492.5,456.7L498.1,457.9ZM390.3,0L389.7,1.2L375.6,10.8L363.2,15.4L360.7,15.6L359.4,15.4L358.1,14.6L357.3,13.6L356.8,12.1L357.3,10.5L358.5,9.8L364.1,8.8L365.4,7.8L365.8,5.7L365.8,0L390.3,0Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><path d="M115,351.9L126.8,369.4L120.9,388.3L104.3,407.1L88.9,420.2L81.8,430.3L80.6,423L86.5,410L94.8,395.5L98.4,379.5L104.3,362.1Z" fill="#CFE0F3" stroke="#9CBBE0" stroke-width=".8"/><defs><marker id="artk7n640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="artk7t640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="artk7k640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="artk7g640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><path d="M540.8,320.1 Q553.7,282.3 544.8,243.3" fill="none" stroke="#1F4E8C" stroke-width="2" marker-end="url(#artk7n640)"/><path d="M544.8,243.3 Q531.9,281.1 540.8,320.1" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#artk7n640)"/><path d="M533.5,328.0 Q339.7,304.4 157.4,374.3" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#artk7n640)"/><path d="M43.5,466.8 Q57.5,458.3 63.2,442.9" fill="none" stroke="#2F7F86" stroke-width="2" marker-end="url(#artk7t640)"/><path d="M161.3,375.2 Q159.4,373.1 157.5,375.2" fill="none" stroke="#2F7F86" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#artk7t640)"/><circle cx="560.6" cy="61.4" r="4.5" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="552.6" y="65.4" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="552.6" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">会津(上杉景勝)</tspan><tspan x="552.6" dy="14.5" style="font-size:11.0px" fill="#5A6878">家康が攻めようとした</tspan></text><circle cx="545.2" cy="236.3" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="495.5" y="240.3" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="495.5" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">小山</tspan><tspan x="495.5" dy="14.5" style="font-size:11.0px" fill="#5A6878">7月 家康が西へ引き返す</tspan></text><circle cx="540.4" cy="327.1" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="540.4" y="344.1" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="540.4" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">江戸</tspan><tspan x="540.4" dy="14.5" style="font-size:11.0px" fill="#5A6878">家康の本拠</tspan></text><circle cx="39.1" cy="472.2" r="4.5" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="47.8" y="489.2" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="47.8" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">大坂城</tspan><tspan x="47.8" dy="14.5" style="font-size:11.0px" fill="#5A6878">毛利輝元が入る</tspan></text><circle cx="67.6" cy="437.5" r="4.5" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="75.6" y="449.5" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="75.6" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">伏見城</tspan><tspan x="75.6" dy="14.5" style="font-size:11.0px" fill="#5A6878">7〜8月 西軍が落とす</tspan></text><circle cx="126.8" cy="386.8" r="4.5" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="118.8" y="384.8" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="118.8" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">佐和山城</tspan><tspan x="118.8" dy="14.5" style="font-size:11.0px" fill="#5A6878">三成の居城</tspan></text><circle cx="168.3" cy="375.2" r="4.5" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="168.3" y="396.2" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="168.3" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">大垣城</tspan><tspan x="168.3" dy="14.5" style="font-size:11.0px" fill="#5A6878">西軍が集まる</tspan></text><circle cx="150.5" cy="375.2" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="150.5" y="343.7" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="150.5" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">関ヶ原</tspan><tspan x="150.5" dy="14.5" style="font-size:11.0px" fill="#5A6878">9月15日 決戦</tspan></text></svg></button><div style=margin-top:6px><div class="legend"><span><i class="n"></i><i class="nd" style="margin-left:-4px"></i>家康(東軍)の動き</span><span><i class="t"></i><i class="td" style="margin-left:-4px"></i>西軍の動き</span></div><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">経路はおおよそ。家康の子の秀忠は中山道を進み、決戦に間に合わなかった</p></div><figcaption><span><b>図7-4</b>1600年の両軍の動き</span><span class="hint">クリックで拡大</span></figcaption></figure>
+<h2><span class="no">第3節</span>関ヶ原の戦い</h2>
+<p>1600年9月15日、家康の率いる東軍と、三成らの西軍が、<span class="rb">美濃<span class="rt" aria-hidden="true">みの</span></span>の<span class="rb">関ヶ原<span class="rt" aria-hidden="true">せきがはら</span></span>で激突した。両軍あわせて15万を超える大軍であったとされる。午前中は西軍もよく戦い、勝敗はつかなかった。</p>
+<p>ところが正午ごろ(通説による)、<span class="rb">松尾山<span class="rt" aria-hidden="true">まつおやま</span></span>に陣取っていた西軍の<span class="rb">小早川秀秋<span class="rt" aria-hidden="true">こばやかわひであき</span></span>が東軍に寝返り、西軍の<span class="rb">大谷吉継<span class="rt" aria-hidden="true">おおたによしつぐ</span></span>の軍に攻めかかった。<span class="rb">南宮山<span class="rt" aria-hidden="true">なんぐうさん</span></span>に陣取った毛利の軍は、家康とひそかに通じていた一族の<span class="rb">吉川広家<span class="rt" aria-hidden="true">きっかわひろいえ</span></span>に抑えられて動かなかった。西軍は総崩れとなり、戦いは半日ほどで東軍の勝利に終わった。三成・<span class="rb">小西行長<span class="rt" aria-hidden="true">こにしゆきなが</span></span>・<span class="rb">安国寺恵瓊<span class="rt" aria-hidden="true">あんこくじえけい</span></span>は捕らえられ、京都の<span class="rb">六条河原<span class="rt" aria-hidden="true">ろくじょうがわら</span></span>で処刑された。</p>
+<figure><div class="cfig"><div class="flow"><div class="pair"><div class="fs s"><em>東軍</em><b>徳川家康</b><span class="d">福島正則・黒田長政・細川忠興・井伊直政など</span></div><div class="fs t"><em>西軍</em><b>石田三成</b><span class="d">宇喜多秀家・小西行長・大谷吉継など。総大将の毛利輝元は大坂城に残る</span></div></div><div class="fs "><em>午前</em><b>霧の中で戦いが始まる</b><span class="d">西軍の主力はよく戦い、勝敗はつかない</span></div><div class="fs t"><em>正午ごろ</em><b>松尾山の小早川秀秋が東軍に寝返る</b><span class="d">南宮山の毛利軍は、吉川広家が抑えて動かない</span></div><div class="fs dk"><em>午後</em><b>西軍は崩れ、半日ほどで東軍の勝利が決まる</b><span class="d">三成・行長・安国寺恵瓊は捕らえられ、京都で処刑される</span></div></div></div><figcaption><span><b>図7-5</b>関ヶ原の戦い(1600年9月15日)</span></figcaption></figure>
+<h2><span class="no">第4節</span>江戸幕府の成立</h2>
+<p>戦いの後、家康は西軍の大名の多くを<span class="rb">改易<span class="rt" aria-hidden="true">かいえき</span></span>(領地の没収)とし、毛利氏や上杉氏の領地を大きく減らした。没収した領地は、東軍の大名や徳川家の家臣に分け与えられた。豊臣家の領地は<span class="rb">摂津<span class="rt" aria-hidden="true">せっつ</span></span>・<span class="rb">河内<span class="rt" aria-hidden="true">かわち</span></span>・<span class="rb">和泉<span class="rt" aria-hidden="true">いずみ</span></span>の約65万石となり、秀頼は一大名の立場に近くなった。</p>
+<p>1603年、家康は朝廷から<span class="rb">征夷大将軍<span class="rt" aria-hidden="true">せいいたいしょうぐん</span></span>に任じられ、江戸に幕府を開いた。2年後には将軍職を子の<span class="rb">徳川秀忠<span class="rt" aria-hidden="true">とくがわひでただ</span></span>に譲り、将軍は徳川家が受け継ぐことを世に示した。大坂城の秀頼はなお大きな存在だったが、1614年と1615年の<span class="rb">大坂の陣<span class="rt" aria-hidden="true">おおさかのじん</span></span>で豊臣氏は滅びる。1573年の室町幕府の滅亡から30年、日本は再び、武家の幕府による長い安定の時代を迎えたのである。</p>
+<section class="points" aria-labelledby="pt">
+<h3 id="pt">この章の要点</h3>
+<ul>
+<li>1598年に秀吉が死去し、五大老・五奉行が幼い秀頼を支える体制となったが、家康が決まりを破って勢力を広げた。</li>
+<li>石田三成は家康の会津出陣の隙に挙兵し、西軍を結成した。</li>
+<li>1600年の関ヶ原の戦いは、小早川秀秋の寝返りなどで、半日で東軍の勝利に終わった。</li>
+<li>1603年、家康は征夷大将軍となって江戸幕府を開き、1615年の大坂の陣で豊臣氏は滅んだ。</li>
+</ul>
+</section>
+<section class="column" aria-labelledby="col">
+<h3 id="col">コラム 「小山評定」はあったのか</h3>
+<p>1600年7月、下野の小山で家康が諸大名を集めて会議を開き、福島正則が真っ先に家康に味方すると宣言して、全員が三成討伐に向かうことが決まった ― これが「<span class="rb">小山評定<span class="rt" aria-hidden="true">おやまひょうじょう</span></span>」として知られる場面である。</p>
+<p>しかし近年、この会議の様子を詳しく伝えるのは江戸時代に書かれた記録であり、当時の確かな史料では確認しにくいことが指摘されている。会議そのものがなかったとする説から、何らかの話し合いはあったとする説まで、研究者の見方は分かれている。ドラマで描かれる劇的な場面の多くは、後の時代に形づくられたものかもしれない。</p>
+</section>
+</div>
+</article>
+<div class="navs"><a href="pc_ch6.html">← 第6章</a><a href="index.html">目次</a><a href="pc_ch8.html">第8章 →</a></div>
+<footer>第7章 ・ 全8章のうちの1章</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>

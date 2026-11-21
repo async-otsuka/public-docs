@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>天下統一への道 第6章(スマホ版)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* スマホ優先の1カラム。カード枠をやめて画面幅を本文に使う。図は縦長に組み直す */
+  --paper:#FFFFFF; --ink:#1E2A3A; --sub:#5A6878; --navy:#1F4E8C; --teal:#2F7F86;
+  --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#D6E4F3;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.85;-webkit-text-size-adjust:100%}
+.wrap{max-width:520px;margin:0 auto}
+.topbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 20px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);font-size:13px;color:var(--sub)}
+.topbar button{font:inherit;font-size:13px;color:var(--navy);background:var(--sky);border:0;border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.topbar button:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+header.ch{background:var(--navy);color:#fff;padding:22px 20px 20px}
+header.ch .eyebrow{font-size:13px;letter-spacing:.15em;opacity:.85;margin:0 0 6px}
+header.ch h1{font-size:25px;line-height:1.4;font-weight:700;margin:0;text-wrap:balance}
+header.ch .lead{font-size:14.5px;line-height:1.7;margin:8px 0 0;opacity:.9}
+main{padding:0 20px 40px}
+h2{font-size:20px;line-height:1.5;font-weight:700;margin:40px 0 14px;padding-left:12px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{display:block;font-size:13px;color:var(--navy);font-weight:500}
+p{margin:0 0 1.15em}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.32em;transform:translateX(-50%);font-size:.5em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;letter-spacing:0;pointer-events:none}
+body.noruby .rt{display:none}
+.tl{list-style:none;margin:20px 0 0 6px;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:8px;padding:5px 0 5px 16px;font-size:15px;line-height:1.6}
+.tl li::before{content:"";position:absolute;left:-7px;top:12px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--navy)}
+.tl li.k::before{border-color:var(--teal)}
+.tl li.hl{font-weight:700}
+.tl li.hl::before{background:var(--navy)}
+.tl .y{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.tl li.k .y{color:var(--teal)}
+.tlnote{display:flex;gap:16px;font-size:12.5px;color:var(--sub);margin:8px 0 0 6px}
+.tlnote span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid var(--navy);margin-right:5px;vertical-align:-1px}
+.tlnote span.k::before{border-color:var(--teal)}
+.point{background:var(--sky);border-radius:10px;padding:14px 16px;margin:0 0 22px;font-size:15px;line-height:1.7}
+.point b{display:block;color:var(--navy);font-size:13px;margin-bottom:4px}
+.point ul{margin:0;padding-left:1.2em}
+figure{margin:26px -20px 28px;padding:16px 20px 12px;background:#F7FAFD;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+figure svg{display:block;width:100%;height:auto}
+.figt{font-size:15px;font-weight:700;margin:0 0 12px;line-height:1.5}
+.figt span{color:var(--navy);margin-right:8px}
+.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.back{margin-top:10px;font-size:14px;font-weight:700;color:var(--teal);display:flex;gap:6px;align-items:center}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+.summary{background:var(--sky);border-radius:10px;padding:16px 18px 10px;margin:36px 0 18px}
+.summary h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy)}
+.summary ul{margin:0;padding-left:1.2em;font-size:16px}
+.summary li{margin:0 0 .5em}
+.column{border:1.5px dashed #9AAABB;border-radius:10px;padding:16px 18px 4px;margin:18px 0 0}
+.column h3{color:var(--teal)}
+.column figure{margin:16px -18px 16px}
+footer{font-size:12.5px;color:var(--sub);text-align:center;padding:0 20px 40px}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+.tlh{font-size:15px;color:var(--navy);margin:1.6em 0 .2em}
+</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style></head>
+<body>
+<div class="wrap">
+<div class="topbar"><span>天下統一への道 解説資料</span><button type="button" id="rubyBtn" aria-pressed="true">ふりがな:あり</button></div>
+<header class="ch">
+<p class="eyebrow">第六章 ・ 1592 ― 1598</p>
+<h1>朝鮮出兵 ― 文禄・慶長の役</h1>
+<p class="lead">天下人の野望が、朝鮮の人々に大きな犠牲を強いた7年</p>
+</header>
+<main>
+<ol class="tl" aria-label="この章の年表"><li class="hl"><span class="y">1592</span><span>文禄の役、漢城・平壌を占領</span></li><li class="k"><span class="y">1592</span><span>李舜臣の水軍が日本軍を破る</span></li><li><span class="y">1593</span><span>明軍が平壌を奪い返す、講和交渉</span></li><li><span class="y">1596</span><span>明の使節が来日し、交渉が決裂</span></li><li class="hl"><span class="y">1597</span><span>慶長の役</span></li><li class="hl"><span class="y">1598</span><span>秀吉が死去し、日本軍が撤退</span></li></ol>
+<figure><p class="figt"><span>図6-2</span>この章の登場人物</p>
+<div class="ppl"><div class="pg n"><h4>日本の側</h4><ul><li><b>豊臣秀吉</b><span class="pd">明の征服を掲げて朝鮮に出兵する。肥前の名護屋城から指揮した</span></li><li><b><span class="rb">小西行長<span class="rt" aria-hidden="true">こにしゆきなが</span></span>・<span class="rb">加藤清正<span class="rt" aria-hidden="true">かとうきよまさ</span></span></b><span class="pd">先頭に立って朝鮮に攻め込んだ武将。行長は講和交渉も担った</span></li></ul></div><div class="pg t"><h4>朝鮮の側</h4><ul><li><b><span class="rb">宣祖<span class="rt" aria-hidden="true">ソンジョ</span></span></b><span class="pd">朝鮮の国王。漢城から北の義州へ逃れ、明に助けを求めた</span></li><li><b><span class="rb">李舜臣<span class="rt" aria-hidden="true">イスンシン</span></span></b><span class="pd">朝鮮水軍の将。亀甲船などを用いて日本の水軍を破った</span></li></ul></div><div class="pg g"><h4>明の側</h4><ul><li><b><span class="rb">李如松<span class="rt" aria-hidden="true">りじょしょう</span></span></b><span class="pd">明の援軍を率いた将。1593年に平壌を奪い返した</span></li><li><b><span class="rb">沈惟敬<span class="rt" aria-hidden="true">しんいけい</span></span></b><span class="pd">明の交渉役。小西行長と講和を進めた</span></li></ul></div></div>
+</figure>
+<h2><span class="no">第1節</span>「唐入り」の構想</h2>
+<div class="point"><b>この節のポイント</b><ul><li>秀吉は明の征服(唐入り)を構想した</li><li>朝鮮に服属と道案内を求めたが、断られた</li><li>肥前の名護屋城を出兵の拠点とした</li></ul></div>
+<p>全国を統一した秀吉は、次に中国の明を征服する構想を打ち出した。これを「<span class="rb">唐入り<span class="rt" aria-hidden="true">からいり</span></span>」という。秀吉は<span class="rb">対馬<span class="rt" aria-hidden="true">つしま</span></span>の<span class="rb">宗氏<span class="rt" aria-hidden="true">そうし</span></span>を通じて、朝鮮に対し、秀吉に従って明への道案内をするよう求めた。朝鮮は明と深く結びついており、この要求を受け入れなかった。</p>
+<p>秀吉は九州の北端、<span class="rb">肥前<span class="rt" aria-hidden="true">ひぜん</span></span>に<span class="rb">名護屋城<span class="rt" aria-hidden="true">なごやじょう</span></span>を築き、全国の大名をここに集めた。</p>
+<p>出兵の理由については、領地を求める大名の不満をそらすため、秀吉の個人的な野望、東アジアの国際秩序を自らのもとに組み替えようとしたなど、さまざまな見方がある。</p>
+<h2><span class="no">第2節</span>文禄の役</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1592年、日本軍は釜山に上陸し、漢城・平壌を占領した</li><li>朝鮮の義兵や李舜臣の水軍が日本軍を苦しめた</li><li>明の援軍が加わり、戦いは行き詰まった</li></ul></div>
+<p>1592年4月、約16万の日本軍が<span class="rb">釜山<span class="rt" aria-hidden="true">プサン</span></span>に上陸した。鉄砲を多く備えた日本軍は北へ進み、5月には都の<span class="rb">漢城<span class="rt" aria-hidden="true">ハンソン</span></span>を、6月には<span class="rb">平壌<span class="rt" aria-hidden="true">ピョンヤン</span></span>を占領した。朝鮮の国王<span class="rb">宣祖<span class="rt" aria-hidden="true">ソンジョ</span></span>は北の<span class="rb">義州<span class="rt" aria-hidden="true">ウィジュ</span></span>へ逃れ、明に援軍を求めた。</p>
+<figure><p class="figt"><span>図6-3</span>文禄・慶長の役のおもな場所</p>
+<svg viewBox="0 0 360 476" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>文禄・慶長の役のおもな場所</title><desc>位置や経路はおおよそ</desc><rect width="360" height="476" fill="#EAF2FB"/><path d="M360,416.5L354.1,417.4L342.7,421.5L335,417.3L327.7,419.9L326.3,403.5L331.7,396L348.3,394.8L360,383.6L360,416.5ZM360,455L357,459.8L360,460L360,476L305.4,476L302.2,470.1L295.4,465.3L290.1,469.4L291.2,476L280.3,476L280.3,476L279.4,474L264.4,461.9L268.1,454.7L276.8,457.1L276,450.5L287.6,445.8L292.2,441.5L301.6,439.4L307.2,427.9L318.1,422.7L329.4,425.8L334.3,437.2L339.9,441.2L339.9,441.2L351.4,442.2L359.2,438.3L360,438.7L360,455ZM271.5,0L272.1,4.3L270.4,8.9L253,17.2L242,31.8L229.4,40L222.8,42.6L218.3,50L203.8,60L187.8,62.5L183.2,68.7L169.1,75.8L167,81L168,95.5L160.2,105.6L160.9,111L179.3,118.6L188.2,129.9L201.3,139.2L207.3,146.6L218.9,173.7L229.8,191L239.3,203.6L252.8,227.6L256.7,240.4L259.3,259.2L257.4,265.4L257.9,275.2L255.5,283.9L256,299.8L258.6,302.4L264,299.9L263.5,305.9L256.7,332.1L247,350.5L235.9,355.2L219.9,354.1L213.7,355.2L209.3,360.1L210.5,368.5L194,364.8L191.2,359.7L175.9,363.6L172.5,367.4L177.2,373.6L172.1,379L166.8,370.3L161.2,371.3L160.5,375.9L164.8,382.7L157.5,391.9L150.3,387.3L154.4,380.6L153.9,375.2L143.5,383.8L137.2,393.3L130.5,389.1L123.7,395.4L122.3,400.3L118.8,398.4L117.6,390.2L107.3,379.9L109,377.2L119.6,378.5L117.1,375.1L122.8,371.2L114.7,371.3L108.5,352.1L111.8,348.5L118.1,331.9L123.9,327.9L117.9,323.4L128.6,316.3L130.4,310.4L125.4,307.4L127.6,302L120.3,293.1L120.6,274.8L117.9,262L113.1,264.6L103.2,262.2L104.9,251.5L111.4,246.4L122.2,242.8L131.9,247L134.4,253.1L140.1,249.5L136,245.4L130,232.5L132.2,226.4L125.6,217.3L125.9,211.2L121.5,201.2L124.7,197.3L112.3,191.5L104.4,194.5L100.3,199.6L97.1,192L92,191.8L83.8,185L80.2,186.4L74.9,195.4L64.4,200.8L62.1,193.6L46.8,188.3L59.1,180.8L55.1,178.6L47.1,179.5L32.8,176.5L41.5,170.2L41.7,163.6L50.5,150.6L62,144.1L73.6,142.8L67.4,139.1L61.5,139.3L55.3,135.5L54.8,131.5L66.7,106.1L64.5,91.5L52.1,87.6L36.7,77.2L34.7,83.7L30.3,86.1L26.3,75.3L16.4,68.1L16.6,61.6L12.7,67L5,72.2L0,72.5L0,0ZM192.6,372.3L192.1,377.9L186.8,374.6L183.6,376.4L181.5,368.2L185.4,365.6L191.2,368ZM110.2,462.6L106.1,463.1L102.6,457.6L110.7,449.2L127.6,444.2L137.3,446.1L138.9,450.2L136.1,456L122.3,461.9Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><text x="170.5" y="279.4" text-anchor="middle" style="font-size:15.3px;font-weight:700;letter-spacing:.2em" fill="#9AA6B4">朝鮮</text><text x="28.4" y="-18.9" text-anchor="middle" style="font-size:13.6px;font-weight:700;letter-spacing:.2em" fill="#9AA6B4">明</text><defs><marker id="artk6n360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="artk6t360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="artk6k360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="artk6g360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><path d="M274.8,439.1 Q270.6,417.2 254.4,401.8" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#artk6n360)"/><path d="M249.0,388.9 Q249.7,373.9 240.8,361.9" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#artk6n360)"/><path d="M234.8,349.4 Q207.4,270.9 145.1,215.8" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#artk6n360)"/><path d="M137.3,204.2 Q122.5,159.3 86.8,128.3" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#artk6n360)"/><path d="M29.5,55.4 Q45.3,93.1 78.5,117.0" fill="none" stroke="#5A6878" stroke-width="2" marker-end="url(#artk6g360)"/><circle cx="278.1" cy="445.3" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="278.1" y="449.3" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">1</text><circle cx="251.1" cy="395.6" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="251.1" y="399.6" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">2</text><circle cx="238.7" cy="355.2" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="238.7" y="359.2" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">3</text><circle cx="141.2" cy="210.0" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="141.2" y="214.0" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">4</text><circle cx="82.9" cy="122.5" r="9" fill="#5A6878" stroke="#fff" stroke-width="1.2"/><text x="82.9" y="126.5" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">5</text><circle cx="25.1" cy="49.9" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="25.1" y="53.9" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">6</text><circle cx="212.2" cy="372.6" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="212.2" y="376.6" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">7</text><circle cx="109.4" cy="385.8" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="109.4" y="389.8" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">8</text><circle cx="251.5" cy="329.7" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="251.5" y="333.7" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">9</text><circle cx="183.3" cy="364.5" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="183.3" y="368.5" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">10</text></svg><div class="legend"><span><i class="nd"></i>日本軍の進路(1592年)</span><span><i class="n" style="border-color:#5A6878"></i>明の援軍</span></div><ol class="mapl"><li><i class="n">1</i>名護屋城<span class="pd">秀吉の本陣</span></li><li><i class="n">2</i>対馬</li><li><i class="n">3</i>釜山<span class="pd">1592年4月 上陸</span></li><li><i class="n">4</i>漢城(ソウル)<span class="pd">1592年5月 占領</span></li><li><i class="g">5</i>平壌<span class="pd">1593年1月 明軍が奪回</span></li><li><i class="t">6</i>義州<span class="pd">朝鮮国王が逃れる</span></li><li><i class="t">7</i>閑山島<span class="pd">1592 李舜臣が勝利</span></li><li><i class="t">8</i>鳴梁<span class="pd">1597 李舜臣が勝利</span></li><li><i class="n">9</i>蔚山<span class="pd">1597〜98 籠城戦</span></li><li><i class="t">10</i>露梁<span class="pd">1598 李舜臣が戦死</span></li></ol><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">位置や経路はおおよそ</p>
+</figure>
+<p>しかし、日本軍は占領地を治めることができなかった。各地で人々が<span class="rb">義兵<span class="rt" aria-hidden="true">ぎへい</span></span>として立ち上がり、海では<span class="rb">李舜臣<span class="rt" aria-hidden="true">イスンシン</span></span>の率いる朝鮮水軍が、<span class="rb">閑山島<span class="rt" aria-hidden="true">ハンサンド</span></span>沖などで日本の水軍を破って補給路を脅かした。</p>
+<p>1593年1月には、<span class="rb">李如松<span class="rt" aria-hidden="true">りじょしょう</span></span>の率いる明の大軍が平壌を奪い返した。日本軍は漢城の北の<span class="rb">碧蹄館<span class="rt" aria-hidden="true">へきていかん</span></span>で明軍を退けたものの、食料も不足し、漢城を捨てて南部へ退いた。</p>
+<h2><span class="no">第3節</span>講和の失敗と慶長の役</h2>
+<div class="point"><b>この節のポイント</b><ul><li>日本と明の間で講和交渉が行われた</li><li>交渉は失敗し、1597年に再び出兵した</li><li>日本軍は朝鮮南部で激しい戦いを続けた</li></ul></div>
+<p>戦いが行き詰まると、日本の<span class="rb">小西行長<span class="rt" aria-hidden="true">こにしゆきなが</span></span>と明の<span class="rb">沈惟敬<span class="rt" aria-hidden="true">しんいけい</span></span>の間で講和交渉が進められた。しかし両者は、それぞれの主君に都合のよい報告をしていたとされる。</p>
+<p>1596年、明の使節が<span class="rb">大坂<span class="rt" aria-hidden="true">おおさか</span></span>城を訪れ、秀吉を「日本国王」に任じる文書を届けた。秀吉が求めていた条件はまったく認められておらず、秀吉は再び出兵を決めた。</p>
+<figure><p class="figt"><span>図6-4</span>二度の出兵の流れ</p>
+<div class="flow"><div class="fs s"><em>1592〜1593年 文禄の役</em><b>約16万の日本軍が釜山に上陸し、1か月足らずで漢城を占領</b><span class="d">平壌まで進むが、各地の義兵や李舜臣の水軍に苦しむ</span></div><div class="fs "><em>1593年〜</em><b>明の援軍が平壌を奪い返し、講和交渉へ</b><span class="d">日本と明の交渉役は、双方に都合のよい報告をしていたとされる</span></div><div class="fs t"><em>1596年</em><b>明の使節が秀吉を「日本国王」とする文書を届ける</b><span class="d">秀吉の求めた条件は認められておらず、秀吉は再び出兵を決める</span></div><div class="fs dk"><em>1597〜1598年 慶長の役</em><b>約14万の日本軍が朝鮮南部で戦う</b><span class="d">1598年8月に秀吉が死去し、日本軍は撤退</span></div></div>
+</figure>
+<p>1597年、約14万の日本軍が再び朝鮮に渡った。<span class="rb">慶長<span class="rt" aria-hidden="true">けいちょう</span></span>の役である。日本軍は朝鮮南部で戦い、<span class="rb">漆川梁<span class="rt" aria-hidden="true">チルチョンリャン</span></span>の海戦で朝鮮水軍に大打撃を与えたが、復帰した李舜臣は<span class="rb">鳴梁<span class="rt" aria-hidden="true">ミョンニャン</span></span>の海戦で日本の水軍を破った。</p>
+<p><span class="rb">蔚山<span class="rt" aria-hidden="true">ウルサン</span></span>では<span class="rb">加藤清正<span class="rt" aria-hidden="true">かとうきよまさ</span></span>らが明・朝鮮の大軍に囲まれ、食料も水も尽きる厳しい<span class="rb">籠城<span class="rt" aria-hidden="true">ろうじょう</span></span>戦を強いられた。この戦いでは、日本軍が朝鮮の人々の鼻をそいで戦功の証として日本に送ったことが知られ、京都には今も<span class="rb">耳塚<span class="rt" aria-hidden="true">みみづか</span></span>(鼻塚)が残る。</p>
+<h2><span class="no">第4節</span>秀吉の死と撤退</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1598年8月、秀吉が死去し、日本軍は撤退した</li><li>朝鮮には大きな被害が残った</li><li>出兵は豊臣政権を弱めた</li></ul></div>
+<p>1598年8月、秀吉が<span class="rb">伏見城<span class="rt" aria-hidden="true">ふしみじょう</span></span>で死去した。日本軍は撤退を始め、11月の<span class="rb">露梁<span class="rt" aria-hidden="true">ノリャン</span></span>の海戦を最後に朝鮮から引き揚げた。この海戦で、李舜臣は戦死している。7年にわたる戦いは、何も得るものなく終わった。</p>
+<p>朝鮮では多くの人が殺され、日本へ連れ去られた人も数万人にのぼるとされる。国土は荒れ、多くの文化財が失われた。明にとっても援軍の費用は重い負担となった。</p>
+<p>日本では、大名が重い負担に苦しみ、出兵をめぐって豊臣家の武将どうしの対立が深まった。この対立が、秀吉の死後の争いにつながっていく。</p>
+<figure><p class="figt"><span>図6-5</span>出兵が残したもの</p>
+<div class="card t" style="margin-bottom:10px"><div class="hd">朝鮮</div><div class="bd"><div class="rows"><div><b>人々</b><span>多くの人が殺され、日本へ連れ去られた人も数万人にのぼるとされる</span></div><div><b>国土</b><span>田畑や都市が荒れ、文化財の多くが失われた</span></div></div></div></div><div class="card g" style="margin-bottom:10px"><div class="hd">明</div><div class="bd"><div class="rows"><div><b>財政</b><span>援軍の費用が重い負担となり、のちの衰えの一因になったとされる</span></div></div></div></div><div class="card n" style="margin-bottom:10px"><div class="hd">日本</div><div class="bd"><div class="rows"><div><b>政権</b><span>大名は重い負担に苦しみ、武将どうしの対立が深まって豊臣政権を揺るがした</span></div><div><b>文化</b><span>連れてこられた陶工が有田焼・薩摩焼などを始め、朝鮮の活字や朱子学の書物も伝わった</span></div></div></div></div>
+</figure>
+<section class="summary" aria-labelledby="pt"><h3 id="pt">この章の要点</h3><ul><li>全国を統一した秀吉は明の征服を掲げ、朝鮮に服属と道案内を求めたが拒まれ、出兵した。</li><li>1592年の文禄の役で日本軍は漢城・平壌を占領したが、義兵や李舜臣の水軍、明の援軍によって押し戻された。</li><li>講和交渉が失敗し、1597年に慶長の役が起こったが、1598年の秀吉の死によって日本軍は撤退した。</li><li>朝鮮には大きな被害が残り、日本では豊臣家の武将どうしの対立が深まった。</li></ul></section>
+<section class="column" aria-labelledby="col"><h3 id="col">コラム 「やきもの戦争」と朝鮮の陶工</h3>
+<p>朝鮮出兵は「やきもの戦争」と呼ばれることがある。出兵した大名たちが、朝鮮の陶工を数多く日本へ連れ帰ったからである。</p>
+<p>肥前の有田では、連れてこられた陶工の<span class="rb">李参平<span class="rt" aria-hidden="true">りさんぺい</span></span>らが良質の<span class="rb">陶石<span class="rt" aria-hidden="true">とうせき</span></span>を見つけ、日本で初めて磁器を焼いたと伝えられる。これが<span class="rb">有田焼<span class="rt" aria-hidden="true">ありたやき</span></span>(<span class="rb">伊万里焼<span class="rt" aria-hidden="true">いまりやき</span></span>)の始まりとされる。<span class="rb">薩摩焼<span class="rt" aria-hidden="true">さつまやき</span></span>や<span class="rb">萩焼<span class="rt" aria-hidden="true">はぎやき</span></span>なども、朝鮮の陶工の技術から生まれた。</p>
+<p>日本の焼き物の発展は、故郷から無理に引き離された人々の技と苦しみの上に築かれたのである。</p>
+</section>
+<div class="navs"><a href="mb_ch5.html">← 第5章</a><a href="index.html">目次</a><a href="mb_ch7.html">第7章 →</a></div>
+</main>
+<footer>第6章 スマホ版 ・ 全8章のうちの1章</footer>
+</div>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('rubyBtn');
+  b.addEventListener('click',function(){
+    var off=document.body.classList.toggle('noruby');
+    b.textContent=off?'ふりがな:なし':'ふりがな:あり';
+    b.setAttribute('aria-pressed',off?'false':'true');
+    if(!off&&window.fitRuby)window.fitRuby();
+  });
+})();
+</script>
+</body>
+</html>
