@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>戦国の室町幕府 第6章(スマホ版)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* スマホ優先の1カラム。カード枠をやめて画面幅を本文に使う。図は縦長に組み直す */
+  --paper:#FFFFFF; --ink:#1E2A3A; --sub:#5A6878; --navy:#1F4E8C; --teal:#2F7F86;
+  --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#D6E4F3;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.85;-webkit-text-size-adjust:100%}
+.wrap{max-width:520px;margin:0 auto}
+.topbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 20px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);font-size:13px;color:var(--sub)}
+.topbar button{font:inherit;font-size:13px;color:var(--navy);background:var(--sky);border:0;border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.topbar button:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+header.ch{background:var(--navy);color:#fff;padding:22px 20px 20px}
+header.ch .eyebrow{font-size:13px;letter-spacing:.15em;opacity:.85;margin:0 0 6px}
+header.ch h1{font-size:25px;line-height:1.4;font-weight:700;margin:0;text-wrap:balance}
+header.ch .lead{font-size:14.5px;line-height:1.7;margin:8px 0 0;opacity:.9}
+main{padding:0 20px 40px}
+h2{font-size:20px;line-height:1.5;font-weight:700;margin:40px 0 14px;padding-left:12px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{display:block;font-size:13px;color:var(--navy);font-weight:500}
+p{margin:0 0 1.15em}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.32em;transform:translateX(-50%);font-size:.5em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;letter-spacing:0;pointer-events:none}
+body.noruby .rt{display:none}
+.tl{list-style:none;margin:20px 0 0 6px;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:8px;padding:5px 0 5px 16px;font-size:15px;line-height:1.6}
+.tl li::before{content:"";position:absolute;left:-7px;top:12px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--navy)}
+.tl li.k::before{border-color:var(--teal)}
+.tl li.hl{font-weight:700}
+.tl li.hl::before{background:var(--navy)}
+.tl .y{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.tl li.k .y{color:var(--teal)}
+.tlnote{display:flex;gap:16px;font-size:12.5px;color:var(--sub);margin:8px 0 0 6px}
+.tlnote span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid var(--navy);margin-right:5px;vertical-align:-1px}
+.tlnote span.k::before{border-color:var(--teal)}
+.point{background:var(--sky);border-radius:10px;padding:14px 16px;margin:0 0 22px;font-size:15px;line-height:1.7}
+.point b{display:block;color:var(--navy);font-size:13px;margin-bottom:4px}
+.point ul{margin:0;padding-left:1.2em}
+figure{margin:26px -20px 28px;padding:16px 20px 12px;background:#F7FAFD;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+figure svg{display:block;width:100%;height:auto}
+.figt{font-size:15px;font-weight:700;margin:0 0 12px;line-height:1.5}
+.figt span{color:var(--navy);margin-right:8px}
+.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.back{margin-top:10px;font-size:14px;font-weight:700;color:var(--teal);display:flex;gap:6px;align-items:center}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+.summary{background:var(--sky);border-radius:10px;padding:16px 18px 10px;margin:36px 0 18px}
+.summary h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy)}
+.summary ul{margin:0;padding-left:1.2em;font-size:16px}
+.summary li{margin:0 0 .5em}
+.column{border:1.5px dashed #9AAABB;border-radius:10px;padding:16px 18px 4px;margin:18px 0 0}
+.column h3{color:var(--teal)}
+.column figure{margin:16px -18px 16px}
+footer{font-size:12.5px;color:var(--sub);text-align:center;padding:0 20px 40px}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+.tlh{font-size:15px;color:var(--navy);margin:1.6em 0 .2em}
+</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style></head>
+<body>
+<div class="wrap">
+<div class="topbar"><span>戦国の室町幕府 解説資料</span><button type="button" id="rubyBtn" aria-pressed="true">ふりがな:あり</button></div>
+<header class="ch">
+<p class="eyebrow">第六章 ・ 1565 ― 1568</p>
+<h1>義輝の死と義昭の上洛</h1>
+<p class="lead">将軍が殺され、その弟が新しい力とともに京都へ戻る</p>
+</header>
+<main>
+<ol class="tl" aria-label="この章の年表"><li><span class="y">1564</span><span>三好長慶が死去</span></li><li class="hl"><span class="y">1565</span><span>永禄の変(義輝が殺される)</span></li><li class="k"><span class="y">1565</span><span>覚慶(義昭)が奈良を脱出</span></li><li class="k"><span class="y">1566</span><span>義昭が越前の朝倉氏を頼る</span></li><li><span class="y">1567</span><span>信長が美濃を平定</span></li><li><span class="y">1568</span><span>義栄が14代将軍に(2月)</span></li><li class="hl"><span class="y">1568</span><span>信長が義昭を奉じて上洛(9月)</span></li><li class="hl"><span class="y">1568</span><span>義昭が15代将軍に(10月)</span></li></ol>
+<figure><p class="figt"><span>図6-2</span>この章の登場人物</p>
+<div class="ppl"><div class="pg n"><h4>将軍家</h4><ul><li><b><span class="rb">足利義輝<span class="rt" aria-hidden="true">あしかがよしてる</span></span></b><span class="pd">13代将軍。将軍の力を取り戻そうとしたが、1565年に殺された</span></li><li><b><span class="rb">足利義昭<span class="rt" aria-hidden="true">あしかがよしあき</span></span>(<span class="rb">覚慶<span class="rt" aria-hidden="true">かくけい</span></span>)</b><span class="pd">義輝の弟。奈良の寺の僧から還俗し、将軍の座を目指して諸国を渡り歩く</span></li><li><b><span class="rb">足利義栄<span class="rt" aria-hidden="true">あしかがよしひで</span></span></b><span class="pd">堺公方義維の子。三好三人衆に擁立され、14代将軍となる</span></li></ul></div><div class="pg t"><h4>三好家</h4><ul><li><b><span class="rb">三好義継<span class="rt" aria-hidden="true">みよしよしつぐ</span></span>・三好三人衆</b><span class="pd">長慶の跡を継いだ三好家の中心。義輝を討った</span></li><li><b><span class="rb">松永久秀<span class="rt" aria-hidden="true">まつながひさひで</span></span></b><span class="pd">三好家の重臣。やがて三人衆と争うようになる</span></li></ul></div><div class="pg g"><h4>義昭を助けた人々</h4><ul><li><b><span class="rb">細川藤孝<span class="rt" aria-hidden="true">ほそかわふじたか</span></span>・<span class="rb">和田惟政<span class="rt" aria-hidden="true">わだこれまさ</span></span></b><span class="pd">義昭の脱出を助け、諸国の大名との交渉を担った</span></li><li><b><span class="rb">朝倉義景<span class="rt" aria-hidden="true">あさくらよしかげ</span></span></b><span class="pd">越前の大名。義昭を迎えたが、上洛には動かなかった</span></li><li><b>織田信長</b><span class="pd">尾張・美濃の大名。義昭を奉じて上洛した</span></li></ul></div></div>
+</figure>
+<h2><span class="no">第1節</span>将軍権威の回復を目指した義輝</h2>
+<div class="point"><b>この節のポイント</b><ul><li>義輝は大名どうしの争いを仲立ちし、将軍の存在感を高めた</li><li>長慶の死後、三好家と義輝の間に緊張が生まれた</li></ul></div>
+<p>1558年に京都へ戻った将軍<span class="rb">足利義輝<span class="rt" aria-hidden="true">あしかがよしてる</span></span>は、将軍の力を取り戻そうと積極的に動いた。各地の大名に名前の一字を与え、上杉と武田、毛利と大友などの争いの仲立ちに乗り出した。</p>
+<p><span class="rb">上杉謙信<span class="rt" aria-hidden="true">うえすぎけんしん</span></span>や織田信長が上洛して義輝に会ったのも、この時期である。</p>
+<p>1564年に<span class="rb">三好長慶<span class="rt" aria-hidden="true">みよしながよし</span></span>が亡くなると、三好家は若い当主の<span class="rb">三好義継<span class="rt" aria-hidden="true">みよしよしつぐ</span></span>と、それを支える三好三人衆・<span class="rb">松永久秀<span class="rt" aria-hidden="true">まつながひさひで</span></span>の体制になった。義輝が将軍として存在感を増していくことは、京都を治める三好家にとって、扱いにくい事態でもあった。</p>
+<h2><span class="no">第2節</span>永禄の変 ― 将軍が殺された</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1565年5月、三好義継らが御所を襲い、義輝を殺した</li><li>将軍が家臣の軍勢に殺されたのは、嘉吉の変以来だった</li><li>三好三人衆は足利義栄を新しい将軍に立てた</li></ul></div>
+<p>1565年(<span class="rb">永禄<span class="rt" aria-hidden="true">えいろく</span></span>8年)5月、三好義継と三好三人衆、松永久秀の子の<span class="rb">松永久通<span class="rt" aria-hidden="true">まつながひさみち</span></span>らが率いる大軍が、京都の将軍の御所を取り囲んだ。軍勢は御所に攻め込み、義輝は討ち死にした。義輝の母や側近の多くも命を落とした。</p>
+<p>これを永禄の変という。将軍が殺されたのは、1441年に6代将軍<span class="rb">足利義教<span class="rt" aria-hidden="true">あしかがよしのり</span></span>が討たれた<span class="rb">嘉吉<span class="rt" aria-hidden="true">かきつ</span></span>の変以来のことであった。</p>
+<p>事件の目的についてはさまざまな説がある。大軍で御所を囲んで要求を突きつける「<span class="rb">御所巻<span class="rt" aria-hidden="true">ごしょまき</span></span>」を行うつもりが、戦闘に発展したとする見方もある。</p>
+<p>その後、三好三人衆は、<span class="rb">堺公方<span class="rt" aria-hidden="true">さかいくぼう</span></span><span class="rb">足利義維<span class="rt" aria-hidden="true">あしかがよしつな</span></span>の子で<span class="rb">阿波<span class="rt" aria-hidden="true">あわ</span></span>にいた<span class="rb">足利義栄<span class="rt" aria-hidden="true">あしかがよしひで</span></span>を新しい将軍に立てようとした。一方、三好家の内部では三人衆と松永久秀が対立し、<span class="rb">畿内<span class="rt" aria-hidden="true">きない</span></span>は再び戦乱に陥った。</p>
+<p>1567年には、両者の戦いの中で奈良の東大寺大仏殿が焼けている。</p>
+<figure><p class="figt"><span>図6-3</span>永禄の変のあと ― 二人の将軍候補</p>
+<div class="flow"><div class="fs dk"><em>1565年5月</em><b>三好義継・三好三人衆らが義輝を討つ</b><span class="d">御所を大軍で取り囲み、攻め込んだ</span></div><div class="pair"><div class="fs t"><em>三好三人衆が擁立</em><b>足利義栄</b><span class="d">堺公方義維の子。阿波から摂津へ</span></div><div class="fs s"><em>義輝の側近が擁立</em><b>足利義昭</b><span class="d">義輝の弟。近江・若狭・越前へ</span></div></div><div class="fs "><b>三好家は三人衆と松永久秀に分裂して争う</b><span class="d">1567年、奈良の東大寺大仏殿が戦火で焼ける</span></div></div>
+</figure>
+<h2><span class="no">第3節</span>流浪する覚慶 ― のちの義昭</h2>
+<div class="point"><b>この節のポイント</b><ul><li>義輝の弟覚慶は奈良を脱出し、将軍の座を目指した</li><li>近江・若狭・越前と移りながら、大名に上洛を呼びかけた</li><li>1568年、義栄が14代将軍となったが、京都に入れなかった</li></ul></div>
+<p>義輝の弟の<span class="rb">覚慶<span class="rt" aria-hidden="true">かくけい</span></span>は、奈良の<span class="rb">興福寺<span class="rt" aria-hidden="true">こうふくじ</span></span><span class="rb">一乗院<span class="rt" aria-hidden="true">いちじょういん</span></span>で僧となっていた。兄が殺されたあと、覚慶は寺に閉じ込められたが、1565年7月、義輝の側近だった<span class="rb">細川藤孝<span class="rt" aria-hidden="true">ほそかわふじたか</span></span>や<span class="rb">和田惟政<span class="rt" aria-hidden="true">わだこれまさ</span></span>らの助けで脱出した。</p>
+<p>覚慶は<span class="rb">近江<span class="rt" aria-hidden="true">おうみ</span></span>の<span class="rb">甲賀<span class="rt" aria-hidden="true">こうか</span></span>を経て<span class="rb">矢島<span class="rt" aria-hidden="true">やじま</span></span>に移って<span class="rb">還俗<span class="rt" aria-hidden="true">げんぞく</span></span>し、名を<span class="rb">義秋<span class="rt" aria-hidden="true">よしあき</span></span>と改めた(のちに義昭と改名。以下、義昭とする)。</p>
+<figure><p class="figt"><span>図6-4</span>足利義昭の流浪と上洛</p>
+<svg viewBox="0 0 360 442" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>足利義昭の流浪と上洛</title><desc>経路はおおよその模式図。琵琶湖の形は模式化している</desc><rect width="360" height="442" fill="#EAF2FB"/><path d="M0,179.2L0.5,178.2L4.4,178.7L9.9,181.4L11.5,179.6L11.5,173.2L5.2,174.6L0,172.4L0,162.6L0,162.6L2.1,160.6L5.2,159.6L11.5,159.2L14.7,158.3L18.6,153.3L19.4,150.6L24.9,147.4L23.3,151.5L22.5,155.6L26.4,157.4L28.8,159.2L28,163.3L28.8,166L28,168.7L30.4,169.2L31.9,168.7L33.5,166.4L35.1,161.9L35.1,166.9L34.3,171.9L35.1,175.5L39,176.9L45.3,177.3L47.6,176.9L53.9,173.7L55.5,170.5L60.2,166.4L64.9,163.3L69.6,165.5L68.8,166.9L63.4,169.2L61.8,176.9L59.4,178.7L64.1,180L75.9,177.3L81.4,177.3L84.6,175L86.9,171.4L86.9,166L80.6,169.2L78.3,164.2L74.3,162.8L77.5,158.3L84.6,156L86.9,157.8L88.5,161.9L93.2,161.5L97.1,166.4L100.3,167.8L105.8,165.5L103.4,164.6L101.8,162.4L98.7,156.5L99.5,154.7L101.8,154.2L104.2,156.5L106.6,155.1L110.5,153.8L109.7,151.9L106.6,148.3L105.8,144.7L105,143.3L101.8,139.7L101.1,136.5L103.4,136.1L107.3,139.3L109.7,141.5L112.8,143.3L120.7,141.5L122.3,144.2L124.6,146.1L128.5,143.3L130.9,140.2L135.6,141.1L138,139.7L138,136.5L134,133.4L136.4,123.8L135.6,120.7L132.5,121.1L132.5,113.4L138,110.7L145.8,103.9L149,108.9L149,111.1L150.5,115.2L152.1,120.2L151.3,123.4L149,123.4L147.4,126.6L151.3,129.3L152.1,132.5L156.8,131.6L158.4,127L160,125.7L160,120.2L162.3,117L162.3,109.8L163.9,105.2L163.9,100.7L160.7,95.7L158.4,91.2L156.8,87.5L152.1,83.9L144.3,75.3L140.3,71.6L141.1,63.9L140.3,58L135.6,51.1L132.5,48L134,40.7L138.8,37.5L141.9,33.8L145.8,25.2L149,18.8L151.3,10.6L159.8,0L360,0L360,360.8L354.8,354.9L350.8,353.1L351.6,346.3L356.3,335.5L355.5,328.8L353.2,332L350.8,339.1L346.9,345.4L345.3,349.5L343.8,354.4L341.4,368.3L343.8,371.5L346.1,375.9L351.6,379.1L354,384.9L354,389.4L348.5,388.5L341.4,385.4L333.5,380.9L328.8,377.7L326.5,374.1L325.7,370.1L328.1,365.2L328.8,360.2L330.4,356.2L330.4,352.2L328.8,346.8L325.7,342.7L322.6,342.7L321,336.4L321,324.8L321.8,320.7L323.3,315.8L325.7,311.3L328.8,306.3L330.4,301.8L333.5,296.9L334.3,289.7L335.1,284.7L332,283.8L328.8,291.9L327.3,297.8L325.7,292.4L325.7,288.3L322.6,287.4L324.9,300L319.4,301.4L318.6,295.5L316.3,295.5L316.3,302.3L311.6,303.2L306.1,301.4L304.5,302.3L299.8,301.4L290.3,308.1L285.6,312.6L283.3,316.7L283.3,318.5L281.7,322.5L282.5,323.9L286.4,324.3L282.5,327L283.3,332L280.9,338.2L276.2,347.7L265.2,361.6L258.1,371L256.6,382.7L255,393.4L258.1,398.8L261.3,401L259.7,407.7L259.7,410.4L262.1,414.5L266,415.8L275.4,415.8L280.1,417.1L283.3,420.3L289.6,427L306.1,437.7L315.6,442L5.2,442L5.2,442L5.2,436.4L9.2,435L10.7,432.4L13.1,430.6L13.9,426.1L13.9,420.3L14.7,412.2L12.3,405.5L11.5,399.2L13.9,390.3L10.7,392.1L6.8,393.4L2.9,391.2L0,387.9L0,179.2ZM335.9,432.8L337.5,431L340.6,430.6L339,432.8L339,434.6L335.9,435.5L332.8,437.7L328.8,438.6L327.3,437.3ZM316.3,341.4L318.6,341.4L321.8,345.4L321.8,348.6L319.4,349.5L319.4,351.3L317.8,351.3Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><path d="M178.9,169.6L200.7,201.7L189.8,236.5L159.3,271.2L130.9,295.2L117.8,313.8L115.6,300.5L126.5,276.5L141.8,249.8L148.4,220.4L159.3,188.3Z" fill="#CFE0F3" stroke="#9CBBE0" stroke-width=".8"/><defs><marker id="arch6n360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="arch6t360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="arch6k360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="arch6g360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><path d="M109.9,388.9 Q149.8,369.3 173.7,331.8" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arch6n360)"/><path d="M174.1,322.0 Q165.1,302.7 146.6,292.3" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arch6n360)"/><path d="M138.7,280.9 Q127.7,225.9 90.4,183.9" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arch6n360)"/><path d="M91.9,172.3 Q162.3,124.5 200.5,48.5" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arch6n360)"/><path d="M208.9,49.1 Q235.0,130.0 297.3,187.8" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arch6n360)"/><path d="M295.1,197.3 Q228.8,215.9 180.5,264.9" fill="none" stroke="#2F7F86" stroke-width="2" marker-end="url(#arch6t360)"/><path d="M168.1,271.3 Q127.5,276.9 95.9,303.0" fill="none" stroke="#2F7F86" stroke-width="2" marker-end="url(#arch6t360)"/><circle cx="104.7" cy="393.6" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="104.7" y="397.6" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">1</text><circle cx="178.9" cy="327.1" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="178.9" y="331.1" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">2</text><circle cx="141.8" cy="287.2" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="141.8" y="291.2" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">3</text><circle cx="87.3" cy="177.6" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="87.3" y="181.6" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">4</text><circle cx="205.1" cy="43.2" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="205.1" y="47.2" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">5</text><circle cx="301.1" cy="193.7" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="301.1" y="197.7" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">6</text><circle cx="174.5" cy="268.5" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="174.5" y="272.5" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">7</text><circle cx="89.5" cy="305.8" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="89.5" y="309.8" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">8</text><circle cx="54.5" cy="348.4" r="9" fill="#5A6878" stroke="#fff" stroke-width="1.2"/><text x="54.5" y="352.4" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">9</text></svg><div class="legend"><span><i class="nd"></i>義昭の流浪(1565〜1568)</span><span><i class="t"></i>信長とともに上洛(1568)</span></div><ol class="mapl"><li><i class="n">1</i>奈良・興福寺一乗院<span class="pd">1565 脱出</span></li><li><i class="n">2</i>甲賀・和田<span class="pd">和田惟政のもとへ</span></li><li><i class="n">3</i>近江・矢島<span class="pd">1565〜66</span></li><li><i class="n">4</i>若狭<span class="pd">1566</span></li><li><i class="n">5</i>越前・一乗谷<span class="pd">1566〜68 朝倉義景</span></li><li><i class="n">6</i>美濃・立政寺(岐阜)<span class="pd">1568年7月</span></li><li><i class="t">7</i>観音寺城<span class="pd">1568年9月 六角氏を破る</span></li><li><i class="t">8</i>京都<span class="pd">1568年9月 入京</span></li><li><i class="g">9</i>摂津・富田<span class="pd">義栄がとどまる</span></li></ol><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">経路はおおよその模式図。琵琶湖の形は模式化している</p>
+</figure>
+<p>義昭は各地の大名に手紙を送り、自分を京都へ連れていくよう呼びかけた。しかし近江の六角氏が三好方に寝返ったため、1566年に<span class="rb">若狭<span class="rt" aria-hidden="true">わかさ</span></span>へ移り、さらに<span class="rb">越前<span class="rt" aria-hidden="true">えちぜん</span></span>の<span class="rb">朝倉義景<span class="rt" aria-hidden="true">あさくらよしかげ</span></span>のもとへ身を寄せた。</p>
+<p>だが義景は、なかなか上洛に動こうとしなかった。その間の1568年2月、三好三人衆が擁立した足利義栄が14代将軍に任じられた。ただし義栄は<span class="rb">摂津<span class="rt" aria-hidden="true">せっつ</span></span>の<span class="rb">富田<span class="rt" aria-hidden="true">とんだ</span></span>にとどまり、一度も京都に入ることはなかった。</p>
+<h2><span class="no">第4節</span>信長の上洛と15代将軍の誕生</h2>
+<div class="point"><b>この節のポイント</b><ul><li>信長は1567年に美濃を平定し、義昭を迎えた</li><li>1568年9月、信長は義昭を奉じて上洛した</li><li>10月、義昭は15代将軍となった</li></ul></div>
+<p>この状況を動かしたのが、<span class="rb">尾張<span class="rt" aria-hidden="true">おわり</span></span>の織田信長である。信長は1567年、<span class="rb">美濃<span class="rt" aria-hidden="true">みの</span></span>の斎藤氏の<span class="rb">稲葉山<span class="rt" aria-hidden="true">いなばやま</span></span>城を落として美濃を手に入れ、城下を岐阜と改めた。このころから信長は「<span class="rb">天下布武<span class="rt" aria-hidden="true">てんかふぶ</span></span>」と刻んだ印を使い始める。</p>
+<p>1568年7月、義昭は朝倉氏のもとを離れ、美濃の<span class="rb">立政寺<span class="rt" aria-hidden="true">りゅうしょうじ</span></span>に信長を頼った。</p>
+<p>同年9月、信長は義昭を奉じて大軍で岐阜を出発し、近江の六角氏を破って京都に入った。三好三人衆は戦わずに退き、まもなく義栄も病死した。10月、義昭は15代将軍に任じられた。</p>
+<p>信長は義昭から副将軍や<span class="rb">管領<span class="rt" aria-hidden="true">かんれい</span></span>への就任を勧められたが断り、代わりに堺・大津・草津に代官を置くことを望んだという。商業と交通の要所を押さえることを、名誉ある地位よりも重んじたのである。</p>
+<figure><p class="figt"><span>図6-5</span>上洛までの道のり</p>
+<ol class="steps"><li><span class="num t">1</span><span><b>1567年8月 信長が美濃を平定</b><span class="d">稲葉山城を落として岐阜と改め、「天下布武」の印を使い始める</span></span></li><li><span class="num t">2</span><span><b>1568年7月 義昭が岐阜へ</b><span class="d">動かない朝倉義景を見限り、信長を頼る</span></span></li><li><span class="num t">3</span><span><b>1568年9月 上洛の軍を起こす</b><span class="d">近江の六角氏を破り、京都へ。三好三人衆は退く</span></span></li><li><span class="num t">4</span><span><b>1568年10月 義昭が15代将軍に</b><span class="d">信長は副将軍や管領への就任を断り、堺・大津・草津に代官を置くことを望んだ</span></span></li></ol>
+</figure>
+<section class="summary" aria-labelledby="pt"><h3 id="pt">この章の要点</h3><ul><li>13代将軍義輝は、大名どうしの争いを仲立ちするなどして、将軍の権威を取り戻そうとした。</li><li>1565年、三好義継と三好三人衆らが御所を襲い、義輝を殺した(永禄の変)。</li><li>義輝の弟の義昭は奈良を脱出し、近江・若狭・越前を渡り歩いて上洛を呼びかけた。一方、三人衆は義栄を14代将軍に立てた。</li><li>1568年、美濃を平定した織田信長が義昭を奉じて上洛し、義昭は15代将軍となった。</li></ul></section>
+<section class="column" aria-labelledby="col"><h3 id="col">コラム 「剣豪将軍」義輝の最期</h3>
+<p>義輝は剣術家の<span class="rb">塚原卜伝<span class="rt" aria-hidden="true">つかはらぼくでん</span></span>に学んだともいわれ、「剣豪将軍」として知られる。永禄の変では、足利家に伝わる名刀を何本も畳に突き立て、刃こぼれするたびに取り替えて敵を斬ったという話が有名である。</p>
+<p>しかし、この話がはっきり記されるのは、事件からかなり後に書かれた軍記物などであり、当時の確かな記録からは確認できない。</p>
+<p>宣教師ルイス・フロイスは、義輝が<span class="rb">薙刀<span class="rt" aria-hidden="true">なぎなた</span></span>や刀を手に奮戦したと書き残しているが、多くの部分は伝え聞きによるものである。「剣豪将軍」の姿には、非業の死をとげた将軍を惜しむ後世の人々の思いが重なっているのかもしれない。</p>
+</section>
+<div class="navs"><a href="mb_ch5.html">← 第5章</a><a href="index.html">目次</a><a href="mb_ch7.html">第7章 →</a></div>
+</main>
+<footer>第6章 スマホ版 ・ 全8章のうちの1章</footer>
+</div>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('rubyBtn');
+  b.addEventListener('click',function(){
+    var off=document.body.classList.toggle('noruby');
+    b.textContent=off?'ふりがな:なし':'ふりがな:あり';
+    b.setAttribute('aria-pressed',off?'false':'true');
+    if(!off&&window.fitRuby)window.fitRuby();
+  });
+})();
+</script>
+</body>
+</html>

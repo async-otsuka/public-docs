@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>戦国の室町幕府 第3章(スマホ版)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* スマホ優先の1カラム。カード枠をやめて画面幅を本文に使う。図は縦長に組み直す */
+  --paper:#FFFFFF; --ink:#1E2A3A; --sub:#5A6878; --navy:#1F4E8C; --teal:#2F7F86;
+  --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#D6E4F3;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.85;-webkit-text-size-adjust:100%}
+.wrap{max-width:520px;margin:0 auto}
+.topbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 20px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);font-size:13px;color:var(--sub)}
+.topbar button{font:inherit;font-size:13px;color:var(--navy);background:var(--sky);border:0;border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.topbar button:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+header.ch{background:var(--navy);color:#fff;padding:22px 20px 20px}
+header.ch .eyebrow{font-size:13px;letter-spacing:.15em;opacity:.85;margin:0 0 6px}
+header.ch h1{font-size:25px;line-height:1.4;font-weight:700;margin:0;text-wrap:balance}
+header.ch .lead{font-size:14.5px;line-height:1.7;margin:8px 0 0;opacity:.9}
+main{padding:0 20px 40px}
+h2{font-size:20px;line-height:1.5;font-weight:700;margin:40px 0 14px;padding-left:12px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{display:block;font-size:13px;color:var(--navy);font-weight:500}
+p{margin:0 0 1.15em}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.32em;transform:translateX(-50%);font-size:.5em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;letter-spacing:0;pointer-events:none}
+body.noruby .rt{display:none}
+.tl{list-style:none;margin:20px 0 0 6px;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:8px;padding:5px 0 5px 16px;font-size:15px;line-height:1.6}
+.tl li::before{content:"";position:absolute;left:-7px;top:12px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--navy)}
+.tl li.k::before{border-color:var(--teal)}
+.tl li.hl{font-weight:700}
+.tl li.hl::before{background:var(--navy)}
+.tl .y{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.tl li.k .y{color:var(--teal)}
+.tlnote{display:flex;gap:16px;font-size:12.5px;color:var(--sub);margin:8px 0 0 6px}
+.tlnote span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid var(--navy);margin-right:5px;vertical-align:-1px}
+.tlnote span.k::before{border-color:var(--teal)}
+.point{background:var(--sky);border-radius:10px;padding:14px 16px;margin:0 0 22px;font-size:15px;line-height:1.7}
+.point b{display:block;color:var(--navy);font-size:13px;margin-bottom:4px}
+.point ul{margin:0;padding-left:1.2em}
+figure{margin:26px -20px 28px;padding:16px 20px 12px;background:#F7FAFD;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+figure svg{display:block;width:100%;height:auto}
+.figt{font-size:15px;font-weight:700;margin:0 0 12px;line-height:1.5}
+.figt span{color:var(--navy);margin-right:8px}
+.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.back{margin-top:10px;font-size:14px;font-weight:700;color:var(--teal);display:flex;gap:6px;align-items:center}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+.summary{background:var(--sky);border-radius:10px;padding:16px 18px 10px;margin:36px 0 18px}
+.summary h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy)}
+.summary ul{margin:0;padding-left:1.2em;font-size:16px}
+.summary li{margin:0 0 .5em}
+.column{border:1.5px dashed #9AAABB;border-radius:10px;padding:16px 18px 4px;margin:18px 0 0}
+.column h3{color:var(--teal)}
+.column figure{margin:16px -18px 16px}
+footer{font-size:12.5px;color:var(--sub);text-align:center;padding:0 20px 40px}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+.tlh{font-size:15px;color:var(--navy);margin:1.6em 0 .2em}
+</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style></head>
+<body>
+<div class="wrap">
+<div class="topbar"><span>戦国の室町幕府 解説資料</span><button type="button" id="rubyBtn" aria-pressed="true">ふりがな:あり</button></div>
+<header class="ch">
+<p class="eyebrow">第三章 ・ 1549 ― 1564</p>
+<h1>三好政権 ― 将軍のいない京都</h1>
+<p class="lead">阿波から来た武将が、将軍に頼らず畿内を治めた</p>
+</header>
+<main>
+<ol class="tl" aria-label="この章の年表"><li class="hl"><span class="y">1549</span><span>長慶が京都を握る</span></li><li><span class="y">1552</span><span>義輝と長慶が和睦</span></li><li><span class="y">1553</span><span>義輝が近江の朽木へ</span></li><li><span class="y">1558</span><span>義輝と長慶が再び和睦</span></li><li class="k"><span class="y">1560</span><span>長慶が飯盛山城へ移る</span></li><li><span class="y">1562</span><span>三好実休が戦死</span></li><li><span class="y">1563</span><span>嫡男の三好義興が死去</span></li><li class="hl"><span class="y">1564</span><span>三好長慶が死去</span></li></ol>
+<figure><p class="figt"><span>図3-2</span>この章の登場人物</p>
+<div class="ppl"><div class="pg t"><h4>三好家</h4><ul><li><b><span class="rb">三好長慶<span class="rt" aria-hidden="true">みよしながよし</span></span></b><span class="pd">阿波の三好家の当主。将軍や管領の力に頼らず、畿内を治めた</span></li><li><b><span class="rb">三好実休<span class="rt" aria-hidden="true">みよしじっきゅう</span></span>・<span class="rb">安宅冬康<span class="rt" aria-hidden="true">あたぎふゆやす</span></span>・<span class="rb">十河一存<span class="rt" aria-hidden="true">そごうかずまさ</span></span></b><span class="pd">長慶の弟たち。四国や淡路、和泉を守り、兄を支えた</span></li><li><b><span class="rb">松永久秀<span class="rt" aria-hidden="true">まつながひさひで</span></span></b><span class="pd">長慶の家臣。京都の政務や大和の支配を任された</span></li></ul></div><div class="pg n"><h4>将軍家と細川家</h4><ul><li><b><span class="rb">足利義輝<span class="rt" aria-hidden="true">あしかがよしてる</span></span></b><span class="pd">13代将軍。長慶と争いと和睦を繰り返す</span></li><li><b><span class="rb">細川晴元<span class="rt" aria-hidden="true">ほそかわはるもと</span></span></b><span class="pd">長慶に京都を追われた元の主君</span></li><li><b><span class="rb">細川氏綱<span class="rt" aria-hidden="true">ほそかわうじつな</span></span></b><span class="pd">長慶に擁立された細川家の当主。実権は長慶が握った</span></li></ul></div></div>
+</figure>
+<h2><span class="no">第1節</span>京都を握った三好長慶</h2>
+<div class="point"><b>この節のポイント</b><ul><li>長慶は主君の晴元を追い、京都を押さえた</li><li>細川氏綱を当主に立てたが、実権は長慶にあった</li><li>1552年、義輝と和睦した</li></ul></div>
+<p>1549年の<span class="rb">江口<span class="rt" aria-hidden="true">えぐち</span></span>の戦いに勝った<span class="rb">三好長慶<span class="rt" aria-hidden="true">みよしながよし</span></span>は、主君だった<span class="rb">細川晴元<span class="rt" aria-hidden="true">ほそかわはるもと</span></span>と将軍<span class="rb">足利義輝<span class="rt" aria-hidden="true">あしかがよしてる</span></span>を<span class="rb">近江<span class="rt" aria-hidden="true">おうみ</span></span>へ追い、京都を押さえた。</p>
+<p>長慶は、手を結んだ<span class="rb">細川氏綱<span class="rt" aria-hidden="true">ほそかわうじつな</span></span>を細川家の当主に立てたが、実際に京都と<span class="rb">畿内<span class="rt" aria-hidden="true">きない</span></span>を治めたのは長慶とその家臣たちであった。</p>
+<p>三好家はもともと<span class="rb">阿波<span class="rt" aria-hidden="true">あわ</span></span>の武士で、細川家の家臣にすぎなかった。その家臣が主君を追い、将軍まで京都から退けたのである。1552年、長慶は義輝と和睦し、義輝は京都に戻った。</p>
+<p>長慶は形の上では将軍に仕える立場をとったが、両者の関係は長くは続かなかった。</p>
+<h2><span class="no">第2節</span>将軍のいない京都</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1553年、義輝は長慶に敗れ、近江の朽木に逃れた</li><li>長慶は将軍を立てずに約5年京都を治めた</li><li>将軍がいなくても京都の政治は動いた</li></ul></div>
+<p>1553年、義輝は晴元と手を結んで長慶に挑み、東山の<span class="rb">霊山城<span class="rt" aria-hidden="true">りょうぜんじょう</span></span>に立てこもったが、長慶に攻められて近江の<span class="rb">朽木<span class="rt" aria-hidden="true">くつき</span></span>へ逃れた。義輝はここで約5年を過ごすことになる。</p>
+<p>このとき長慶は、新たな将軍を立てなかった。これまで将軍を追った者は、必ず別の将軍候補を担いできた。長慶は<span class="rb">摂津<span class="rt" aria-hidden="true">せっつ</span></span>の<span class="rb">芥川山城<span class="rt" aria-hidden="true">あくたがわやまじょう</span></span>を居城とし、将軍がいないまま京都とその周辺を治めた。</p>
+<p>寺社や公家の争いを裁き、命令書を出したのは長慶とその家臣たちである。将軍がいなくても京都の政治が動くことを、長慶は示したのであった。</p>
+<figure><p class="figt"><span>図3-3</span>長慶と将軍義輝の関係</p>
+<ol class="steps"><li><span class="num t">1</span><span><b>1549年 江口の戦い</b><span class="d">長慶が京都を握り、義輝と晴元は近江へ逃れる</span></span></li><li><span class="num t">2</span><span><b>1552年 和睦</b><span class="d">義輝が京都に戻る。長慶は将軍に仕える形をとる</span></span></li><li><span class="num t">3</span><span><b>1553年 決裂</b><span class="d">義輝は晴元と結んで挙兵するが敗れ、近江の朽木へ。以後5年、京都に将軍がいない</span></span></li><li><span class="num t">4</span><span><b>1558年 再び和睦</b><span class="d">近江の六角氏の仲立ちで、義輝が京都に戻る</span></span></li><li><span class="num t">5</span><span><b>1560年代</b><span class="d">長慶は将軍の御相伴衆に加わり、将軍を立てつつ実権を握る</span></span></li></ol>
+</figure>
+<h2><span class="no">第3節</span>三好政権の広がり</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1558年、六角氏の仲立ちで義輝が京都に戻った</li><li>長慶は飯盛山城に移り、河内・大和にも勢力を広げた</li><li>松永久秀など家臣が各地の支配を担った</li></ul></div>
+<p>1558年、義輝は<span class="rb">六角義賢<span class="rt" aria-hidden="true">ろっかくよしかた</span></span>の支援を受けて京都の<span class="rb">北白川<span class="rt" aria-hidden="true">きたしらかわ</span></span>で長慶と戦ったが決着がつかず、義賢の仲立ちで和睦して京都に戻った。長慶はその後、将軍の<span class="rb">御相伴衆<span class="rt" aria-hidden="true">おしょうばんしゅう</span></span>という高い家格を与えられ、将軍を立てつつ実権を握る形をとった。</p>
+<figure><p class="figt"><span>図3-4</span>三好政権の主な拠点</p>
+<svg viewBox="0 0 360 365" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>三好政権の主な拠点</title><desc>三好家の勢力は、畿内から四国の阿波・讃岐、淡路にまたがっていた。位置はおおよそ</desc><rect width="360" height="365" fill="#EAF2FB"/><path d="M193.6,0L194,0.7L194.9,0L360,0L360,365L148.9,365L150.1,363.8L149.4,362.6L145.8,362.6L145,358.1L148.6,354.9L153,354.5L155.8,353.3L160.9,350.4L162.3,346.7L162.3,343.5L160.9,341L152.2,337L148.6,336.5L153,328.4L155.8,326.8L155.8,323.5L154.4,319.8L159.4,319.4L167.4,320.2L168.1,316.6L163,307.6L159.4,308L157.3,297.8L148.6,290L142.2,288.4L144.3,283.9L150.8,276.1L171.7,270L181,261.8L194,249.1L200.5,239.7L204.8,235.6L204.8,227.4L208.4,226.2L209.8,223.7L212,222.1L212.7,218L212.7,212.6L213.4,205.3L211.3,199.1L210.6,193.4L212.7,185.1L209.8,186.8L206.2,188L202.6,186L198.3,181L187.5,181.9L187.5,188L181,188.8L181,183.1L173.8,185.6L178.2,195.4L172.4,194.2L171,188.8L167.4,189.2L166.6,195L152.2,197.9L145.8,200.7L139.3,201.6L133.5,197.5L125.6,197.5L122,197L117.7,191.3L111.2,188.8L107.6,185.6L96.8,178.2L90.3,175.7L82.4,169.5L78.8,167.1L69.4,164.6L43.5,167.1L39.9,165.4L37.7,167.1L34.9,168.7L31.3,168.3L29.1,167.5L28.4,165.4L28.4,162.1L25.5,163.4L24.1,166.2L24.1,168.3L21.2,168.7L16.1,175.7L14.7,176.9L11.8,176.9L9.7,175.7L8.2,174L6.1,173.6L3.9,174.5L1.7,176.5L0.3,179.4L1,181.9L0,181.9L0,0ZM130.6,205.7L135.7,209.8L135.7,212.6L133.5,215.9L130.6,219.2L129.2,224.5L127,230.7L121.3,235.6L110.5,251.6L109.7,260.6L109,262.6L109.7,265.5L109.7,268.3L113.3,271.2L114.1,275.3L115.5,278.2L119.8,283.5L122,287.6L117.7,289.2L111.9,290.8L106.9,293.7L101.1,295.7L96.8,298.2L90.3,304.3L80.2,306.4L75.9,306.8L75.2,302.3L70.9,300.2L70.1,299.4L73,294.9L74.5,291.7L67.3,294.1L62.9,288.8L61.5,283.1L63.7,279.8L66.5,273.7L70.9,274.9L74.5,273.3L89.6,244.6L94.6,241.3L98.2,239.3L100.4,237.6L103.3,231.9L104,229.5L106.9,224.5L117.7,219.6L126.3,206.9ZM0,219L1,218.8L3.2,218.8L3.2,218.8L2.5,220.8L3.2,222.9L4.6,228.6L3.9,235.6L0,247.5L0,219ZM0,292.8L1.7,293.3L6.8,292.5L9.7,292.5L11.1,296.1L13.3,298.6L18.3,302.7L24.1,302.7L29.1,298.6L42.1,299.4L46.4,297.4L48.5,297L51.4,292.1L52.1,294.9L50,297.8L48.5,301L52.1,300.6L55.7,296.6L59.3,294.9L57.9,298.6L55.7,302.3L55,304.3L55,305.9L55.7,307.6L51.4,308.4L53.6,308.8L55.7,310L58.6,309.6L57.2,312.9L55,316.6L54.3,320.2L50.7,325.9L50.7,332.5L51.4,336.5L50.7,337.4L48.5,343.5L49.3,345.5L50,350.4L50.7,352.4L52.1,353.7L55,353.3L55,350.8L57.2,350.4L62.2,360.2L69.4,364.7L69.2,365L0,365Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><path d="M364,-17.2L384,12.3L374,44.1L346,76L320,98L308,115.1L306,102.8L316,80.9L330,56.4L336,29.4L346,0Z" fill="#CFE0F3" stroke="#9CBBE0" stroke-width=".8"/><text x="-20" y="352.9" text-anchor="middle" style="font-size:12.8px;font-weight:700;letter-spacing:.2em" fill="#9AA6B4">阿波</text><text x="196" y="139.5" text-anchor="middle" style="font-size:11.9px;font-weight:700;letter-spacing:.2em" fill="#9AA6B4">摂津</text><text x="302" y="244" text-anchor="middle" style="font-size:12.8px;font-weight:700;letter-spacing:.2em" fill="#9AA6B4">大和</text><defs><marker id="arch3n360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="arch3t360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="arch3k360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="arch3g360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><circle cx="282.0" cy="107.7" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="282.0" y="111.7" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">1</text><circle cx="316.0" cy="24.5" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="316.0" y="28.5" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">2</text><circle cx="250.0" cy="140.7" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="250.0" y="144.7" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">3</text><circle cx="262.0" cy="176.0" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="262.0" y="180.0" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">4</text><circle cx="264.0" cy="205.2" r="9" fill="#5A6878" stroke="#fff" stroke-width="1.2"/><text x="264.0" y="209.2" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">5</text><circle cx="296.0" cy="185.7" r="9" fill="#5A6878" stroke="#fff" stroke-width="1.2"/><text x="296.0" y="189.7" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">6</text><circle cx="226.0" cy="213.7" r="9" fill="#5A6878" stroke="#fff" stroke-width="1.2"/><text x="226.0" y="217.7" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">7</text><circle cx="40.0" cy="321.5" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="40.0" y="325.5" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">8</text><circle cx="110.0" cy="270.7" r="9" fill="#5A6878" stroke="#fff" stroke-width="1.2"/><text x="110.0" y="274.7" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">9</text></svg><ol class="mapl"><li><i class="n">1</i>京都</li><li><i class="n">2</i>近江・朽木<span class="pd">1553〜58 義輝が滞在</span></li><li><i class="t">3</i>芥川山城<span class="pd">1553〜 長慶の居城</span></li><li><i class="t">4</i>飯盛山城<span class="pd">1560〜 長慶の居城</span></li><li><i class="g">5</i>信貴山城<span class="pd">松永久秀</span></li><li><i class="g">6</i>多聞山城(奈良)<span class="pd">松永久秀</span></li><li><i class="g">7</i>堺</li><li><i class="t">8</i>阿波・勝瑞<span class="pd">三好家の本拠</span></li><li><i class="g">9</i>淡路<span class="pd">安宅冬康</span></li></ol><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">三好家の勢力は、畿内から四国の阿波・讃岐、淡路にまたがっていた。位置はおおよそ</p>
+</figure>
+<p>長慶は1560年に<span class="rb">河内<span class="rt" aria-hidden="true">かわち</span></span>を平定し、居城を河内の<span class="rb">飯盛山城<span class="rt" aria-hidden="true">いいもりやまじょう</span></span>に移した。三好家の勢力は、畿内から四国の阿波・<span class="rb">讃岐<span class="rt" aria-hidden="true">さぬき</span></span>、<span class="rb">淡路<span class="rt" aria-hidden="true">あわじ</span></span>にまでまたがった。</p>
+<p>弟の<span class="rb">三好実休<span class="rt" aria-hidden="true">みよしじっきゅう</span></span>が阿波を、<span class="rb">安宅冬康<span class="rt" aria-hidden="true">あたぎふゆやす</span></span>が淡路を、<span class="rb">十河一存<span class="rt" aria-hidden="true">そごうかずまさ</span></span>が<span class="rb">和泉<span class="rt" aria-hidden="true">いずみ</span></span>を守り、家臣の<span class="rb">松永久秀<span class="rt" aria-hidden="true">まつながひさひで</span></span>は<span class="rb">大和<span class="rt" aria-hidden="true">やまと</span></span>に進出して<span class="rb">信貴山城<span class="rt" aria-hidden="true">しぎさんじょう</span></span>や奈良の<span class="rb">多聞山城<span class="rt" aria-hidden="true">たもんやまじょう</span></span>を築いた。</p>
+<p>この時期、<span class="rb">越後<span class="rt" aria-hidden="true">えちご</span></span>の<span class="rb">長尾景虎<span class="rt" aria-hidden="true">ながおかげとら</span></span>(のちの<span class="rb">上杉謙信<span class="rt" aria-hidden="true">うえすぎけんしん</span></span>)や<span class="rb">尾張<span class="rt" aria-hidden="true">おわり</span></span>の織田信長が上洛して義輝に会っている。京都にはなお、将軍の権威を求めて人々が集まっていた。</p>
+<h2><span class="no">第4節</span>長慶の死と残された火種</h2>
+<div class="point"><b>この節のポイント</b><ul><li>弟や嫡男が相次いで亡くなった</li><li>1564年、長慶は43歳で病死した</li><li>若い当主の義継を、三好三人衆と松永久秀が支えた</li></ul></div>
+<p>しかし三好家の繁栄は長くは続かなかった。1561年に十河一存が病死し、翌年には三好実休が和泉の<span class="rb">久米田<span class="rt" aria-hidden="true">くめだ</span></span>の戦いで戦死した。1563年には跡継ぎの<span class="rb">三好義興<span class="rt" aria-hidden="true">みよしよしおき</span></span>が22歳で病死する。</p>
+<p>1564年5月、長慶は弟の安宅冬康を飯盛山城で殺し、その2か月後に自らも43歳で世を去った。</p>
+<figure><p class="figt"><span>図3-5</span>相次いだ三好一族の死</p>
+<div class="card t" style="margin-bottom:10px"><div class="hd">長慶の晩年(1561〜1564)</div><div class="bd"><div class="rows"><div><b>1561年</b><span>弟の十河一存が病死</span></div><div><b>1562年</b><span>弟の三好実休が和泉の久米田の戦いで戦死</span></div><div><b>1563年</b><span>嫡男の三好義興が22歳で病死</span></div><div><b>1564年5月</b><span>弟の安宅冬康を飯盛山城で殺害</span></div><div><b>1564年7月</b><span>長慶が43歳で死去</span></div></div></div></div>
+</figure>
+<p>跡を継いだのは、一存の子で長慶の養子となった<span class="rb">三好義継<span class="rt" aria-hidden="true">みよしよしつぐ</span></span>である。まだ若い義継を、<span class="rb">三好長逸<span class="rt" aria-hidden="true">みよしながやす</span></span>・<span class="rb">三好宗渭<span class="rt" aria-hidden="true">みよしそうい</span></span>・<span class="rb">岩成友通<span class="rt" aria-hidden="true">いわなりともみち</span></span>の「三好三人衆」と松永久秀が支えることになった。</p>
+<p>長慶という重しを失った三好家と将軍義輝の間には、まもなく大きな事件が起こる(第6章)。</p>
+<section class="summary" aria-labelledby="pt"><h3 id="pt">この章の要点</h3><ul><li>1549年、三好長慶は主君の細川晴元と将軍義輝を京都から追い、細川家の家臣の立場から畿内の支配者となった。</li><li>1553年から約5年、長慶は新たな将軍を立てずに京都を治め、将軍がいなくても政治が動くことを示した。</li><li>長慶は飯盛山城を拠点に、畿内から阿波・讃岐・淡路にまたがる勢力を築き、一族や松永久秀に各地を任せた。</li><li>一族の死が相次ぎ、1564年に長慶が死去すると、三好家は若い義継と三好三人衆・松永久秀に託された。</li></ul></section>
+<section class="column" aria-labelledby="col"><h3 id="col">コラム 「天下」とはどこか</h3>
+<p>戦国時代の手紙や記録には「天下」という言葉がよく出てくる。</p>
+<p>現代の私たちは日本全国のことだと考えがちだが、近年の研究では、この時代の「天下」は、京都を中心とする畿内や、将軍が治める範囲を指すことが多かったと考えられている。</p>
+<p>この見方に立つと、京都と畿内を治めた三好長慶は、まさに「天下」を握った人物ということになる。研究者の中には、長慶を織田信長より前の「天下人」とみる人もいる。</p>
+<p>信長が「<span class="rb">天下布武<span class="rt" aria-hidden="true">てんかふぶ</span></span>」の印を使い始めたのも、全国統一の宣言というより、京都と畿内に秩序をもたらす意志を示したものだと考える説がある。</p>
+</section>
+<div class="navs"><a href="mb_ch2.html">← 第2章</a><a href="index.html">目次</a><a href="mb_ch4.html">第4章 →</a></div>
+</main>
+<footer>第3章 スマホ版 ・ 全8章のうちの1章</footer>
+</div>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('rubyBtn');
+  b.addEventListener('click',function(){
+    var off=document.body.classList.toggle('noruby');
+    b.textContent=off?'ふりがな:なし':'ふりがな:あり';
+    b.setAttribute('aria-pressed',off?'false':'true');
+    if(!off&&window.fitRuby)window.fitRuby();
+  });
+})();
+</script>
+</body>
+</html>

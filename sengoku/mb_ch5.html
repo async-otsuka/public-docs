@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>戦国の室町幕府 第5章(スマホ版)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* スマホ優先の1カラム。カード枠をやめて画面幅を本文に使う。図は縦長に組み直す */
+  --paper:#FFFFFF; --ink:#1E2A3A; --sub:#5A6878; --navy:#1F4E8C; --teal:#2F7F86;
+  --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#D6E4F3;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.85;-webkit-text-size-adjust:100%}
+.wrap{max-width:520px;margin:0 auto}
+.topbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 20px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);font-size:13px;color:var(--sub)}
+.topbar button{font:inherit;font-size:13px;color:var(--navy);background:var(--sky);border:0;border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.topbar button:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+header.ch{background:var(--navy);color:#fff;padding:22px 20px 20px}
+header.ch .eyebrow{font-size:13px;letter-spacing:.15em;opacity:.85;margin:0 0 6px}
+header.ch h1{font-size:25px;line-height:1.4;font-weight:700;margin:0;text-wrap:balance}
+header.ch .lead{font-size:14.5px;line-height:1.7;margin:8px 0 0;opacity:.9}
+main{padding:0 20px 40px}
+h2{font-size:20px;line-height:1.5;font-weight:700;margin:40px 0 14px;padding-left:12px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{display:block;font-size:13px;color:var(--navy);font-weight:500}
+p{margin:0 0 1.15em}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.32em;transform:translateX(-50%);font-size:.5em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;letter-spacing:0;pointer-events:none}
+body.noruby .rt{display:none}
+.tl{list-style:none;margin:20px 0 0 6px;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:8px;padding:5px 0 5px 16px;font-size:15px;line-height:1.6}
+.tl li::before{content:"";position:absolute;left:-7px;top:12px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--navy)}
+.tl li.k::before{border-color:var(--teal)}
+.tl li.hl{font-weight:700}
+.tl li.hl::before{background:var(--navy)}
+.tl .y{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.tl li.k .y{color:var(--teal)}
+.tlnote{display:flex;gap:16px;font-size:12.5px;color:var(--sub);margin:8px 0 0 6px}
+.tlnote span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid var(--navy);margin-right:5px;vertical-align:-1px}
+.tlnote span.k::before{border-color:var(--teal)}
+.point{background:var(--sky);border-radius:10px;padding:14px 16px;margin:0 0 22px;font-size:15px;line-height:1.7}
+.point b{display:block;color:var(--navy);font-size:13px;margin-bottom:4px}
+.point ul{margin:0;padding-left:1.2em}
+figure{margin:26px -20px 28px;padding:16px 20px 12px;background:#F7FAFD;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+figure svg{display:block;width:100%;height:auto}
+.figt{font-size:15px;font-weight:700;margin:0 0 12px;line-height:1.5}
+.figt span{color:var(--navy);margin-right:8px}
+.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.back{margin-top:10px;font-size:14px;font-weight:700;color:var(--teal);display:flex;gap:6px;align-items:center}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+.summary{background:var(--sky);border-radius:10px;padding:16px 18px 10px;margin:36px 0 18px}
+.summary h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy)}
+.summary ul{margin:0;padding-left:1.2em;font-size:16px}
+.summary li{margin:0 0 .5em}
+.column{border:1.5px dashed #9AAABB;border-radius:10px;padding:16px 18px 4px;margin:18px 0 0}
+.column h3{color:var(--teal)}
+.column figure{margin:16px -18px 16px}
+footer{font-size:12.5px;color:var(--sub);text-align:center;padding:0 20px 40px}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+.tlh{font-size:15px;color:var(--navy);margin:1.6em 0 .2em}
+</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style></head>
+<body>
+<div class="wrap">
+<div class="topbar"><span>戦国の室町幕府 解説資料</span><button type="button" id="rubyBtn" aria-pressed="true">ふりがな:あり</button></div>
+<header class="ch">
+<p class="eyebrow">第五章 ・ 1523 ― 1571</p>
+<h1>鉄砲とキリスト教 ― 世界とつながる日本</h1>
+<p class="lead">銀を求めて、海の向こうから新しいものがやってきた</p>
+</header>
+<main>
+<ol class="tl" aria-label="この章の年表"><li><span class="y">1523</span><span>寧波の乱</span></li><li class="k"><span class="y">1526</span><span>石見銀山の開発が始まる</span></li><li class="hl"><span class="y">1543</span><span>種子島に鉄砲が伝わる</span></li><li><span class="y">1547</span><span>最後の遣明船が出る</span></li><li class="hl"><span class="y">1549</span><span>ザビエルが鹿児島に上陸</span></li><li class="k"><span class="y">1550</span><span>ポルトガル船が平戸に来航</span></li><li><span class="y">1563</span><span>大村純忠が洗礼を受ける</span></li><li class="k"><span class="y">1571</span><span>長崎の港が開かれる</span></li></ol>
+<figure><p class="figt"><span>図5-2</span>この章の登場人物</p>
+<div class="ppl"><div class="pg g"><h4>海をめぐる人々</h4><ul><li><b><span class="rb">王直<span class="rt" aria-hidden="true">おうちょく</span></span></b><span class="pd">明の商人。倭寇の頭目として知られ、平戸や五島列島を拠点にした</span></li><li><b><span class="rb">神屋寿禎<span class="rt" aria-hidden="true">かみやじゅてい</span></span></b><span class="pd">博多の商人。石見銀山を開発し、新しい精錬法を導入した</span></li></ul></div><div class="pg n"><h4>鉄砲とキリスト教を迎えた人々</h4><ul><li><b><span class="rb">種子島時尭<span class="rt" aria-hidden="true">たねがしまときたか</span></span></b><span class="pd">種子島の領主。ポルトガル人から鉄砲を買い、家臣に作らせた</span></li><li><b><span class="rb">大内義隆<span class="rt" aria-hidden="true">おおうちよしたか</span></span>・<span class="rb">大友義鎮<span class="rt" aria-hidden="true">おおともよししげ</span></span>(<span class="rb">宗麟<span class="rt" aria-hidden="true">そうりん</span></span>)</b><span class="pd">山口と豊後の大名。ザビエルに布教を許した</span></li><li><b><span class="rb">大村純忠<span class="rt" aria-hidden="true">おおむらすみただ</span></span></b><span class="pd">肥前の大名。最初のキリシタン大名となり、長崎を開いた</span></li></ul></div><div class="pg t"><h4>ヨーロッパから来た人々</h4><ul><li><b>フランシスコ・ザビエル</b><span class="pd">イエズス会の宣教師。1549年に日本にキリスト教を伝えた</span></li><li><b>ルイス・フロイス</b><span class="pd">イエズス会の宣教師。1563年に来日し、記録『日本史』を残した</span></li></ul></div></div>
+</figure>
+<h2><span class="no">第1節</span>勘合貿易の終わりと倭寇</h2>
+<div class="point"><b>この節のポイント</b><ul><li>寧波の乱の後、大内氏が勘合貿易を独占した</li><li>1551年に大内氏が倒れ、勘合貿易は途絶えた</li><li>中国人を中心とする倭寇が密貿易を広げた</li></ul></div>
+<p>室町幕府が始めた明との<span class="rb">勘合貿易<span class="rt" aria-hidden="true">かんごうぼうえき</span></span>は、戦国時代には大名の手に移っていた。1523年、大内氏と細川氏がそれぞれ送った使節が、明の港の<span class="rb">寧波<span class="rt" aria-hidden="true">ニンポー</span></span>で衝突した。大内方は細川方の船を焼き、明の役人まで殺害した。</p>
+<p>これを寧波の乱という。その後、勘合貿易は大内氏が独占したが、1551年に<span class="rb">大内義隆<span class="rt" aria-hidden="true">おおうちよしたか</span></span>が<span class="rb">陶晴賢<span class="rt" aria-hidden="true">すえはるかた</span></span>に背かれて自害すると(第4章)、正式な貿易は途絶えた。最後の遣明船は1547年に出たものである。</p>
+<p>一方で、海の上では<span class="rb">倭寇<span class="rt" aria-hidden="true">わこう</span></span>の活動が激しくなった。明は民間の海外貿易を厳しく禁じていたため、それを破って密貿易を行う者たちが沿岸を荒らしたのである。この時期の倭寇は、日本人よりも中<span class="rb">国人<span class="rt" aria-hidden="true">こくじん</span></span>が多かったとされる。</p>
+<p>その頭目として知られる<span class="rb">王直<span class="rt" aria-hidden="true">おうちょく</span></span>は、<span class="rb">肥前<span class="rt" aria-hidden="true">ひぜん</span></span>の<span class="rb">平戸<span class="rt" aria-hidden="true">ひらど</span></span>や<span class="rb">五島<span class="rt" aria-hidden="true">ごとう</span></span>列島を拠点に、日本・中国・東南アジアを結ぶ交易を行った。</p>
+<h2><span class="no">第2節</span>石見銀山と「銀の島」</h2>
+<div class="point"><b>この節のポイント</b><ul><li>石見銀山は1526年に開発された</li><li>灰吹法という精錬法で、銀の生産が急増した</li><li>日本の銀は東アジアの交易を動かした</li></ul></div>
+<p>この時代の日本を語るうえで欠かせないのが銀である。1526年、<span class="rb">博多<span class="rt" aria-hidden="true">はかた</span></span>の商人<span class="rb">神屋寿禎<span class="rt" aria-hidden="true">かみやじゅてい</span></span>が<span class="rb">石見<span class="rt" aria-hidden="true">いわみ</span></span>銀山の開発に乗り出し、1533年には朝鮮から伝わったとされる<span class="rb">灰吹法<span class="rt" aria-hidden="true">はいふきほう</span></span>という精錬法を導入した。これにより銀の産出量は飛躍的に増えた。</p>
+<p>明では税を銀で納める仕組みが広がり、銀の需要がきわめて大きかった。日本の銀は倭寇やポルトガル商人の手で中国へ運ばれ、代わりに生糸や絹織物が日本に入ってきた。</p>
+<p>16世紀後半から17世紀初めにかけて、日本の銀は世界の産出量の3分の1ほどを占めたとする推計もある。ヨーロッパの人々が日本を「銀の島」として注目した背景には、この銀があった。</p>
+<figure><p class="figt"><span>図5-3</span>16世紀の東アジアの交易</p>
+<svg viewBox="0 0 360 314" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>16世紀の東アジアの交易</title><desc>経路はおおよそ。倭寇は朝鮮半島から中国南部の沿岸一帯で活動した</desc><rect width="360" height="314" fill="#EAF2FB"/><path d="M360,94.9L357.4,95.3L353.8,96.2L354,95.5L357,94.1L356.8,92.9L353.4,93.1L352,92.2L352.1,93.8L351.1,93.6L351.3,92.4L350.9,88L348.6,89.3L346.4,94.6L347.5,96.1L351.2,98.8L350.9,100.6L346.5,101.8L343.5,103.1L342.6,104.5L339.8,109.9L337.7,113.6L334.5,114.9L331.1,113.7L329.6,110.9L327.2,107.9L326.5,106L326.6,103.1L326.1,101.2L328.5,99.7L330.1,97.6L330.6,95.6L329.7,95L325.3,95.4L323.7,94.9L321,93.1L318.9,93L313.5,94.2L310.2,97.1L308.8,97.7L306,97.9L302.7,98.8L298.5,101L296.7,100.5L293.3,101.8L291.6,102L288.3,100.1L286.8,100.6L285.7,102.3L284.4,108.9L283.6,108.6L278.7,105.3L274.9,105.8L271.5,107L269.3,105.8L267.1,106.6L266.7,101.7L268.3,99.5L271.9,99.5L273.2,99.1L276.8,95.7L280.3,93.8L283.3,90.8L286,88.6L291.1,83.7L292.2,81.8L295.4,80.2L298.7,79.4L300.3,79.4L301.8,81.1L305.2,80.2L308.6,80.5L313.6,79.7L317,78.2L323,77.6L327.2,76.1L328.5,76.5L328,78.8L329.3,79.9L334.3,80.3L337.5,78.6L340.2,75.7L339.1,73.9L338.9,71.9L341,67.8L343.9,65.4L348.7,58.7L349.4,55L349,50.6L350.7,47.4L355.8,45.3L357.5,44.9L357.7,46.4L355.1,49.1L351.9,51.1L351.5,52L352.9,53.7L353.2,57L354.7,58.1L357.8,58.2L360,55.2L360,94.9ZM315.7,101.8L317.6,102.5L319.6,102.3L319.6,105.4L320.4,107.4L320.1,108.8L321,109.2L318.3,110.8L315.9,112.8L314,115.7L313.2,118.9L310,115.5L308.5,114.8L305.4,114.5L300.5,117L299.8,118.9L297.9,122.6L296.7,123.4L296.1,125.7L294.6,127.2L291.4,127.1L292.4,124.7L289.3,124.5L289.3,123L288.4,122.1L289.1,121L289.6,118.1L288.1,117.5L288.2,115.8L286.3,116.1L283.6,117.4L284,116.4L286.4,115.2L291.4,111.4L293.4,106.3L295.6,104.5L296.3,104.7L298.4,107.4L301.4,106.5L303.2,106.6L304.7,105.9L305.5,103.9L305,102L306.5,102.1L309.9,100.2L311.6,100.1ZM270.7,112.9L272.6,113.4L274.1,113.2L276.5,112.1L278,112.9L278.2,114.6L275.8,118.5L280.9,118.8L280.2,121.1L281.7,122.3L281.1,123.5L282.5,124.5L282,125.7L278.6,129.9L277.5,132.1L276.2,136.1L274.7,141.8L274.7,145.3L273,149.7L269.3,149.2L268.7,150.2L269.6,152.2L266.9,154.6L263.8,156.2L265.3,151.9L264.1,146.9L265.1,146.4L265.1,144.7L263.4,144.5L262,147.1L261.6,148.8L262.1,150.6L263.2,152L262.4,153.4L257,151.6L256.2,149.7L258.3,149L258.7,146.5L256.7,143.7L257.1,142.3L256.8,138.3L258.6,137.5L260.7,134.8L263.2,129.5L261.2,128.9L262.1,127.6L261.8,125.9L260.4,123.9L259.5,121.5L257.5,120.1L255.9,121.3L256.5,122.9L256.6,125.6L258.7,125.6L258.9,128.1L257.6,128.5L256.2,127.3L254.9,126.9L253.4,127.8L250.9,130.3L251.7,127.7L249.7,125.2L249.6,122.1L251,123.4L251.7,124.9L254,125.6L252.7,122.7L248.2,119.1L248.6,117.3L249.3,116.9L251.9,117.7L251.7,115.7L255.1,114.3L256.5,113L259.3,112.4L261,109L264.2,107.4L267.6,108.3L269,111.7ZM127.2,289.1L125.6,292.8L125.4,296.4L124.8,299.7L123.4,299.3L122.7,298.1L122.5,296.2L121.1,293.1L117.5,290.3L116.2,287.6L115.1,283.7L114,281L114.9,277.2L114.8,273.3L121.8,260.5L125.7,255.3L127.7,251.9L132.2,249.9L133.4,248.5L135.4,248.1L136.8,249.6L139.1,250.8L140.2,252.8L139.1,254L138.5,256.4L138.7,259.6L137.5,263.5L136.1,265.9L134.5,273L133.8,276.8L132.7,280.7L131.2,283.8L129.3,286.7ZM225.6,0L225.4,0.1L224,1.9L219.8,4L219.2,5.6L219.5,9.9L219.1,11.4L218.2,11L217.2,12.9L217.4,14.5L222.8,16.8L225.5,20.2L229.4,22.9L231.2,25.1L234.6,33.2L237.9,38.4L240.7,42.1L244.8,49.3L245.9,53.1L246,55.4L246.7,58.7L246.1,60.5L246.3,63.5L245.6,66L245.7,70.8L246.5,71.6L248.1,70.8L248,72.6L245.9,80.4L244.7,83.3L243,85.9L239.7,87.3L237.1,87.4L234.9,87L233.1,87.3L231.8,88.8L232.1,91.3L227.2,90.2L226.4,88.6L224.1,89.6L221.8,89.8L220.8,90.9L222.2,92.8L220.7,94.4L219.1,91.8L217.5,92.1L217.3,93.5L218.5,95.5L216.3,98.2L214.2,96.8L215.4,94.9L215.3,93.2L212.2,95.8L210.3,98.7L208.3,97.4L206.3,99.3L205.9,100.7L204.8,100.2L204.4,97.7L202.4,96.1L201.4,94.6L201.9,93.8L205.1,94.2L204.3,93.2L206,92.1L203.6,92.1L203.3,90.2L201.8,86.4L202.7,85.3L204.6,80.4L206.3,79.2L204.5,78.6L204.6,77.8L207.8,75.7L208.3,73.9L206.8,73.1L207.4,71.4L205.3,68.8L205.5,67.6L205.4,63.3L204.6,59.5L203.1,60.3L200.2,59.6L199.9,58.1L200.7,56.4L202.6,54.9L205.8,53.8L208.7,55.1L209.5,56.9L211.2,55.8L211.2,54.9L209.9,54.6L208.2,50.7L208.8,48.9L206.8,46.2L206.9,44.4L205.6,41.4L206.6,40.2L202.9,38.5L200.5,39.4L199.3,40.9L198.4,38.7L196.8,38.6L194.4,36.6L193.3,37L191.7,39.7L189.9,41.1L188.6,41.3L187.9,39.1L185,38.4L183.4,37.5L187,35.3L185.8,34.7L183.5,34.9L182.2,34.3L180.4,34.5L179.2,34L181.8,32.2L181.8,30.2L183.2,27.7L184.5,26.3L187.9,24.4L191.3,24L189.5,22.9L187.7,23L185.9,21.8L185.7,20.6L189.3,13.1L188.6,8.7L184.9,7.5L180.4,4.4L179.7,6.4L178.4,7.1L177.3,3.9L174.3,1.7L174.4,0L225.6,0ZM174.2,0L173.2,1.4L170.9,2.9L166,3.3L164.5,2.2L163.5,3.9L160.2,4.3L158.5,5.7L155.8,6L154.7,7L153,7.3L145.9,11.6L142.9,15.5L139.2,18.4L136.6,18.2L136,19.1L136.2,20.8L131.6,21.8L129.4,23.2L128.6,19.7L130.8,19L136.7,16.3L135.9,14.3L138.6,11.2L138.1,11L134.3,11.5L131,11.3L131.3,10L130.9,8.4L132.8,7L134.4,6.6L133.8,4.5L134.4,2.8L138.4,0.9L138.9,0L174.2,0ZM111.2,0L110.8,0.2L107.2,1.8L104.3,4.6L102.5,8.1L102,10.9L99.4,14.3L97.6,15.3L93.6,15.1L88.9,17.1L86.8,14.8L85.3,14.2L82.8,14.8L81.7,15.9L79.3,21L78.4,23.9L78.5,25.1L79.8,28.7L81.4,30.7L84.9,33L92.4,34.6L96,34.1L98,35.6L99.2,38L99.3,40.3L100.1,41.7L98.7,42.8L98.2,45.4L98.2,48.3L100.4,50.6L102.9,51.7L105.2,51.9L109.6,51.4L111.3,49.6L111.3,47.9L115.2,45.4L117.3,43.1L116.6,42.1L118.2,41.7L123.5,39.3L127.8,41.2L130.1,43.5L132.5,43.9L136.1,46L140.7,46.3L142,44.7L143.6,46L146,47L149.7,46.6L150.6,47L149.3,48.5L149.5,50.9L147.5,52.9L148.5,55.1L146,57.1L144.6,56.8L143.5,54.9L140.2,54.8L136.5,57L132.9,58.8L129.1,60.1L126.9,61.2L125.4,60.6L124.2,61L125.4,62.3L125.6,63.9L123.9,63.7L122.6,65.7L122.6,68.8L118.5,70.8L117.6,69.8L117.6,67.7L115.5,68.1L114.3,69.6L115.5,71.4L117,72L113.7,74.1L112.7,76.2L111,77.9L109,78.9L106.3,82.9L104.9,83.8L103.8,87.1L101.9,88.8L101.2,91.6L101.7,93.4L103.8,93.3L107.1,96.2L109.7,97.7L112.4,98.5L116.7,101.5L117.5,103.3L119,108.4L120,111L120.1,112.3L121.7,114.8L123.3,119.1L125.2,122.8L125.6,125.7L125,127.1L125,128.8L126.9,130.4L131.2,132.2L132.7,133.6L132.7,136.4L134,137.8L136.6,139L138.8,141.5L139.3,144.8L136.7,144.6L132,142.2L129.1,142.5L126.7,142L124.1,139.3L120.3,138.1L115.6,140.4L113.4,140.9L115.7,141.4L120,139.5L123,140.1L124,142.8L127.9,144.5L129.9,146L132,148.4L136.4,151.1L138.2,153.7L139.4,157.8L137.9,158.5L134.5,159L131.4,161.3L127,163.7L125.6,166.4L124.6,167L121.8,166.4L119.3,166.4L116.4,168.2L117.9,168.7L119.9,167.8L121.9,170.6L125.7,170.2L129.3,167.8L131.9,168.2L133.1,169.1L136.7,173.1L140.4,174.5L142.3,174.9L139.9,176.4L136.6,179.5L134.2,181.2L136.8,180.7L138.7,179.2L140.4,179.2L140.7,181.1L140,186.8L139.1,186.9L138.2,185.3L137.2,184.9L134.6,185.2L133.4,186.9L134.4,187.1L136.4,188.8L136.1,190.4L134.7,190.1L136.4,191.4L135.9,192.7L134.4,193.6L133.8,194.8L135.6,199.2L135.7,200.4L134.3,199.9L132.1,201.4L130.9,201.5L130.1,199.5L128.5,200.4L126.5,204.5L125.5,205L123.5,204.9L124.7,206.8L122.6,209.1L122.3,210.8L121.3,211.8L121.8,213.3L120.5,215.9L118.4,218.5L116.9,219.4L114.9,222.8L114.2,226.2L112.5,227.5L111.3,227.1L110,223.6L108.8,225.3L107.1,224.4L107.8,227L109.1,227.1L109.9,228.2L111.2,231.5L108.6,233L105.3,235.9L103.3,235.8L100.8,234.8L102.5,237.2L104.7,237.5L105.9,236.6L107.6,236.7L108,238L106.6,241.5L106.5,243.2L107.6,245.6L107.2,246.6L104.8,245.2L102.5,245.1L100.9,245.9L102.9,248.8L102.1,249.2L99.2,248.9L97.6,250.4L98.2,252.3L97.5,253.5L96.3,253.8L93.8,255.4L94.9,256.4L94,258.3L92.6,258.9L90.5,258.6L88.9,259.1L87.5,258.2L85.9,258.2L84.9,259.2L84.8,260.5L82.5,260.6L83,261.8L85.1,262L85.5,264.1L83.3,266.3L82.4,267.7L81,267.7L80,268.8L79.5,270.4L77.2,270.4L77.1,272L75.8,274.2L75.3,272.4L71.7,274.4L69.3,273.4L68.6,276.4L66.5,277.8L65.3,277.9L66.4,279.1L65.9,279.8L64.1,280.5L63.8,283.2L63.1,284.1L61.3,284.2L60,283.6L58.7,285L57.4,285.2L54.4,286.4L51.4,285.6L50.2,286L49.4,287.6L47.8,287.6L45.1,286.1L43.6,286.6L42.5,287.8L41.2,288.1L40.3,289.2L38.8,289L38.3,287.3L37.4,287.1L35.9,289.1L36.1,290.5L33,289.5L32,290.3L33,292.5L32,294.1L28.7,292.9L27.3,293L26.8,292.1L28.3,291.2L25.8,289.3L24.8,287.4L22.9,285.4L22.4,283L22.9,281.3L20.4,282.5L20.4,284.2L18.8,284.7L21.9,289.5L21.9,292.4L22.4,293.3L21.8,295.2L19.3,296.1L17.9,297.2L16.2,297.4L15.4,295.4L14.2,296.8L13.9,299.5L12.7,300.4L11.4,299.4L9.3,300.7L8.3,302L5.9,300.4L6.1,299.2L5.1,298.9L5.5,301.6L4.3,302.5L2.7,302.2L0.3,301L0,300.9L0,0ZM173.5,259.9L172.7,262.4L171.3,262.5L170.6,261.2L172.4,260.8L173.7,258.8ZM229.6,226.5L227.7,228.1L226.4,228.4L225.2,229.6L224,229.8L224.5,231.6L222.9,232.7L223.1,234.4L221,235.3L221,233.6L222,231.9L222,229.9L223,229.7L225.1,227.4L224.6,225.8L226.6,226.6L228.9,224.2L229.5,222.8L230.6,224ZM246.4,201.7L245.2,203L242.3,201.1L244.6,199.3L247.2,198.7L249.7,196.8L250,198.1L249.1,198.5L246.2,201ZM267.7,166.3L266.5,166.5L266.4,165.5L267.4,163.4L267.5,161.8L268.4,159.8L269.4,159.8L269,162.3L268.1,164.1ZM235.3,126.7L237.7,127.1L238.5,129L237,129.2L236.5,130.1L235.1,129.3ZM255.3,136L254.2,136.6L253.5,135.8L254.4,135L253.8,134.1L254.3,131.1L256.5,130.8L257,134.2ZM323.7,101.2L322.2,102.7L320.9,102.6L320,101.2L322.4,98.1L324.8,96.9L323.4,99.4ZM245.5,100.1L245.2,101L243.8,99.9L244.7,97.3L244.6,95.8L246.4,94.4L246.7,96.9L245.4,99.1ZM226.8,92.4L226.7,94.1L225.6,94.1L225.1,93.1L224.1,93.6L223.5,91.2L224.7,90.4L226.4,91.1ZM202.3,119.3L201,119.5L200,117.8L202.4,115.3L207.4,113.8L210.3,114.4L210.8,115.6L210,117.4L205.9,119.1ZM200.9,99.9L200,100.1L199.4,98.6L201.1,96.6L203,97.7L202.4,98.9ZM139.2,148.3L138.1,148.7L134.4,147.3L131.8,145.7L130,143.1L133.6,143.9L135.2,145.9L138.5,147.3Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><text x="63.5" y="148.1" text-anchor="middle" style="font-size:18.7px;font-weight:700;letter-spacing:.2em" fill="#9AA6B4">明</text><text x="220.2" y="25.5" text-anchor="middle" style="font-size:13.6px;font-weight:700;letter-spacing:.2em" fill="#9AA6B4">朝鮮</text><text x="194.8" y="189" text-anchor="middle" style="font-size:11.0px;font-weight:700;letter-spacing:.2em" fill="#9AA6B4">東シナ海</text><defs><marker id="arch5n360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="arch5t360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="arch5k360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="arch5g360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><path d="M253.5,116.1 Q189.9,128.9 141.1,171.8" fill="none" stroke="#1F4E8C" stroke-width="2" marker-end="url(#arch5n360)"/><path d="M27.4,291.2 Q156.3,233.3 242.3,121.2" fill="none" stroke="#2F7F86" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arch5t360)"/><circle cx="62.1" cy="1.8" r="9" fill="#5A6878" stroke="#fff" stroke-width="1.2"/><text x="62.1" y="5.8" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">1</text><circle cx="134.8" cy="174.9" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="134.8" y="178.9" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">2</text><circle cx="21.9" cy="295.5" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="21.9" y="299.5" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">3</text><circle cx="247.8" cy="116.9" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="247.8" y="120.9" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">4</text><line x1="259.8" y1="113" x2="259.8" y2="93.0" stroke="#1F4E8C" stroke-width="1.2"/><circle cx="259.8" cy="113" r="3" fill="#1F4E8C"/><circle cx="259.8" cy="93.0" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="259.8" y="97.0" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">5</text><line x1="274.9" y1="103.1" x2="294.9" y2="103.1" stroke="#1F4E8C" stroke-width="1.2"/><circle cx="274.9" cy="103.1" r="3" fill="#1F4E8C"/><circle cx="294.9" cy="103.1" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="294.9" y="107.1" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">6</text><line x1="288.6" y1="87.1" x2="288.6" y2="67.1" stroke="#B4532A" stroke-width="1.2"/><circle cx="288.6" cy="87.1" r="3" fill="#B4532A"/><circle cx="288.6" cy="67.1" r="9" fill="#B4532A" stroke="#fff" stroke-width="1.2"/><text x="288.6" y="71.1" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">7</text><circle cx="261.9" cy="146.5" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="261.9" y="150.5" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">8</text><line x1="268" y1="163" x2="285.3" y2="153.0" stroke="#B4532A" stroke-width="1.2"/><circle cx="268" cy="163" r="3" fill="#B4532A"/><circle cx="285.3" cy="153.0" r="9" fill="#B4532A" stroke="#fff" stroke-width="1.2"/><text x="285.3" y="157.0" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">9</text><circle cx="331.5" cy="96.4" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="331.5" y="100.4" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">10</text></svg><div class="legend"><span><i class="n"></i>勘合貿易(1547年まで)</span><span><i class="td"></i>南蛮貿易(ポルトガル船)</span></div><ol class="mapl"><li><i class="g">1</i>北京(明の都)</li><li><i class="n">2</i>寧波<span class="pd">勘合貿易の窓口</span></li><li><i class="t">3</i>マカオ<span class="pd">ポルトガルの拠点</span></li><li><i class="t">4</i>平戸・長崎<span class="pd">南蛮貿易の港</span></li><li><i class="n">5</i>博多</li><li><i class="n">6</i>山口(大内氏)</li><li><i class="k">7</i>石見銀山</li><li><i class="t">8</i>鹿児島<span class="pd">1549 ザビエル</span></li><li><i class="k">9</i>種子島<span class="pd">1543 鉄砲伝来</span></li><li><i class="n">10</i>堺</li></ol><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">経路はおおよそ。倭寇は朝鮮半島から中国南部の沿岸一帯で活動した</p>
+</figure>
+<h2><span class="no">第3節</span>鉄砲の伝来と広がり</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1543年、種子島にポルトガル人が鉄砲を伝えた</li><li>堺・国友・根来などで国産化された</li><li>鉄砲は戦い方や城の形を変えていった</li></ul></div>
+<p>1543年、九州の南の種子島に、ポルトガル人を乗せた中国船が流れ着いた。領主の<span class="rb">種子島時尭<span class="rt" aria-hidden="true">たねがしまときたか</span></span>は、ポルトガル人が持っていた鉄砲2挺を買い求め、家臣に使い方と火薬の作り方を学ばせた。</p>
+<p>また刀鍛冶に命じて同じものを作らせたという。この経緯は、のちにまとめられた『<span class="rb">鉄炮記<span class="rt" aria-hidden="true">てっぽうき</span></span>』に記されている。</p>
+<p>鉄砲はたちまち各地に広まった。<span class="rb">和泉<span class="rt" aria-hidden="true">いずみ</span></span>の堺、<span class="rb">近江<span class="rt" aria-hidden="true">おうみ</span></span>の<span class="rb">国友<span class="rt" aria-hidden="true">くにとも</span></span>、<span class="rb">紀伊<span class="rt" aria-hidden="true">きい</span></span>の<span class="rb">根来<span class="rt" aria-hidden="true">ねごろ</span></span>や<span class="rb">雑賀<span class="rt" aria-hidden="true">さいか</span></span>などが生産地となり、<span class="rb">戦国大名<span class="rt" aria-hidden="true">せんごくだいみょう</span></span>は競って鉄砲を買い集めた。鉄砲は<span class="rb">足軽<span class="rt" aria-hidden="true">あしがる</span></span>の部隊にもたせることで威力を発揮し、戦い方を変えていった。</p>
+<p>ただし、火薬の原料の<span class="rb">硝石<span class="rt" aria-hidden="true">しょうせき</span></span>や弾丸の鉛の多くは輸入に頼っており、海外との貿易を押さえることが、大名にとって重要な意味をもつようになった。</p>
+<figure><p class="figt"><span>図5-4</span>鉄砲の国内生産地</p>
+<div class="card n" style="margin-bottom:10px"><div class="hd">伝来から国産へ</div><div class="bd"><div class="rows"><div><b>種子島</b><span>1543年、時尭が2挺を買い、刀鍛冶に複製させる</span></div><div><b>堺(和泉)</b><span>商人の町。鉄砲と火薬の一大流通地</span></div><div><b>国友(近江)</b><span>鍛冶の村。のちに大名の注文を受ける産地に</span></div><div><b>根来・雑賀(紀伊)</b><span>寺院や地侍の集団が鉄砲で武装し、傭兵としても活躍</span></div></div></div></div>
+</figure>
+<h2><span class="no">第4節</span>キリスト教と南蛮貿易</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1549年、ザビエルが鹿児島に上陸した</li><li>大名の中にはキリスト教を保護し、信者になる者も現れた</li><li>ポルトガル船との南蛮貿易が盛んになった</li></ul></div>
+<p>1549年、イエズス会の宣教師フランシスコ・ザビエルが鹿児島に上陸し、日本にキリスト教を伝えた。ザビエルは平戸や山口で布教し、京都にも向かったが、戦乱で荒れた京都では天皇や将軍に会うことができなかった。</p>
+<p>その後、山口の大内義隆や<span class="rb">豊後<span class="rt" aria-hidden="true">ぶんご</span></span>の<span class="rb">大友義鎮<span class="rt" aria-hidden="true">おおともよししげ</span></span>(<span class="rb">宗麟<span class="rt" aria-hidden="true">そうりん</span></span>)の保護を受けて布教を進め、1551年に日本を離れた。その後も宣教師が次々に来日し、1560年には将軍義輝が京都での布教を認めている。</p>
+<p>キリスト教の広がりは、<span class="rb">南蛮<span class="rt" aria-hidden="true">なんばん</span></span>貿易と深く結びついていた。ポルトガル船は1550年に平戸に来航し、その後、中国のマカオを拠点に日本との貿易を続けた。</p>
+<p>九州の大名は、ポルトガル船を自分の港に呼ぶために宣教師を保護し、中には自ら信者になる者もいた。1563年に洗礼を受けた<span class="rb">大村純忠<span class="rt" aria-hidden="true">おおむらすみただ</span></span>は最初のキリシタン大名となり、1571年には長崎の港を開いた。</p>
+<figure><p class="figt"><span>図5-5</span>南蛮貿易で動いたもの</p>
+<div class="flow"><div class="pair"><div class="fs s"><em>中国(明)から</em><b>生糸・絹織物</b><span class="d">日本で需要が高かった</span></div><div class="fs t"><em>日本から</em><b>銀</b><span class="d">石見銀山などで大量に産出</span></div></div><div class="fs dk"><b>ポルトガル船が、マカオと日本を結んで運ぶ</b><span class="d">明は日本との直接の取引を禁じていたため、仲立ちが利益を生んだ</span></div><div class="fs "><em>ほかに</em><b>鉄砲・火薬の原料(硝石)・南方の産物</b><span class="d">戦国大名にとって欠かせない品になった</span></div></div>
+</figure>
+<section class="summary" aria-labelledby="pt"><h3 id="pt">この章の要点</h3><ul><li>1523年の寧波の乱の後、勘合貿易は大内氏が独占したが、1551年の大内氏の滅亡で途絶え、倭寇による密貿易が広がった。</li><li>1526年に開発された石見銀山などから大量の銀が産出し、日本の銀は東アジアの交易を動かした。</li><li>1543年に種子島に伝わった鉄砲は、堺・国友・根来などで国産化され、戦い方を変えた。</li><li>1549年にザビエルがキリスト教を伝え、ポルトガル船との南蛮貿易と結びついて九州を中心に広まった。</li></ul></section>
+<section class="column" aria-labelledby="col"><h3 id="col">コラム 鉄砲が伝わったのは1543年か</h3>
+<p>日本の教科書では、鉄砲の伝来は1543年とされている。根拠は、種子島氏の依頼で1606年にまとめられた『鉄炮記』である。</p>
+<p>ところが、ポルトガル側の記録には、1542年にポルトガル人が日本に着いたとするものがある。また、ポルトガル人が乗っていたのは倭寇の頭目王直の船だったとする説も有力である。</p>
+<p>さらに、種子島への伝来以前に、倭寇の活動を通じて別の経路で鉄砲が入っていたと考える研究者もいる。「1543年、種子島」は、数ある伝来の道筋のうち、もっともよく記録に残ったものだといえる。</p>
+</section>
+<div class="navs"><a href="mb_ch4.html">← 第4章</a><a href="index.html">目次</a><a href="mb_ch6.html">第6章 →</a></div>
+</main>
+<footer>第5章 スマホ版 ・ 全8章のうちの1章</footer>
+</div>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('rubyBtn');
+  b.addEventListener('click',function(){
+    var off=document.body.classList.toggle('noruby');
+    b.textContent=off?'ふりがな:なし':'ふりがな:あり';
+    b.setAttribute('aria-pressed',off?'false':'true');
+    if(!off&&window.fitRuby)window.fitRuby();
+  });
+})();
+</script>
+</body>
+</html>

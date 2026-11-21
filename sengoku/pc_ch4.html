@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>戦国の室町幕府 第4章</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style>.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+
+.cfig{background:#F7FAFD;border:1px solid #DCE4EE;border-radius:8px;padding:16px 18px}
+.ppl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ppl .pg{margin:0}
+.mapwrap{display:flex;gap:16px;align-items:flex-start}
+footer a{color:var(--navy)}
+.tlh{font-size:15px;color:var(--navy);margin:1.4em 0 .3em}
+</style><style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style></head>
+<body>
+<div class="page">
+<p class="series">戦国の室町幕府 解説資料</p>
+<article class="sheet">
+<div class="band">第四章 ・ 戦国大名の時代</div>
+<header class="ch">
+<h1>戦国大名の登場</h1>
+<p class="lead">幕府の任命に頼らず、自分の力で国を治める支配者たち</p>
+</header>
+<div class="body">
+<figure><button class="figbtn" type="button" aria-label="図4-1 この章の年表を拡大"><svg viewBox="0 0 680 304" role="img"><title>図4-1 この章の年表</title><desc>1526年 今川仮名目録が定められる、1536年 伊達氏の塵芥集、1547年 武田氏の甲州法度之次第、1551年 大寧寺の変(大内義隆が自害)、1555年 厳島の戦い、1556年 斎藤道三が子に討たれる、1560年 桶狭間の戦い、1561年 長尾景虎が関東管領を継ぐ</desc><rect x="50" y="146" width="580" height="8" rx="3" fill="#1F4E8C"/><line x1="60.0" y1="118" x2="60.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="60.0" y="96" text-anchor="start" class="h" style="fill:#2F7F86">1526</text><text x="60.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">今川仮名目録が定められる</text><circle cx="60.0" cy="150" r="4.5" fill="#fff" stroke="#2F7F86" stroke-width="2"/><line x1="220.0" y1="154" x2="220.0" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="220.0" y="198" text-anchor="start" class="h" style="fill:#2F7F86">1536</text><text x="220.0" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">伊達氏の塵芥集</text><circle cx="220.0" cy="150" r="4.5" fill="#fff" stroke="#2F7F86" stroke-width="2"/><line x1="396.0" y1="118" x2="396.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="396.0" y="96" text-anchor="start" class="h" style="fill:#2F7F86">1547</text><text x="396.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">武田氏の甲州法度之次第</text><circle cx="396.0" cy="150" r="4.5" fill="#fff" stroke="#2F7F86" stroke-width="2"/><line x1="460.0" y1="154" x2="460.0" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="460.0" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1551</text><text x="460.0" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">大寧寺の変(大内義隆が自害)</text><circle cx="460.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="524.0" y1="78" x2="524.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="524.0" y="56" text-anchor="start" class="h" style="fill:#1F4E8C">1555</text><text x="524.0" y="72" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">厳島の戦い</text><circle cx="524.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="540.0" y1="154" x2="540.0" y2="226" stroke="#9AAABB" stroke-width=".8"/><text x="540.0" y="240" text-anchor="end" class="h" style="fill:#1F4E8C">1556</text><text x="540.0" y="256" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:400">斎藤道三が子に討たれる</text><circle cx="540.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="604.0" y1="40" x2="604.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="604.0" y="18" text-anchor="end" class="h" style="fill:#1F4E8C">1560</text><text x="604.0" y="34" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:700">桶狭間の戦い</text><circle cx="604.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="620.0" y1="154" x2="620.0" y2="266" stroke="#9AAABB" stroke-width=".8"/><text x="620.0" y="280" text-anchor="end" class="h" style="fill:#1F4E8C">1561</text><text x="620.0" y="296" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:400">長尾景虎が関東管領を継ぐ</text><circle cx="620.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/></svg></button><figcaption><span><b>図4-1</b>この章の年表</span><span class="hint">クリックで拡大</span></figcaption></figure>
+<figure><div class="cfig"><div class="ppl"><div class="pg n"><h4>守護の家から</h4><ul><li><b><span class="rb">今川義元<span class="rt" aria-hidden="true">いまがわよしもと</span></span></b><span class="pd">駿河・遠江・三河を治めた。父の今川氏親とともに分国法を整えた</span></li><li><b>武田<span class="rb">晴信<span class="rt" aria-hidden="true">はるのぶ</span></span>(信玄)</b><span class="pd">甲斐の守護の家。父を追放して家督を継ぎ、信濃へ勢力を広げた</span></li></ul></div><div class="pg t"><h4>守護代・国人から</h4><ul><li><b><span class="rb">長尾景虎<span class="rt" aria-hidden="true">ながおかげとら</span></span>(<span class="rb">上杉謙信<span class="rt" aria-hidden="true">うえすぎけんしん</span></span>)</b><span class="pd">越後の守護代の家。のちに関東管領の上杉家を継ぐ</span></li><li><b><span class="rb">毛利元就<span class="rt" aria-hidden="true">もうりもとなり</span></span></b><span class="pd">安芸の国人。厳島の戦いで陶晴賢を破り、中国地方の大名に</span></li></ul></div><div class="pg g"><h4>まったく新しい家</h4><ul><li><b><span class="rb">伊勢宗瑞<span class="rt" aria-hidden="true">いせそうずい</span></span>(<span class="rb">北条早雲<span class="rt" aria-hidden="true">ほうじょうそううん</span></span>)とその子孫</b><span class="pd">伊豆・相模から関東へ勢力を広げた北条氏</span></li><li><b><span class="rb">斎藤道三<span class="rt" aria-hidden="true">さいとうどうさん</span></span></b><span class="pd">美濃の守護の土岐氏を追って国を奪った。父子二代での国盗りとする説が有力</span></li></ul></div></div></div><figcaption><span><b>図4-2</b>この章の登場人物</span></figcaption></figure>
+<h2><span class="no">第1節</span>守護大名から戦国大名へ</h2>
+<p>京都で将軍と細川家・三好家が争っている間、各地では新しい支配者が育っていた。<span class="rb">戦国大名<span class="rt" aria-hidden="true">せんごくだいみょう</span></span>である。室町時代の守護大名は、幕府に任命されて国を治め、ふだんは京都に住んでいた。これに対し戦国大名は、自分の軍事力と支配の仕組みによって国を治め、幕府の命令に左右されなかった。戦国大名が治めた国を分国(領国)という。</p>
+<p>戦国大名は、領国の土地と人を直接つかもうとした。家臣や村に土地の広さや収穫を申告させる<span class="rb">指出<span class="rt" aria-hidden="true">さしだし</span></span>検地を行い、土地の価値を銭の単位(<span class="rb">貫高<span class="rt" aria-hidden="true">かんだか</span></span>)で表して、年貢や家臣が出す兵の数の基準とした。家臣団は、有力な家臣(<span class="rb">寄親<span class="rt" aria-hidden="true">よりおや</span></span>)に下級の武士(<span class="rb">寄子<span class="rt" aria-hidden="true">よりこ</span></span>)を預ける形で組織された。</p>
+<h2><span class="no">第2節</span>下剋上のさまざまな形</h2>
+<p>戦国大名の出自はさまざまである。武田や今川、大友、島津のように、守護の家がそのまま戦国大名になった例もあれば、<span class="rb">越後<span class="rt" aria-hidden="true">えちご</span></span>の長尾(上杉)、<span class="rb">越前<span class="rt" aria-hidden="true">えちぜん</span></span>の朝倉、<span class="rb">尾張<span class="rt" aria-hidden="true">おわり</span></span>の織田のように、<span class="rb">守護代<span class="rt" aria-hidden="true">しゅごだい</span></span>の家が主家をしのいだ例もある。<span class="rb">安芸<span class="rt" aria-hidden="true">あき</span></span>の毛利や<span class="rb">土佐<span class="rt" aria-hidden="true">とさ</span></span>の<span class="rb">長宗我部<span class="rt" aria-hidden="true">ちょうそかべ</span></span>は、<span class="rb">国人<span class="rt" aria-hidden="true">こくじん</span></span>と呼ばれる地方の武士から身を起こした。</p>
+<figure><div class="cfig"><div class="card n" style="margin-bottom:10px"><div class="hd">守護の家がそのまま戦国大名に</div><div class="bd"><div class="rows"><div><b>例</b><span>武田(甲斐)・今川(駿河)・大友(豊後)・島津(薩摩)・六角(近江)</span></div><div><b>特徴</b><span>幕府から任された地位を足がかりに、国を自力で治める体制へ切り替えた</span></div></div></div></div><div class="card t" style="margin-bottom:10px"><div class="hd">守護代・国人が主家を超える</div><div class="bd"><div class="rows"><div><b>例</b><span>長尾(越後)・朝倉(越前)・織田(尾張)・毛利(安芸)・長宗我部(土佐)</span></div><div><b>特徴</b><span>主家に代わって、あるいは主家を倒して国を治めた。下剋上の典型</span></div></div></div></div><div class="card g" style="margin-bottom:10px"><div class="hd">まったく新しい家が国を奪う</div><div class="bd"><div class="rows"><div><b>例</b><span>北条(伊豆・相模)・斎藤(美濃)</span></div><div><b>特徴</b><span>よそから来た者や新興の者が、実力で国を手に入れた</span></div></div></div></div></div><figcaption><span><b>図4-3</b>戦国大名はどこから生まれたか</span></figcaption></figure>
+<p><span class="rb">下剋上<span class="rt" aria-hidden="true">げこくじょう</span></span>の典型として知られるのが中国地方である。1551年、<span class="rb">周防<span class="rt" aria-hidden="true">すおう</span></span>の<span class="rb">大内義隆<span class="rt" aria-hidden="true">おおうちよしたか</span></span>は重臣の<span class="rb">陶晴賢<span class="rt" aria-hidden="true">すえはるかた</span></span>に背かれ、<span class="rb">長門<span class="rt" aria-hidden="true">ながと</span></span>の<span class="rb">大寧寺<span class="rt" aria-hidden="true">たいねいじ</span></span>で自害した(大寧寺の変)。安芸の国人だった<span class="rb">毛利元就<span class="rt" aria-hidden="true">もうりもとなり</span></span>は、1555年の<span class="rb">厳島<span class="rt" aria-hidden="true">いつくしま</span></span>の戦いで晴賢を破り、やがて大内家の旧領を手に入れた。<span class="rb">美濃<span class="rt" aria-hidden="true">みの</span></span>では、<span class="rb">斎藤道三<span class="rt" aria-hidden="true">さいとうどうさん</span></span>が守護の<span class="rb">土岐<span class="rt" aria-hidden="true">とき</span></span>氏を追って国を奪ったが、1556年、<span class="rb">長良川<span class="rt" aria-hidden="true">ながらがわ</span></span>の戦いで子の<span class="rb">斎藤義龍<span class="rt" aria-hidden="true">さいとうよしたつ</span></span>に討たれた。道三の国盗りは、近年では父との二代にわたるものだったと考えられている。</p>
+<figure><button class="figbtn" type="button" aria-label="図4-4 1560年ごろの主な戦国大名を拡大"><svg viewBox="0 0 640 507" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>1560年ごろの主な戦国大名</title><desc>点は各大名のおもな本拠地。1560年ごろのおおよその状況</desc><rect width="640" height="507" fill="#EAF2FB"/><path d="M625.3,0L621.5,9.3L617.4,33.3L598.5,37.7L590.8,50.3L589.1,63.6L593,80.4L594.7,95.6L591.1,126.3L581.9,136.4L573.2,158.9L570.4,176.7L573,187.8L580.2,201.7L586.2,209.5L573.9,213.6L564.3,223.3L562.2,239L559,244.5L543.3,253.7L536.2,262.5L529.8,258.9L532,255.4L531.3,237.1L544.9,221.4L539.8,213.1L531.6,213.8L528.1,224.3L522,229.8L526.9,240L521.3,247L512.8,236.9L501,238.3L493.9,249.9L494.2,258.9L488.8,273L482.5,279.8L475.4,275.3L477.4,257.8L482.7,254.5L473.1,248.2L465.7,250.5L453.6,265.9L445.3,281.9L434.4,279.1L411.5,277.6L386.2,282.7L398.1,275.1L397.4,270.6L384.7,271.1L377,268.5L375.3,252.3L366.8,257.1L358.5,276.6L362.8,282.4L376.6,292.2L375.3,299.2L359,303.5L347.9,308.5L326.2,347.5L314.5,352.2L301.8,347.9L296.1,337.3L287.3,326.2L284.8,319.3L283.3,301.5L292,295.6L298.2,288L299.9,280.5L296.7,278.2L280.3,279.7L264.4,271.1L256.3,270.8L236.5,275.4L224,286.3L196.4,292.3L180.6,300.6L174.1,298.8L155.1,304.1L142.8,297.4L137.1,299.2L133.2,305.3L128.2,330L107.1,316.5L93.1,318.5L80.5,323L72,318.4L63.8,321.3L62.3,303.1L68.4,294.9L86.7,293.5L100.1,280.7L113.1,273.6L124.1,262.5L134.3,254.7L153.2,236.4L157.3,229.2L169,223.3L187.2,220.4L192.8,226.7L205.5,223.3L218.3,224.3L236.8,221.4L249.5,215.7L271.8,213.5L287.3,208.1L292,209.6L290.3,218.1L295.2,222.3L313.7,223.8L325.4,217.2L335.4,206.7L330.9,192.3L338.6,177.1L349.4,168.2L367.1,143.4L369.8,129.6L368.3,113.4L374.7,101.3L399.8,92L400.6,97.6L390.9,107.8L379,115.1L382.6,124.7L383.8,137.1L389.4,141.2L401,141.4L409.8,129.6L430.8,122.2L452.1,112L464.2,100.6L472.5,89.4L481.8,70.7L500.9,59.7L509,50.8L512.9,33.6L518.2,20.3L529.9,1.2L530.2,0L625.3,0ZM244.4,303.5L258.9,305.5L258.9,317L264.4,331.2L254.4,336.9L245.3,344.5L238.3,355.1L235.1,367.2L223.4,354.6L218,351.7L206.2,350.6L188.1,360.1L178.5,380.9L174,383.6L171.9,392.5L166.2,398.1L154.3,397.5L157.9,388.7L146.6,387.9L143.2,379L147.5,364.3L141.8,361.9L142.2,355.7L125.2,361.3L154.3,339.4L161.9,320.3L172.6,314.1L180.2,324.4L203.6,318.7L206.8,311.3L204.7,304.4L210.2,304.7L222.9,297.7L229.5,297.1ZM0,380.4L6.8,389.4L15.3,392L10.4,381.2L0,372.9L0,360.4L0,360.4L7.6,362.5L6.6,355.2L19.5,350L24.6,345.2L35,342.9L41.2,330.2L53.3,324.4L65.7,327.9L71.2,340.5L77.4,344.8L77.4,344.8L90.1,346.1L98.8,341.7L104.6,344.8L105.4,351.2L96.3,365.5L115.2,366.8L112.8,375.3L118,379.7L116,384.3L121.1,387.8L119.4,392.4L106.5,408.1L97.8,431.1L92.4,452L92.4,465.2L85.9,481.6L72,479.7L70.1,483.3L73.3,490.7L63.1,499.6L51.8,505.5L57.2,489.9L52.7,471L56.7,469.3L56.5,463L50.1,462.2L43.5,478.2L49.5,490L46.7,495.4L26.3,488.5L23.4,481.4L31.2,478.8L32.7,469.5L25.5,459.1L26.8,454.2L25.9,439.3L32.5,436L40.1,426L49.3,406.5L41.9,404.1L45.5,399.2L44.4,393.2L35.7,376.9L28.2,371.6L22.3,376.1L24.9,392L32.9,391.9L33.6,401.3L28.5,402.8L18.5,397L3.6,409.4L6.6,399.8L0,391.2L0,380.4ZM20,430.7L15.9,432.8L14.6,423.4L16.3,412.5L24.6,411.3L26.3,423.8ZM453.5,72.1L450.2,70L452.3,60.9L448.4,60.6L451.6,49.5L461.8,39.2L459.1,55.2L465.5,55.9L461.4,66.6ZM274.4,301.5L268.8,306.9L263.8,306.6L260.6,301.2L269.3,289.8L278.2,285.3L273.1,294.5ZM0,331.9L1,328.8L5.1,335.7L5.1,335.7L0,336.1L0,331.9Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><defs><marker id="arch4n640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="arch4t640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="arch4k640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="arch4g640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><circle cx="546.6" cy="66.3" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="554.6" y="70.3" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="554.6" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">伊達</tspan></text><circle cx="447" cy="116.5" r="4.5" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="447.0" y="107.5" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="447.0" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">長尾(上杉)</tspan></text><circle cx="495.7" cy="240.1" r="4.5" fill="#5A6878" stroke="#fff" stroke-width="1.5"/><text x="503.7" y="244.1" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="503.7" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">北条</tspan></text><circle cx="465.3" cy="213" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="465.3" y="204.0" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="465.3" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">武田</tspan></text><circle cx="455.3" cy="258" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="455.3" y="275.0" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="455.3" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">今川</tspan></text><circle cx="374.6" cy="242.6" r="4.5" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="374.6" y="259.6" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="374.6" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">織田</tspan></text><circle cx="371.4" cy="228.5" r="4.5" fill="#5A6878" stroke="#fff" stroke-width="1.5"/><text x="379.4" y="232.5" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="379.4" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">斎藤</tspan></text><circle cx="345.7" cy="192.3" r="4.5" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="345.7" y="183.3" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="345.7" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">朝倉</tspan></text><circle cx="312.7" cy="273.4" r="4.5" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="304.7" y="277.4" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="304.7" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">三好</tspan></text><circle cx="183.6" cy="232.4" r="4.5" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="183.6" y="223.4" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="183.6" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">尼子</tspan></text><circle cx="157.4" cy="277.2" r="4.5" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="157.4" y="294.2" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="157.4" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">毛利</tspan></text><circle cx="204.6" cy="345" r="4.5" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="204.6" y="362.0" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="204.6" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">長宗我部</tspan></text><circle cx="100.2" cy="367.6" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="108.2" y="371.6" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="108.2" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">大友</tspan></text><circle cx="31.5" cy="367" r="4.5" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="41.5" y="371.0" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="41.5" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">龍造寺</tspan></text><circle cx="45.1" cy="469.6" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="53.1" y="473.6" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="53.1" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">島津</tspan></text></svg></button><div style=margin-top:6px><div class="legend"><span><i class="sq"></i>守護の家から</span><span><i class="sqt"></i>守護代・国人から</span><span><i class="sq" style="background:#5A6878"></i>新しい家</span></div><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">点は各大名のおもな本拠地。1560年ごろのおおよその状況</p></div><figcaption><span><b>図4-4</b>1560年ごろの主な戦国大名</span><span class="hint">クリックで拡大</span></figcaption></figure>
+<h2><span class="no">第3節</span>分国法と領国の治め方</h2>
+<p>戦国大名の中には、領国を治めるための独自の法を定める者もいた。これを<span class="rb">分国法<span class="rt" aria-hidden="true">ぶんこくほう</span></span>という。今川氏の<span class="rb">今川仮名目録<span class="rt" aria-hidden="true">いまがわかなもくろく</span></span>、伊達氏の<span class="rb">塵芥集<span class="rt" aria-hidden="true">じんかいしゅう</span></span>、武田氏の<span class="rb">甲州法度之次第<span class="rt" aria-hidden="true">こうしゅうはっとのしだい</span></span>などが知られる。分国法は、土地や年貢、家臣の結婚や他国との交際などを定め、大名の許しなく他国の者と手紙をやり取りすることを禁じたものもある。</p>
+<figure><div class="cfig"><div class="card n" style="margin-bottom:10px"><div class="hd">分国法 ― 大名が自分の国に定めた法</div><div class="bd"><div class="rows"><div><b>今川仮名目録</b><span>1526年 今川氏親(駿河)。1553年に義元が追加</span></div><div><b>塵芥集</b><span>1536年 伊達稙宗(陸奥)。170か条を超える最大の分国法</span></div><div><b>甲州法度之次第</b><span>1547年 武田晴信(甲斐)</span></div><div><b>朝倉孝景条々</b><span>15世紀後半 越前の朝倉氏の家訓</span></div><div><b>結城氏新法度</b><span>1556年 下総の結城氏</span></div></div></div></div></div><figcaption><span><b>図4-5</b>おもな分国法</span></figcaption></figure>
+<p>とくに重要なのが、家臣どうしの争いを私的な戦いで解決することを禁じた規定である。争いは大名の裁判で裁くこととし、勝手に戦った者は理由を問わず双方を罰した(<span class="rb">喧嘩両成敗<span class="rt" aria-hidden="true">けんかりょうせいばい</span></span>)。また、越前の朝倉氏のように、有力な家臣を本拠地の<span class="rb">一乗谷<span class="rt" aria-hidden="true">いちじょうだに</span></span>に集めて住まわせる大名もいた。城を中心に家臣や商工業者が集まる城下町は、こうした大名の支配の中心として発展していった。</p>
+<h2><span class="no">第4節</span>それでも幕府の権威は求められた</h2>
+<p>自力で国を治めた戦国大名だが、幕府を無視したわけではない。大名は、将軍から守護職などの地位や、将軍の名前の一字(<span class="rb">偏諱<span class="rt" aria-hidden="true">へんき</span></span>)を与えられることを望んだ。越後の<span class="rb">長尾景虎<span class="rt" aria-hidden="true">ながおかげとら</span></span>は、1561年に関東<span class="rb">管領<span class="rt" aria-hidden="true">かんれい</span></span>の<span class="rb">上杉憲政<span class="rt" aria-hidden="true">うえすぎのりまさ</span></span>から上杉の名と関東管領の職を継いだが、これには将軍義輝の承認を得ていた。景虎はのちに義輝から「輝」の字を与えられ、上杉輝虎と名乗る。<span class="rb">毛利輝元<span class="rt" aria-hidden="true">もうりてるもと</span></span>や<span class="rb">伊達輝宗<span class="rt" aria-hidden="true">だててるむね</span></span>の名にも、義輝の一字が入っている。</p>
+<figure><div class="cfig"><div class="flow"><div class="pair"><div class="fs s"><em>将軍から</em><b>守護職・管領職などの地位</b><span class="d">国を治める正しさの裏づけになる</span></div><div class="fs s"><em>将軍から</em><b>名前の一字(偏諱)・家格</b><span class="d">例:輝虎(謙信)、輝元(毛利)、輝宗(伊達)</span></div></div><div class="fs "><b>将軍による和平の仲立ち</b><span class="d">武田と上杉、毛利と大友などの争いに義輝が介入した</span></div><div class="fs dk"><em>見返り</em><b>大名は献金や上洛によって将軍を支える</b><span class="d">幕府は「権威」を配ることで存在を保った</span></div></div></div><figcaption><span><b>図4-6</b>大名が幕府に求めたもの</span></figcaption></figure>
+<p>将軍は、こうした「権威」を配ることで大名とのつながりを保ち、大名どうしの争いの仲立ちも行った。義輝は武田と上杉、毛利と大友などの和平にも乗り出している。大名にとって幕府の権威は、自らの支配を正しいものに見せ、周囲の大名との争いを有利に進める道具でもあった。</p>
+<section class="points" aria-labelledby="pt">
+<h3 id="pt">この章の要点</h3>
+<ul>
+<li>戦国大名は、幕府に頼らず自分の力で領国を治め、検地や家臣団の組織で土地と人を直接つかんだ。</li>
+<li>戦国大名には、守護・守護代・国人・新興の家など、さまざまな出自があった。</li>
+<li>分国法を定めて家臣の私闘を禁じ(喧嘩両成敗)、城下町に家臣を集めて支配を固めた。</li>
+<li>一方で大名は、守護職や将軍の名の一字など、幕府の権威を求め続けた。</li>
+</ul>
+</section>
+<section class="column" aria-labelledby="col">
+<h3 id="col">コラム 「喧嘩両成敗」の本当のねらい</h3>
+<p>「喧嘩両成敗」は、けんかをした者は理由にかかわらず双方を罰するという考え方である。今川仮名目録や甲州法度之次第にも見えるこの規定は、一見乱暴に思える。</p>
+<p>しかし、そのねらいは、家臣が仲間や一族を集めて仕返しをし合う「自力救済」をやめさせることにあった。争いがあれば大名の裁判に訴えよ、勝手に武力を使えば正しくても罰する ― 喧嘩両成敗は、武力を使う権利を大名のもとに集めるための仕組みだったのである。実際には、先に手を出さなかった側を軽く扱うなど、細かい例外も設けられていた。</p>
+</section>
+</div>
+</article>
+<div class="navs"><a href="pc_ch3.html">← 第3章</a><a href="index.html">目次</a><a href="pc_ch5.html">第5章 →</a></div>
+<footer>第4章 ・ 全8章のうちの1章</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>

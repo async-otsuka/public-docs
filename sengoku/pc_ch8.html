@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>戦国の室町幕府 第8章</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style>.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+
+.cfig{background:#F7FAFD;border:1px solid #DCE4EE;border-radius:8px;padding:16px 18px}
+.ppl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ppl .pg{margin:0}
+.mapwrap{display:flex;gap:16px;align-items:flex-start}
+footer a{color:var(--navy)}
+.tlh{font-size:15px;color:var(--navy);margin:1.4em 0 .3em}
+</style><style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style></head>
+<body>
+<div class="page">
+<p class="series">戦国の室町幕府 解説資料</p>
+<article class="sheet">
+<div class="band">第八章 ・ 戦国の社会と文化</div>
+<header class="ch">
+<h1>戦国の社会と文化</h1>
+<p class="lead">村・町・宗教のつながりが人々を守り、文化は地方へと広がった</p>
+</header>
+<div class="body">
+<figure><button class="figbtn" type="button" aria-label="図8-1 この章の年表を拡大"><svg viewBox="0 0 680 270" role="img"><title>図8-1 この章の年表</title><desc>1488年 加賀の一向一揆、1500年 京都の祇園祭が再興される、1502年 連歌師の宗祇が死去、1518年 小歌集『閑吟集』、1549年 近江の石寺新市が楽市に、1555年 茶人の武野紹鴎が死去、1574年 信長が謙信に洛中洛外図屏風を贈る、1580年 加賀の一向一揆が終わる</desc><rect x="50" y="146" width="580" height="8" rx="3" fill="#1F4E8C"/><line x1="60.0" y1="118" x2="60.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="60.0" y="96" text-anchor="start" class="h" style="fill:#2F7F86">1488</text><text x="60.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">加賀の一向一揆</text><circle cx="60.0" cy="150" r="4.5" fill="#fff" stroke="#2F7F86" stroke-width="2"/><line x1="133.0" y1="154" x2="133.0" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="133.0" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1500</text><text x="133.0" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">京都の祇園祭が再興される</text><circle cx="133.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="145.2" y1="78" x2="145.2" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="145.2" y="56" text-anchor="start" class="h" style="fill:#1F4E8C">1502</text><text x="145.2" y="72" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">連歌師の宗祇が死去</text><circle cx="145.2" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="242.6" y1="118" x2="242.6" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="242.6" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1518</text><text x="242.6" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">小歌集『閑吟集』</text><circle cx="242.6" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="431.3" y1="118" x2="431.3" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="431.3" y="96" text-anchor="start" class="h" style="fill:#2F7F86">1549</text><text x="431.3" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">近江の石寺新市が楽市に</text><circle cx="431.3" cy="150" r="4.5" fill="#fff" stroke="#2F7F86" stroke-width="2"/><line x1="467.8" y1="154" x2="467.8" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="467.8" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1555</text><text x="467.8" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">茶人の武野紹鴎が死去</text><circle cx="467.8" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="583.5" y1="78" x2="583.5" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="583.5" y="56" text-anchor="end" class="h" style="fill:#1F4E8C">1574</text><text x="583.5" y="72" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:400">信長が謙信に洛中洛外図屏風を贈る</text><circle cx="583.5" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="620.0" y1="154" x2="620.0" y2="226" stroke="#9AAABB" stroke-width=".8"/><text x="620.0" y="240" text-anchor="end" class="h" style="fill:#2F7F86">1580</text><text x="620.0" y="256" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:400">加賀の一向一揆が終わる</text><circle cx="620.0" cy="150" r="4.5" fill="#fff" stroke="#2F7F86" stroke-width="2"/></svg></button><figcaption><span><b>図8-1</b>この章の年表</span><span class="hint">クリックで拡大</span></figcaption></figure>
+<figure><div class="cfig"><div class="ppl"><div class="pg t"><h4>宗教と民衆</h4><ul><li><b><span class="rb">蓮如<span class="rt" aria-hidden="true">れんにょ</span></span></b><span class="pd">本願寺の8世。わかりやすい手紙(御文)で教えを広め、門徒の組織を築いた</span></li><li><b>京都の<span class="rb">町衆<span class="rt" aria-hidden="true">まちしゅう</span></span></b><span class="pd">町ごとに自治を行う商工業者たち。祇園祭を復活させた</span></li></ul></div><div class="pg n"><h4>文化の担い手</h4><ul><li><b><span class="rb">宗祇<span class="rt" aria-hidden="true">そうぎ</span></span></b><span class="pd">連歌師。諸国を旅して、地方の武士に連歌や古典を伝えた</span></li><li><b><span class="rb">武野紹鴎<span class="rt" aria-hidden="true">たけのじょうおう</span></span>・<span class="rb">千利休<span class="rt" aria-hidden="true">せんのりきゅう</span></span></b><span class="pd">堺の商人出身の茶人。侘び茶を深め、大成させた</span></li><li><b><span class="rb">狩野永徳<span class="rt" aria-hidden="true">かのうえいとく</span></span></b><span class="pd">狩野派の絵師。洛中洛外図屏風などを描いた</span></li></ul></div></div></div><figcaption><span><b>図8-2</b>この章の登場人物</span></figcaption></figure>
+<h2><span class="no">第1節</span>自立する村 ― 惣村</h2>
+<p>戦乱の続く時代、人々はただ戦に巻き込まれていたわけではない。<span class="rb">畿内<span class="rt" aria-hidden="true">きない</span></span>やその周辺では、村人が団結して自分たちで村を治める<span class="rb">惣村<span class="rt" aria-hidden="true">そうそん</span></span>が発達した。村の大事は<span class="rb">寄合<span class="rt" aria-hidden="true">よりあい</span></span>で話し合って決め、村人が守るべき決まり(<span class="rb">惣掟<span class="rt" aria-hidden="true">そうおきて</span></span>)を定めた。村の中の犯罪は村が自ら裁き(<span class="rb">自検断<span class="rt" aria-hidden="true">じけんだん</span></span>)、年貢も村がまとめて請け負って領主に納めた(<span class="rb">地下請<span class="rt" aria-hidden="true">じげうけ</span></span>)。</p>
+<figure><div class="cfig"><div class="card t" style="margin-bottom:10px"><div class="hd">惣村 ― 自分たちで治める村</div><div class="bd"><div class="rows"><div><b>寄合</b><span>村の大事を話し合って決める集まり</span></div><div><b>惣掟</b><span>村人が守る決まり。破った者には罰を与えた</span></div><div><b>自検断</b><span>村の中の犯罪を、村が自ら取り締まり裁く</span></div><div><b>地下請</b><span>年貢を村がまとめて請け負い、領主に納める</span></div><div><b>武装</b><span>水や山の争いで、他の村と戦うこともあった</span></div></div></div></div></div><figcaption><span><b>図8-3</b>惣村の仕組み</span></figcaption></figure>
+<p>村は武器を持ち、用水や山林をめぐって隣の村と争うこともあった。戦が近づくと、村は軍勢に金品を納めて乱暴を禁じる文書をもらったり、山に逃げ込んだりして身を守った。<span class="rb">戦国大名<span class="rt" aria-hidden="true">せんごくだいみょう</span></span>も、年貢や兵の動員のためには村の協力が欠かせず、村と交渉しながら領国を治めたのである。</p>
+<h2><span class="no">第2節</span>自治都市と町衆</h2>
+<p>都市でも自治が発達した。堺は、周りに堀(<span class="rb">環濠<span class="rt" aria-hidden="true">かんごう</span></span>)をめぐらせた豊かな港町で、<span class="rb">会合衆<span class="rt" aria-hidden="true">えごうしゅう</span></span>と呼ばれる有力な商人たちが町を治めた。宣教師ガスパル・ヴィレラは、堺はヨーロッパのベネチアのように<span class="rb">執政官<span class="rt" aria-hidden="true">しっせいかん</span></span>によって治められていると書き送っている。九州の<span class="rb">博多<span class="rt" aria-hidden="true">はかた</span></span>も、<span class="rb">年行司<span class="rt" aria-hidden="true">ねんぎょうじ</span></span>と呼ばれる商人たちが町の運営にあたった。</p>
+<p>京都では、応仁の乱で焼けた町を、商工業者である<span class="rb">町衆<span class="rt" aria-hidden="true">まちしゅう</span></span>が立て直した。町衆は通りをはさんだ両側を一つの「町」としてまとまり、町ごとに決まりを作って自治を行った。応仁の乱で途絶えていた<span class="rb">祇園祭<span class="rt" aria-hidden="true">ぎおんまつり</span></span>も、1500年に町衆の手で復活した。今に続く<span class="rb">山鉾<span class="rt" aria-hidden="true">やまほこ</span></span>巡行は、町衆の力の象徴である。</p>
+<figure><button class="figbtn" type="button" aria-label="図8-4 自治都市・寺内町・一揆の主な場所を拡大"><svg viewBox="0 0 640 433" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>自治都市・寺内町・一揆の主な場所</title><desc>位置はおおよそ</desc><rect width="640" height="433" fill="#EAF2FB"/><path d="M640,251.8L610.8,257.7L630.4,245.1L629.2,237.8L608.3,238.5L595.5,234.3L592.7,207.6L578.7,215.5L565,247.7L572.2,257.1L594.9,273.4L592.7,284.8L566,291.9L547.6,300.3L511.8,364.4L492.5,372.2L471.6,365.2L462.3,347.7L447.6,329.4L443.6,318L441.1,288.6L455.4,279L465.7,266.4L468.5,254L463.2,250.2L436.1,252.8L410,238.5L396.6,238L363.9,245.6L343.3,263.5L297.9,273.5L271.7,287.2L261.1,284.3L229.7,293L209.5,281.9L200.1,284.8L193.6,295L185.5,335.6L150.6,313.3L127.6,316.8L106.7,324.2L92.7,316.6L79.3,321.3L76.8,291.4L86.8,277.7L117,275.5L139.1,254.4L160.6,242.7L178.6,224.4L195.5,211.4L226.6,181.3L233.4,169.5L252.7,159.8L282.6,155L292,165.3L312.8,159.8L334,161.4L364.5,156.6L385.4,147.2L422.1,143.5L447.6,134.6L455.4,137.2L452.6,151.1L460.7,158.1L491.2,160.5L510.5,149.6L527,132.4L519.6,108.7L532.3,83.6L550.1,68.9L579.4,28L583.7,5.3L583.2,0L605.1,0L605.1,0L606.8,17.6L616.1,24.4L635.1,24.8L640,18.2L640,251.8ZM234.2,433L234.4,432.5L215.7,431L210.1,416.4L217.2,392.2L207.9,388.2L208.5,378L180.5,387.3L228.5,351.1L240.9,319.7L258.7,309.5L271.1,326.4L309.7,316.9L315,304.8L311.6,293.4L320.6,293.9L341.5,282.5L352.4,281.4L377,291.9L377,291.9L400.9,295.2L400.9,314.2L410,337.6L393.5,347L378.5,359.6L367,377.1L361.7,397L342.4,376.2L333.4,371.5L314.1,369.7L284.2,385.3L268.3,419.6L260.8,424.1L258.8,433L234.2,433ZM43.6,433L32.9,413L20.5,404.2L10.8,411.7L14.4,433L0,433L0,371.1L6.1,368.6L14.6,360.7L31.7,356.9L42,335.9L61.9,326.4L82.4,332.1L91.5,352.9L101.7,360.1L101.7,360.1L122.6,362.1L136.9,354.9L146.6,360.1L147.8,370.6L132.9,394.1L164,396.3L160,410.3L168.7,417.6L165.3,425.1L173.7,430.9L172.9,433L43.6,433ZM426.5,288.6L417.1,297.5L409,297L403.7,288.1L418.1,269.3L432.7,261.9L424.3,277.2Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><defs><marker id="arch8n640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="arch8t640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="arch8k640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="arch8g640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><circle cx="34.6" cy="360.4" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="47.8" y="336.9" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="47.8" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">博多</tspan><tspan x="47.8" dy="14.5" style="font-size:11.0px" fill="#5A6878">年行司が治める</tspan></text><circle cx="127.1" cy="300" r="4.5" fill="#5A6878" stroke="#fff" stroke-width="1.5"/><text x="127.1" y="317.0" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="127.1" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">山口</tspan><tspan x="127.1" dy="14.5" style="font-size:11.0px" fill="#5A6878">大内氏の城下町</tspan></text><circle cx="473.9" cy="258.6" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="465.9" y="276.6" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="465.9" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">堺</tspan><tspan x="465.9" dy="14.5" style="font-size:11.0px" fill="#5A6878">会合衆が治める</tspan></text><circle cx="477.8" cy="247.2" r="4.5" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="469.8" y="231.2" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="469.8" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">石山本願寺</tspan><tspan x="469.8" dy="14.5" style="font-size:11.0px" fill="#5A6878">寺内町</tspan></text><circle cx="498.2" cy="212.8" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="506.2" y="212.8" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="506.2" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">京都</tspan><tspan x="506.2" dy="14.5" style="font-size:11.0px" fill="#5A6878">町衆の自治</tspan></text><circle cx="500.8" cy="265.4" r="4.5" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="508.8" y="275.4" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="508.8" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">今井</tspan><tspan x="508.8" dy="14.5" style="font-size:11.0px" fill="#5A6878">寺内町</tspan></text><circle cx="581.2" cy="266.5" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="570.5" y="270.5" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="570.5" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">大湊(伊勢)</tspan><tspan x="570.5" dy="14.5" style="font-size:11.0px" fill="#5A6878">港町</tspan></text><circle cx="575.1" cy="47.5" r="4.5" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="487.8" y="51.5" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="487.8" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">加賀</tspan><tspan x="487.8" dy="14.5" style="font-size:11.0px" fill="#5A6878">一向一揆が約100年治める</tspan></text><circle cx="544" cy="108.7" r="4.5" fill="#5A6878" stroke="#fff" stroke-width="1.5"/><text x="536.0" y="112.7" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="536.0" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">一乗谷</tspan><tspan x="536.0" dy="14.5" style="font-size:11.0px" fill="#5A6878">朝倉氏の城下町</tspan></text></svg></button><div style=margin-top:6px><div class="legend"><span><i class="sq"></i>自治都市</span><span><i class="sqt"></i>寺内町・一向一揆</span><span><i class="sq" style="background:#5A6878"></i>城下町</span></div><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">位置はおおよそ</p></div><figcaption><span><b>図8-4</b>自治都市・寺内町・一揆の主な場所</span><span class="hint">クリックで拡大</span></figcaption></figure>
+<h2><span class="no">第3節</span>一向一揆と寺内町</h2>
+<p>宗教のつながりも、人々を結びつけた。<span class="rb">浄土真宗<span class="rt" aria-hidden="true">じょうどしんしゅう</span></span>(一向宗)の<span class="rb">本願寺<span class="rt" aria-hidden="true">ほんがんじ</span></span>8世<span class="rb">蓮如<span class="rt" aria-hidden="true">れんにょ</span></span>は、わかりやすい手紙(<span class="rb">御文<span class="rt" aria-hidden="true">おふみ</span></span>)で教えを説き、各地に門徒の組織(講)を作った。門徒は農民だけでなく、武士や商工業者にも広がった。</p>
+<p>1488年、<span class="rb">加賀<span class="rt" aria-hidden="true">かが</span></span>の門徒は守護の<span class="rb">富樫政親<span class="rt" aria-hidden="true">とがしまさちか</span></span>を攻め滅ぼし、その後、約100年にわたって国を治めた。加賀は「百姓の持ちたる国」とも言われた。また、本願寺や有力な寺院の周りには、堀や<span class="rb">土塁<span class="rt" aria-hidden="true">どるい</span></span>で囲まれた<span class="rb">寺内町<span class="rt" aria-hidden="true">じないまち</span></span>が生まれ、商工業者が集まった。<span class="rb">大坂<span class="rt" aria-hidden="true">おおさか</span></span>の石山本願寺や<span class="rb">大和<span class="rt" aria-hidden="true">やまと</span></span>の今井などがその例である。大名の中には、商人を呼び込むために市場での税や特権をなくす<span class="rb">楽市<span class="rt" aria-hidden="true">らくいち</span></span>を行う者も現れ、<span class="rb">近江<span class="rt" aria-hidden="true">おうみ</span></span>の六角氏が1549年に行ったものが早い例として知られる。</p>
+<h2><span class="no">第4節</span>地方へ広がる文化</h2>
+<p>戦乱で荒れた京都を離れ、公家や僧侶、文化人が地方の大名を頼った。大内氏の山口や朝倉氏の<span class="rb">一乗谷<span class="rt" aria-hidden="true">いちじょうだに</span></span>、今川氏の<span class="rb">駿府<span class="rt" aria-hidden="true">すんぷ</span></span>などには、京都の文化が伝えられ、「小京都」とも呼ばれる町が生まれた。<span class="rb">連歌<span class="rt" aria-hidden="true">れんが</span></span>師の<span class="rb">宗祇<span class="rt" aria-hidden="true">そうぎ</span></span>は諸国を旅して、地方の武士たちに連歌や和歌、古典を教えた。連歌から生まれた、より自由で<span class="rb">滑稽<span class="rt" aria-hidden="true">こっけい</span></span>な俳諧連歌も、<span class="rb">山崎宗鑑<span class="rt" aria-hidden="true">やまざきそうかん</span></span>の『<span class="rb">犬筑波集<span class="rt" aria-hidden="true">いぬつくばしゅう</span></span>』などによって広まった。</p>
+<p>民衆の間では、<span class="rb">小歌<span class="rt" aria-hidden="true">こうた</span></span>を集めた『<span class="rb">閑吟集<span class="rt" aria-hidden="true">かんぎんしゅう</span></span>』や、一寸法師などの物語で知られる<span class="rb">御伽草子<span class="rt" aria-hidden="true">おとぎぞうし</span></span>が親しまれ、華やかな衣装で踊る<span class="rb">風流踊り<span class="rt" aria-hidden="true">ふりゅうおどり</span></span>は、のちの盆踊りにつながっていく。堺では、商人の<span class="rb">武野紹鴎<span class="rt" aria-hidden="true">たけのじょうおう</span></span>が<span class="rb">村田珠光<span class="rt" aria-hidden="true">むらたじゅこう</span></span>の始めた<span class="rb">侘び茶<span class="rt" aria-hidden="true">わびちゃ</span></span>を深め、その弟子の<span class="rb">千利休<span class="rt" aria-hidden="true">せんのりきゅう</span></span>がこれを大成させた。茶の湯は、武士と商人を結ぶ社交の場となり、やがて信長や秀吉の政治にも深く関わっていく。</p>
+<figure><div class="cfig"><div class="flow"><div class="fs s"><em>15世紀後半</em><b>村田珠光</b><span class="d">簡素な茶室で心を通わせる「侘び茶」を始める</span></div><div class="fs s"><em>16世紀前半 ・ 堺</em><b>武野紹鴎</b><span class="d">侘び茶を深め、堺の町人に広める</span></div><div class="fs t"><em>16世紀後半 ・ 堺</em><b>千利休</b><span class="d">侘び茶を大成。のちに信長・秀吉に仕える</span></div><div class="fs dk"><b>茶の湯は、武士と商人を結ぶ社交と政治の場となった</b><span class="d">名物の茶道具は、領地に匹敵するほどの価値をもった</span></div></div></div><figcaption><span><b>図8-5</b>茶の湯の流れ</span></figcaption></figure>
+<section class="points" aria-labelledby="pt">
+<h3 id="pt">この章の要点</h3>
+<ul>
+<li>畿内を中心に、村人が自ら治める惣村が発達し、村は寄合・惣掟・自検断・地下請によって自立した。</li>
+<li>堺や博多では商人が町を治め、京都では町衆が町ごとに自治を行い、1500年に祇園祭を復活させた。</li>
+<li>本願寺の門徒は各地で一向一揆を起こし、加賀では約100年にわたって国を治めた。寺内町も各地に生まれた。</li>
+<li>公家や文化人が地方に下り、連歌や茶の湯などの文化が地方の武士や町人に広がった。</li>
+</ul>
+</section>
+<section class="column" aria-labelledby="col">
+<h3 id="col">コラム 洛中洛外図屏風に描かれた京都</h3>
+<p>戦国時代の京都の姿を今に伝えるのが、<span class="rb">洛中洛外図屏風<span class="rt" aria-hidden="true">らくちゅうらくがいずびょうぶ</span></span>である。京都の町と郊外を一望のもとに描いた屏風で、中でも国宝の「上杉本」は、<span class="rb">狩野永徳<span class="rt" aria-hidden="true">かのうえいとく</span></span>の作とされる。1574年に織田信長が<span class="rb">上杉謙信<span class="rt" aria-hidden="true">うえすぎけんしん</span></span>に贈ったと伝えられ、上杉家に伝わってきた。</p>
+<p>屏風には、将軍の御所や公家の屋敷、寺社とともに、商いをする人々、祇園祭の山鉾、遊ぶ子どもたちなど、2000人を超える人々が細かく描かれている。描かれた京都は、義輝が将軍だったころの姿と考えられ、もともと義輝が注文したものだったという説もある。戦乱の時代にも、京都には人々のにぎやかな暮らしがあったのである。</p>
+</section>
+</div>
+</article>
+<div class="navs"><a href="pc_ch7.html">← 第7章</a><a href="index.html">目次</a><a href="pc_summary.html">まとめ →</a></div>
+<footer>第8章 ・ 全8章のうちの1章</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>

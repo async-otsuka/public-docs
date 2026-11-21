@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>戦国の室町幕府 まとめ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style>.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+
+.cfig{background:#F7FAFD;border:1px solid #DCE4EE;border-radius:8px;padding:16px 18px}
+.ppl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ppl .pg{margin:0}
+.mapwrap{display:flex;gap:16px;align-items:flex-start}
+footer a{color:var(--navy)}
+.tlh{font-size:15px;color:var(--navy);margin:1.4em 0 .3em}
+</style><style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style></head>
+<body>
+<div class="page">
+<p class="series">戦国の室町幕府 解説資料</p>
+<article class="sheet">
+<div class="band">まとめ ・ 1493 ― 1573</div>
+<header class="ch">
+<h1>まとめ ― 年表・系図・各章の要点</h1>
+<p class="lead">明応の政変から室町幕府の滅亡までの80年をふりかえる</p>
+</header>
+<div class="body">
+<h2><span class="no">1</span>全体の年表</h2>
+<h3 class="tlh">第1章 <span class="rb">明応<span class="rt" aria-hidden="true">めいおう</span></span>の政変と二人の将軍</h3><ol class="tl" aria-label="この章の年表"><li><span class="y">1490</span><span><span class="rb">義材<span class="rt" aria-hidden="true">よしき</span></span>(義稙)が10代将軍に</span></li><li class="hl"><span class="y">1493</span><span>明応の政変</span></li><li class="k"><span class="y">1493</span><span><span class="rb">伊勢宗瑞<span class="rt" aria-hidden="true">いせそうずい</span></span>が伊豆へ攻め込む</span></li><li><span class="y">1494</span><span>義澄が11代将軍に</span></li><li><span class="y">1499</span><span>義稙が<span class="rb">周防<span class="rt" aria-hidden="true">すおう</span></span>の大内氏を頼る</span></li><li class="hl"><span class="y">1507</span><span><span class="rb">永正<span class="rt" aria-hidden="true">えいしょう</span></span>の錯乱(政元が暗殺される)</span></li><li><span class="y">1508</span><span>義稙が京都に戻り将軍に復帰</span></li></ol><h3 class="tlh">第2章 細川家の分裂と<span class="rb">管領<span class="rt" aria-hidden="true">かんれい</span></span>政治の終わり</h3><ol class="tl" aria-label="この章の年表"><li><span class="y">1511</span><span><span class="rb">船岡山<span class="rt" aria-hidden="true">ふなおかやま</span></span>の戦い</span></li><li><span class="y">1520</span><span><span class="rb">三好之長<span class="rt" aria-hidden="true">みよしゆきなが</span></span>が敗死、澄元も死去</span></li><li class="hl"><span class="y">1521</span><span>義稙が京都を去り、義晴が12代将軍に</span></li><li><span class="y">1527</span><span><span class="rb">桂川<span class="rt" aria-hidden="true">かつらがわ</span></span>の戦い、<span class="rb">堺公方<span class="rt" aria-hidden="true">さかいくぼう</span></span>が成立</span></li><li class="hl"><span class="y">1531</span><span><span class="rb">大物<span class="rt" aria-hidden="true">だいもつ</span></span>崩れ(高国が自害)</span></li><li class="k"><span class="y">1532</span><span><span class="rb">一向一揆<span class="rt" aria-hidden="true">いっこういっき</span></span>が蜂起、<span class="rb">山科<span class="rt" aria-hidden="true">やましな</span></span><span class="rb">本願寺<span class="rt" aria-hidden="true">ほんがんじ</span></span>が焼ける</span></li><li class="k"><span class="y">1536</span><span><span class="rb">天文<span class="rt" aria-hidden="true">てんぶん</span></span><span class="rb">法華<span class="rt" aria-hidden="true">ほっけ</span></span>の乱</span></li><li class="hl"><span class="y">1549</span><span><span class="rb">江口<span class="rt" aria-hidden="true">えぐち</span></span>の戦い</span></li></ol><h3 class="tlh">第3章 三好政権 ― 将軍のいない京都</h3><ol class="tl" aria-label="この章の年表"><li class="hl"><span class="y">1549</span><span>長慶が京都を握る</span></li><li><span class="y">1552</span><span>義輝と長慶が和睦</span></li><li><span class="y">1553</span><span>義輝が<span class="rb">近江<span class="rt" aria-hidden="true">おうみ</span></span>の<span class="rb">朽木<span class="rt" aria-hidden="true">くつき</span></span>へ</span></li><li><span class="y">1558</span><span>義輝と長慶が再び和睦</span></li><li class="k"><span class="y">1560</span><span>長慶が<span class="rb">飯盛山城<span class="rt" aria-hidden="true">いいもりやまじょう</span></span>へ移る</span></li><li><span class="y">1562</span><span><span class="rb">三好実休<span class="rt" aria-hidden="true">みよしじっきゅう</span></span>が戦死</span></li><li><span class="y">1563</span><span>嫡男の<span class="rb">三好義興<span class="rt" aria-hidden="true">みよしよしおき</span></span>が死去</span></li><li class="hl"><span class="y">1564</span><span><span class="rb">三好長慶<span class="rt" aria-hidden="true">みよしながよし</span></span>が死去</span></li></ol><h3 class="tlh">第4章 <span class="rb">戦国大名<span class="rt" aria-hidden="true">せんごくだいみょう</span></span>の登場</h3><ol class="tl" aria-label="この章の年表"><li class="k"><span class="y">1526</span><span><span class="rb">今川仮名目録<span class="rt" aria-hidden="true">いまがわかなもくろく</span></span>が定められる</span></li><li class="k"><span class="y">1536</span><span>伊達氏の<span class="rb">塵芥集<span class="rt" aria-hidden="true">じんかいしゅう</span></span></span></li><li class="k"><span class="y">1547</span><span>武田氏の<span class="rb">甲州法度之次第<span class="rt" aria-hidden="true">こうしゅうはっとのしだい</span></span></span></li><li><span class="y">1551</span><span><span class="rb">大寧寺<span class="rt" aria-hidden="true">たいねいじ</span></span>の変(<span class="rb">大内義隆<span class="rt" aria-hidden="true">おおうちよしたか</span></span>が自害)</span></li><li class="hl"><span class="y">1555</span><span><span class="rb">厳島<span class="rt" aria-hidden="true">いつくしま</span></span>の戦い</span></li><li><span class="y">1556</span><span><span class="rb">斎藤道三<span class="rt" aria-hidden="true">さいとうどうさん</span></span>が子に討たれる</span></li><li class="hl"><span class="y">1560</span><span><span class="rb">桶狭間<span class="rt" aria-hidden="true">おけはざま</span></span>の戦い</span></li><li><span class="y">1561</span><span><span class="rb">長尾景虎<span class="rt" aria-hidden="true">ながおかげとら</span></span>が関東管領を継ぐ</span></li></ol><h3 class="tlh">第5章 鉄砲とキリスト教 ― 世界とつながる日本</h3><ol class="tl" aria-label="この章の年表"><li><span class="y">1523</span><span><span class="rb">寧波<span class="rt" aria-hidden="true">ニンポー</span></span>の乱</span></li><li class="k"><span class="y">1526</span><span><span class="rb">石見<span class="rt" aria-hidden="true">いわみ</span></span>銀山の開発が始まる</span></li><li class="hl"><span class="y">1543</span><span>種子島に鉄砲が伝わる</span></li><li><span class="y">1547</span><span>最後の遣明船が出る</span></li><li class="hl"><span class="y">1549</span><span>ザビエルが鹿児島に上陸</span></li><li class="k"><span class="y">1550</span><span>ポルトガル船が<span class="rb">平戸<span class="rt" aria-hidden="true">ひらど</span></span>に来航</span></li><li><span class="y">1563</span><span><span class="rb">大村純忠<span class="rt" aria-hidden="true">おおむらすみただ</span></span>が洗礼を受ける</span></li><li class="k"><span class="y">1571</span><span>長崎の港が開かれる</span></li></ol><h3 class="tlh">第6章 義輝の死と義昭の上洛</h3><ol class="tl" aria-label="この章の年表"><li><span class="y">1564</span><span>三好長慶が死去</span></li><li class="hl"><span class="y">1565</span><span><span class="rb">永禄<span class="rt" aria-hidden="true">えいろく</span></span>の変(義輝が殺される)</span></li><li class="k"><span class="y">1565</span><span><span class="rb">覚慶<span class="rt" aria-hidden="true">かくけい</span></span>(義昭)が奈良を脱出</span></li><li class="k"><span class="y">1566</span><span>義昭が<span class="rb">越前<span class="rt" aria-hidden="true">えちぜん</span></span>の朝倉氏を頼る</span></li><li><span class="y">1567</span><span>信長が<span class="rb">美濃<span class="rt" aria-hidden="true">みの</span></span>を平定</span></li><li><span class="y">1568</span><span>義栄が14代将軍に(2月)</span></li><li class="hl"><span class="y">1568</span><span>信長が義昭を奉じて上洛(9月)</span></li><li class="hl"><span class="y">1568</span><span>義昭が15代将軍に(10月)</span></li></ol><h3 class="tlh">第7章 室町幕府の滅亡</h3><ol class="tl" aria-label="この章の年表"><li><span class="y">1569</span><span><span class="rb">本圀寺<span class="rt" aria-hidden="true">ほんこくじ</span></span>の変、<span class="rb">殿中御掟<span class="rt" aria-hidden="true">でんちゅうおんおきて</span></span></span></li><li class="k"><span class="y">1570</span><span><span class="rb">姉川<span class="rt" aria-hidden="true">あねがわ</span></span>の戦い、本願寺が挙兵</span></li><li class="k"><span class="y">1571</span><span><span class="rb">比叡山<span class="rt" aria-hidden="true">ひえいざん</span></span>焼き討ち</span></li><li><span class="y">1572</span><span>信長が<span class="rb">異見<span class="rt" aria-hidden="true">いけん</span></span>十七か条を出す</span></li><li class="hl"><span class="y">1573</span><span>義昭が挙兵、のち京都から追放</span></li><li><span class="y">1576</span><span>義昭が<span class="rb">備後<span class="rt" aria-hidden="true">びんご</span></span>の<span class="rb">鞆<span class="rt" aria-hidden="true">とも</span></span>へ</span></li><li class="hl"><span class="y">1588</span><span>義昭が出家し、将軍職を離れる</span></li></ol><h3 class="tlh">第8章 戦国の社会と文化</h3><ol class="tl" aria-label="この章の年表"><li class="k"><span class="y">1488</span><span><span class="rb">加賀<span class="rt" aria-hidden="true">かが</span></span>の一向一揆</span></li><li><span class="y">1500</span><span>京都の<span class="rb">祇園祭<span class="rt" aria-hidden="true">ぎおんまつり</span></span>が再興される</span></li><li><span class="y">1502</span><span><span class="rb">連歌<span class="rt" aria-hidden="true">れんが</span></span>師の<span class="rb">宗祇<span class="rt" aria-hidden="true">そうぎ</span></span>が死去</span></li><li><span class="y">1518</span><span><span class="rb">小歌<span class="rt" aria-hidden="true">こうた</span></span>集『<span class="rb">閑吟集<span class="rt" aria-hidden="true">かんぎんしゅう</span></span>』</span></li><li class="k"><span class="y">1549</span><span>近江の<span class="rb">石寺<span class="rt" aria-hidden="true">いしでら</span></span>新市が<span class="rb">楽市<span class="rt" aria-hidden="true">らくいち</span></span>に</span></li><li><span class="y">1555</span><span>茶人の<span class="rb">武野紹鴎<span class="rt" aria-hidden="true">たけのじょうおう</span></span>が死去</span></li><li><span class="y">1574</span><span>信長が謙信に<span class="rb">洛中洛外図屏風<span class="rt" aria-hidden="true">らくちゅうらくがいずびょうぶ</span></span>を贈る</span></li><li class="k"><span class="y">1580</span><span>加賀の一向一揆が終わる</span></li></ol><h2><span class="no">2</span>系図</h2>
+<figure><div class="cfig"><ul class="tree"><li><span class="rb">足利義教<span class="rt" aria-hidden="true">あしかがよしのり</span></span><span class="sh">6</span><small>1441年 <span class="rb">嘉吉<span class="rt" aria-hidden="true">かきつ</span></span>の変で死去</small><ul><li><span class="sh">8</span>足利義政<ul><li><span class="sh">9</span>足利義尚</li></ul></li><li>足利義視<small>義政の弟</small><ul><li><span class="sh">10</span><span class="rb">足利義稙<span class="rt" aria-hidden="true">あしかがよしたね</span></span>(義材)<small>明応の政変で追われ、1508年に復帰</small></li></ul></li><li><span class="rb">足利政知<span class="rt" aria-hidden="true">あしかがまさとも</span></span><small><span class="rb">堀越公方<span class="rt" aria-hidden="true">ほりごえくぼう</span></span></small><ul><li><span class="sh">11</span><span class="rb">足利義澄<span class="rt" aria-hidden="true">あしかがよしずみ</span></span><small><span class="rb">細川政元<span class="rt" aria-hidden="true">ほそかわまさもと</span></span>が擁立</small><ul><li><span class="sh">12</span><span class="rb">足利義晴<span class="rt" aria-hidden="true">あしかがよしはる</span></span><ul><li><span class="sh">13</span><span class="rb">足利義輝<span class="rt" aria-hidden="true">あしかがよしてる</span></span><small>1565年 永禄の変で死去</small></li><li><span class="sh">15</span><span class="rb">足利義昭<span class="rt" aria-hidden="true">あしかがよしあき</span></span><small>1573年 京都を追われる</small></li></ul></li><li><span class="rb">足利義維<span class="rt" aria-hidden="true">あしかがよしつな</span></span><small>堺公方</small><ul><li><span class="sh">14</span><span class="rb">足利義栄<span class="rt" aria-hidden="true">あしかがよしひで</span></span><small>京都に入れなかった将軍</small></li></ul></li></ul></li></ul></li></ul></li></ul><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">数字は将軍の代</p></div><figcaption><span><b>図M-1</b>将軍家(足利氏)</span></figcaption></figure>
+<figure><div class="cfig"><ul class="tree"><li>細川政元<small>管領。1507年に暗殺</small><ul><li><span class="rb">細川澄之<span class="rt" aria-hidden="true">ほそかわすみゆき</span></span><small>養子(九条家出身)。1507年に敗死</small></li><li><span class="rb">細川澄元<span class="rt" aria-hidden="true">ほそかわすみもと</span></span><small>養子(<span class="rb">阿波<span class="rt" aria-hidden="true">あわ</span></span>細川家出身)</small><ul><li><span class="rb">細川晴元<span class="rt" aria-hidden="true">ほそかわはるもと</span></span><small>三好長慶に京都を追われる</small></li></ul></li><li><span class="rb">細川高国<span class="rt" aria-hidden="true">ほそかわたかくに</span></span><small>養子(分家の出身)。1531年 大物崩れで自害</small><ul><li><span class="rb">細川氏綱<span class="rt" aria-hidden="true">ほそかわうじつな</span></span><small>養子。長慶に擁立される</small></li></ul></li></ul></li></ul></div><figcaption><span><b>図M-2</b><span class="rb">細川京兆家<span class="rt" aria-hidden="true">ほそかわけいちょうけ</span></span>(細川家の本家)</span></figcaption></figure>
+<figure><div class="cfig"><ul class="tree"><li>三好之長<small>細川澄元の重臣</small><ul><li>三好長秀<ul><li><span class="rb">三好元長<span class="rt" aria-hidden="true">みよしもとなが</span></span><small>1532年 一向一揆に攻められ自害</small><ul><li>三好長慶<small><span class="rb">畿内<span class="rt" aria-hidden="true">きない</span></span>を治める。1564年に死去</small><ul><li>三好義興<small>1563年に病死</small></li><li><span class="rb">三好義継<span class="rt" aria-hidden="true">みよしよしつぐ</span></span><small><span class="rb">十河一存<span class="rt" aria-hidden="true">そごうかずまさ</span></span>の子。長慶の養子</small></li></ul></li><li>三好実休<small>阿波を守る</small></li><li><span class="rb">安宅冬康<span class="rt" aria-hidden="true">あたぎふゆやす</span></span><small><span class="rb">淡路<span class="rt" aria-hidden="true">あわじ</span></span>を守る</small></li><li>十河一存<small><span class="rb">和泉<span class="rt" aria-hidden="true">いずみ</span></span>を守る</small></li></ul></li></ul></li></ul></li></ul></div><figcaption><span><b>図M-3</b>三好家</span></figcaption></figure>
+<h2><span class="no">3</span>各章の要点</h2>
+<ul class="chs"><li><a href="pc_ch1.html">第1章 明応の政変と二人の将軍</a><ul><li>1493年、管領の細川政元は出陣中の将軍足利義稙を廃し、足利義澄を将軍に立てた(明応の政変)。</li><li>義稙は<span class="rb">越中<span class="rt" aria-hidden="true">えっちゅう</span></span>・越前・周防の大名を頼って各地を移り、京都の将軍と地方の前将軍が並び立った。</li><li>1507年に政元が暗殺され(永正の錯乱)、細川家は養子どうしの争いで分裂した。</li><li>1508年、義稙は<span class="rb">大内義興<span class="rt" aria-hidden="true">おおうちよしおき</span></span>の軍事力によって将軍に返り咲いた。将軍の地位は大名の力に左右されるようになった。</li></ul></li><li><a href="pc_ch2.html">第2章 細川家の分裂と管領政治の終わり</a><ul><li>細川家は高国と澄元(のち晴元)の二派に割れ、それぞれが将軍を担いで争った(両細川の乱)。</li><li>1521年に義晴が12代将軍となり、1527年には晴元と三好元長が義維を擁立して「堺公方」を立てた。</li><li>1531年に高国が大物崩れで敗死すると、晴元は一向一揆や法華一揆を利用し、京都とその周辺は宗教勢力の争いにも巻き込まれた。</li><li>1549年、三好長慶が江口の戦いで勝ち、細川家による管領政治は事実上終わった。</li></ul></li><li><a href="pc_ch3.html">第3章 三好政権 ― 将軍のいない京都</a><ul><li>1549年、三好長慶は主君の細川晴元と将軍義輝を京都から追い、細川家の家臣の立場から畿内の支配者となった。</li><li>1553年から約5年、長慶は新たな将軍を立てずに京都を治め、将軍がいなくても政治が動くことを示した。</li><li>長慶は飯盛山城を拠点に、畿内から阿波・<span class="rb">讃岐<span class="rt" aria-hidden="true">さぬき</span></span>・淡路にまたがる勢力を築き、一族や<span class="rb">松永久秀<span class="rt" aria-hidden="true">まつながひさひで</span></span>に各地を任せた。</li><li>一族の死が相次ぎ、1564年に長慶が死去すると、三好家は若い義継と三好三人衆・松永久秀に託された。</li></ul></li><li><a href="pc_ch4.html">第4章 戦国大名の登場</a><ul><li>戦国大名は、幕府に頼らず自分の力で領国を治め、検地や家臣団の組織で土地と人を直接つかんだ。</li><li>戦国大名には、守護・<span class="rb">守護代<span class="rt" aria-hidden="true">しゅごだい</span></span>・<span class="rb">国人<span class="rt" aria-hidden="true">こくじん</span></span>・新興の家など、さまざまな出自があった。</li><li><span class="rb">分国法<span class="rt" aria-hidden="true">ぶんこくほう</span></span>を定めて家臣の私闘を禁じ(<span class="rb">喧嘩両成敗<span class="rt" aria-hidden="true">けんかりょうせいばい</span></span>)、城下町に家臣を集めて支配を固めた。</li><li>一方で大名は、守護職や将軍の名の一字など、幕府の権威を求め続けた。</li></ul></li><li><a href="pc_ch5.html">第5章 鉄砲とキリスト教 ― 世界とつながる日本</a><ul><li>1523年の寧波の乱の後、<span class="rb">勘合貿易<span class="rt" aria-hidden="true">かんごうぼうえき</span></span>は大内氏が独占したが、1551年の大内氏の滅亡で途絶え、<span class="rb">倭寇<span class="rt" aria-hidden="true">わこう</span></span>による密貿易が広がった。</li><li>1526年に開発された石見銀山などから大量の銀が産出し、日本の銀は東アジアの交易を動かした。</li><li>1543年に種子島に伝わった鉄砲は、堺・<span class="rb">国友<span class="rt" aria-hidden="true">くにとも</span></span>・<span class="rb">根来<span class="rt" aria-hidden="true">ねごろ</span></span>などで国産化され、戦い方を変えた。</li><li>1549年にザビエルがキリスト教を伝え、ポルトガル船との<span class="rb">南蛮<span class="rt" aria-hidden="true">なんばん</span></span>貿易と結びついて九州を中心に広まった。</li></ul></li><li><a href="pc_ch6.html">第6章 義輝の死と義昭の上洛</a><ul><li>13代将軍義輝は、大名どうしの争いを仲立ちするなどして、将軍の権威を取り戻そうとした。</li><li>1565年、三好義継と三好三人衆らが御所を襲い、義輝を殺した(永禄の変)。</li><li>義輝の弟の義昭は奈良を脱出し、近江・<span class="rb">若狭<span class="rt" aria-hidden="true">わかさ</span></span>・越前を渡り歩いて上洛を呼びかけた。一方、三人衆は義栄を14代将軍に立てた。</li><li>1568年、美濃を平定した織田信長が義昭を奉じて上洛し、義昭は15代将軍となった。</li></ul></li><li><a href="pc_ch7.html">第7章 室町幕府の滅亡</a><ul><li>信長は義昭のために<span class="rb">二条御所<span class="rt" aria-hidden="true">にじょうごしょ</span></span>を築き、殿中御掟や五か条の条書で幕府の運営に決まりを設けた。</li><li>1570年以降、浅井・朝倉、本願寺、<span class="rb">延暦寺<span class="rt" aria-hidden="true">えんりゃくじ</span></span>などが信長と戦い(信長包囲網)、信長は1571年に比叡山を焼き討ちした。</li><li>1573年、義昭は信長に対して挙兵したが敗れ、京都を追われた。これが一般に室町幕府の滅亡とされる。</li><li>義昭はその後も鞆で将軍を名乗り続け、1588年に将軍職を離れた。</li></ul></li><li><a href="pc_ch8.html">第8章 戦国の社会と文化</a><ul><li>畿内を中心に、村人が自ら治める<span class="rb">惣村<span class="rt" aria-hidden="true">そうそん</span></span>が発達し、村は<span class="rb">寄合<span class="rt" aria-hidden="true">よりあい</span></span>・<span class="rb">惣掟<span class="rt" aria-hidden="true">そうおきて</span></span>・<span class="rb">自検断<span class="rt" aria-hidden="true">じけんだん</span></span>・<span class="rb">地下請<span class="rt" aria-hidden="true">じげうけ</span></span>によって自立した。</li><li>堺や<span class="rb">博多<span class="rt" aria-hidden="true">はかた</span></span>では商人が町を治め、京都では<span class="rb">町衆<span class="rt" aria-hidden="true">まちしゅう</span></span>が町ごとに自治を行い、1500年に祇園祭を復活させた。</li><li>本願寺の門徒は各地で一向一揆を起こし、加賀では約100年にわたって国を治めた。<span class="rb">寺内町<span class="rt" aria-hidden="true">じないまち</span></span>も各地に生まれた。</li><li>公家や文化人が地方に下り、連歌や茶の湯などの文化が地方の武士や町人に広がった。</li></ul></li></ul></div>
+</article>
+<div class="navs"><a href="pc_ch8.html">← 第8章</a><a href="index.html">目次</a></div>
+<footer>まとめ</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>
