@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>南北朝・室町時代 第3章(スマホ版)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* スマホ優先の1カラム。カード枠をやめて画面幅を本文に使う。図は縦長に組み直す */
+  --paper:#FFFFFF; --ink:#1E2A3A; --sub:#5A6878; --navy:#1F4E8C; --teal:#2F7F86;
+  --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#D6E4F3;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.85;-webkit-text-size-adjust:100%}
+.wrap{max-width:520px;margin:0 auto}
+.topbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 20px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);font-size:13px;color:var(--sub)}
+.topbar button{font:inherit;font-size:13px;color:var(--navy);background:var(--sky);border:0;border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.topbar button:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+header.ch{background:var(--navy);color:#fff;padding:22px 20px 20px}
+header.ch .eyebrow{font-size:13px;letter-spacing:.15em;opacity:.85;margin:0 0 6px}
+header.ch h1{font-size:25px;line-height:1.4;font-weight:700;margin:0;text-wrap:balance}
+header.ch .lead{font-size:14.5px;line-height:1.7;margin:8px 0 0;opacity:.9}
+main{padding:0 20px 40px}
+h2{font-size:20px;line-height:1.5;font-weight:700;margin:40px 0 14px;padding-left:12px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{display:block;font-size:13px;color:var(--navy);font-weight:500}
+p{margin:0 0 1.15em}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.32em;transform:translateX(-50%);font-size:.5em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;letter-spacing:0;pointer-events:none}
+body.noruby .rt{display:none}
+.tl{list-style:none;margin:20px 0 0 6px;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:8px;padding:5px 0 5px 16px;font-size:15px;line-height:1.6}
+.tl li::before{content:"";position:absolute;left:-7px;top:12px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--navy)}
+.tl li.k::before{border-color:var(--teal)}
+.tl li.hl{font-weight:700}
+.tl li.hl::before{background:var(--navy)}
+.tl .y{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.tl li.k .y{color:var(--teal)}
+.tlnote{display:flex;gap:16px;font-size:12.5px;color:var(--sub);margin:8px 0 0 6px}
+.tlnote span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid var(--navy);margin-right:5px;vertical-align:-1px}
+.tlnote span.k::before{border-color:var(--teal)}
+.point{background:var(--sky);border-radius:10px;padding:14px 16px;margin:0 0 22px;font-size:15px;line-height:1.7}
+.point b{display:block;color:var(--navy);font-size:13px;margin-bottom:4px}
+.point ul{margin:0;padding-left:1.2em}
+figure{margin:26px -20px 28px;padding:16px 20px 12px;background:#F7FAFD;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+figure svg{display:block;width:100%;height:auto}
+.figt{font-size:15px;font-weight:700;margin:0 0 12px;line-height:1.5}
+.figt span{color:var(--navy);margin-right:8px}
+.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.back{margin-top:10px;font-size:14px;font-weight:700;color:var(--teal);display:flex;gap:6px;align-items:center}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+.summary{background:var(--sky);border-radius:10px;padding:16px 18px 10px;margin:36px 0 18px}
+.summary h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy)}
+.summary ul{margin:0;padding-left:1.2em;font-size:16px}
+.summary li{margin:0 0 .5em}
+.column{border:1.5px dashed #9AAABB;border-radius:10px;padding:16px 18px 4px;margin:18px 0 0}
+.column h3{color:var(--teal)}
+.column figure{margin:16px -18px 16px}
+footer{font-size:12.5px;color:var(--sub);text-align:center;padding:0 20px 40px}
+</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><span>南北朝・室町時代 解説資料</span><button type="button" id="rubyBtn" aria-pressed="true">ふりがな:あり</button></div>
+<header class="ch">
+<p class="eyebrow">第三章 ・ 1368 ― 1408</p>
+<h1>足利義満と幕府の全盛期</h1>
+<p class="lead">将軍の権力が頂点に達した40年</p>
+</header>
+<main>
+<ol class="tl" aria-label="この章の年表">
+<li><span class="y">1368</span><span>義満が3代将軍に</span></li>
+<li><span class="y">1378</span><span>花の御所へ移る</span></li>
+<li><span class="y">1379</span><span>康暦の政変</span></li>
+<li><span class="y">1391</span><span>明徳の乱</span></li>
+<li class="hl"><span class="y">1392</span><span>南北朝の合一</span></li>
+<li><span class="y">1394</span><span>太政大臣に・将軍職を義持へ</span></li>
+<li><span class="y">1399</span><span>応永の乱</span></li>
+<li><span class="y">1404</span><span>勘合貿易が始まる</span></li>
+<li><span class="y">1408</span><span>義満が没する</span></li>
+</ol>
+<h2><span class="no">第1節</span>幼い将軍と管領・細川頼之</h2>
+<div class="point"><b>この節のポイント</b><ul><li>11歳の義満を、管領の細川頼之が支えた</li><li>九州探題の今川了俊が九州の平定を進めた</li><li>康暦の政変で頼之が退き、義満が自ら政治を動かし始めた</li></ul></div>
+<p>1367年に2代将軍・足利<span class="rb">義詮<span class="rt" aria-hidden="true">よしあきら</span></span>が没すると、翌1368年、わずか11歳の義満が3代将軍となった。幼い将軍を支えたのは、義詮から後を託された<span class="rb">管領<span class="rt" aria-hidden="true">かんれい</span></span>の<span class="rb">細川頼之<span class="rt" aria-hidden="true">ほそかわよりゆき</span></span>である。</p>
+<p>頼之は同じ年に応安の半済令を出して荘園の秩序を立て直す一方、九州には<span class="rb">今川了俊<span class="rt" aria-hidden="true">いまがわりょうしゅん</span></span>を<span class="rb">九州探題<span class="rt" aria-hidden="true">きゅうしゅうたんだい</span></span>として送り込んだ。了俊は1372年、南朝方の<span class="rb">懐良<span class="rt" aria-hidden="true">かねよし</span></span>親王が押さえていた大宰府を奪い返し、九州の平定を大きく進めた。</p>
+<p>しかし頼之の強い指導には反発も多かった。1379年、<span class="rb">斯波義将<span class="rt" aria-hidden="true">しばよしまさ</span></span>ら反頼之派の守護が兵を率いて京都に集まり、頼之を辞任に追い込む。<span class="rb">康暦<span class="rt" aria-hidden="true">こうりゃく</span></span>の政変である。義満は頼之をかばわず、反対派の要求を受け入れた。</p>
+<p>このとき義満は22歳。管領の後見を離れ、自分の手で政治を動かす時期が来ていた。</p>
+<h2><span class="no">第2節</span>花の御所 ― 朝廷の権限を吸い上げる</h2>
+<div class="point"><b>この節のポイント</b><ul><li>花の御所に移り、「室町幕府」の名の由来となった</li><li>朝廷の官位を上りつめ、太政大臣になった</li><li>朝廷が握っていた京都の支配や課税の権限を幕府に取り込んだ</li></ul></div>
+<p>1378年、義満は京都の<span class="rb">室町<span class="rt" aria-hidden="true">むろまち</span></span>に壮大な邸宅を構えて移り住んだ。庭に多くの花が植えられたことから「花の御所」と呼ばれ、足利氏の幕府が「室町幕府」と呼ばれるのはこの地名に由来する。</p>
+<p>御所は天皇の住まいである内裏の近くにあり、幕府が朝廷のおひざもとに本拠を置いて政治を行う姿勢をはっきりと示していた。</p>
+<p>義満は朝廷の中でも位を上げていった。1381年に内大臣、翌年に左大臣、1383年には皇族に準じる<span class="rb">准三后<span class="rt" aria-hidden="true">じゅさんごう</span></span>の待遇を受け、1394年には武家としては平清盛以来となる太政大臣に就く。</p>
+<p>並行して、それまで朝廷が握っていた京都の町の警察・裁判の権限や、全国に<span class="rb">段銭<span class="rt" aria-hidden="true">たんせん</span></span>(田の面積に応じてかける臨時の税)を課す権限などを、幕府が手にしていった。</p>
+<p>朝廷の権威と実権の多くが、将軍のもとに吸い寄せられていったのである。</p>
+<figure><p class="figt"><span>図3-2</span>義満の地位の上昇 ― 武家の頂点から朝廷の頂点へ</p>
+<svg viewBox="0 0 360 255" role="img"><title>義満の地位の上昇</title><desc>1368年将軍就任から1381年内大臣、1382年左大臣、1383年准三后、1394年太政大臣、1395年出家まで</desc><text x="0" y="24" style="font:700 12px 'Noto Sans JP',sans-serif" fill="#1F4E8C">1368</text><text x="0" y="41" style="font:700 14px 'Noto Sans JP',sans-serif" fill="#1E2A3A">将軍就任</text><rect x="80" y="14" width="60" height="28" rx="3" fill="#D6E4F3"/><text x="0" y="64" style="font:700 12px 'Noto Sans JP',sans-serif" fill="#1F4E8C">1381</text><text x="0" y="81" style="font:700 14px 'Noto Sans JP',sans-serif" fill="#1E2A3A">内大臣</text><rect x="80" y="54" width="98" height="28" rx="3" fill="#B9D0EA"/><text x="0" y="104" style="font:700 12px 'Noto Sans JP',sans-serif" fill="#1F4E8C">1382</text><text x="0" y="121" style="font:700 14px 'Noto Sans JP',sans-serif" fill="#1E2A3A">左大臣</text><rect x="80" y="94" width="136" height="28" rx="3" fill="#9CBBE0"/><text x="0" y="144" style="font:700 12px 'Noto Sans JP',sans-serif" fill="#1F4E8C">1383</text><text x="0" y="161" style="font:700 14px 'Noto Sans JP',sans-serif" fill="#1E2A3A">准三后</text><rect x="80" y="134" width="174" height="28" rx="3" fill="#6F9BCF"/><text x="0" y="184" style="font:700 12px 'Noto Sans JP',sans-serif" fill="#1F4E8C">1394</text><text x="0" y="201" style="font:700 14px 'Noto Sans JP',sans-serif" fill="#1E2A3A">太政大臣</text><rect x="80" y="174" width="212" height="28" rx="3" fill="#3F72B0"/><text x="284" y="193" text-anchor="end" style="font:500 11px 'Noto Sans JP',sans-serif" fill="#fff">将軍職は義持へ</text><text x="0" y="224" style="font:700 12px 'Noto Sans JP',sans-serif" fill="#1F4E8C">1395</text><text x="0" y="241" style="font:700 14px 'Noto Sans JP',sans-serif" fill="#1E2A3A">出家</text><rect x="80" y="214" width="250" height="28" rx="3" fill="#1F4E8C"/><text x="322" y="233" text-anchor="end" style="font:500 11px 'Noto Sans JP',sans-serif" fill="#fff">出家後も実権</text></svg>
+</figure>
+<p>1394年、義満は将軍職を9歳の子・<span class="rb">義持<span class="rt" aria-hidden="true">よしもち</span></span>に譲り、翌年には太政大臣も辞めて出家した。しかし実権は手放さず、1397年からは京都の北山に造営した<span class="rb">北山殿<span class="rt" aria-hidden="true">きたやまどの</span></span>を拠点に政治を続けた。</p>
+<p>現在の<span class="rb">鹿苑寺<span class="rt" aria-hidden="true">ろくおんじ</span></span>金閣は、その北山殿の一部である。北山殿を中心に花開いた文化については、第7章で取り上げる。</p>
+<h2><span class="no">第3節</span>有力守護の力を削る</h2>
+<div class="point"><b>この節のポイント</b><ul><li>土岐・山名・大内の有力守護を次々に討った</li><li>「六分一殿」の山名氏は11か国から3か国に減らされた</li><li>将軍の権力は頂点に達した</li></ul></div>
+<p>南北朝の動乱を通じて、守護の中には複数の国を束ねる巨大な勢力が育っていた。義満はこうした守護の一族の内紛や不満につけこみ、一つずつ力を削っていく。</p>
+<p>まず1390年、美濃・尾張・伊勢の守護を兼ねた<span class="rb">土岐康行<span class="rt" aria-hidden="true">ときやすゆき</span></span>を討った(土岐康行の乱)。続く1391年には、<span class="rb">山名氏清<span class="rt" aria-hidden="true">やまなうじきよ</span></span>・<span class="rb">満幸<span class="rt" aria-hidden="true">みつゆき</span></span>を挑発して挙兵させ、京都で破った(<span class="rb">明徳<span class="rt" aria-hidden="true">めいとく</span></span>の乱)。</p>
+<p>山名氏は一族で11か国の守護を占め、当時の日本の66か国の6分の1にあたることから「<span class="rb">六分一殿<span class="rt" aria-hidden="true">ろくぶいちどの</span></span>」と呼ばれていたが、乱の後は3か国にまで減らされた。</p>
+<p>1399年には、6か国の守護を兼ね、朝鮮との貿易でも富を蓄えた<span class="rb">大内義弘<span class="rt" aria-hidden="true">おおうちよしひろ</span></span>が堺で挙兵したが、これも鎮圧された(<span class="rb">応永<span class="rt" aria-hidden="true">おうえい</span></span>の乱)。</p>
+<figure><p class="figt"><span>図3-3</span>削られた有力守護の領国(守護を務める国の数)</p>
+<svg viewBox="0 0 360 260" role="img"><title>削られた有力守護の領国</title><desc>土岐氏3か国から1か国、山名氏11か国から3か国、大内氏6か国から2か国</desc><rect x="0" y="2" width="12" height="12" fill="#1F4E8C"/><text x="18" y="13" style="font:400 12px 'Noto Sans JP',sans-serif" fill="#5A6878">乱の後に残った国</text><rect x="150" y="2" width="12" height="12" fill="#EAF2FB" stroke="#9AAABB"/><text x="168" y="13" style="font:400 12px 'Noto Sans JP',sans-serif" fill="#5A6878">乱の前の国</text><text x="0" y="48" style="font:700 14px 'Noto Sans JP',sans-serif" fill="#1E2A3A">土岐氏</text><text x="60" y="48" style="font:400 12px 'Noto Sans JP',sans-serif" fill="#5A6878">1390 土岐康行の乱</text><text x="360" y="48" text-anchor="end" style="font:700 12px 'Noto Sans JP',sans-serif" fill="#1F4E8C">3か国 → 1か国</text><rect x="0" y="56" width="90" height="26" fill="#EAF2FB" stroke="#9AAABB"/><rect x="0" y="56" width="30" height="26" fill="#1F4E8C"/><text x="0" y="122" style="font:700 14px 'Noto Sans JP',sans-serif" fill="#1E2A3A">山名氏</text><text x="60" y="122" style="font:400 12px 'Noto Sans JP',sans-serif" fill="#5A6878">1391 明徳の乱</text><text x="360" y="122" text-anchor="end" style="font:700 12px 'Noto Sans JP',sans-serif" fill="#1F4E8C">11か国 → 3か国</text><rect x="0" y="130" width="330" height="26" fill="#EAF2FB" stroke="#9AAABB"/><rect x="0" y="130" width="90" height="26" fill="#1F4E8C"/><text x="0" y="196" style="font:700 14px 'Noto Sans JP',sans-serif" fill="#1E2A3A">大内氏</text><text x="60" y="196" style="font:400 12px 'Noto Sans JP',sans-serif" fill="#5A6878">1399 応永の乱</text><text x="360" y="196" text-anchor="end" style="font:700 12px 'Noto Sans JP',sans-serif" fill="#1F4E8C">6か国 → 2か国</text><rect x="0" y="204" width="180" height="26" fill="#EAF2FB" stroke="#9AAABB"/><rect x="0" y="204" width="60" height="26" fill="#1F4E8C"/></svg>
+</figure>
+<p>こうして義満は、幕府を脅かしかねない有力守護を次々と抑え込み、1392年には南北朝の合一も実現させた(第2章)。将軍の権力は、このとき頂点に達したのである。</p>
+<h2><span class="no">第4節</span>日明貿易と「日本国王」</h2>
+<div class="point"><b>この節のポイント</b><ul><li>明は朝貢の形でしか貿易を認めなかった</li><li>義満は「日本国王」として勘合貿易を始めた</li><li>大きな利益と銅銭が流れ込んだが、朝貢の形には反発もあった</li></ul></div>
+<p>中国では1368年に明が建国されていた。明は周辺の国々に対し、皇帝に貢ぎ物を差し出して臣下の礼をとる<span class="rb">朝貢<span class="rt" aria-hidden="true">ちょうこう</span></span>の形でしか交易を認めず、民間の海外貿易を禁じていた。</p>
+<p>また、朝鮮半島や中国の沿岸を荒らす<span class="rb">倭寇<span class="rt" aria-hidden="true">わこう</span></span>の取り締まりを日本に強く求めていた。</p>
+<p>義満は1401年、僧の<span class="rb">祖阿<span class="rt" aria-hidden="true">そあ</span></span>と博多の商人・<span class="rb">肥富<span class="rt" aria-hidden="true">こいつみ</span></span>を明に送り、国交を開いた。翌年、明の皇帝から「日本国王<span class="rb">源道義<span class="rt" aria-hidden="true">みなもとのどうぎ</span></span>」(道義は義満の出家後の名)にあてた国書が届き、義満は明の皇帝の臣下である「日本国王」として認められた。</p>
+<p>1404年からは、正式な使節の船であることを証明する<span class="rb">勘合<span class="rt" aria-hidden="true">かんごう</span></span>という札を使った貿易が始まる。これを勘合貿易という。</p>
+<p>朝貢の形をとったため、日本の使節の滞在費や運送費は明が負担し、日本側は持ち込んだ品をはるかに上回る価値の品を受け取ることができた。</p>
+<p>日本からは刀剣・銅・硫黄・扇などが運ばれ、明からは銅銭・生糸・絹織物・書物などがもたらされた。とくに大量に入ってきた銅銭(のちには<span class="rb">永楽通宝<span class="rt" aria-hidden="true">えいらくつうほう</span></span>など)は、日本の貨幣経済を大きく進めることになる。</p>
+<figure><p class="figt"><span>図3-4</span>勘合貿易の航路</p>
+<svg viewBox="0 0 360 250" role="img"><title>勘合貿易の航路の地図</title><desc>番号は道順。兵庫、博多、寧波、南京、北京</desc><defs><marker id="m3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker></defs><rect width="360" height="250" fill="#EEF4FA"/><path d="M360,128.4L359.4,128L359,128.4L359.1,130.3L358.5,130.5L357.9,130L358.1,128.6L357.7,126.5L357.6,125.1L358.3,124L357.6,123.5L355.8,124.3L355,125L353.1,128.9L352.4,131.1L353.7,132.9L357.4,135.4L358,136L358.1,137.1L357.6,138.2L356.6,138.7L352.5,139.5L349.1,141.1L348,142.7L344.8,149L342.3,153.2L338.6,154.7L334.7,153.4L333.7,151.9L332.9,150L331.4,148.4L330.2,146.6L329.4,144.4L329.5,141L328.9,138.9L329.4,138.3L331.6,137.1L333.6,134.7L334,133.7L334.1,132.3L333.1,131.6L330.5,131.6L328,132.1L326.1,131.5L323,129.4L320.5,129.3L318.7,129.6L316.8,130.2L315,130.4L314.3,130.7L312.1,132.8L310.4,134.1L308.9,134.8L305.6,135L304,135.4L302.3,136.1L301.8,136L300,136.9L298,137.8L296.9,138.6L294.9,138L290.9,139.5L288.9,139.7L286.9,138.9L285.1,137.6L283.3,138.2L282.1,140.1L281.5,144L280.8,145.7L280.5,147.8L279.7,147.4L274.3,143.7L274,143.5L269.6,144.2L268.5,144.5L267.1,145.3L265.6,145.6L264.3,145.1L263,144.2L261.8,144.4L260.5,145.1L260,139.4L260.2,138.7L261.9,136.8L264,136.5L266.1,136.8L267.6,136.4L268.9,135.3L270.2,133.7L271.8,132.4L273.8,131.4L275.8,130.2L277.6,128.5L279.3,126.7L280.8,125.4L282.4,124.3L285,121.6L288.3,118.6L289.6,116.3L290.4,115.7L293.3,114.5L297.1,113.5L298.9,113.6L300.7,115.5L302.6,114.8L304.6,114.5L306.6,114.8L308.6,114.8L310.6,114.6L314.4,113.9L316.4,113.1L318.4,112.1L325.3,111.4L330.2,109.7L331.6,110.2L331.7,111.5L331.1,112.8L331.7,113.7L332.6,114.2L337.1,114.4L338.4,114.6L340.3,113.7L342.1,112.6L343.9,111L345.2,109.3L344,107.2L343.8,104.8L344.8,102.3L346.2,100.1L347.9,98.8L349.5,97.3L352.7,93L355.1,89.6L355.9,85.3L355.4,80.2L357.4,76.4L359.4,75.8L360,75.5L360,80.1L360,80.1L358.8,80.7L358.4,81.8L359.9,83.7L360,84.1L360,128.4ZM316.8,139.5L319,140.3L321.3,140.1L321.3,143.7L321.6,144.9L322.3,146L322,147.6L323,148.1L319.9,149.9L317.1,152.3L315.9,153.9L314.9,155.6L314.2,157.4L313.9,159.4L313,158.6L310.2,155.4L308.5,154.5L305.8,154.1L304.9,154.2L299.2,157.2L298.5,159.3L296.9,162.6L296.2,163.7L294.8,164.5L294.2,167.3L292.4,169L291.3,169L289.5,168.6L288.7,168.8L289.8,166.1L288,165.8L286.3,165.8L286.3,164.1L285.2,163L286,161.7L286,160.7L286.4,160.1L286.6,158.5L285.5,158.3L284.8,157.7L284.9,155.8L284.3,155.7L282.8,156L279.6,157.5L278.7,157.5L280.1,156.5L282.9,155L284.1,154.2L287,151.8L288.7,150.7L289.6,148.7L289.9,147.5L290.5,146.4L291,144.7L291.9,144.2L293.5,142.7L294.4,142.8L295.4,144.6L296.8,146L297.7,145.9L299.5,145.2L300.3,145L302.3,145.1L304.1,144.2L304.8,143.2L305.1,141.9L304.4,139.8L306.1,139.9L308.1,138.5L310.1,137.7L312.1,137.5L314.5,138.3ZM264.7,152.4L266.9,153L268.7,152.8L271.4,151.4L272.4,151.7L273.2,152.4L273.7,153.4L273.4,154.4L271.9,156.5L270.6,158.8L273.5,159.3L276.5,159.2L275.8,160.7L275.7,161.9L277.4,163.3L276.7,164.7L278.3,165.8L277.8,167.2L273.8,172.1L272.6,174.6L271.8,177.3L271.1,179.3L270.1,183.6L269.4,185.8L269.6,187.9L269.4,189.9L267.4,195L265.9,194.9L264.1,194.4L263,194.5L262.4,195.6L263.4,197.9L260.2,200.7L256.7,202.5L256.6,201.7L257.9,199.8L258.4,197.6L258.1,195.5L257,192.7L257,191.8L258.2,191.2L258.5,189.9L258.2,189.2L256.2,189L255.5,190L254.6,192L254.1,194L254.3,195.1L254.7,196L256,197.7L255.1,199.4L250.6,197.7L248.7,197.2L247.9,195L250.3,194.2L250.7,191.3L249.9,189.4L248.5,188L248.9,186.5L248.7,184.6L248.6,181.9L249,181.4L250.7,180.8L251.9,179.4L253,177.7L254.6,174.8L255.9,171.6L254.7,171.5L253.6,170.9L254.7,169.4L254.4,167.5L252.7,165.1L251.7,162.4L250.2,161.2L249.3,160.7L247.5,162.2L248.3,164L248.3,167.1L249.1,167.2L250,166.8L250.8,167.1L251.2,167.9L251.3,169L251,170L250.3,170.5L249.4,170.5L247.9,169.1L246.3,168.7L244.7,169.6L243,171.6L241.7,172.5L242.3,171.1L242.6,169.5L242,168.5L240.4,166.6L240,165.6L239.9,164.3L240.2,163L241.8,164.5L242.7,166.3L243.8,167.1L245.3,167.1L244.2,164.4L243.8,163.8L242.1,162.6L240,160.6L238.6,159.6L239.1,157.5L239.9,157.1L240.6,157.2L242.9,157.9L243.1,156.9L242.6,155.6L244.1,154.8L246.6,154L247.6,152.9L248.2,152.5L250,152.5L251.4,151.8L252.6,149.8L253.4,147.8L256.4,146.3L257.2,146L259.2,146.2L261.1,147.1L262,149L262.8,151ZM241.1,0L241.3,1.5L240.7,3.1L234.7,5.9L233.1,7.3L230.9,11L228.2,12.3L226.5,13.8L224.2,14.7L222.7,17.3L221.1,18.7L219.2,19.6L217.7,20.7L214.5,20.8L212.2,21.6L210.6,23.7L205.7,26.2L205,28L205.3,30.8L205.3,33L204.9,34.8L203.8,34.3L203.3,34.8L202.6,36.5L202.8,38.3L204.5,39L205.9,39.7L207.8,40.1L209.2,41L212.3,44.9L214.7,46.6L215.4,47.2L216.8,48.1L218.1,49.4L218.9,50.6L222.9,60L226.6,66L229.9,70.3L234.6,78.6L236,83.1L236.1,85.8L236.8,89.6L236.2,91.7L236.4,95.1L236.1,96.8L235.5,98.1L235.5,100.5L235.7,103.6L236.6,104.5L237.4,103.8L238.5,103.6L238.3,105.7L237,110.9L236,114.7L234.5,118L232.6,121.1L230.4,122.3L228.8,122.7L225.8,122.8L223.2,122.3L221.1,122.7L220.2,123.3L219.6,124.4L220,126.1L220,127.3L219,127.2L217.2,126.5L215.2,126.4L214.3,126L213.3,124.3L212.3,124.3L210.6,125.4L208,125.6L207.1,126.2L206.9,126.9L207.2,127.8L208.5,129L208.1,130.3L206.7,130.9L205.6,129.4L204.9,127.9L204.1,127.8L203,128.3L202.7,129.8L204.2,132.2L202.9,133.6L202.6,134.7L201.7,135.4L199.2,133.8L199.5,132.6L200.6,131.5L200.8,130.3L200.4,129.6L196.8,132.6L194.7,135.9L193.5,135.6L193,134.8L192.4,134.4L190,136.6L189.5,138.3L188.7,138.4L188.3,137.6L188.3,136.1L187.9,134.8L185.5,132.9L184.4,131.2L184.9,130.3L186.9,130.8L188.6,130.7L188.2,129.9L187.7,129.6L188.8,129.2L189.7,128.2L188.9,128L187.8,128.5L186.9,128.3L186.5,126.1L185.4,123.8L184.8,121.6L185.9,120.4L186.5,118.4L187.5,115.6L188.1,114.7L189.5,114L190.1,113.3L187.9,112.6L188,111.7L188.9,111.3L189.8,110.4L191.7,109.3L192.3,107.2L191.8,106.7L190.6,106.2L191.4,104.3L191.2,103.8L189.8,102.5L188.8,101.2L189.1,99.8L188.9,97.7L188.9,94.9L188.3,92.7L188,90.5L186.4,91.4L183.8,90.6L182.9,90.6L182.6,88.9L183.5,86.9L185.8,85.1L187,84.9L187.9,84.1L189.5,83.9L191.2,85.1L192.8,85.3L193.7,87.4L194.2,87.9L194.4,87.1L195.7,86.2L195.7,85.1L194.2,84.8L192.9,82.2L192.7,81L192.2,80.3L193,78.2L191.4,75.8L190.7,75.1L190.8,72.9L189.5,70.8L189.2,69.5L189.5,68.9L190.2,68.7L190.4,68.2L189.4,67.8L186.1,66.2L183.3,67.2L182.6,68.5L181.9,69L180.8,66.3L179,66.3L176.2,63.9L175,64.4L174.7,65.3L173.2,67.5L171,69.2L169.5,69.4L169.6,68.9L168.7,66.9L165.3,66.1L163.4,65L166.8,62.8L167.7,62.4L166.3,61.7L163.6,62L162.1,61.3L160,61.5L158.6,61L161.6,58.8L161.7,56.5L163.2,53.6L164.7,52L168.7,49.8L170.4,49.4L171.7,49.5L172.7,49.3L171.6,48.5L170.6,48.1L168.5,48.1L166.4,46.8L166.2,45.4L170.3,36.6L170.4,35.8L169.7,33.7L169.6,31.6L166.6,30.4L165.3,30.2L161.5,27.9L160,26.7L159.4,27L159.3,28.9L157.7,29.7L157.2,27.6L156.4,26L153.9,24.4L153,23.5L153.4,21.6L153,21.3L151.7,23.2L149,24.9L143.3,25.3L141.6,24L140.4,26.1L138.9,26.5L136.6,26.6L135.3,27.3L134.6,28.2L131.4,28.5L130.3,29.6L128.3,30L120,35L118.3,37.1L116.5,39.5L114.2,41.6L113.3,42L112.3,42.8L111.4,42.9L110.4,42.5L109.2,42.7L108.5,43.7L109.1,45L108.8,45.6L106.6,46.3L103.4,46.7L100.9,48.4L100.2,46.7L99.9,44.4L102.5,43.6L109.3,40.4L108.5,38.1L109.1,37.1L110.6,35.4L111.6,34.6L111,34.3L106.6,34.8L104,34.8L102.7,34.6L103.1,33.2L102.6,31.2L104.8,29.6L105.9,29.2L106.6,29.2L106.6,28.2L105.9,26.7L106.6,24.8L111.3,22.6L112.4,20.5L114.2,18.6L117.7,13.9L118.8,10.8L119,9.9L117.5,8.6L116.8,6.8L112.2,3.4L111.8,0.6L111.4,0.7L110.7,2.7L110.1,3.3L108,3.4L106.9,2.6L101.1,2.1L99.6,3.4L98.2,5.4L96.9,6.8L95.6,7.6L94.5,8.9L89.7,16.6L87.9,17.2L79.4,21.8L75.1,23.6L71.8,26.8L70.7,28.7L69.7,30.9L69.1,34.1L66.1,38L65.1,38.9L64,39.2L62.6,39.1L61.4,39.4L59.3,39L56.8,40.2L54,41.3L51.5,38.6L49.7,37.9L46.9,38.7L45.6,39.9L42.8,45.8L41.8,49.2L41.8,50.6L43.4,54.8L45.3,57.1L49.3,59.8L58,61.7L60,61L62.2,61L64.5,62.7L65.9,65.6L66.1,68.3L66.6,68.9L66.9,69.8L65.3,71.1L64.7,74.1L64.7,77.5L65.4,78.6L67.3,80.1L70.2,81.4L72.8,81.7L77.9,81.1L80,79.1L79.9,77.1L84.4,74.1L86.9,71.4L86,70.3L86.5,70L87.9,69.8L94.1,67.1L99,69.3L101.8,71.9L104.5,72.4L106.5,73.7L108.7,74.8L111.5,74.9L114,75.1L114.7,74.1L115.5,73.4L116.3,73.5L117.3,74.9L120.1,76L122.6,75.9L124.4,75.5L125.4,76L123.9,77.7L124.1,80.6L123,81.4L121.8,82.9L123.1,84.2L123,85.4L122,86L120.1,87.7L119,87.7L118.5,87.4L117.9,85.8L117.2,85.1L115.4,84.9L113.4,85.1L109.1,87.6L104.9,89.6L100.5,91.2L99,92.2L98,92.5L96.2,91.7L95.1,91.8L94.9,92.3L96.3,93.7L96.6,94.8L96.5,95.6L95.7,96L94.5,95.4L93.5,96.2L93,97.7L93,101.2L92.3,102L90.3,102.4L88.3,103.5L87.5,103L87.2,102.4L87.4,100.8L87.2,100L86.3,100L84.8,100.5L83.4,102.2L84.8,104.3L86.1,104.5L86.5,104.9L85.4,106L82.7,107.4L82.3,108.7L81.5,109.9L80.4,110.8L79.6,111.8L77.3,112.9L75.4,115.3L74.1,117.6L72.5,118.7L71.2,122.5L69,124.5L68.2,127.7L68.8,129.7L71.2,129.7L72.4,130.4L75,133.1L78.1,134.7L81.2,135.7L85.1,138.2L86.2,139.1L87.1,141.2L88.8,147.2L90,150.1L90.1,151.7L91.9,154.6L93.9,159.6L96,163.9L96.5,167.2L95.8,168.8L95.8,170.8L98,172.6L103,174.8L104.8,176.4L104.8,179.6L106.2,181.3L109.2,182.6L110.5,183.7L111.8,185.5L112.2,187.1L112.4,189.3L110.7,189.4L109.3,189.1L103.9,186.3L102.5,186.2L100.6,186.6L97.8,186.1L94.7,183L92.6,182.1L90.3,181.6L84.9,184.3L83.4,184.1L82.4,184.8L85,185.4L87.5,184.5L90,183.2L93.5,183.9L94.1,185.1L94.7,187.1L97.2,188.4L99.1,189L101.5,190.8L103.9,193.5L109,196.7L111.1,199.7L111.8,201.6L112.5,204.4L110.8,205.3L109.2,205.4L106.8,205.8L105.1,206.8L103.2,208.5L98.2,211.2L97.2,212.9L96.5,214.4L95.3,215.1L92.1,214.4L89.2,214.4L85.9,216.4L85,217.2L86.1,216.8L87.6,217.1L89.9,216.1L92.2,219.3L96.6,218.8L100.8,216.1L102.4,216L103.8,216.5L105.2,217.5L109.3,222.2L111.5,222.7L113.7,223.8L115.9,224.2L113,225.9L109.2,229.6L107.6,230.5L106.5,231.5L109.5,231L111.7,229.2L112.7,228.8L113.6,229.2L114,231.4L113.2,238.1L112.1,238.2L111.1,236.4L109.9,235.8L108.9,236.2L106.9,236.2L106.2,237L105.5,238.1L106.7,238.4L109.1,240.4L109.3,241.5L108.7,242.2L107,241.9L109,243.4L108.5,244.9L107.8,245.5L106.6,245.9L105.9,247.3L107,249.5L107.2,250L0,250L0,0ZM192.3,137.8L192.6,138.7L191.3,138.5L190.6,137.6L190.7,136.8L191.5,136.7ZM316.7,135L315,136.2L314.8,135.3L313.9,134.3L316.2,134L317,134.2ZM255.6,216.8L253.7,217.2L252.7,216.8L251.8,214.4L253.6,213L256,214.4L256.5,214.8ZM261.2,214.3L259.8,214.5L259.7,213.4L260.8,210.9L260.9,209.1L262,206.8L262.8,206.1L263.2,206.8L262.8,209.6L261.7,211.7ZM223.6,168.4L224.2,168.9L225.9,168.6L226.5,168.8L227.4,171L225.6,171.3L225,172.3L223.5,171.4L223.3,170.8ZM246.8,179.2L245.5,179.8L245.3,179.2L244.8,178.9L245.7,178L245.1,176.9L245.8,174.5L245.6,173.5L248.2,173.1L248.7,174.1L248.7,177ZM251.7,175.4L250.3,175.5L249.6,175.3L249.4,174.7L251.4,173.4L253,173.6L252.3,174.8ZM300.6,100.5L299.9,101.2L298.5,101L297.6,99.9L297.9,98.7L299.4,97.7L300.8,99.6ZM326.1,138.9L324.4,140.6L322.8,140.5L322.1,139.7L321.8,138.8L323.3,137.3L324.6,135.2L325.7,134.3L326.6,133.8L327.3,133.8L325.7,136.7ZM230.4,167.3L229.9,167.5L229.4,165.8L229.1,165.1L229.7,164.8L230.9,161.6L231.1,162.9L231.6,164.1L232.1,164.3L231.6,165.2L230.9,165.6ZM237.1,159.9L236,160.8L235.1,160.8L235.9,159.7L236.7,157.7L238.4,157.1L237.4,158.6ZM233.7,142.1L232.6,142.9L232.1,141.7L232.6,138.2L234.6,138.9L234.6,140ZM235.4,137.6L235.1,138.5L234,137.9L233.5,137.3L234.5,134.3L234.4,132.5L236.5,131L237,131.7L236.8,132.4L236.9,133.9L235.3,136.3ZM282.6,145.7L283.3,146.4L285.2,146.1L285.4,146.3L284.1,147.6L282.6,147.1L281.6,147.1L281.6,145.6ZM224.9,128.7L223.3,130L221.2,128.3L220.8,127.4L222.3,126.1L223.6,124.5L224.5,124.4ZM213.8,128.6L213.6,130.5L212.5,130.6L211.8,129.4L210.7,130L210.1,128.5L210,127.2L211.3,126.3L212.2,126.9L213.3,127.1ZM185.4,159.8L184.6,160.3L183.9,160L182.7,158.1L183.3,157L185.5,155.2L191.4,153.5L192.4,153.4L194.7,154.1L195.2,155.5L194.8,156.7L194.3,157.5L191.6,158.9L189.5,159.5ZM183.8,137.3L182.8,137.6L181.8,136.7L182,135.8L183.7,134L184.1,133.4L185.6,133.8L186.2,134.7L185.5,136.2ZM188.5,69.1L188.4,71.8L186.9,71.4L186.6,70.9L186.1,68.4L186.7,67.3L188.1,68.1ZM112.3,193.4L110.9,193.9L106.7,192.3L103.7,190.5L101.9,188.3L101.6,187.3L103.7,187.5L105.8,188.3L106.2,189.5L107.1,189.9L107.6,190.6L111.4,192.2ZM119.4,222.5L119.1,222.9L117.1,221.8L115,221.5L114.2,220.6L114.1,219.1L116.4,219.2L119.2,220.5L119.8,221.2ZM117.4,227.8L117.3,228.2L115.9,227L115.2,226.8L115.5,226.1L116.5,225.9ZM121.1,223.8L121,224.7L120.6,224.6L120,223L120.3,222.6L121.1,222.7ZM182.8,130.1L182.6,130.6L181.9,130.4L181.2,129L180.9,128L180.1,127.4L181.3,126.4L182.8,128.1ZM260.5,74.4L259.7,75.1L258.8,74.4L258.7,73.8L259.2,73.2L260.2,72.9L260.8,73.4ZM159.4,64L159.6,64.6L158.7,65.3L157.5,64.8L157.7,64L159,63.9Z" fill="#FFFFFF" stroke="#B8C4D0" stroke-width=".6"/><text x="40" y="120" style="font:700 20px 'Noto Sans JP',sans-serif" fill="#2F7F86" fill-opacity=".45">明</text>
+<text x="196" y="70" style="font:700 13px 'Noto Sans JP',sans-serif" fill="#9AAABB">朝鮮</text>
+<text x="300" y="96" style="font:700 13px 'Noto Sans JP',sans-serif" fill="#9AAABB">日本</text>
+<path d="M328 134 Q300 150 258 152" fill="none" stroke="#1F4E8C" stroke-width="2.2" marker-end="url(#m3)"/>
+<path d="M248 157 Q180 220 116 224" fill="none" stroke="#1F4E8C" stroke-width="2.2" marker-end="url(#m3)"/>
+<path d="M101 218 L69 189" fill="none" stroke="#1F4E8C" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#m3)"/>
+<path d="M58 172 Q40 100 27 38" fill="none" stroke="#1F4E8C" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#m3)"/>
+<g style="font:700 11px 'Noto Sans JP',sans-serif" text-anchor="middle"><circle cx="344" cy="142" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="344" y="146" fill="#fff">1</text><circle cx="252" cy="170" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="252" y="174" fill="#fff">2</text><circle cx="107" cy="224" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="107" y="228" fill="#fff">3</text><rect x="53" y="173" width="18" height="18" rx="4" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="62" y="186" fill="#fff">4</text><rect x="14" y="15" width="18" height="18" rx="4" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="23" y="28" fill="#fff">5</text></g></svg>
+<div class="legend"><span><i class="n"></i>使節船の航路</span><span><i class="nd"></i>運河・陸路で都へ</span></div>
+<ol class="steps"><li><span class="num n">1</span><span><b>兵庫</b><span class="d">京都に近い港から出航する</span></span></li><li><span class="num n">2</span><span><b>博多</b><span class="d">瀬戸内海を抜け、外洋へ出る港</span></span></li><li><span class="num ">3</span><span><b>寧波</b><span class="d">勘合を台帳と照合し、正式な使節と認められる</span></span></li><li><span class="num sq">4</span><span><b>南京</b><span class="d">1404年当時の明の都</span></span></li><li><span class="num sq">5</span><span><b>北京</b><span class="d">1421年からの都。大運河を通って向かう</span></span></li></ol>
+</figure>
+<figure><p class="figt"><span>図3-5</span>勘合貿易のしくみ ― 何を送り、何を得たか</p>
+<div class="flow">
+<div class="card"><div class="hd">日本 ― 室町幕府</div><div class="bd"><div class="rows">
+<div><b>立場</b><span>足利義満=「日本国王」</span></div>
+<div><b>港</b><span>兵庫・博多</span></div>
+<div><b>輸出品</b><span>刀剣・銅・硫黄・扇・漆器・屏風</span></div></div></div></div>
+<div class="pair"><div class="fs s"><b>朝貢の品と国書 ↓</b></div><div class="fs t"><b>↑ 返礼品と称号</b></div></div>
+<div class="card t"><div class="hd">明 ― 皇帝</div><div class="bd"><div class="rows">
+<div><b>立場</b><span>皇帝が「国王」に任じる</span></div>
+<div><b>港</b><span>寧波</span></div>
+<div><b>輸入品</b><span>銅銭(永楽通宝など)・生糸・絹織物・書物・陶磁器</span></div></div></div></div>
+</div>
+<div class="flow" style="margin-top:22px">
+<div class="fs"><em>勘合のしくみ 1</em><b>勘合を持参する</b><span class="d">明が発行した証明の札</span></div>
+<div class="fs"><em>2</em><b>寧波で台帳と照合</b><span class="d">割り印を合わせて確認</span></div>
+<div class="fs s"><em>3</em><b>正式な使節と認定</b><span class="d">倭寇や密貿易と区別する</span></div>
+<div class="fs dk"><b>明が滞在費・運送費を負担し、日本側は大きな利益を得た</b><span class="d">大量の銅銭が流れ込み、国内の貨幣経済が進む</span></div>
+</div>
+</figure>
+<p>1408年、義満は51歳で没した。朝廷は義満に太上天皇(上皇)の称号を贈ろうとしたが、4代将軍・義持はこれを辞退した。義持は父の路線から距離を置き、1411年には明との国交も断ってしまう。</p>
+<p>明の皇帝に臣下の礼をとる朝貢の形には、当時から反発があったのである。</p>
+<section class="summary" aria-labelledby="pt"><h3 id="pt">この章の要点</h3><ul><li>管領・細川頼之に支えられた幼い将軍は、康暦の政変を経て自ら政治を動かすようになった。</li><li>義満は朝廷の高い官位を得ると同時に、朝廷が持っていた京都の支配や課税の権限を幕府に取り込んだ。</li><li>土岐・山名・大内という有力守護を次々と討ち、南北朝の合一も果たして、将軍権力を頂点に押し上げた。</li><li>明との勘合貿易は大きな利益と銅銭をもたらしたが、「日本国王」として臣下の礼をとる形には反発もあった。</li></ul></section>
+<section class="column" aria-labelledby="col"><h3 id="col">コラム 義満は天皇になろうとしたのか</h3>
+<p>晩年の義満には、皇室に近づくような行動が目立つ。1406年には妻の<span class="rb">日野康子<span class="rt" aria-hidden="true">ひのやすこ</span></span>を後小松天皇の<span class="rb">准母<span class="rt" aria-hidden="true">じゅんぼ</span></span>(形式上の母)とし、1408年には愛した子の<span class="rb">義嗣<span class="rt" aria-hidden="true">よしつぐ</span></span>に、親王に準じた形で<span class="rb">元服<span class="rt" aria-hidden="true">げんぷく</span></span>の儀式を行わせた。</p>
+<p>こうした事実から、義満は皇位を奪い、自分の子を天皇にしようとしていたという説が唱えられ、広く知られるようになった。</p>
+<p>一方で、これらは朝廷の秩序の中で最高の地位を得ようとしたものにすぎず、皇位を奪う計画まではなかったとする見方も根強く、今も議論が続いている。</p>
+<p>いずれにしても、天皇家に迫るほどの権威を一人の将軍が手にしていたことは確かである。</p>
+</section>
+</main>
+<footer>第3章 スマホ版 ・ 全7章のうちの1章</footer>
+</div>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('rubyBtn');
+  b.addEventListener('click',function(){
+    var off=document.body.classList.toggle('noruby');
+    b.textContent=off?'ふりがな:なし':'ふりがな:あり';
+    b.setAttribute('aria-pressed',off?'false':'true');
+    if(!off&&window.fitRuby)window.fitRuby();
+  });
+})();
+</script>
+</body>
+</html>

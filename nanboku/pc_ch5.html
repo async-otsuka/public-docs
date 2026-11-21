@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>南北朝・室町時代 第5章</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script></head>
+<body>
+<div class="page">
+<p class="series">南北朝・室町時代 解説資料</p>
+<article class="sheet">
+<div class="band">第五章 ・ 1408 ― 1467</div>
+<header class="ch">
+<h1>揺らぐ幕府 ― 一揆と将軍暗殺</h1>
+<p class="lead">将軍の権威が揺らぎ、民衆が動き出した60年</p>
+</header>
+<div class="body">
+
+<figure>
+<button class="figbtn" type="button" aria-label="図5-1 第5章の年表を拡大">
+<svg viewBox="0 0 680 270" role="img"><title>図5-1 第5章の年表</title><desc>1416年の上杉禅秀の乱、1428年の正長の土一揆とくじ引きによる義教の選出、1438年の永享の乱、1441年の嘉吉の変と徳政一揆、1449年の義政の将軍就任、1454年の享徳の乱、1459年からの飢饉、1467年の応仁の乱</desc>
+<rect x="70" y="142" width="550" height="8" rx="3" fill="#1F4E8C"/>
+<g stroke="#9AAABB" stroke-width=".8">
+<line x1="145" y1="86" x2="145" y2="140"/><line x1="350" y1="86" x2="350" y2="140"/><line x1="545" y1="86" x2="545" y2="140"/>
+<line x1="256" y1="128" x2="256" y2="140"/><line x1="499" y1="128" x2="499" y2="140"/>
+<line x1="377" y1="152" x2="377" y2="184"/><line x1="619" y1="152" x2="619" y2="184"/>
+<line x1="256" y1="152" x2="256" y2="228"/><line x1="452" y1="152" x2="452" y2="228"/></g>
+<g fill="#fff" stroke="#1F4E8C" stroke-width="2"><circle cx="145" cy="146" r="4"/><circle cx="256" cy="146" r="4"/><circle cx="350" cy="146" r="4"/><circle cx="377" cy="146" r="4"/><circle cx="452" cy="146" r="4"/><circle cx="499" cy="146" r="4"/><circle cx="545" cy="146" r="4"/><circle cx="616" cy="146" r="4"/></g>
+<text x="145" y="62" class="h n">1416</text><text x="145" y="80" class="s" style="fill:#1E2A3A">上杉禅秀の乱</text>
+<text x="350" y="62" class="h n">1438</text><text x="350" y="80" class="s" style="fill:#1E2A3A">永享の乱</text>
+<text x="545" y="62" text-anchor="end" class="h n">1459</text><text x="545" y="80" text-anchor="end" class="s" style="fill:#1E2A3A">長禄・寛正の飢饉</text>
+<text x="256" y="106" class="h n">1428</text><text x="256" y="122" class="s" style="fill:#1E2A3A">正長の土一揆</text>
+<text x="499" y="106" text-anchor="end" class="h n">1454</text><text x="499" y="122" text-anchor="end" class="s" style="fill:#1E2A3A">享徳の乱</text>
+<text x="377" y="198" text-anchor="end" class="h n">1441</text><text x="377" y="214" text-anchor="end" class="s" style="fill:#1E2A3A">嘉吉の変・徳政一揆</text>
+<text x="620" y="198" text-anchor="end" class="h n">1467</text><text x="620" y="214" text-anchor="end" class="s" style="fill:#1E2A3A">応仁の乱へ</text>
+<text x="256" y="244" class="h n">1428</text><text x="256" y="261" class="s" style="fill:#1E2A3A">くじで義教を選ぶ</text>
+<text x="452" y="244" class="h n">1449</text><text x="452" y="261" class="s" style="fill:#1E2A3A">義政が将軍に</text>
+</svg></button>
+<figcaption><span><b>図5-1</b>この章の年表</span><span class="hint">クリックで拡大</span></figcaption>
+</figure>
+
+<h2><span class="no">第1節</span>義持の時代と関東の火種</h2>
+<p>義満の死後、4代将軍の<span class="rb">義持<span class="rt" aria-hidden="true">よしもち</span></span>は父とは違う道を選んだ。明との国交を断ち、有力守護との話し合いを重んじる穏やかな政治を行ったため、義持の時代は比較的安定していた。</p>
+<p>ただし関東では火種がくすぶっていた。1416年、前の関東管領・<span class="rb">上杉禅秀<span class="rt" aria-hidden="true">うえすぎぜんしゅう</span></span>が、鎌倉公方の足利<span class="rb">持氏<span class="rt" aria-hidden="true">もちうじ</span></span>に背いて兵を挙げた(上杉禅秀の乱)。乱は幕府の支援で翌年に鎮められたが、その後、持氏は幕府に対して反抗的な態度を強めていく。</p>
+<p>義持は1423年に将軍職を子の<span class="rb">義量<span class="rt" aria-hidden="true">よしかず</span></span>に譲ったが、義量は2年後に19歳で亡くなる。1428年、義持は後継者を決めないまま病に倒れた。重臣たちは石清水八幡宮の神前でくじを引いて後継者を決めることにし、選ばれたのは、義持の弟で出家していた青蓮院の義円だった。俗世に戻って6代将軍となった足利<span class="rb">義教<span class="rt" aria-hidden="true">よしのり</span></span>である。</p>
+
+<h2><span class="no">第2節</span>惣村と土一揆</h2>
+<p>このころ、近畿地方を中心に、農民たちが自分たちで村を運営する<span class="rb">惣村<span class="rt" aria-hidden="true">そうそん</span></span>が広がっていた。村の重要なことは<span class="rb">寄合<span class="rt" aria-hidden="true">よりあい</span></span>で話し合って決め、村のおきてである<span class="rb">惣掟<span class="rt" aria-hidden="true">そうおきて</span></span>を定めた。おとなや<span class="rb">沙汰人<span class="rt" aria-hidden="true">さたにん</span></span>と呼ばれる指導者のもとで、山林などの<span class="rb">入会地<span class="rt" aria-hidden="true">いりあいち</span></span>や用水を共同で管理し、村の中の犯罪を村みずから取り締まる<span class="rb">地下検断<span class="rt" aria-hidden="true">じげけんだん</span></span>も行った。領主に納める年貢を村がまとめて請け負う<span class="rb">地下請<span class="rt" aria-hidden="true">じげうけ</span></span>も広がった。</p>
+<p>団結した村は、時に武器を手にして領主や権力に立ち向かった。このような集団行動を<span class="rb">一揆<span class="rt" aria-hidden="true">いっき</span></span>という。一揆とはもともと「心を一つにする」という意味で、参加者は神前で誓いを立てて結束した。</p>
+
+<figure>
+<button class="figbtn" type="button" aria-label="図5-2 惣村のしくみを拡大">
+<svg viewBox="0 0 680 330" role="img"><title>図5-2 惣村のしくみ</title><desc>惣村では寄合で惣掟を決め、おとな・沙汰人が指導し、入会地や用水を共同管理し、地下検断と地下請を行った。団結した村は一揆を結び、土一揆で徳政などを要求した</desc>
+<defs><marker id="a52" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="40" y="20" width="420" height="290" rx="10" fill="#EAF2FB" stroke="#1F4E8C" stroke-width="1"/>
+<text x="60" y="48" class="h n">惣村 ― 農民による村の自治</text>
+<g fill="#fff" stroke="#C9DCF0" stroke-width="1">
+<rect x="60" y="62" width="380" height="42" rx="6"/><rect x="60" y="110" width="380" height="42" rx="6"/><rect x="60" y="158" width="380" height="42" rx="6"/><rect x="60" y="206" width="380" height="42" rx="6"/><rect x="60" y="254" width="380" height="42" rx="6"/></g>
+<text x="76" y="88" class="h">寄合</text><text x="190" y="88" class="s" style="fill:#1E2A3A">村人の会議。惣掟(村のおきて)を決める</text>
+<text x="76" y="136" class="h">おとな・沙汰人</text><text x="190" y="136" class="s" style="fill:#1E2A3A">村をまとめる指導者</text>
+<text x="76" y="184" class="h">入会地・用水</text><text x="190" y="184" class="s" style="fill:#1E2A3A">山林や水を共同で管理する</text>
+<text x="76" y="232" class="h">地下検断</text><text x="190" y="232" class="s" style="fill:#1E2A3A">村の中の犯罪を村が取り締まる</text>
+<text x="76" y="280" class="h">地下請</text><text x="190" y="280" class="s" style="fill:#1E2A3A">領主への年貢を村がまとめて請け負う</text>
+<line x1="464" y1="150" x2="496" y2="150" stroke="#1F4E8C" stroke-width="1.5" marker-end="url(#a52)"/>
+<rect x="500" y="112" width="140" height="76" rx="6" fill="#fff" stroke="#1F4E8C" stroke-width="1.2"/>
+<text x="570" y="142" text-anchor="middle" class="h n">一揆</text><text x="570" y="164" text-anchor="middle" class="s">神前で誓い、団結する</text>
+<line x1="570" y1="188" x2="570" y2="214" stroke="#1F4E8C" stroke-width="1.5" marker-end="url(#a52)"/>
+<rect x="500" y="218" width="140" height="76" rx="6" fill="#1F4E8C"/>
+<text x="570" y="248" text-anchor="middle" class="h w">土一揆</text><text x="570" y="270" text-anchor="middle" class="s w">徳政などを集団で要求</text>
+</svg></button>
+<figcaption><span><b>図5-2</b>惣村のしくみと一揆</span><span class="hint">クリックで拡大</span></figcaption>
+</figure>
+
+<p>1428年、近江坂本の<span class="rb">馬借<span class="rt" aria-hidden="true">ばしゃく</span></span>(馬で荷物を運ぶ運送業者)が借金の帳消しを求めて立ち上がると、その動きは京都周辺の農民にも広がった。人々は土倉や酒屋、寺院を襲って借金の証文を破り捨て、質に入れた品を取り返した。<span class="rb">正長<span class="rt" aria-hidden="true">しょうちょう</span></span>の<span class="rb">土一揆<span class="rt" aria-hidden="true">つちいっき</span></span>である。借金の帳消しを<span class="rb">徳政<span class="rt" aria-hidden="true">とくせい</span></span>といい、幕府が認めないまま実力で徳政を行ったことから、これを<span class="rb">私徳政<span class="rt" aria-hidden="true">しとくせい</span></span>という。奈良の興福寺の記録は、この一揆を「日本開白以来、土民蜂起是れ初めなり」と書きとめた。奈良の柳生には、正長元年より前の借金は帳消しとする旨を刻んだ碑文が今も残っている。</p>
+<p>翌1429年の播磨の土一揆では、農民たちが、守護である赤松氏の家臣を国の外へ追い出すよう求めた。経済的な要求にとどまらず、政治的な要求を掲げた一揆として注目される。</p>
+
+<h2><span class="no">第3節</span>義教の専制と嘉吉の変</h2>
+<p>くじで選ばれた義教は、将軍の権威を取り戻そうと強い政治を行った。有力守護の家の跡継ぎ争いに介入して当主を思うままに替え、比叡山延暦寺を武力で屈服させ、逆らう者には厳しい処罰を下した。皇族の伏見宮貞成親王は、日記に「万人恐怖」と書き残している。</p>
+<p>義教は関東にも手を伸ばした。将軍の地位を望んでいた鎌倉公方の足利持氏は、義教と激しく対立し、自分を補佐する関東管領の上杉<span class="rb">憲実<span class="rt" aria-hidden="true">のりざね</span></span>とも争った。1438年、義教は憲実を助けて大軍を送り、翌年持氏を自害に追い込んだ(<span class="rb">永享<span class="rt" aria-hidden="true">えいきょう</span></span>の乱)。1440年には、持氏の遺児を担いだ結城氏朝が下総の結城城で兵を挙げたが、これも鎮められた(結城合戦)。</p>
+<p>1441年6月、結城合戦の勝利を祝う宴の席で、義教は播磨などの守護・<span class="rb">赤松満祐<span class="rt" aria-hidden="true">あかまつみつすけ</span></span>に殺害された。次は自分が討たれると恐れた満祐が、先手を打ったのである。将軍が家臣に殺されるという前代未聞の事件で、これを<span class="rb">嘉吉<span class="rt" aria-hidden="true">かきつ</span></span>の変という。満祐は播磨に戻り、山名持豊(のちの宗全)らに攻められて自害したが、討伐には3か月近くを要した。</p>
+<p>この混乱のさなかの1441年秋、数万人の土一揆が京都を取り囲み、将軍の代替わりにあたっての徳政を求めた(嘉吉の徳政一揆)。幕府はついに要求を受け入れ、初めて正式な徳政令を出した。その後幕府は、徳政を認める代わりに、帳消しにする借金の額の一部を幕府に納めさせる<span class="rb">分一銭<span class="rt" aria-hidden="true">ぶいちせん</span></span>を取るようになる。一揆の圧力が、幕府の財源にまで組み込まれていったのである。</p>
+
+<figure>
+<button class="figbtn" type="button" aria-label="図5-3 土一揆から徳政令へを拡大">
+<svg viewBox="0 0 680 300" role="img"><title>図5-3 土一揆から徳政令へ</title><desc>1428年の正長の土一揆は土倉・酒屋を襲って私徳政を行い、幕府は認めなかった。1441年の嘉吉の徳政一揆は京都を包囲し、幕府は初めて徳政令を出し、のちに分一銭を財源にした</desc>
+<defs><marker id="a53" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="40" y="30" width="130" height="80" rx="6" fill="#fff" stroke="#1F4E8C" stroke-width="1.2"/>
+<text x="105" y="62" text-anchor="middle" class="h n">1428</text><text x="105" y="86" text-anchor="middle" class="b" style="font-weight:700">正長の土一揆</text>
+<rect x="40" y="140" width="130" height="80" rx="6" fill="#1F4E8C"/>
+<text x="105" y="172" text-anchor="middle" class="h w">1441</text><text x="105" y="196" text-anchor="middle" class="b w" style="font-weight:700">嘉吉の徳政一揆</text>
+<g fill="#EAF2FB" stroke="#C9DCF0" stroke-width="1">
+<rect x="190" y="30" width="130" height="80" rx="6"/><rect x="345" y="30" width="130" height="80" rx="6"/>
+<rect x="190" y="140" width="130" height="80" rx="6"/><rect x="345" y="140" width="130" height="80" rx="6"/></g>
+<rect x="500" y="30" width="140" height="80" rx="6" fill="#fff" stroke="#9AAABB" stroke-width="1"/>
+<rect x="500" y="140" width="140" height="80" rx="6" fill="#fff" stroke="#1F4E8C" stroke-width="1.5"/>
+<g text-anchor="middle">
+<text x="255" y="64" class="h" style="font-size:13px">近江の馬借が蜂起</text><text x="255" y="86" class="xs">京都周辺に広がる</text>
+<text x="410" y="64" class="h" style="font-size:13px">土倉・酒屋を襲う</text><text x="410" y="86" class="xs">証文を破り質物を奪う</text>
+<text x="570" y="64" class="h" style="font-size:13px">私徳政</text><text x="570" y="86" class="xs">幕府は認めない</text>
+<text x="255" y="174" class="h" style="font-size:13px">京都を包囲</text><text x="255" y="196" class="xs">代替わりの徳政を要求</text>
+<text x="410" y="174" class="h" style="font-size:13px">幕府が徳政令</text><text x="410" y="196" class="xs">初めて正式に認める</text>
+<text x="570" y="174" class="h n" style="font-size:13px">分一銭</text><text x="570" y="196" class="xs">徳政の手数料を財源に</text></g>
+<g stroke="#5A6878" stroke-width="1.2"><line x1="172" y1="70" x2="186" y2="70" marker-end="url(#a53)"/><line x1="322" y1="70" x2="341" y2="70" marker-end="url(#a53)"/><line x1="477" y1="70" x2="496" y2="70" marker-end="url(#a53)"/>
+<line x1="172" y1="180" x2="186" y2="180" marker-end="url(#a53)"/><line x1="322" y1="180" x2="341" y2="180" marker-end="url(#a53)"/><line x1="477" y1="180" x2="496" y2="180" marker-end="url(#a53)"/></g>
+<rect x="40" y="244" width="600" height="40" rx="6" fill="#fff" stroke="#1F4E8C" stroke-width="1" stroke-dasharray="5 3"/>
+<text x="340" y="269" text-anchor="middle" class="b" style="font-weight:700">13年の間に、一揆の力が幕府の政策と財政を動かすまでになった</text>
+</svg></button>
+<figcaption><span><b>図5-3</b>土一揆から徳政令へ ― 正長と嘉吉の比較</span><span class="hint">クリックで拡大</span></figcaption>
+</figure>
+
+<h2><span class="no">第4節</span>義政の時代 ― 応仁の乱の前夜</h2>
+<p>義教の後は、9歳の子・義勝が継いだが、1年もたたずに病で亡くなり、弟の<span class="rb">義政<span class="rt" aria-hidden="true">よしまさ</span></span>が1449年に8代将軍となった。まだ若い将軍のもとで、政治の実権は有力守護や将軍の側近たちが握った。</p>
+<p>関東では再び大乱が起きる。1454年、鎌倉公方の足利<span class="rb">成氏<span class="rt" aria-hidden="true">しげうじ</span></span>(持氏の子)が、関東管領の上杉憲忠を殺害し、<span class="rb">享徳<span class="rt" aria-hidden="true">きょうとく</span></span>の乱が始まった。成氏は下総の古河に移って<span class="rb">古河公方<span class="rt" aria-hidden="true">こがくぼう</span></span>と呼ばれ、上杉氏と関東を二分して争った。幕府は義政の兄・足利政知を新たな鎌倉公方として送ったが、政知は鎌倉に入れず伊豆の堀越にとどまり、<span class="rb">堀越公方<span class="rt" aria-hidden="true">ほりごえくぼう</span></span>と呼ばれた。関東の争乱はおよそ30年続き、関東はひと足早く戦国の世に入ったともいわれる。</p>
+
+<figure>
+<button class="figbtn" type="button" aria-label="図5-4 関東の分裂の地図を拡大">
+<svg viewBox="0 0 680 370" role="img"><title>図5-4 関東の分裂</title><desc>1438年の永享の乱で幕府が鎌倉の持氏を討つ。1440年に結城合戦。1454年の享徳の乱で足利成氏は古河に移り古河公方に。幕府が送った足利政知は伊豆の堀越にとどまり堀越公方に。上杉氏は平井を拠点に古河公方と対立した</desc>
+<defs><marker id="k5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker></defs><rect x="40" y="20" width="600" height="330" fill="#EEF4FA" stroke="#D6E4F3"/><path transform="translate(40,20)" d="M0,181.3L1,181.4L4.2,182.3L4.9,183.6L6.8,182.1L8.4,182.3L8.7,183.4L10,183.1L12.6,184L14.2,182.5L15.8,181.8L15.5,180.5L18,178.6L20,178.6L21.6,178.2L23.2,177.3L26.7,174.7L26.4,173.2L30.9,171.9L35.4,171L37.6,170.6L39.2,169.5L41.5,171.2L42.4,173.2L43.7,174.2L45,176.2L46.3,178.8L46.3,180.7L45.6,182.1L44,181L42.1,182.3L40.5,186L39.9,187L37.3,189.9L35.7,192.3L35.7,194.5L36.7,195.1L37.6,194.9L37.6,193.1L38.9,192L39.9,190.3L41.1,189.4L41.8,191.8L43.1,192.5L42.4,193.2L40.5,193.1L40.2,194.9L46,198.1L47.2,197.5L47.9,196.8L48.9,198.6L48.5,200.1L47.9,201L46.9,204L47.6,205.3L48.5,204.5L50.5,200.8L52.1,201L54.3,202.1L55,201.4L55,198.8L52.4,199.4L50.1,198.4L49.2,195.5L51.1,193.6L52.4,193.2L55,193.1L56.2,192.7L57.8,190.7L58.2,189.5L60.4,188.2L59.8,189.9L59.5,191.6L61.1,192.3L62,193.1L61.7,194.7L62,195.8L61.7,197L62.7,197.1L63.3,197L63.9,196L64.6,194.2L64.6,196.2L64.3,198.2L64.6,199.7L66.2,200.3L68.8,200.5L69.7,200.3L72.3,199L72.9,197.7L74.9,196L76.8,194.7L78.7,195.7L78.4,196.2L76.1,197.1L75.5,200.3L74.5,201L76.5,201.6L81.3,200.5L83.5,200.5L84.8,199.5L85.8,198.1L85.8,195.8L83.2,197.1L82.3,195.1L80.6,194.5L81.9,192.7L84.8,191.8L85.8,192.5L86.4,194.2L88.4,194L90,196L91.2,196.6L93.5,195.7L92.5,195.3L91.9,194.4L90.6,192L90.9,191.2L91.9,191L92.8,192L93.8,191.4L95.4,190.8L95.1,190.1L93.8,188.6L93.5,187.1L93.2,186.6L91.9,185.1L91.6,183.8L92.5,183.6L94.1,184.9L95.1,185.8L96.4,186.6L99.6,185.8L100.2,187L101.2,187.7L102.8,186.6L103.8,185.3L105.7,185.7L106.7,185.1L106.7,183.8L105,182.5L106,178.6L105.7,177.3L104.4,177.5L104.4,174.3L106.7,173.2L109.9,170.4L111.2,172.5L111.2,173.4L111.8,175.1L112.4,177.1L112.1,178.4L111.2,178.4L110.5,179.7L112.1,180.8L112.4,182.1L114.4,181.8L115,179.9L115.6,179.4L115.6,177.1L116.6,175.8L116.6,172.9L117.3,171L117.3,169.1L116,167.1L115,165.2L114.4,163.8L112.4,162.3L109.2,158.7L107.6,157.3L107.9,154.1L107.6,151.7L105.7,148.9L104.4,147.6L105,144.6L107,143.3L108.3,141.8L109.9,138.3L111.2,135.7L112.1,132.3L116.6,126.7L117.9,124.1L118.9,122.4L120.1,119.8L118.9,117.4L119.2,116.6L121.1,116.5L122.7,116.6L125.9,115.3L133,109L134.9,106.2L139.1,104.1L142.3,101.3L146.5,96.6L165.4,71.1L169.6,63.6L176,48L176.7,45.9L176.7,43.3L176,42.5L175.1,41.8L176,39L176.7,35.8L176,33.5L174.4,32L173.4,28.2L172.5,27.5L172.2,25L173.1,19.3L172.5,17.6L171.5,16.9L170.6,17.1L170.2,18.4L168.6,18.2L168,16.9L168.3,13.9L168.9,11.4L169.9,9.5L171.2,8L170.6,6.9L171.8,5.5L173.1,3.5L173.8,1.8L172.8,0.2L172.8,0L212,0L212,0L207.2,1.9L205.6,4.4L203.6,6.9L203.6,9.1L202.3,10.1L200.4,10.6L199.8,12.2L198.8,12.9L195.6,11.6L194,10.5L192.7,9.3L193.7,8L194,7.2L193,7.4L192.4,8.4L191.1,8.8L190.8,9.7L189.8,11.4L187.9,14.2L186.6,17.5L188.2,18L187.9,20.5L187.3,21.2L185.6,21.2L185.6,23.7L185,25L186.3,25.8L187.9,25.4L189.8,24.4L191.4,24.6L194,27.8L195.6,28.4L197.8,27.5L199.5,22.9L200.7,22.2L201.7,22.6L202.3,24.6L201.7,31L202.3,37.3L199.8,40.5L199.8,43.1L196.2,48L197.8,52L202,54.6L204.6,57L208.8,58.5L211.3,60.2L214.9,60.6L219,59.9L224.2,60.6L227.1,60L228.7,57.8L231.6,55.9L232.5,52.9L233.8,50.8L234.1,48.9L234.8,47.3L234.5,45L235.4,42.4L237.3,41L241.8,38.6L249.9,36.9L258.2,35L269.5,30.1L277.5,27.1L286.5,21.2L291.3,19L293.5,16.9L295.5,14.4L301.2,15.6L305.1,14.6L308.3,13.1L315.7,7.8L323.3,0L556.3,0L556.3,0L555.6,3.3L555.6,6.7L554.9,8.2L554.9,18.6L554.6,19.9L553,23.5L552,33.3L550.7,37.3L547.5,40.5L544.6,41.2L541.8,43.1L539.5,43.9L538.2,45.4L536.6,46.3L536.6,49.5L536,50.6L535.7,51.8L532.1,57.6L531.2,59.5L527,76.2L521.8,84.8L520.6,88.6L519.3,96.6L519.6,98.3L520.6,102.6L520.9,104.3L519.9,107.3L516.7,110.8L515.4,113.3L515.4,117.4L516.7,126.7L522.5,143.1L535.3,165.6L539.2,170.8L540.2,172.9L541.8,173.6L543,174.3L543.4,175.3L542.4,177.9L541.8,179L540.5,178.1L538.9,176L536.6,176.6L533.7,177.9L529.2,179.5L528.9,177.7L524.1,178.8L518.3,182.9L508,192.3L502.9,200.5L499.4,212.5L501.3,218.2L501.9,221.2L501,225.8L500.7,229.8L500,232.6L498.7,234.8L496.2,234.4L494.6,236.8L494.9,238.7L493.6,240L492,239.6L491.3,238.1L489.7,239.8L487.5,239.4L486.2,241.8L483,241.6L478.8,241.3L476.9,240.7L474.3,243.5L474,245.9L471.8,247.7L469.8,247.7L466.9,249.9L464,251.9L463.4,253.2L462.8,255.2L461.8,256.7L461.8,258.5L461.5,260.6L460.8,261.9L458.6,264.2L454.4,264.8L453.5,264.4L452.2,264.8L450.9,265L450.6,264.4L449.3,263.7L449.3,261.1L448,260.2L445.4,259.1L443.2,258.9L442.9,258L442.9,256.7L444.1,256.7L446.7,257.1L448,256.7L449,256.2L449.6,255.2L450.9,255.1L452.5,255.6L453.1,255.1L453.5,254.1L453.1,252.7L452.2,251.7L450.2,251.2L450.2,250.1L451.2,249L451.5,247.7L451.5,246.6L450.6,244.6L450.2,243.3L450.6,239.4L449,236.8L449.3,235.5L449,233.9L449.3,232.4L451.8,230.8L453.1,229.6L453.1,227.2L451.5,224.5L451.5,222.1L445.4,219.9L445.4,219.3L447.4,219.5L449.3,218.2L449.3,216.2L450.6,214.9L451.2,213L455.4,214.3L456.7,212.9L456.7,211.2L456,207.9L457.3,206.8L459.9,205.8L461.5,204.4L463.4,204L465.7,202.3L466.9,200.5L471.4,194.7L473,195.1L473.7,193.4L474,192.1L472.7,192.1L472.1,188.1L469.2,185.1L465.7,181.9L464.7,182.3L463.4,181L460.5,180.7L457.9,181.8L459.6,184.5L457.3,185.8L455.7,187L455.4,186L454.4,185.8L453.5,185.1L452.8,185.1L451.5,184.4L450.9,185.3L450.6,187L449.3,186L449,184.4L447.7,184.4L447.4,186.4L446.1,188.2L444.8,186.6L445.1,184L444.1,182.7L443.5,185.1L444.5,188.4L445.7,190.7L445.7,192L447,195.1L446.1,196.6L446.1,198.2L445.1,199.4L442.2,201.2L439.6,203.4L437.1,203.8L435.1,203.1L433.9,203.4L433.2,204.5L434.8,205.3L436.4,206.2L437.1,206.9L436.8,208.4L437.1,210.4L436.1,210.3L433.9,209.3L432.6,210.3L433.2,211.7L434.5,213L434.2,217.1L433.9,218.4L433.9,220.2L433.5,221.5L434.5,222.8L435.1,221.5L436.1,222.3L437.7,224.9L441.3,225.2L442.2,226.9L440.6,228.7L441.3,229.8L440.6,231.5L437.4,231.3L435.1,233L434.8,234.6L435.5,236.6L436.4,237.8L437.1,238.9L435.1,239.4L432.9,238.9L431.6,239.8L430.7,239.4L430.3,238.7L430.7,237.4L430.7,235.2L429.4,232L431.6,230.9L431,230.2L429.7,229.6L429,228L426.5,224.9L426.5,223.9L425.8,222.8L424.9,222.6L424.2,220.4L422.9,221.2L421,221L419.1,221.3L417.5,219.9L412.7,219.3L405.3,221L401.1,221.7L396.6,223L392.1,225.4L388.9,228.5L388.6,234.1L389.9,239.2L386.7,237.8L383.8,242.2L382.8,245.9L382.5,248.2L385.4,248.8L384.7,250.8L384.4,252.8L383.5,254.3L384.7,256.9L387.6,257.8L388.6,260.4L388.9,264.4L388.3,268.1L386.3,268.5L384.7,269.7L383.8,271.2L383.5,272.7L382.5,274.9L381.2,276.7L380.6,278.2L379.6,279.3L378.3,279.7L377.4,280.8L375.7,283.1L376.1,284.4L375.4,285.2L374.8,286.6L374.5,288.5L375.1,292.1L374.1,292.7L373.5,292.7L372.5,291.9L370.6,291L366.4,294.5L363.5,296.1L361,298L359.7,297.2L358.4,296.1L357.4,294.7L355.5,292.5L356.2,290.6L354.9,289.4L353.6,288.6L353.3,287.7L353.3,285.7L352.9,283.5L354.2,282.6L354.6,281.5L355.8,281.1L354.2,277.8L353.3,274.3L354.2,272.7L354.6,270.8L354.6,268.3L353.9,267.2L354.6,265.7L355.8,264.4L357.1,264.2L355.5,261.5L354.9,258.9L354.6,256.3L355.8,253.8L356.8,251.2L360.3,251.6L362.9,252.1L364.8,251.9L366.4,251.9L367.7,250.8L362.9,245.5L361.3,243.3L358.4,240.9L352.9,239.4L348.8,239L343.3,241.4L338.8,241.6L335.9,243.6L333.7,248.6L331.1,250.6L330.8,253.9L331.8,255.1L331.8,252.8L333,251.9L334,252.3L332.4,256.3L328.5,258.5L325,260.2L319.2,263.1L318.3,264.6L317.6,266.3L316.7,267.7L316,269.9L316,270.8L317,273.1L315.7,275.1L314.7,276L312.8,279.7L309,282.4L305.7,285.3L304.5,291L303.8,293L304.5,295.2L306.7,295.8L308,297.2L307.3,298.2L303.5,297.4L291,291.6L283.6,290.3L277.2,290.3L268.2,293.2L258.5,289.9L250.5,289.2L246.3,289.2L235.4,290.3L227.7,292.5L210.1,298.7L205.9,298.3L201.4,299.6L200.1,299.8L198.8,299.8L199.5,298.5L200.1,297.8L201.1,295.6L202,292.5L204,290.5L206.5,293.4L207.2,294.9L208.1,293.9L208.1,293.4L209.7,292.7L211,291.9L212.3,291.4L215.2,289.5L219,287L220.6,286.3L222.6,283.3L224.2,283.7L224.2,285.9L223.9,287.7L224.5,287.9L225.1,286.1L225.1,283.9L227.1,284.4L227.7,283.9L225.1,282.8L226.1,280.8L226.4,279.5L226.1,278.7L223.9,276.2L222.3,274.9L221.3,275.4L219.4,274.9L217.4,274.2L215.8,275.6L214.9,275.1L214.2,279.1L212.6,279.8L212.6,277.6L211.3,277.8L210.1,277.1L208.1,277.1L206.5,277.5L205.2,278.4L204,277.5L202,278.4L200.1,278L199.1,277.6L197.5,275.6L195.3,273.1L193.7,272.3L194,269.6L195.9,265.2L195.6,262.4L194.6,263.7L193.7,266.6L192.1,269.2L191.4,270.8L190.8,272.9L189.8,278.6L190.8,279.8L191.7,281.7L194,283L195,285.3L195,287.2L192.7,286.8L189.8,285.5L186.6,283.7L184.7,282.4L183.7,280.9L183.4,279.3L184.4,277.3L184.7,275.3L185.3,273.6L185.3,272L184.7,269.7L183.4,268.1L182.1,268.1L181.5,265.5L181.5,260.7L181.8,259.1L182.4,257.1L183.4,255.2L184.7,253.2L185.3,251.4L186.6,249.4L186.9,246.4L187.3,244.4L186,244L184.7,247.3L184,249.7L183.4,247.5L183.4,245.9L182.1,245.5L183.1,250.6L180.8,251.2L180.5,248.8L179.5,248.8L179.5,251.6L177.6,251.9L175.4,251.2L174.7,251.6L172.8,251.2L168.9,253.9L167,255.8L166.1,257.4L166.1,258.2L165.4,259.8L165.7,260.4L167.3,260.6L165.7,261.7L166.1,263.7L165.1,266.3L163.2,270.1L158.7,275.8L155.8,279.7L155.1,284.4L154.5,288.8L155.8,291L157.1,291.9L156.4,294.7L156.4,295.8L157.4,297.4L159,298L162.8,298L164.8,298.5L166.1,299.8L168.6,302.5L175.4,306.9L179.9,308.9L180.8,309.9L181.8,309.5L183.1,309.5L184.4,309.9L185,310.6L185.6,311.9L186.3,314.1L186.9,315.2L188.2,315.5L189.8,315.5L190.8,316.6L190.8,317.9L190.1,321.7L188.9,321.2L187.9,321.2L186.9,321.5L186.3,322.5L186.6,323.2L187.3,323.9L188.2,324.1L189.5,324.1L187.9,325.4L186.9,327L187.6,328.1L188.2,329.9L188.2,330L184.2,330L184.2,330L183.7,329.2L182.1,328.7L180.2,329.2L180.5,329.9L180.5,330L178.4,330L178.4,330L177.3,329.2L176.3,330L171.1,330L171.1,330L171.5,328.8L172.8,326.6L171.2,326.3L168.6,327.2L166.1,328.5L167.7,329L167.7,330L26.7,330L26.7,330L28.3,328.1L37.6,325.4L41.8,321.7L47.6,316.1L50.5,311.9L52.4,310L52.4,306.4L54,305.8L54.6,304.7L55.6,304L55.9,302.2L55.9,299.8L56.2,296.5L55.3,293.8L55,291.2L55.9,287.5L54.6,288.3L53,288.8L51.4,287.9L49.5,285.7L44.7,286.1L44.7,288.8L41.8,289.2L41.8,286.6L38.6,287.7L40.5,292.1L37.9,291.6L37.3,289.2L35.7,289.4L35.4,291.9L28.9,293.2L26.1,294.5L23.2,294.9L20.6,293L17.1,293L15.5,292.8L13.5,290.3L10.6,289.2L9,287.7L4.2,284.4L1.3,283.3L0,282.3L0,181.3ZM218.6,0L218.1,0.8L216.2,0.8L212.9,0L218.6,0ZM0,316L1,314.1L3.3,312.6L4.9,311.7L5.8,311L7.1,308.4L7.4,307.3L8.7,305.1L13.5,302.9L17.4,297.2L19.3,296.7L19.3,296.7L21.6,298.5L21.6,299.8L20.6,301.3L19.3,302.7L18.7,305.1L17.7,307.8L15.1,310L10.3,317.2L10,321.2L9.7,322.1L10,323.4L10,324.6L11.6,325.9L11.9,327.7L12.6,329L13.4,330L0,330ZM399.8,319.7L400.8,319L401.8,317.7L402.7,317.3L402.7,319.2L402.4,322.6L401.1,326.1L399.8,327.6L398.5,325.6L398.5,324.3L399.5,320.4ZM37.3,315.9L40.5,313.3L42.1,315.3L38.9,317.3L37.9,316.8ZM187.9,308.8L188.5,308L189.2,308.2L189.2,308.9L188.9,309.9L187.6,310.6L186.9,311.1L186.6,310.2L186,309.3ZM187.6,304.9L188.2,304.2L189.5,304L188.9,304.9L188.9,305.7L187.6,306L186.3,306.9L184.7,307.3L184,306.7ZM179.5,267.5L180.5,267.5L181.8,269.2L181.8,270.5L180.8,270.8L180.8,271.6L180.2,271.6ZM201.7,16.5L201.4,17.3L201.4,19.3L200.7,20.1L199.5,20.9L197.8,20.9L196.2,21.4L195,22.2L194,22.2L192.4,22.7L191.7,21.4L189.8,19.3L188.9,17.5L189.5,16.7L190.1,17.1L190.5,17.8L191.1,18.2L191.4,17.6L193,17.5L194.3,16.5L195.6,16.7L196.6,17.3L197.2,18L198.2,17.8L198.8,17.5L199.8,16.1L201.1,15.8ZM413,278L414.9,278.9L415.9,280.6L416.5,282.6L416.8,285.2L416.5,287.7L416.2,289L415.2,289.2L413.3,289.2L407.9,286.4L407.2,284.6L407.2,279.5L407.5,276.2L411.7,277.1Z" fill="#FFFFFF" stroke="#B8C4D0" stroke-width=".7"/>
+<path d="M137 270 Q300 222 455 238" fill="none" stroke="#1F4E8C" stroke-width="2.2" stroke-dasharray="6 3" marker-end="url(#k5)"/>
+<path d="M137 280 Q280 312 401 276" fill="none" stroke="#1F4E8C" stroke-width="2.2" marker-end="url(#k5)"/>
+<path d="M462 230 Q452 190 473 154" fill="none" stroke="#2F7F86" stroke-width="2.2" marker-end="url(#k5)"/>
+<line x1="430" y1="142" x2="470" y2="145" stroke="#5A6878" stroke-width="1.5" stroke-dasharray="3 3"/>
+<g stroke="#fff" stroke-width="1.5"><rect x="121" y="267" width="12" height="12" fill="#1F4E8C"/><circle cx="465" cy="239" r="6" fill="#2F7F86"/><rect x="472" y="139" width="12" height="12" fill="#2F7F86"/><circle cx="494" cy="131" r="5" fill="#2F7F86"/><rect x="416" y="136" width="12" height="12" fill="#1F4E8C"/><rect x="405" y="265" width="12" height="12" fill="#1F4E8C"/></g>
+<text x="127" y="298" text-anchor="middle" class="h" style="font-size:13px">京都(幕府)</text>
+<text x="220" y="222" class="s n">1438 永享の乱 ― 幕府が持氏を討つ</text>
+<text x="230" y="318" class="s n">1457 足利政知を派遣 → 鎌倉に入れず</text>
+<text x="474" y="258" class="h tl" style="font-size:13px">鎌倉(鎌倉府)</text>
+<text x="474" y="274" class="xs" style="fill:#1E2A3A">1439 持氏が自害</text>
+<text x="474" y="290" class="xs" style="fill:#1E2A3A">1454 享徳の乱が始まる</text>
+<text x="500" y="200" class="s tl">1455 成氏が古河へ</text>
+<text x="488" y="166" class="s tl" style="font-weight:700">古河公方(足利成氏)</text>
+<text x="504" y="124" class="s tl">1440 結城合戦</text>
+<text x="410" y="132" text-anchor="end" class="s n" style="font-weight:700">上杉氏(山内)</text>
+<text x="450" y="134" text-anchor="middle" class="xs">対立</text>
+<text x="398" y="262" text-anchor="end" class="s n" style="font-weight:700">堀越公方(足利政知)</text>
+<rect x="50" y="32" width="186" height="46" rx="4" fill="#fff" fill-opacity=".92" stroke="#D6E4F3"/>
+<line x1="60" y1="46" x2="84" y2="46" stroke="#1F4E8C" stroke-width="2.2"/><text x="90" y="50" class="xs" style="fill:#1E2A3A">幕府・上杉方</text>
+<line x1="60" y1="64" x2="84" y2="64" stroke="#2F7F86" stroke-width="2.2"/><text x="90" y="68" class="xs" style="fill:#1E2A3A">鎌倉公方・古河公方方</text>
+</svg></button>
+<figcaption><span><b>図5-4</b>関東の分裂 ― 永享の乱から享徳の乱へ</span><span class="hint">クリックで拡大</span></figcaption>
+</figure>
+
+
+<p>1459年から1461年にかけては、日照りや長雨による<span class="rb">長禄<span class="rt" aria-hidden="true">ちょうろく</span></span>・<span class="rb">寛正<span class="rt" aria-hidden="true">かんしょう</span></span>の飢饉が全国を襲った。京都には食べ物を求める人々が流れ込み、1461年の初めの2か月ほどの間に8万人を超える死者が出たと伝えられる。鴨川は遺体で流れがせき止められたという。一方、義政はこのころ、花の御所の建て直しなどに力を注いでいた。</p>
+<p>守護の家々では跡継ぎ争いが相次いだ。畠山氏では<span class="rb">義就<span class="rt" aria-hidden="true">よしひろ</span></span>と<span class="rb">政長<span class="rt" aria-hidden="true">まさなが</span></span>が、斯波氏では義敏と義廉が家督を争った。将軍家でも、子のなかった義政が弟の<span class="rb">義視<span class="rt" aria-hidden="true">よしみ</span></span>を後継者に決めた翌年の1465年、妻の<span class="rb">日野富子<span class="rt" aria-hidden="true">ひのとみこ</span></span>が男子(義尚)を産む。これらの争いに、幕府の実力者である細川勝元と山名持豊(宗全)がそれぞれ肩入れしたことで、対立は一つの大きな戦争へと向かっていった。1467年、応仁の乱が始まる(第6章)。</p>
+
+<figure>
+<button class="figbtn" type="button" aria-label="図5-5 応仁の乱の前夜の対立を拡大">
+<svg viewBox="0 0 680 300" role="img"><title>図5-5 応仁の乱の前夜の対立</title><desc>細川勝元の側に足利義視、畠山政長、斯波義敏。山名宗全の側に日野富子と足利義尚、畠山義就、斯波義廉。乱が始まったころの構図</desc>
+<rect x="160" y="24" width="220" height="44" rx="6" fill="#1F4E8C"/>
+<text x="270" y="44" text-anchor="middle" class="h w">細川勝元</text><text x="270" y="61" text-anchor="middle" class="xs w">のちの東軍の中心</text>
+<rect x="420" y="24" width="220" height="44" rx="6" fill="#2F7F86"/>
+<text x="530" y="44" text-anchor="middle" class="h w">山名宗全(持豊)</text><text x="530" y="61" text-anchor="middle" class="xs w">のちの西軍の中心</text>
+<g class="h"><text x="40" y="114" class="h">将軍家</text><text x="40" y="174" class="h">畠山家</text><text x="40" y="234" class="h">斯波家</text></g>
+<g fill="#EAF2FB" stroke="#C9DCF0"><rect x="160" y="86" width="220" height="46" rx="6"/><rect x="160" y="146" width="220" height="46" rx="6"/><rect x="160" y="206" width="220" height="46" rx="6"/></g>
+<g fill="#E6F3F3" stroke="#BFDCDC"><rect x="420" y="86" width="220" height="46" rx="6"/><rect x="420" y="146" width="220" height="46" rx="6"/><rect x="420" y="206" width="220" height="46" rx="6"/></g>
+<g text-anchor="middle">
+<text x="270" y="114" class="b" style="font-weight:700">足利義視(義政の弟)</text>
+<text x="530" y="114" class="b" style="font-weight:700">日野富子・足利義尚(義政の子)</text>
+<text x="270" y="174" class="b" style="font-weight:700">畠山政長</text><text x="530" y="174" class="b" style="font-weight:700">畠山義就</text>
+<text x="270" y="234" class="b" style="font-weight:700">斯波義敏</text><text x="530" y="234" class="b" style="font-weight:700">斯波義廉</text></g>
+<g fill="#5A6878"><circle cx="400" cy="109" r="11"/><circle cx="400" cy="169" r="11"/><circle cx="400" cy="229" r="11"/></g>
+<g text-anchor="middle" class="xs w" style="font-weight:700"><text x="400" y="113" class="xs w">対</text><text x="400" y="173" class="xs w">対</text><text x="400" y="233" class="xs w">対</text></g>
+<text x="340" y="282" text-anchor="middle" class="s">乱が始まったころの構図。のちに義視は西軍に移り、義政・富子・義尚は東軍の側に立つ</text>
+</svg></button>
+<figcaption><span><b>図5-5</b>応仁の乱の前夜の対立 ― 三つの跡継ぎ争いと二人の実力者</span><span class="hint">クリックで拡大</span></figcaption>
+</figure>
+
+<section class="points" aria-labelledby="pt">
+<h3 id="pt">この章の要点</h3>
+<ul>
+<li>義持の時代は比較的安定したが、関東では鎌倉公方が幕府と対立を深めた。</li>
+<li>自治を進めた惣村の農民は、正長の土一揆などで、実力で徳政を求めた。</li>
+<li>専制を強めた義教は嘉吉の変で殺され、幕府は一揆に押されて初めて徳政令を出した。</li>
+<li>関東の分裂、大飢饉、守護家と将軍家の跡継ぎ争いが重なり、応仁の乱へと向かった。</li>
+</ul>
+</section>
+
+<section class="column" aria-labelledby="col">
+<h3 id="col">コラム くじ引きで選ばれた将軍</h3>
+<p>将軍をくじで選ぶと聞くと奇妙に思えるが、当時、くじは神の意思を問う正式な方法だった。重臣たちは、自分たちで後継者を決めれば争いになることを恐れ、判断を神にゆだねたのである。</p>
+<p>選ばれた義教は、自分は神に選ばれた将軍だという意識を強く持っていたともいわれる。その自負が、逆らう者を許さない強い政治につながったと見ることもできる。争いを避けるための知恵だったくじは、結果として幕府に新たな緊張をもたらした。</p>
+</section>
+
+</div>
+</article>
+<footer>第5章 ・ 全7章のうちの1章</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>

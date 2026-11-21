@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>南北朝・室町時代 まとめ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script></head>
+<body>
+<div class="page">
+<p class="series">南北朝・室町時代 解説資料</p>
+<article class="sheet">
+<div class="band">まとめ ・ 1333 ― 1573</div>
+<header class="ch">
+<h1>南北朝・室町時代のまとめ</h1>
+<p class="lead">240年の流れを、年表と系図と各章の要点でふり返る</p>
+</header>
+<div class="body">
+<h2><span class="no">1</span>時代の流れ</h2>
+<figure>
+<button class="figbtn" type="button" aria-label="図1 南北朝・室町時代の流れを拡大">
+<svg viewBox="0 0 680 270" role="img"><title>図1 南北朝・室町時代の流れ</title><desc>1333年の鎌倉幕府滅亡から1573年の室町幕府滅亡まで。南北朝時代、室町幕府の安定と動揺、応仁の乱から戦国への区分と主な出来事</desc><rect x="66.7" y="140" width="6.7" height="22" fill="#9AAABB"/><rect x="73.4" y="140" width="125.5" height="22" fill="#2F7F86"/><text x="136.2" y="155" text-anchor="middle" class="xs w" style="font-weight:700">南北朝時代</text><rect x="198.9" y="140" width="168.0" height="22" fill="#1F4E8C"/><text x="282.9" y="155" text-anchor="middle" class="xs w" style="font-weight:700">室町幕府の安定と動揺</text><rect x="366.9" y="140" width="237.4" height="22" fill="#5A6878"/><text x="485.6" y="155" text-anchor="middle" class="xs w" style="font-weight:700">応仁の乱から戦国へ</text><line x1="66.7" y1="86" x2="66.7" y2="140" stroke="#9AAABB" stroke-width=".8"/><text x="66.7" y="62" text-anchor="start" class="h n">1333</text><text x="66.7" y="80" text-anchor="start" class="s" style="fill:#1E2A3A">鎌倉幕府が滅亡</text><line x1="104.8" y1="118" x2="104.8" y2="140" stroke="#9AAABB" stroke-width=".8"/><text x="104.8" y="96" text-anchor="start" class="h n">1350</text><text x="104.8" y="112" text-anchor="start" class="s" style="fill:#1E2A3A">観応の擾乱</text><line x1="225.8" y1="86" x2="225.8" y2="140" stroke="#9AAABB" stroke-width=".8"/><text x="225.8" y="62" text-anchor="start" class="h n">1404</text><text x="225.8" y="80" text-anchor="start" class="s" style="fill:#1E2A3A">勘合貿易が始まる</text><line x1="308.6" y1="118" x2="308.6" y2="140" stroke="#9AAABB" stroke-width=".8"/><text x="308.6" y="96" text-anchor="start" class="h n">1441</text><text x="308.6" y="112" text-anchor="start" class="s" style="fill:#1E2A3A">嘉吉の変</text><line x1="425.1" y1="86" x2="425.1" y2="140" stroke="#9AAABB" stroke-width=".8"/><text x="425.1" y="62" text-anchor="start" class="h n">1493</text><text x="425.1" y="80" text-anchor="start" class="s" style="fill:#1E2A3A">明応の政変</text><line x1="77.9" y1="162" x2="77.9" y2="174" stroke="#9AAABB" stroke-width=".8"/><text x="77.9" y="188" text-anchor="start" class="h n">1338</text><text x="77.9" y="204" text-anchor="start" class="s" style="fill:#1E2A3A">尊氏が将軍に</text><line x1="198.9" y1="162" x2="198.9" y2="218" stroke="#9AAABB" stroke-width=".8"/><text x="198.9" y="232" text-anchor="start" class="h n">1392</text><text x="198.9" y="248" text-anchor="start" class="s" style="fill:#1E2A3A">南北朝の合一</text><line x1="279.5" y1="162" x2="279.5" y2="174" stroke="#9AAABB" stroke-width=".8"/><text x="279.5" y="188" text-anchor="start" class="h n">1428</text><text x="279.5" y="204" text-anchor="start" class="s" style="fill:#1E2A3A">正長の土一揆</text><line x1="366.9" y1="162" x2="366.9" y2="218" stroke="#9AAABB" stroke-width=".8"/><text x="366.9" y="232" text-anchor="start" class="h n">1467</text><text x="366.9" y="248" text-anchor="start" class="s" style="fill:#1E2A3A">応仁の乱が始まる</text><line x1="604.3" y1="162" x2="604.3" y2="174" stroke="#9AAABB" stroke-width=".8"/><text x="604.3" y="188" text-anchor="end" class="h n">1573</text><text x="604.3" y="204" text-anchor="end" class="s" style="fill:#1E2A3A">室町幕府の滅亡</text><text x="64" y="178" text-anchor="end" class="xs">建武の新政</text></svg></button>
+<figcaption><span><b>図1</b>南北朝・室町時代の流れ</span><span class="hint">クリックで拡大</span></figcaption>
+</figure>
+
+<h2><span class="no">2</span>足利将軍の系図</h2>
+<figure>
+<button class="figbtn" type="button" aria-label="図2 足利将軍の系図(1〜9代)を拡大">
+<svg viewBox="0 0 680 310" role="img"><title>図2 足利将軍の系図(1〜9代)</title><desc>尊氏、義詮、義満と続き、義満の子の義持と義教、義持の子の義量、義教の子の義勝と義政、義政の子の義尚</desc><path d="M128 119.0 H135.0 V119.0 H142" fill="none" stroke="#9AAABB" stroke-width="1.2"/><path d="M230 119.0 H237.0 V119.0 H244" fill="none" stroke="#9AAABB" stroke-width="1.2"/><path d="M332 119.0 H339.0 V59.0 H346" fill="none" stroke="#9AAABB" stroke-width="1.2"/><path d="M332 119.0 H339.0 V179.0 H346" fill="none" stroke="#9AAABB" stroke-width="1.2"/><path d="M434 59.0 H441.0 V59.0 H448" fill="none" stroke="#9AAABB" stroke-width="1.2"/><path d="M434 179.0 H441.0 V149.0 H448" fill="none" stroke="#9AAABB" stroke-width="1.2"/><path d="M434 179.0 H441.0 V219.0 H448" fill="none" stroke="#9AAABB" stroke-width="1.2"/><path d="M536 219.0 H543.0 V219.0 H550" fill="none" stroke="#9AAABB" stroke-width="1.2"/><rect x="40" y="96" width="88" height="46" rx="6" fill="#1F4E8C" stroke="#1F4E8C"/><text x="84.0" y="116" text-anchor="middle" class="h w">① 尊氏</text><text x="84.0" y="133" text-anchor="middle" class="xs w">1338〜58</text><rect x="142" y="96" width="88" height="46" rx="6" fill="#EAF2FB" stroke="#C9DCF0"/><text x="186.0" y="116" text-anchor="middle" class="h ">② 義詮</text><text x="186.0" y="133" text-anchor="middle" class="xs ">1358〜67</text><rect x="244" y="96" width="88" height="46" rx="6" fill="#1F4E8C" stroke="#1F4E8C"/><text x="288.0" y="116" text-anchor="middle" class="h w">③ 義満</text><text x="288.0" y="133" text-anchor="middle" class="xs w">1368〜94</text><rect x="346" y="36" width="88" height="46" rx="6" fill="#EAF2FB" stroke="#C9DCF0"/><text x="390.0" y="56" text-anchor="middle" class="h ">④ 義持</text><text x="390.0" y="73" text-anchor="middle" class="xs ">1394〜1423</text><rect x="346" y="156" width="88" height="46" rx="6" fill="#1F4E8C" stroke="#1F4E8C"/><text x="390.0" y="176" text-anchor="middle" class="h w">⑥ 義教</text><text x="390.0" y="193" text-anchor="middle" class="xs w">1429〜41</text><rect x="448" y="36" width="88" height="46" rx="6" fill="#EAF2FB" stroke="#C9DCF0"/><text x="492.0" y="56" text-anchor="middle" class="h ">⑤ 義量</text><text x="492.0" y="73" text-anchor="middle" class="xs ">1423〜25</text><rect x="448" y="126" width="88" height="46" rx="6" fill="#EAF2FB" stroke="#C9DCF0"/><text x="492.0" y="146" text-anchor="middle" class="h ">⑦ 義勝</text><text x="492.0" y="163" text-anchor="middle" class="xs ">1442〜43</text><rect x="448" y="196" width="88" height="46" rx="6" fill="#1F4E8C" stroke="#1F4E8C"/><text x="492.0" y="216" text-anchor="middle" class="h w">⑧ 義政</text><text x="492.0" y="233" text-anchor="middle" class="xs w">1449〜73</text><rect x="550" y="196" width="88" height="46" rx="6" fill="#EAF2FB" stroke="#C9DCF0"/><text x="594.0" y="216" text-anchor="middle" class="h ">⑨ 義尚</text><text x="594.0" y="233" text-anchor="middle" class="xs ">1473〜89</text><text x="40" y="276" class="s" style="fill:#1E2A3A">⑨義尚の後、⑩義稙 ⑪義澄 ⑫義晴 ⑬義輝 ⑭義栄 ⑮義昭と続き、1573年に義昭が追放されて幕府は滅んだ</text><text x="40" y="296" class="xs">数字は将軍の代。年は将軍の在職期間(おおよそ)。濃い色はこの資料で詳しく扱った将軍</text></svg></button>
+<figcaption><span><b>図2</b>足利将軍の系図(1〜9代)</span><span class="hint">クリックで拡大</span></figcaption>
+</figure>
+
+<h2><span class="no">3</span>各章の要点</h2>
+<div style="border:1px solid #DCE4EE;border-left:4px solid #1F4E8C;border-radius:0;padding:12px 16px;margin:0 0 12px"><div style="font-size:13px;color:#1F4E8C;font-weight:700">第1章</div><div style="font-weight:700;font-size:16.5px;margin:2px 0 4px">鎌倉幕府の滅亡と建武の新政</div><div style="font-size:15px;line-height:1.8">御家人の不満と後醍醐天皇の倒幕で鎌倉幕府が滅んだ。天皇中心の建武の新政は、恩賞や土地の保証をめぐる混乱で3年足らずで崩れた。</div></div><div style="border:1px solid #DCE4EE;border-left:4px solid #1F4E8C;border-radius:0;padding:12px 16px;margin:0 0 12px"><div style="font-size:13px;color:#1F4E8C;font-weight:700">第2章</div><div style="font-weight:700;font-size:16.5px;margin:2px 0 4px">南北朝の動乱と室町幕府の成立</div><div style="font-size:15px;line-height:1.8">尊氏が室町幕府を開き、二つの朝廷が56年並び立った。幕府の内紛のたびに南朝が息を吹き返し、その間に守護が力を伸ばした。</div></div><div style="border:1px solid #DCE4EE;border-left:4px solid #1F4E8C;border-radius:0;padding:12px 16px;margin:0 0 12px"><div style="font-size:13px;color:#1F4E8C;font-weight:700">第3章</div><div style="font-weight:700;font-size:16.5px;margin:2px 0 4px">足利義満と幕府の全盛期</div><div style="font-size:15px;line-height:1.8">義満は有力守護を抑え、南北朝を合一し、朝廷の権限を幕府に取り込んだ。明との勘合貿易も始め、将軍の権力は頂点に達した。</div></div><div style="border:1px solid #DCE4EE;border-left:4px solid #1F4E8C;border-radius:0;padding:12px 16px;margin:0 0 12px"><div style="font-size:13px;color:#1F4E8C;font-weight:700">第4章</div><div style="font-weight:700;font-size:16.5px;margin:2px 0 4px">室町幕府のしくみと東アジアとの交流</div><div style="font-size:15px;line-height:1.8">管領・奉公衆・鎌倉府・京都に住む守護が幕府を支え、財政は商工業や貿易への課税に頼った。朝鮮・琉球・蝦夷地とも結びついていた。</div></div><div style="border:1px solid #DCE4EE;border-left:4px solid #1F4E8C;border-radius:0;padding:12px 16px;margin:0 0 12px"><div style="font-size:13px;color:#1F4E8C;font-weight:700">第5章</div><div style="font-weight:700;font-size:16.5px;margin:2px 0 4px">揺らぐ幕府 ― 一揆と将軍暗殺</div><div style="font-size:15px;line-height:1.8">惣村の農民が土一揆を起こし、専制を強めた義教は嘉吉の変で殺された。関東の分裂と跡継ぎ争いが重なり、大乱の前夜を迎えた。</div></div><div style="border:1px solid #DCE4EE;border-left:4px solid #1F4E8C;border-radius:0;padding:12px 16px;margin:0 0 12px"><div style="font-size:13px;color:#1F4E8C;font-weight:700">第6章</div><div style="font-weight:700;font-size:16.5px;margin:2px 0 4px">応仁の乱 ― 幕府の失墜と戦国への道</div><div style="font-size:15px;line-height:1.8">11年の戦乱で京都は焼け、守護は領国へ帰った。下剋上と一揆の広がりの中で、時代は戦国へと移った。</div></div><div style="border:1px solid #DCE4EE;border-left:4px solid #1F4E8C;border-radius:0;padding:12px 16px;margin:0 0 12px"><div style="font-size:13px;color:#1F4E8C;font-weight:700">第7章</div><div style="font-weight:700;font-size:16.5px;margin:2px 0 4px">室町の文化 ― 北山文化と東山文化</div><div style="font-size:15px;line-height:1.8">北山文化と東山文化が生まれ、書院造・茶の湯・能など、今に続く和の文化の源となった。文化は民衆と地方へも広がった。</div></div>
+<h2><span class="no">4</span>この時代をひとことで</h2>
+<p>南北朝・室町時代は、権力の担い手が次々と移り変わった時代である。天皇が政治を取り戻そうとした建武の新政は武士の支持を失い、足利氏の幕府は義満のもとで頂点を迎えた。しかしその力は有力守護との釣り合いの上に成り立っており、将軍の暗殺や跡継ぎ争いをきっかけに大きく揺らいだ。</p><p>一方で、村を自分たちで治める農民や、一揆を結んで権力に立ち向かう民衆が現れ、京都で育った文化は地方へと広がっていった。応仁の乱の後に始まる戦国時代は、こうした「下からの力」が表に出てきた時代でもある。</p>
+</div>
+</article>
+<footer>まとめ ・ 南北朝・室町時代 解説資料</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>

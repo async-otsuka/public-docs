@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>南北朝・室町時代 第6章</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script></head>
+<body>
+<div class="page">
+<p class="series">南北朝・室町時代 解説資料</p>
+<article class="sheet">
+<div class="band">第六章 ・ 1467 ― 1493</div>
+<header class="ch">
+<h1>応仁の乱 ― 幕府の失墜と戦国への道</h1>
+<p class="lead">京都を焼いた11年の戦乱が、時代を大きく変えた</p>
+</header>
+<div class="body">
+
+<figure>
+<button class="figbtn" type="button" aria-label="図6-1 第6章の年表を拡大">
+<svg viewBox="0 0 680 270" role="img"><title>図6-1 第6章の年表</title><desc>1467年の応仁の乱の開始、1468年に義視が西軍へ、1473年の山名宗全・細川勝元の死と義尚の将軍就任、1477年の乱の終結、1485年の山城の国一揆、1488年の加賀の一向一揆、1493年の明応の政変</desc>
+<rect x="70" y="142" width="212" height="8" rx="3" fill="#1F4E8C"/>
+<rect x="282" y="142" width="338" height="8" rx="3" fill="#9AAABB"/>
+<g stroke="#9AAABB" stroke-width=".8">
+<line x1="70" y1="86" x2="70" y2="140"/><line x1="282" y1="86" x2="282" y2="140"/><line x1="514" y1="86" x2="514" y2="140"/>
+<line x1="197" y1="128" x2="197" y2="140"/>
+<line x1="91" y1="152" x2="91" y2="184"/><line x1="451" y1="152" x2="451" y2="184"/>
+<line x1="197" y1="152" x2="197" y2="228"/><line x1="619" y1="152" x2="619" y2="228"/></g>
+<g fill="#fff" stroke="#1F4E8C" stroke-width="2"><circle cx="70" cy="146" r="4"/><circle cx="91" cy="146" r="4"/><circle cx="197" cy="146" r="4"/><circle cx="282" cy="146" r="4"/><circle cx="451" cy="146" r="4"/><circle cx="514" cy="146" r="4"/><circle cx="616" cy="146" r="4"/></g>
+<text x="144" y="166" text-anchor="middle" class="xs n">応仁の乱</text>
+<text x="370" y="166" text-anchor="middle" class="xs">乱の後 ― 一揆と下剋上</text>
+<text x="70" y="62" class="h n">1467</text><text x="70" y="80" class="s" style="fill:#1E2A3A">応仁の乱が始まる</text>
+<text x="282" y="62" class="h n">1477</text><text x="282" y="80" class="s" style="fill:#1E2A3A">乱が終わる</text>
+<text x="514" y="62" class="h n">1488</text><text x="514" y="80" class="s" style="fill:#1E2A3A">加賀の一向一揆</text>
+<text x="197" y="106" text-anchor="end" class="h n">1473</text><text x="197" y="122" text-anchor="end" class="s" style="fill:#1E2A3A">宗全・勝元が死去</text>
+<text x="91" y="198" class="h n">1468</text><text x="91" y="214" class="s" style="fill:#1E2A3A">義視が西軍へ</text>
+<text x="451" y="198" class="h n">1485</text><text x="451" y="214" class="s" style="fill:#1E2A3A">山城の国一揆</text>
+<text x="197" y="244" class="h n">1473</text><text x="197" y="261" class="s" style="fill:#1E2A3A">義尚が将軍に</text>
+<text x="620" y="244" text-anchor="end" class="h n">1493</text><text x="620" y="261" text-anchor="end" class="s" style="fill:#1E2A3A">明応の政変</text>
+</svg></button>
+<figcaption><span><b>図6-1</b>この章の年表</span><span class="hint">クリックで拡大</span></figcaption>
+</figure>
+
+<h2><span class="no">第1節</span>乱の始まり</h2>
+<p>1467年(応仁元年)1月、畠山政長と畠山義就の軍勢が、京都の<span class="rb">上御霊社<span class="rt" aria-hidden="true">かみごりょうしゃ</span></span>で戦った(御霊合戦)。将軍家と管領家の跡継ぎ争いに、細川勝元と山名宗全の主導権争いが重なり、5月には京都を舞台にした全面戦争となった。応仁の乱である。</p>
+<p>細川方は将軍の御所(花の御所)を押さえて東側に陣を構え、東軍と呼ばれた。山名方は堀川の西にある宗全の屋敷を中心に陣を構え、西軍と呼ばれた。今も京都の織物の産地として知られる「<span class="rb">西陣<span class="rt" aria-hidden="true">にしじん</span></span>」の名は、このとき西軍が陣を置いたことに由来する。軍記物の『応仁記』は、東軍を16万余り、西軍を11万余りと記している。</p>
+
+<figure>
+<button class="figbtn" type="button" aria-label="図6-2 京都の東軍と西軍の陣を拡大">
+<svg viewBox="0 0 680 400" role="img"><title>図6-2 京都の東軍と西軍の陣</title><desc>京都の上京で、堀川の東、花の御所の周りに東軍(細川勝元)、堀川の西、山名宗全の屋敷の周りに西軍が陣を置いた。北東の上御霊社で御霊合戦が起きた。位置はおおよその模式図</desc>
+<rect x="40" y="20" width="600" height="330" rx="6" fill="#F7F5EF" stroke="#D6E4F3"/>
+<path d="M560 20 Q572 120 558 200 Q548 280 566 350" fill="none" stroke="#9CBBE0" stroke-width="6"/>
+<path d="M300 20 Q304 180 298 350" fill="none" stroke="#9CBBE0" stroke-width="3"/>
+<g stroke="#C9C2B0" stroke-width="1"><line x1="40" y1="150" x2="640" y2="150"/><line x1="40" y1="262" x2="640" y2="262"/><line x1="392" y1="20" x2="392" y2="350" stroke-dasharray="4 3"/></g>
+<rect x="110" y="96" width="176" height="150" rx="10" fill="#2F7F86" fill-opacity=".16" stroke="#2F7F86" stroke-width="1.2"/>
+<rect x="320" y="96" width="210" height="150" rx="10" fill="#1F4E8C" fill-opacity=".13" stroke="#1F4E8C" stroke-width="1.2"/>
+<text x="198" y="122" text-anchor="middle" class="h tl">西軍の陣</text>
+<text x="198" y="140" text-anchor="middle" class="xs tl">→ のちの「西陣」</text>
+<rect x="190" y="168" width="14" height="14" fill="#2F7F86"/><text x="198" y="200" text-anchor="middle" class="s" style="font-weight:700;fill:#1E2A3A">山名宗全の屋敷</text>
+<text x="478" y="122" text-anchor="middle" class="h n">東軍の陣</text>
+<rect x="388" y="168" width="14" height="14" fill="#1F4E8C"/><text x="395" y="200" text-anchor="middle" class="s" style="font-weight:700;fill:#1E2A3A">花の御所</text>
+<text x="395" y="216" text-anchor="middle" class="xs">(将軍の御所)</text>
+<circle cx="350" cy="128" r="6" fill="#1F4E8C"/><text x="362" y="134" class="xs n">細川勝元の屋敷</text>
+<rect x="478" y="216" width="12" height="12" fill="#9AAABB"/><text x="484" y="240" text-anchor="middle" class="xs">内裏</text>
+<circle cx="500" cy="62" r="6" fill="#5A6878"/><text x="510" y="58" class="s" style="font-weight:700;fill:#1E2A3A">上御霊社</text><text x="510" y="74" class="xs">1467.1 御霊合戦</text>
+<text x="306" y="44" class="xs" style="fill:#3F72B0">堀川</text><text x="574" y="44" class="xs" style="fill:#3F72B0">鴨川</text>
+<text x="46" y="146" class="xs">今出川通</text><text x="46" y="258" class="xs">一条通</text><text x="396" y="342" class="xs">室町通</text>
+<text x="340" y="306" text-anchor="middle" class="s">上京(公家・武家の町) ― 南には下京(町衆の町)が続く</text>
+<path d="M612 66 L620 40 L628 66 Z" fill="#5A6878"/><text x="620" y="82" text-anchor="middle" class="xs">北</text>
+<text x="340" y="378" text-anchor="middle" class="xs">位置関係をわかりやすくした模式図。距離や形はおおよそ</text>
+</svg></button>
+<figcaption><span><b>図6-2</b>京都の東軍と西軍の陣(模式図)</span><span class="hint">クリックで拡大</span></figcaption>
+</figure>
+
+<p>戦いが始まると、将軍の義政は東軍の側に立ち、東軍が幕府の軍として戦う形になった。ところが1468年、東軍にいた義政の弟・義視が西軍へ移り、西軍は義視を将軍のように立てた。東西に二つの幕府が並び立つ形となり、争いはますます解きにくくなった。</p>
+
+<h2><span class="no">第2節</span>長引く戦い</h2>
+<p>戦いは京都の市街戦となり、寺社や公家の屋敷、町屋が次々と焼かれた。この戦いで目立ったのが、<span class="rb">足軽<span class="rt" aria-hidden="true">あしがる</span></span>と呼ばれる軽装の雑兵である。足軽は身軽さを生かして敵陣に火を放ち、略奪も行った。公家の一条兼良は、足軽を「ひる強盗」と非難している。</p>
+<p>戦いが長引くにつれ、京都は焼け野原となった。多くの公家や僧侶が戦火を避け、地方の大名を頼って都を離れた。これは、京都の文化が地方へ広がるきっかけにもなった(第7章)。</p>
+<p>1473年、山名宗全と細川勝元が相次いで亡くなった。同じ年、義政は将軍職を9歳の子・義尚に譲る。それでも戦いはすぐには収まらず、1477年、西軍の有力者だった大内政弘が領国の周防へ帰ったことで、ようやく乱は終わった。11年に及ぶ戦乱は、どちらの勝ちともつかないまま幕を下ろしたのである。</p>
+
+<figure>
+<button class="figbtn" type="button" aria-label="図6-3 応仁の乱の流れを拡大">
+<svg viewBox="0 0 680 210" role="img"><title>図6-3 応仁の乱の流れ</title><desc>1467年に開戦、1468年に義視が西軍へ移り二つの幕府が並ぶ、足軽が横行して京都が焼け野原に、1473年に両将が死去、1477年に勝敗のないまま乱が終わる</desc>
+<defs><marker id="a63" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<g fill="#EAF2FB" stroke="#C9DCF0" stroke-width="1"><rect x="40" y="24" width="112" height="94" rx="6"/><rect x="162" y="24" width="112" height="94" rx="6"/><rect x="284" y="24" width="112" height="94" rx="6"/><rect x="406" y="24" width="112" height="94" rx="6"/></g>
+<rect x="528" y="24" width="112" height="94" rx="6" fill="#1F4E8C"/>
+<g text-anchor="middle">
+<text x="96" y="48" class="b n" style="font-weight:700">1467</text><text x="96" y="74" class="h">開戦</text><text x="96" y="98" class="xs">約16万対11万</text>
+<text x="218" y="48" class="b n" style="font-weight:700">1468</text><text x="218" y="74" class="h">義視が西軍へ</text><text x="218" y="98" class="xs">二つの幕府が並ぶ</text>
+<text x="340" y="48" class="b n" style="font-weight:700">長期化</text><text x="340" y="74" class="h">足軽が横行</text><text x="340" y="98" class="xs">京都が焼け野原に</text>
+<text x="462" y="48" class="b n" style="font-weight:700">1473</text><text x="462" y="74" class="h">両将が死去</text><text x="462" y="98" class="xs">宗全と勝元</text>
+<text x="584" y="48" class="b w" style="font-weight:700">1477</text><text x="584" y="74" class="h w">乱が終わる</text><text x="584" y="98" class="xs w">勝敗のないまま</text></g>
+<g stroke="#5A6878" stroke-width="1.2"><line x1="152" y1="71" x2="160" y2="71" marker-end="url(#a63)"/><line x1="274" y1="71" x2="282" y2="71" marker-end="url(#a63)"/><line x1="396" y1="71" x2="404" y2="71" marker-end="url(#a63)"/><line x1="518" y1="71" x2="526" y2="71" marker-end="url(#a63)"/></g>
+<rect x="40" y="144" width="600" height="44" rx="6" fill="#fff" stroke="#1F4E8C" stroke-width="1" stroke-dasharray="5 3"/>
+<text x="340" y="171" text-anchor="middle" class="b" style="font-weight:700">11年に及ぶ戦乱で京都の大半が焼け、幕府の権威は地に落ちた</text>
+</svg></button>
+<figcaption><span><b>図6-3</b>応仁の乱の流れ</span><span class="hint">クリックで拡大</span></figcaption>
+</figure>
+
+<h2><span class="no">第3節</span>乱がもたらしたもの</h2>
+<p>乱が終わると、京都に集まっていた守護の多くは、自分の領国へ帰っていった。留守の間に、領国では守護代や国人が力を伸ばしていたからである。</p>
+<p>実力のある者が上の者をしのいで力を奪う風潮を<span class="rb">下剋上<span class="rt" aria-hidden="true">げこくじょう</span></span>という。守護代や国人の中には、主君である守護を倒して領国を奪う者も現れた。家柄に頼らず、実力で領国を支配する大名を戦国大名という。</p>
+<p>一方、幕府の命令が届くのは、京都とその周辺に限られるようになった。将軍の地位も、有力な大名の力に左右されるものとなっていく。荘園の年貢も各地の武士に押さえられ、京都の公家や寺社は収入の多くを失った。</p>
+
+<figure>
+<button class="figbtn" type="button" aria-label="図6-4 応仁の乱がもたらしたものを拡大">
+<svg viewBox="0 0 680 330" role="img"><title>図6-4 応仁の乱がもたらしたもの</title><desc>守護が領国へ帰り守護代・国人が台頭して下剋上から戦国大名へ。幕府の力は京都周辺だけになり将軍は大名に左右される。公家・僧が地方へ下り文化が地方に広がる</desc>
+<defs><marker id="a64" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="250" y="16" width="180" height="40" rx="6" fill="#1F4E8C"/>
+<text x="340" y="41" text-anchor="middle" class="h w">応仁の乱</text>
+<path d="M340 56 V70 M130 70 H550 M130 70 V84 M340 70 V84 M550 70 V84" fill="none" stroke="#5A6878" stroke-width="1"/>
+<g fill="#EAF2FB" stroke="#C9DCF0"><rect x="40" y="84" width="180" height="56" rx="6"/><rect x="250" y="84" width="180" height="56" rx="6"/><rect x="460" y="84" width="180" height="56" rx="6"/></g>
+<g fill="#fff" stroke="#9AAABB"><rect x="40" y="164" width="180" height="56" rx="6"/><rect x="250" y="164" width="180" height="56" rx="6"/><rect x="460" y="164" width="180" height="56" rx="6"/></g>
+<g fill="#fff" stroke="#1F4E8C" stroke-width="1.4"><rect x="40" y="244" width="180" height="56" rx="6"/><rect x="250" y="244" width="180" height="56" rx="6"/><rect x="460" y="244" width="180" height="56" rx="6"/></g>
+<g text-anchor="middle">
+<text x="130" y="108" class="h" style="font-size:13px">守護が領国へ帰る</text><text x="130" y="128" class="xs">京都の幕府政治から離れる</text>
+<text x="340" y="108" class="h" style="font-size:13px">幕府の力が衰える</text><text x="340" y="128" class="xs">命令が京都周辺だけに</text>
+<text x="550" y="108" class="h" style="font-size:13px">公家・僧が地方へ</text><text x="550" y="128" class="xs">戦火を避けて大名を頼る</text>
+<text x="130" y="188" class="h" style="font-size:13px">守護代・国人が台頭</text><text x="130" y="208" class="xs">留守の間に実力を蓄えた</text>
+<text x="340" y="188" class="h" style="font-size:13px">将軍が大名に左右される</text><text x="340" y="208" class="xs">荘園の年貢も届かない</text>
+<text x="550" y="188" class="h" style="font-size:13px">城下町に文化が伝わる</text><text x="550" y="208" class="xs">山口・一乗谷など</text>
+<text x="130" y="268" class="h n" style="font-size:13px">下剋上 → 戦国大名</text><text x="130" y="288" class="xs">実力で領国を支配</text>
+<text x="340" y="268" class="h n" style="font-size:13px">1493 明応の政変</text><text x="340" y="288" class="xs">家臣が将軍を替える</text>
+<text x="550" y="268" class="h n" style="font-size:13px">文化の地方への広がり</text><text x="550" y="288" class="xs">第7章へ</text></g>
+<g stroke="#5A6878" stroke-width="1.2"><line x1="130" y1="140" x2="130" y2="160" marker-end="url(#a64)"/><line x1="340" y1="140" x2="340" y2="160" marker-end="url(#a64)"/><line x1="550" y1="140" x2="550" y2="160" marker-end="url(#a64)"/>
+<line x1="130" y1="220" x2="130" y2="240" marker-end="url(#a64)"/><line x1="340" y1="220" x2="340" y2="240" marker-end="url(#a64)"/><line x1="550" y1="220" x2="550" y2="240" marker-end="url(#a64)"/></g>
+</svg></button>
+<figcaption><span><b>図6-4</b>応仁の乱がもたらしたもの</span><span class="hint">クリックで拡大</span></figcaption>
+</figure>
+
+<h2><span class="no">第4節</span>一揆の時代と戦国への道</h2>
+<p>乱の後、民衆の動きはさらに力強くなった。1485年、南山城(京都府南部)では、なおも争いを続ける畠山氏の両軍に対し、国人と農民が団結して両軍の退去を求めた。両軍はこれに従い、国人たちは「国中掟法」を定めて、8年にわたって山城の南部を自分たちで治めた。<span class="rb">山城<span class="rt" aria-hidden="true">やましろ</span></span>の<span class="rb">国一揆<span class="rt" aria-hidden="true">くにいっき</span></span>である。</p>
+<p>1488年には加賀(石川県南部)で、浄土真宗(一向宗)の門徒が国人と結んで守護の富樫政親を攻め、自害に追い込んだ。加賀の<span class="rb">一向一揆<span class="rt" aria-hidden="true">いっこういっき</span></span>である。その後、加賀はおよそ100年にわたって門徒たちが実質的に治め、その様子は「百姓の持ちたる国のやうに」なったと記された。浄土真宗が広まった背景には、本願寺の<span class="rb">蓮如<span class="rt" aria-hidden="true">れんにょ</span></span>が、やさしい言葉の手紙(<span class="rb">御文<span class="rt" aria-hidden="true">おふみ</span></span>)で教えを説いたことがあった。</p>
+
+<figure>
+<button class="figbtn" type="button" aria-label="図6-5 二つの一揆の比較を拡大">
+<svg viewBox="0 0 680 300" role="img"><title>図6-5 山城の国一揆と加賀の一向一揆</title><desc>山城の国一揆は1485年、国人と農民が畠山両軍を退去させ8年間自治。加賀の一向一揆は1488年、一向宗の門徒と国人が守護富樫政親を倒し約100年支配</desc>
+<rect x="40" y="20" width="290" height="260" rx="8" fill="#fff" stroke="#1F4E8C" stroke-width="1.2"/>
+<path d="M40 54 V26 Q40 20 46 20 H324 Q330 20 330 26 V54 Z" fill="#1F4E8C"/>
+<text x="185" y="43" text-anchor="middle" class="h w">1485 山城の国一揆</text>
+<rect x="350" y="20" width="290" height="260" rx="8" fill="#fff" stroke="#2F7F86" stroke-width="1.2"/>
+<path d="M350 54 V26 Q350 20 356 20 H634 Q640 20 640 26 V54 Z" fill="#2F7F86"/>
+<text x="495" y="43" text-anchor="middle" class="h w">1488 加賀の一向一揆</text>
+<g style="font-size:11px;font-weight:700">
+<rect x="56" y="70" width="52" height="18" rx="3" fill="#EAF2FB"/><text x="82" y="83" text-anchor="middle" fill="#1F4E8C">担い手</text>
+<rect x="56" y="130" width="52" height="18" rx="3" fill="#EAF2FB"/><text x="82" y="143" text-anchor="middle" fill="#1F4E8C">相手</text>
+<rect x="56" y="190" width="52" height="18" rx="3" fill="#EAF2FB"/><text x="82" y="203" text-anchor="middle" fill="#1F4E8C">結果</text>
+<rect x="366" y="70" width="52" height="18" rx="3" fill="#E6F3F3"/><text x="392" y="83" text-anchor="middle" fill="#2F7F86">担い手</text>
+<rect x="366" y="130" width="52" height="18" rx="3" fill="#E6F3F3"/><text x="392" y="143" text-anchor="middle" fill="#2F7F86">相手</text>
+<rect x="366" y="190" width="52" height="18" rx="3" fill="#E6F3F3"/><text x="392" y="203" text-anchor="middle" fill="#2F7F86">結果</text></g>
+<text x="56" y="110" class="b">南山城の国人と農民</text>
+<text x="56" y="170" class="b">争いを続ける畠山氏の両軍</text>
+<text x="56" y="228" class="b">両軍を退去させ、国中掟法を定める</text>
+<text x="56" y="250" class="b">8年間の自治(1493年に解体)</text>
+<text x="366" y="110" class="b">浄土真宗(一向宗)の門徒と国人</text>
+<text x="366" y="170" class="b">守護の富樫政親</text>
+<text x="366" y="228" class="b">政親を自害に追い込む</text>
+<text x="366" y="250" class="b">約100年、門徒が国を治める</text>
+</svg></button>
+<figcaption><span><b>図6-5</b>山城の国一揆と加賀の一向一揆</span><span class="hint">クリックで拡大</span></figcaption>
+</figure>
+
+<p>1493年、管領の細川政元が将軍の足利義材(のちの義稙)を退け、義澄を新たな将軍に立てた(<span class="rb">明応<span class="rt" aria-hidden="true">めいおう</span></span>の政変)。家臣が将軍を思うままに替えたこの事件を、戦国時代の始まりとみる考え方もある。同じころ、伊勢宗瑞(北条早雲)が伊豆の堀越公方を攻め、のちに関東を支配する戦国大名・北条氏の基礎を築いた。</p>
+<p>こうして日本は、各地の戦国大名が争う戦国時代へと入っていく。室町幕府はその後も名目上は続いたが、1573年、織田信長が15代将軍・足利義昭を京都から追放したことで、事実上滅びた。</p>
+
+<figure>
+<button class="figbtn" type="button" aria-label="図6-6 戦国時代への道を拡大">
+<svg viewBox="0 0 680 150" role="img"><title>図6-6 戦国時代への道</title><desc>1493年の明応の政変と伊勢宗瑞の伊豆攻め、各地で戦国大名が台頭、1573年に織田信長が足利義昭を追放して室町幕府が滅亡</desc>
+<defs><marker id="a66" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<g fill="#EAF2FB" stroke="#C9DCF0"><rect x="40" y="24" width="135" height="96" rx="6"/><rect x="195" y="24" width="135" height="96" rx="6"/><rect x="350" y="24" width="135" height="96" rx="6"/></g>
+<rect x="505" y="24" width="135" height="96" rx="6" fill="#1F4E8C"/>
+<g text-anchor="middle">
+<text x="107" y="50" class="b n" style="font-weight:700">1493</text><text x="107" y="76" class="h">明応の政変</text><text x="107" y="98" class="xs">細川政元が将軍を替える</text>
+<text x="262" y="50" class="b n" style="font-weight:700">1493〜</text><text x="262" y="76" class="h">伊勢宗瑞が伊豆へ</text><text x="262" y="98" class="xs">のちの北条氏の基礎</text>
+<text x="417" y="50" class="b n" style="font-weight:700">16世紀</text><text x="417" y="76" class="h">戦国大名の争い</text><text x="417" y="98" class="xs">各地で実力者が台頭</text>
+<text x="572" y="50" class="b w" style="font-weight:700">1573</text><text x="572" y="76" class="h w">室町幕府の滅亡</text><text x="572" y="98" class="xs w">信長が義昭を追放</text></g>
+<g stroke="#5A6878" stroke-width="1.2"><line x1="177" y1="72" x2="191" y2="72" marker-end="url(#a66)"/><line x1="332" y1="72" x2="346" y2="72" marker-end="url(#a66)"/><line x1="487" y1="72" x2="501" y2="72" marker-end="url(#a66)"/></g>
+</svg></button>
+<figcaption><span><b>図6-6</b>戦国時代への道</span><span class="hint">クリックで拡大</span></figcaption>
+</figure>
+
+<section class="points" aria-labelledby="pt">
+<h3 id="pt">この章の要点</h3>
+<ul>
+<li>跡継ぎ争いと細川・山名の対立が重なり、1467年に応仁の乱が始まった。</li>
+<li>11年に及ぶ戦乱で京都は焼け野原となり、勝敗のつかないまま乱は終わった。</li>
+<li>守護は領国へ帰り、下剋上の風潮の中で、実力で領国を治める戦国大名が現れた。</li>
+<li>山城の国一揆や加賀の一向一揆が起こり、1493年の明応の政変を経て、時代は戦国へと移った。</li>
+</ul>
+</section>
+
+<section class="column" aria-labelledby="col">
+<h3 id="col">コラム 日野富子は悪女だったのか</h3>
+<p>日野富子は、わが子の義尚を将軍にしようとして応仁の乱の原因をつくり、京都の出入り口に設けた関所の通行料や米の取引で財を築いた「悪女」として語られてきた。</p>
+<p>しかし近年は、別の見方も示されている。乱の原因は守護家の跡継ぎ争いや細川・山名の対立が重なったもので、富子一人の責任とはいえない。また、政治に熱心でなかった義政に代わって幕府の財政を支え、蓄えた財で朝廷や寺社を援助し、荒れた内裏の修理にも力を貸したとされる。富子の評価は、今も見直しが続いている。</p>
+</section>
+
+</div>
+</article>
+<footer>第6章 ・ 全7章のうちの1章</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>

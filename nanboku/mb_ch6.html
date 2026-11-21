@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>南北朝・室町時代 第6章(スマホ版)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* スマホ優先の1カラム。カード枠をやめて画面幅を本文に使う。図は縦長に組み直す */
+  --paper:#FFFFFF; --ink:#1E2A3A; --sub:#5A6878; --navy:#1F4E8C; --teal:#2F7F86;
+  --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#D6E4F3;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.85;-webkit-text-size-adjust:100%}
+.wrap{max-width:520px;margin:0 auto}
+.topbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 20px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);font-size:13px;color:var(--sub)}
+.topbar button{font:inherit;font-size:13px;color:var(--navy);background:var(--sky);border:0;border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.topbar button:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+header.ch{background:var(--navy);color:#fff;padding:22px 20px 20px}
+header.ch .eyebrow{font-size:13px;letter-spacing:.15em;opacity:.85;margin:0 0 6px}
+header.ch h1{font-size:25px;line-height:1.4;font-weight:700;margin:0;text-wrap:balance}
+header.ch .lead{font-size:14.5px;line-height:1.7;margin:8px 0 0;opacity:.9}
+main{padding:0 20px 40px}
+h2{font-size:20px;line-height:1.5;font-weight:700;margin:40px 0 14px;padding-left:12px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{display:block;font-size:13px;color:var(--navy);font-weight:500}
+p{margin:0 0 1.15em}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.32em;transform:translateX(-50%);font-size:.5em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;letter-spacing:0;pointer-events:none}
+body.noruby .rt{display:none}
+.tl{list-style:none;margin:20px 0 0 6px;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:8px;padding:5px 0 5px 16px;font-size:15px;line-height:1.6}
+.tl li::before{content:"";position:absolute;left:-7px;top:12px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--navy)}
+.tl li.k::before{border-color:var(--teal)}
+.tl li.hl{font-weight:700}
+.tl li.hl::before{background:var(--navy)}
+.tl .y{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.tl li.k .y{color:var(--teal)}
+.tlnote{display:flex;gap:16px;font-size:12.5px;color:var(--sub);margin:8px 0 0 6px}
+.tlnote span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid var(--navy);margin-right:5px;vertical-align:-1px}
+.tlnote span.k::before{border-color:var(--teal)}
+.point{background:var(--sky);border-radius:10px;padding:14px 16px;margin:0 0 22px;font-size:15px;line-height:1.7}
+.point b{display:block;color:var(--navy);font-size:13px;margin-bottom:4px}
+.point ul{margin:0;padding-left:1.2em}
+figure{margin:26px -20px 28px;padding:16px 20px 12px;background:#F7FAFD;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+figure svg{display:block;width:100%;height:auto}
+.figt{font-size:15px;font-weight:700;margin:0 0 12px;line-height:1.5}
+.figt span{color:var(--navy);margin-right:8px}
+.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.back{margin-top:10px;font-size:14px;font-weight:700;color:var(--teal);display:flex;gap:6px;align-items:center}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+.summary{background:var(--sky);border-radius:10px;padding:16px 18px 10px;margin:36px 0 18px}
+.summary h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy)}
+.summary ul{margin:0;padding-left:1.2em;font-size:16px}
+.summary li{margin:0 0 .5em}
+.column{border:1.5px dashed #9AAABB;border-radius:10px;padding:16px 18px 4px;margin:18px 0 0}
+.column h3{color:var(--teal)}
+.column figure{margin:16px -18px 16px}
+footer{font-size:12.5px;color:var(--sub);text-align:center;padding:0 20px 40px}
+</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><span>南北朝・室町時代 解説資料</span><button type="button" id="rubyBtn" aria-pressed="true">ふりがな:あり</button></div>
+<header class="ch">
+<p class="eyebrow">第六章 ・ 1467 ― 1493</p>
+<h1>応仁の乱 ― 幕府の失墜と戦国への道</h1>
+<p class="lead">京都を焼いた11年の戦乱が、時代を大きく変えた</p>
+</header>
+<main>
+<ol class="tl" aria-label="この章の年表">
+<li class="hl"><span class="y">1467</span><span>応仁の乱が始まる</span></li>
+<li><span class="y">1468</span><span>義視が西軍へ</span></li>
+<li><span class="y">1473</span><span>宗全・勝元が死去、義尚が将軍に</span></li>
+<li class="hl"><span class="y">1477</span><span>乱が終わる</span></li>
+<li class="k"><span class="y">1485</span><span>山城の国一揆</span></li>
+<li class="k"><span class="y">1488</span><span>加賀の一向一揆</span></li>
+<li class="k"><span class="y">1493</span><span>明応の政変</span></li>
+</ol>
+<div class="tlnote"><span>応仁の乱</span><span class="k">乱の後</span></div>
+<h2><span class="no">第1節</span>乱の始まり</h2>
+<div class="point"><b>この節のポイント</b><ul><li>御霊合戦をきっかけに、京都で東西両軍が戦い始めた</li><li>東軍は花の御所、西軍は堀川の西に陣を構えた(西陣の由来)</li><li>義視が西軍へ移り、二つの幕府が並び立った</li></ul></div>
+<p>1467年(応仁元年)1月、畠山政長と畠山義就の軍勢が、京都の<span class="rb">上御霊社<span class="rt" aria-hidden="true">かみごりょうしゃ</span></span>で戦った(御霊合戦)。将軍家と管領家の跡継ぎ争いに、細川勝元と山名宗全の主導権争いが重なり、5月には京都を舞台にした全面戦争となった。応仁の乱である。</p>
+<p>細川方は将軍の御所(花の御所)を押さえて東側に陣を構え、東軍と呼ばれた。山名方は堀川の西にある宗全の屋敷を中心に陣を構え、西軍と呼ばれた。</p>
+<p>今も京都の織物の産地として知られる「<span class="rb">西陣<span class="rt" aria-hidden="true">にしじん</span></span>」の名は、このとき西軍が陣を置いたことに由来する。軍記物の『応仁記』は、東軍を16万余り、西軍を11万余りと記している。</p>
+<figure><p class="figt"><span>図6-2</span>京都の東軍と西軍の陣(模式図)</p>
+<svg viewBox="0 0 360 270" role="img"><title>京都の東軍と西軍の陣(模式図)</title><desc>堀川の西に西軍(山名宗全)、東の花の御所の周りに東軍(細川勝元)。北東に上御霊社</desc>
+<rect width="360" height="250" fill="#F7F5EF"/>
+<path d="M300 0 Q308 90 298 160 Q292 210 304 250" fill="none" stroke="#9CBBE0" stroke-width="5"/>
+<path d="M150 0 Q153 130 149 250" fill="none" stroke="#9CBBE0" stroke-width="3"/>
+<g stroke="#C9C2B0"><line x1="0" y1="96" x2="360" y2="96"/><line x1="0" y1="178" x2="360" y2="178"/><line x1="202" y1="0" x2="202" y2="250" stroke-dasharray="4 3"/></g>
+<rect x="18" y="48" width="122" height="116" rx="8" fill="#2F7F86" fill-opacity=".16" stroke="#2F7F86"/>
+<rect x="160" y="48" width="128" height="116" rx="8" fill="#1F4E8C" fill-opacity=".13" stroke="#1F4E8C"/>
+<g style="font-family:'Noto Sans JP',sans-serif">
+<text x="79" y="68" text-anchor="middle" style="font-size:13px;font-weight:700" fill="#2F7F86">西軍の陣</text>
+<text x="79" y="84" text-anchor="middle" style="font-size:11px" fill="#2F7F86">→ のちの「西陣」</text>
+<rect x="72" y="110" width="12" height="12" fill="#2F7F86"/><text x="79" y="140" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#1E2A3A">山名宗全の屋敷</text>
+<text x="246" y="68" text-anchor="middle" style="font-size:13px;font-weight:700" fill="#1F4E8C">東軍の陣</text>
+<rect x="196" y="110" width="12" height="12" fill="#1F4E8C"/><text x="210" y="140" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#1E2A3A">花の御所</text>
+<circle cx="268" cy="24" r="5" fill="#5A6878"/><text x="260" y="28" text-anchor="end" style="font-size:11px" fill="#1E2A3A">上御霊社(御霊合戦)</text>
+<text x="154" y="244" style="font-size:11px" fill="#3F72B0">堀川</text><text x="308" y="244" style="font-size:11px" fill="#3F72B0">鴨川</text>
+<text x="22" y="109" style="font-size:10.5px" fill="#5A6878">今出川通</text><text x="4" y="174" style="font-size:10.5px" fill="#5A6878">一条通</text>
+<path d="M336 30 L342 12 L348 30 Z" fill="#5A6878"/><text x="342" y="44" text-anchor="middle" style="font-size:10.5px" fill="#5A6878">北</text>
+<text x="180" y="266" text-anchor="middle" style="font-size:11px" fill="#5A6878">位置関係をわかりやすくした模式図</text></g></svg>
+</figure>
+<p>戦いが始まると、将軍の義政は東軍の側に立ち、東軍が幕府の軍として戦う形になった。ところが1468年、東軍にいた義政の弟・義視が西軍へ移り、西軍は義視を将軍のように立てた。</p>
+<p>東西に二つの幕府が並び立つ形となり、争いはますます解きにくくなった。</p>
+<h2><span class="no">第2節</span>長引く戦い</h2>
+<div class="point"><b>この節のポイント</b><ul><li>足軽が放火や略奪を行い、京都は焼け野原になった</li><li>公家や僧侶が地方へ下った</li><li>両将の死後、1477年に勝敗のないまま乱が終わった</li></ul></div>
+<p>戦いは京都の市街戦となり、寺社や公家の屋敷、町屋が次々と焼かれた。この戦いで目立ったのが、<span class="rb">足軽<span class="rt" aria-hidden="true">あしがる</span></span>と呼ばれる軽装の雑兵である。足軽は身軽さを生かして敵陣に火を放ち、略奪も行った。公家の一条兼良は、足軽を「ひる強盗」と非難している。</p>
+<p>戦いが長引くにつれ、京都は焼け野原となった。多くの公家や僧侶が戦火を避け、地方の大名を頼って都を離れた。これは、京都の文化が地方へ広がるきっかけにもなった(第7章)。</p>
+<p>1473年、山名宗全と細川勝元が相次いで亡くなった。同じ年、義政は将軍職を9歳の子・義尚に譲る。</p>
+<p>それでも戦いはすぐには収まらず、1477年、西軍の有力者だった大内政弘が領国の周防へ帰ったことで、ようやく乱は終わった。11年に及ぶ戦乱は、どちらの勝ちともつかないまま幕を下ろしたのである。</p>
+<figure><p class="figt"><span>図6-3</span>応仁の乱の流れ</p>
+<div class="flow">
+<div class="fs s"><em>1467</em><b>開戦</b><span class="d">東軍約16万、西軍約11万(『応仁記』)</span></div>
+<div class="fs s"><em>1468</em><b>義視が西軍へ</b><span class="d">東西に二つの幕府が並ぶ</span></div>
+<div class="fs s"><em>長期化</em><b>足軽が横行</b><span class="d">放火と略奪で京都が焼け野原に</span></div>
+<div class="fs s"><em>1473</em><b>両将が死去</b><span class="d">山名宗全と細川勝元</span></div>
+<div class="fs dk"><em style="color:#D6E4F3">1477</em><b>乱が終わる</b><span class="d">勝敗のないまま。幕府の権威は地に落ちた</span></div>
+</div>
+</figure>
+<h2><span class="no">第3節</span>乱がもたらしたもの</h2>
+<div class="point"><b>この節のポイント</b><ul><li>守護は領国へ帰り、守護代や国人が台頭した</li><li>下剋上の風潮から戦国大名が生まれた</li><li>幕府の力は京都周辺に限られた</li></ul></div>
+<p>乱が終わると、京都に集まっていた守護の多くは、自分の領国へ帰っていった。留守の間に、領国では守護代や国人が力を伸ばしていたからである。</p>
+<p>実力のある者が上の者をしのいで力を奪う風潮を<span class="rb">下剋上<span class="rt" aria-hidden="true">げこくじょう</span></span>という。守護代や国人の中には、主君である守護を倒して領国を奪う者も現れた。家柄に頼らず、実力で領国を支配する大名を戦国大名という。</p>
+<p>一方、幕府の命令が届くのは、京都とその周辺に限られるようになった。将軍の地位も、有力な大名の力に左右されるものとなっていく。荘園の年貢も各地の武士に押さえられ、京都の公家や寺社は収入の多くを失った。</p>
+<figure><p class="figt"><span>図6-4</span>応仁の乱がもたらしたもの</p>
+<div class="flow">
+<div class="fs dk"><b>応仁の乱</b></div>
+<div class="grp"><h4>守護と領国</h4><ol style="margin:0;padding-left:1.3em;font-size:14.5px;line-height:1.65">
+<li>守護が京都から領国へ帰る</li>
+<li>留守の間に守護代・国人が台頭</li>
+<li>下剋上 → 実力で領国を治める戦国大名へ</li></ol></div>
+<div class="grp"><h4>幕府と将軍</h4><ol style="margin:0;padding-left:1.3em;font-size:14.5px;line-height:1.65">
+<li>幕府の命令が京都周辺だけに</li>
+<li>将軍が有力大名に左右される</li>
+<li>1493年 明応の政変(家臣が将軍を替える)</li></ol></div>
+<div class="grp"><h4>文化</h4><ol style="margin:0;padding-left:1.3em;font-size:14.5px;line-height:1.65">
+<li>公家・僧が戦火を避けて地方へ</li>
+<li>山口・一乗谷などの城下町に文化が伝わる(第7章へ)</li></ol></div>
+</div>
+</figure>
+<h2><span class="no">第4節</span>一揆の時代と戦国への道</h2>
+<div class="point"><b>この節のポイント</b><ul><li>山城の国一揆で、国人と農民が8年間自治を行った</li><li>加賀では一向一揆の門徒が約100年国を治めた</li><li>明応の政変を経て、時代は戦国へ移った</li></ul></div>
+<p>乱の後、民衆の動きはさらに力強くなった。1485年、南山城(京都府南部)では、なおも争いを続ける畠山氏の両軍に対し、国人と農民が団結して両軍の退去を求めた。</p>
+<p>両軍はこれに従い、国人たちは「国中掟法」を定めて、8年にわたって山城の南部を自分たちで治めた。<span class="rb">山城<span class="rt" aria-hidden="true">やましろ</span></span>の<span class="rb">国一揆<span class="rt" aria-hidden="true">くにいっき</span></span>である。</p>
+<p>1488年には加賀(石川県南部)で、浄土真宗(一向宗)の門徒が国人と結んで守護の富樫政親を攻め、自害に追い込んだ。加賀の<span class="rb">一向一揆<span class="rt" aria-hidden="true">いっこういっき</span></span>である。</p>
+<p>その後、加賀はおよそ100年にわたって門徒たちが実質的に治め、その様子は「百姓の持ちたる国のやうに」なったと記された。</p>
+<p>浄土真宗が広まった背景には、本願寺の<span class="rb">蓮如<span class="rt" aria-hidden="true">れんにょ</span></span>が、やさしい言葉の手紙(<span class="rb">御文<span class="rt" aria-hidden="true">おふみ</span></span>)で教えを説いたことがあった。</p>
+<figure><p class="figt"><span>図6-5</span>山城の国一揆と加賀の一向一揆</p>
+<div class="flow">
+<div class="card"><div class="hd">1485 山城の国一揆</div><div class="bd"><div class="rows">
+<div><b>担い手</b><span>南山城の国人と農民</span></div>
+<div><b>相手</b><span>争いを続ける畠山氏の両軍</span></div>
+<div><b>結果</b><span>両軍を退去させ、国中掟法を定めて8年間自治(1493年に解体)</span></div></div></div></div>
+<div class="card t"><div class="hd">1488 加賀の一向一揆</div><div class="bd"><div class="rows">
+<div><b>担い手</b><span>浄土真宗(一向宗)の門徒と国人</span></div>
+<div><b>相手</b><span>守護の富樫政親</span></div>
+<div><b>結果</b><span>政親を自害に追い込み、約100年、門徒が国を治める</span></div></div></div></div>
+</div>
+</figure>
+<p>1493年、管領の細川政元が将軍の足利義材(のちの義稙)を退け、義澄を新たな将軍に立てた(<span class="rb">明応<span class="rt" aria-hidden="true">めいおう</span></span>の政変)。家臣が将軍を思うままに替えたこの事件を、戦国時代の始まりとみる考え方もある。</p>
+<p>同じころ、伊勢宗瑞(北条早雲)が伊豆の堀越公方を攻め、のちに関東を支配する戦国大名・北条氏の基礎を築いた。</p>
+<p>こうして日本は、各地の戦国大名が争う戦国時代へと入っていく。室町幕府はその後も名目上は続いたが、1573年、織田信長が15代将軍・足利義昭を京都から追放したことで、事実上滅びた。</p>
+<figure><p class="figt"><span>図6-6</span>戦国時代への道</p>
+<div class="flow">
+<div class="fs s"><em>1493</em><b>明応の政変</b><span class="d">管領の細川政元が将軍を替える</span></div>
+<div class="fs s"><em>1493〜</em><b>伊勢宗瑞(北条早雲)が伊豆へ</b><span class="d">のちの北条氏の基礎</span></div>
+<div class="fs s"><em>16世紀</em><b>戦国大名の争い</b><span class="d">各地で実力者が台頭</span></div>
+<div class="fs dk"><em style="color:#D6E4F3">1573</em><b>室町幕府の滅亡</b><span class="d">織田信長が15代将軍・足利義昭を追放</span></div>
+</div>
+</figure>
+<section class="summary" aria-labelledby="pt"><h3 id="pt">この章の要点</h3><ul><li>跡継ぎ争いと細川・山名の対立が重なり、1467年に応仁の乱が始まった。</li><li>11年に及ぶ戦乱で京都は焼け野原となり、勝敗のつかないまま乱は終わった。</li><li>守護は領国へ帰り、下剋上の風潮の中で、実力で領国を治める戦国大名が現れた。</li><li>山城の国一揆や加賀の一向一揆が起こり、1493年の明応の政変を経て、時代は戦国へと移った。</li></ul></section>
+<section class="column" aria-labelledby="col"><h3 id="col">コラム 日野富子は悪女だったのか</h3>
+<p>日野富子は、わが子の義尚を将軍にしようとして応仁の乱の原因をつくり、京都の出入り口に設けた関所の通行料や米の取引で財を築いた「悪女」として語られてきた。</p>
+<p>しかし近年は、別の見方も示されている。乱の原因は守護家の跡継ぎ争いや細川・山名の対立が重なったもので、富子一人の責任とはいえない。</p>
+<p>また、政治に熱心でなかった義政に代わって幕府の財政を支え、蓄えた財で朝廷や寺社を援助し、荒れた内裏の修理にも力を貸したとされる。富子の評価は、今も見直しが続いている。</p>
+</section>
+</main>
+<footer>第6章 スマホ版 ・ 全7章のうちの1章</footer>
+</div>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('rubyBtn');
+  b.addEventListener('click',function(){
+    var off=document.body.classList.toggle('noruby');
+    b.textContent=off?'ふりがな:なし':'ふりがな:あり';
+    b.setAttribute('aria-pressed',off?'false':'true');
+    if(!off&&window.fitRuby)window.fitRuby();
+  });
+})();
+</script>
+</body>
+</html>

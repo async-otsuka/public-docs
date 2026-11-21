@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>南北朝・室町時代 まとめ(スマホ版)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* スマホ優先の1カラム。カード枠をやめて画面幅を本文に使う。図は縦長に組み直す */
+  --paper:#FFFFFF; --ink:#1E2A3A; --sub:#5A6878; --navy:#1F4E8C; --teal:#2F7F86;
+  --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#D6E4F3;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.85;-webkit-text-size-adjust:100%}
+.wrap{max-width:520px;margin:0 auto}
+.topbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 20px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);font-size:13px;color:var(--sub)}
+.topbar button{font:inherit;font-size:13px;color:var(--navy);background:var(--sky);border:0;border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.topbar button:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+header.ch{background:var(--navy);color:#fff;padding:22px 20px 20px}
+header.ch .eyebrow{font-size:13px;letter-spacing:.15em;opacity:.85;margin:0 0 6px}
+header.ch h1{font-size:25px;line-height:1.4;font-weight:700;margin:0;text-wrap:balance}
+header.ch .lead{font-size:14.5px;line-height:1.7;margin:8px 0 0;opacity:.9}
+main{padding:0 20px 40px}
+h2{font-size:20px;line-height:1.5;font-weight:700;margin:40px 0 14px;padding-left:12px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{display:block;font-size:13px;color:var(--navy);font-weight:500}
+p{margin:0 0 1.15em}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.32em;transform:translateX(-50%);font-size:.5em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;letter-spacing:0;pointer-events:none}
+body.noruby .rt{display:none}
+.tl{list-style:none;margin:20px 0 0 6px;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:8px;padding:5px 0 5px 16px;font-size:15px;line-height:1.6}
+.tl li::before{content:"";position:absolute;left:-7px;top:12px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--navy)}
+.tl li.k::before{border-color:var(--teal)}
+.tl li.hl{font-weight:700}
+.tl li.hl::before{background:var(--navy)}
+.tl .y{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.tl li.k .y{color:var(--teal)}
+.tlnote{display:flex;gap:16px;font-size:12.5px;color:var(--sub);margin:8px 0 0 6px}
+.tlnote span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid var(--navy);margin-right:5px;vertical-align:-1px}
+.tlnote span.k::before{border-color:var(--teal)}
+.point{background:var(--sky);border-radius:10px;padding:14px 16px;margin:0 0 22px;font-size:15px;line-height:1.7}
+.point b{display:block;color:var(--navy);font-size:13px;margin-bottom:4px}
+.point ul{margin:0;padding-left:1.2em}
+figure{margin:26px -20px 28px;padding:16px 20px 12px;background:#F7FAFD;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+figure svg{display:block;width:100%;height:auto}
+.figt{font-size:15px;font-weight:700;margin:0 0 12px;line-height:1.5}
+.figt span{color:var(--navy);margin-right:8px}
+.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.back{margin-top:10px;font-size:14px;font-weight:700;color:var(--teal);display:flex;gap:6px;align-items:center}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+.summary{background:var(--sky);border-radius:10px;padding:16px 18px 10px;margin:36px 0 18px}
+.summary h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy)}
+.summary ul{margin:0;padding-left:1.2em;font-size:16px}
+.summary li{margin:0 0 .5em}
+.column{border:1.5px dashed #9AAABB;border-radius:10px;padding:16px 18px 4px;margin:18px 0 0}
+.column h3{color:var(--teal)}
+.column figure{margin:16px -18px 16px}
+footer{font-size:12.5px;color:var(--sub);text-align:center;padding:0 20px 40px}
+.tree,.tree ul{list-style:none;margin:0;padding:0}.tree ul{margin-left:10px;padding-left:14px;border-left:2px solid var(--line)}.tree li{padding:4px 0}.tree b{display:inline-block;background:var(--sky);color:var(--navy);border-radius:6px;padding:1px 10px;font-size:15px}.tree span{font-size:12.5px;color:var(--sub);margin-left:8px}</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><span>南北朝・室町時代 解説資料</span></div>
+<header class="ch">
+<p class="eyebrow">まとめ ・ 1333 ― 1573</p>
+<h1>南北朝・室町時代のまとめ</h1>
+<p class="lead">240年の流れを、年表と系図と各章の要点でふり返る</p>
+</header>
+<main>
+<h2><span class="no">1</span>時代の流れ</h2>
+<p class="figt" style="margin:18px 0 0"><span>建武の新政・南北朝時代</span></p><ol class="tl"><li class="k"><span class="y">1333</span><span>鎌倉幕府が滅亡</span></li><li class="k"><span class="y">1334</span><span>建武の新政</span></li><li class="k"><span class="y">1336</span><span>南北朝の分立・建武式目</span></li><li class="k"><span class="y">1338</span><span>尊氏が征夷大将軍に</span></li><li class="k"><span class="y">1350</span><span>観応の擾乱(〜1352)</span></li><li class="k"><span class="y">1392</span><span>南北朝の合一</span></li></ol><p class="figt" style="margin:18px 0 0"><span>室町幕府の安定と動揺</span></p><ol class="tl"><li class=""><span class="y">1404</span><span>勘合貿易が始まる</span></li><li class=""><span class="y">1428</span><span>正長の土一揆</span></li><li class=""><span class="y">1438</span><span>永享の乱</span></li><li class=""><span class="y">1441</span><span>嘉吉の変・嘉吉の徳政一揆</span></li><li class=""><span class="y">1454</span><span>享徳の乱</span></li></ol><p class="figt" style="margin:18px 0 0"><span>応仁の乱から戦国へ</span></p><ol class="tl"><li class=""><span class="y">1467</span><span>応仁の乱(〜1477)</span></li><li class=""><span class="y">1485</span><span>山城の国一揆</span></li><li class=""><span class="y">1488</span><span>加賀の一向一揆</span></li><li class=""><span class="y">1493</span><span>明応の政変</span></li><li class=""><span class="y">1573</span><span>室町幕府の滅亡</span></li></ol>
+<h2><span class="no">2</span>足利将軍の系図</h2>
+<ul class="tree">
+<li><b>① 尊氏</b><span>1338〜58</span><ul>
+<li><b>② 義詮</b><span>1358〜67</span><ul>
+<li><b>③ 義満</b><span>1368〜94</span><ul>
+<li><b>④ 義持</b><span>1394〜1423</span><ul><li><b>⑤ 義量</b><span>1423〜25</span></li></ul></li>
+<li><b>⑥ 義教</b><span>1429〜41</span><ul><li><b>⑦ 義勝</b><span>1442〜43</span></li>
+<li><b>⑧ 義政</b><span>1449〜73</span><ul><li><b>⑨ 義尚</b><span>1473〜89</span></li></ul></li></ul></li>
+</ul></li></ul></li></ul></li></ul>
+<p class="back" style="color:#5A6878;font-weight:400;font-size:13.5px;display:block">⑨義尚の後、⑩義稙 ⑪義澄 ⑫義晴 ⑬義輝 ⑭義栄 ⑮義昭と続き、1573年に義昭が追放されて幕府は滅んだ。年は将軍の在職期間(おおよそ)</p>
+<h2><span class="no">3</span>各章の要点</h2>
+<div class="fs" style="margin-bottom:12px"><em>第1章</em><b>鎌倉幕府の滅亡と建武の新政</b><span class="d" style="font-size:14.5px;color:#1E2A3A;margin-top:4px">御家人の不満と後醍醐天皇の倒幕で鎌倉幕府が滅んだ。天皇中心の建武の新政は、恩賞や土地の保証をめぐる混乱で3年足らずで崩れた。</span></div><div class="fs" style="margin-bottom:12px"><em>第2章</em><b>南北朝の動乱と室町幕府の成立</b><span class="d" style="font-size:14.5px;color:#1E2A3A;margin-top:4px">尊氏が室町幕府を開き、二つの朝廷が56年並び立った。幕府の内紛のたびに南朝が息を吹き返し、その間に守護が力を伸ばした。</span></div><div class="fs" style="margin-bottom:12px"><em>第3章</em><b>足利義満と幕府の全盛期</b><span class="d" style="font-size:14.5px;color:#1E2A3A;margin-top:4px">義満は有力守護を抑え、南北朝を合一し、朝廷の権限を幕府に取り込んだ。明との勘合貿易も始め、将軍の権力は頂点に達した。</span></div><div class="fs" style="margin-bottom:12px"><em>第4章</em><b>室町幕府のしくみと東アジアとの交流</b><span class="d" style="font-size:14.5px;color:#1E2A3A;margin-top:4px">管領・奉公衆・鎌倉府・京都に住む守護が幕府を支え、財政は商工業や貿易への課税に頼った。朝鮮・琉球・蝦夷地とも結びついていた。</span></div><div class="fs" style="margin-bottom:12px"><em>第5章</em><b>揺らぐ幕府 ― 一揆と将軍暗殺</b><span class="d" style="font-size:14.5px;color:#1E2A3A;margin-top:4px">惣村の農民が土一揆を起こし、専制を強めた義教は嘉吉の変で殺された。関東の分裂と跡継ぎ争いが重なり、大乱の前夜を迎えた。</span></div><div class="fs" style="margin-bottom:12px"><em>第6章</em><b>応仁の乱 ― 幕府の失墜と戦国への道</b><span class="d" style="font-size:14.5px;color:#1E2A3A;margin-top:4px">11年の戦乱で京都は焼け、守護は領国へ帰った。下剋上と一揆の広がりの中で、時代は戦国へと移った。</span></div><div class="fs" style="margin-bottom:12px"><em>第7章</em><b>室町の文化 ― 北山文化と東山文化</b><span class="d" style="font-size:14.5px;color:#1E2A3A;margin-top:4px">北山文化と東山文化が生まれ、書院造・茶の湯・能など、今に続く和の文化の源となった。文化は民衆と地方へも広がった。</span></div>
+<h2><span class="no">4</span>この時代をひとことで</h2>
+<p>南北朝・室町時代は、権力の担い手が次々と移り変わった時代である。天皇が政治を取り戻そうとした建武の新政は武士の支持を失い、足利氏の幕府は義満のもとで頂点を迎えた。</p><p>しかしその力は有力守護との釣り合いの上に成り立っており、将軍の暗殺や跡継ぎ争いをきっかけに大きく揺らいだ。</p><p>一方で、村を自分たちで治める農民や、一揆を結んで権力に立ち向かう民衆が現れ、京都で育った文化は地方へと広がっていった。応仁の乱の後に始まる戦国時代は、こうした「下からの力」が表に出てきた時代でもある。</p>
+</main>
+<footer>まとめ ・ スマホ版</footer>
+</div>
+</body>
+</html>

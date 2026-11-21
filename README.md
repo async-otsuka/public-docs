@@ -1,2 +1,27 @@
 # public-docs
-公開資料置き場（GitHub Pages）
+
+ジャンルを問わず、解説資料を GitHub Pages で公開するためのリポジトリです。
+
+公開URL: https://async-otsuka.github.io/public-docs/
+
+## 構成
+
+```
+/
+├─ index.html      資料一覧（ジャンル別）
+├─ .nojekyll       Jekyll 処理を無効化（HTML をそのまま配信）
+└─ <資料名>/        資料ごとに1フォルダ。中に index.html（目次）を置く
+   └─ index.html
+```
+
+- 資料フォルダはジャンルに関係なくルート直下に置く（URL を短く保つため）。
+  例: `nanboku/` → https://async-otsuka.github.io/public-docs/nanboku/
+- ジャンル分けは `index.html` の見出し（`<h2>`）で行う。新しいジャンルは見出しと一覧を追加する。
+- フォルダ名は半角英小文字・数字・ハイフンのみ。
+- 各資料の目次には `../`（資料一覧）へ戻るリンクを入れる。
+
+## 収録資料
+
+| フォルダ | ジャンル | 内容 |
+|---|---|---|
+| `nanboku/` | 歴史 | 南北朝・室町時代 解説資料（全7章＋まとめ。PC・タブレット版／スマホ版） |

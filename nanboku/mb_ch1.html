@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>南北朝・室町時代 第1章(スマホ版)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* スマホ優先の1カラム。カード枠をやめて画面幅を本文に使う。図は縦長に組み直す */
+  --paper:#FFFFFF; --ink:#1E2A3A; --sub:#5A6878; --navy:#1F4E8C; --teal:#2F7F86;
+  --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#D6E4F3;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.85;-webkit-text-size-adjust:100%}
+.wrap{max-width:520px;margin:0 auto}
+.topbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 20px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);font-size:13px;color:var(--sub)}
+.topbar button{font:inherit;font-size:13px;color:var(--navy);background:var(--sky);border:0;border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.topbar button:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+header.ch{background:var(--navy);color:#fff;padding:22px 20px 20px}
+header.ch .eyebrow{font-size:13px;letter-spacing:.15em;opacity:.85;margin:0 0 6px}
+header.ch h1{font-size:25px;line-height:1.4;font-weight:700;margin:0;text-wrap:balance}
+header.ch .lead{font-size:14.5px;line-height:1.7;margin:8px 0 0;opacity:.9}
+main{padding:0 20px 40px}
+h2{font-size:20px;line-height:1.5;font-weight:700;margin:40px 0 14px;padding-left:12px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{display:block;font-size:13px;color:var(--navy);font-weight:500}
+p{margin:0 0 1.15em}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.32em;transform:translateX(-50%);font-size:.5em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;letter-spacing:0;pointer-events:none}
+body.noruby .rt{display:none}
+.tl{list-style:none;margin:20px 0 0 6px;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:8px;padding:5px 0 5px 16px;font-size:15px;line-height:1.6}
+.tl li::before{content:"";position:absolute;left:-7px;top:12px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--navy)}
+.tl li.k::before{border-color:var(--teal)}
+.tl li.hl{font-weight:700}
+.tl li.hl::before{background:var(--navy)}
+.tl .y{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.tl li.k .y{color:var(--teal)}
+.tlnote{display:flex;gap:16px;font-size:12.5px;color:var(--sub);margin:8px 0 0 6px}
+.tlnote span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid var(--navy);margin-right:5px;vertical-align:-1px}
+.tlnote span.k::before{border-color:var(--teal)}
+.point{background:var(--sky);border-radius:10px;padding:14px 16px;margin:0 0 22px;font-size:15px;line-height:1.7}
+.point b{display:block;color:var(--navy);font-size:13px;margin-bottom:4px}
+.point ul{margin:0;padding-left:1.2em}
+figure{margin:26px -20px 28px;padding:16px 20px 12px;background:#F7FAFD;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+figure svg{display:block;width:100%;height:auto}
+.figt{font-size:15px;font-weight:700;margin:0 0 12px;line-height:1.5}
+.figt span{color:var(--navy);margin-right:8px}
+.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.back{margin-top:10px;font-size:14px;font-weight:700;color:var(--teal);display:flex;gap:6px;align-items:center}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+.summary{background:var(--sky);border-radius:10px;padding:16px 18px 10px;margin:36px 0 18px}
+.summary h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy)}
+.summary ul{margin:0;padding-left:1.2em;font-size:16px}
+.summary li{margin:0 0 .5em}
+.column{border:1.5px dashed #9AAABB;border-radius:10px;padding:16px 18px 4px;margin:18px 0 0}
+.column h3{color:var(--teal)}
+.column figure{margin:16px -18px 16px}
+footer{font-size:12.5px;color:var(--sub);text-align:center;padding:0 20px 40px}
+</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script></head>
+<body>
+<div class="wrap">
+<div class="topbar"><span>南北朝・室町時代 解説資料</span><button type="button" id="rubyBtn" aria-pressed="true">ふりがな:あり</button></div>
+<header class="ch">
+<p class="eyebrow">第一章 ・ 前史 ― 1336</p>
+<h1>鎌倉幕府の滅亡と建武の新政</h1>
+<p class="lead">武家政権が倒れ、天皇の親政がわずか3年足らずで崩れるまで</p>
+</header>
+<main>
+<ol class="tl" aria-label="この章の年表">
+<li><span class="y">1318</span><span>後醍醐天皇が即位</span></li>
+<li><span class="y">1324</span><span>正中の変</span></li>
+<li><span class="y">1331</span><span>元弘の変</span></li>
+<li class="hl"><span class="y">1333</span><span>鎌倉幕府が滅亡</span></li>
+<li class="k"><span class="y">1334</span><span>建武の新政</span></li>
+<li class="k"><span class="y">1335</span><span>中先代の乱</span></li>
+<li class="k"><span class="y">1336</span><span>建武政権の崩壊</span></li>
+</ol>
+<div class="tlnote"><span>鎌倉幕府の時代</span><span class="k">建武政権の時代</span></div>
+<h2><span class="no">第1節</span>揺らぐ鎌倉幕府</h2>
+<div class="point"><b>この節のポイント</b><ul><li>元寇の恩賞不足と分割相続で、御家人の生活が苦しくなった</li><li>北条氏の本家(得宗)が権力を独占し、御家人は政治から外された</li><li>幕府に従わない「悪党」が各地に現れた</li></ul></div>
+<p>13世紀後半の<span class="rb">元寇<span class="rt" aria-hidden="true">げんこう</span></span>(1274年・1281年)で、<span class="rb">御家人<span class="rt" aria-hidden="true">ごけにん</span></span>たちは戦いと警備に大きな負担を負った。しかし防衛のための戦いだったため新しい領地は得られず、十分な恩賞は与えられなかった。</p>
+<p>加えて、所領を子どもたちに分けて相続させる分割相続が続いたことで一人あたりの所領は小さくなり、生活に苦しむ御家人が増えていく。</p>
+<p>幕府は1297年に<span class="rb">永仁<span class="rt" aria-hidden="true">えいにん</span></span>の徳政令を出し、手放した所領を取り戻させようとしたが、かえって金の貸し借りが混乱し、効果は一時的なものにとどまった。</p>
+<p>政治の面では、北条氏の本家である<span class="rb">得宗<span class="rt" aria-hidden="true">とくそう</span></span>に権力が集中していた。得宗の家臣である<span class="rb">御内人<span class="rt" aria-hidden="true">みうちびと</span></span>が政治を動かし、最後の得宗・<span class="rb">北条高時<span class="rt" aria-hidden="true">ほうじょうたかとき</span></span>の時代には、御内人の筆頭である<span class="rb">内管領<span class="rt" aria-hidden="true">うちかんれい</span></span>の<span class="rb">長崎高資<span class="rt" aria-hidden="true">ながさきたかすけ</span></span>が実権を握った。</p>
+<p>多くの御家人は政治から締め出され、不満を募らせていく。地方では、幕府や荘園領主に従わず、年貢を奪ったり荘園を襲ったりする<span class="rb">悪党<span class="rt" aria-hidden="true">あくとう</span></span>と呼ばれる武装集団が各地に現れ、幕府はこれを抑えきれなかった。</p>
+<figure><p class="figt"><span>図1-2</span>鎌倉幕府を揺るがしたひずみ</p>
+<div class="flow">
+<div class="grp"><h4>幕府の内側のひずみ</h4><div class="rows">
+<div><b>御家人の窮乏</b><span>元寇の恩賞が足りず、分割相続で所領が細る</span></div>
+<div><b>得宗専制</b><span>北条氏の本家が権力を独占し、御内人が政治を動かす</span></div>
+<div><b>悪党の横行</b><span>幕府に従わない武装集団が荘園を襲う</span></div></div></div>
+<div class="pair"><div class="fs s"><b>幕府への不満が高まる</b><span class="d">御家人が幕府から離れる</span></div><div class="fs t"><b>後醍醐天皇の不満</b><span class="d">両統迭立で子に皇位を譲れない</span></div></div>
+<div class="fs dk"><b>倒幕へ</b></div>
+</div>
+</figure>
+<h2><span class="no">第2節</span>後醍醐天皇の倒幕</h2>
+<div class="point"><b>この節のポイント</b><ul><li>後醍醐の倒幕には、皇位を自分の子に伝えたいという動機があった</li><li>計画は二度失敗したが、各地の抵抗が続いた</li><li>決め手は、有力御家人の足利高氏と新田義貞の寝返り</li></ul></div>
+<p>朝廷もまた分裂していた。<span class="rb">後嵯峨<span class="rt" aria-hidden="true">ごさが</span></span>天皇の死後、皇室は<span class="rb">持明院統<span class="rt" aria-hidden="true">じみょういんとう</span></span>と<span class="rb">大覚寺統<span class="rt" aria-hidden="true">だいかくじとう</span></span>の二つに分かれ、幕府の調停によって両方から交互に天皇を立てる<span class="rb">両統迭立<span class="rt" aria-hidden="true">りょうとうてつりつ</span></span>が行われていた。</p>
+<p>1318年に即位した大覚寺統の<span class="rb">後醍醐<span class="rt" aria-hidden="true">ごだいご</span></span>天皇は、本来は亡き兄・後二条天皇の子が成長するまでの中継ぎとされ、自分の子に皇位を継がせる道は閉ざされていた。</p>
+<p>皇位の継承に口を出す幕府を倒すことは、後醍醐にとって自分の皇統を守ることでもあったのである。</p>
+<p>1324年の<span class="rb">正中<span class="rt" aria-hidden="true">しょうちゅう</span></span>の変、1331年の<span class="rb">元弘<span class="rt" aria-hidden="true">げんこう</span></span>の変と、後醍醐の倒幕計画は二度にわたって発覚した。元弘の変で後醍醐は<span class="rb">笠置山<span class="rt" aria-hidden="true">かさぎやま</span></span>にこもったが捕らえられ、翌年<span class="rb">隠岐<span class="rt" aria-hidden="true">おき</span></span>に流される。幕府は代わりに持明院統の<span class="rb">光厳<span class="rt" aria-hidden="true">こうごん</span></span>天皇を立てた。</p>
+<p>しかし、後醍醐の皇子・<span class="rb">護良<span class="rt" aria-hidden="true">もりよし</span></span>親王や河内の武士・<span class="rb">楠木正成<span class="rt" aria-hidden="true">くすのきまさしげ</span></span>は各地で抵抗を続けた。</p>
+<p>1333年、正成が<span class="rb">千早城<span class="rt" aria-hidden="true">ちはやじょう</span></span>にこもって幕府の大軍を引きつけているあいだに、後醍醐は隠岐を脱出し、伯耆の<span class="rb">名和長年<span class="rt" aria-hidden="true">なわながとし</span></span>に迎えられて<span class="rb">船上山<span class="rt" aria-hidden="true">せんじょうさん</span></span>で兵を挙げた。</p>
+<p>決め手となったのは、幕府の有力御家人の寝返りだった。幕府の命令で西へ向かった<span class="rb">足利高氏<span class="rt" aria-hidden="true">あしかがたかうじ</span></span>(のちの尊氏)は、丹波の<span class="rb">篠村<span class="rt" aria-hidden="true">しのむら</span></span>で幕府に背き、5月7日に京都の<span class="rb">六波羅探題<span class="rt" aria-hidden="true">ろくはらたんだい</span></span>を攻め落とす。</p>
+<p>翌8日には上野の<span class="rb">新田義貞<span class="rt" aria-hidden="true">にったよしさだ</span></span>が挙兵して鎌倉へ攻め込み、5月22日、北条高時ら一族は<span class="rb">東勝寺<span class="rt" aria-hidden="true">とうしょうじ</span></span>で自害した。こうして140年あまり続いた鎌倉幕府は滅んだ。</p>
+<figure><p class="figt"><span>図1-3</span>1333年、幕府が倒れるまで</p>
+<svg viewBox="0 0 360 192" role="img"><title>1333年の動きの地図</title><desc>番号は時間の順。千早城、隠岐、船上山、篠村、京都の六波羅探題、上野の新田荘、鎌倉</desc><defs><marker id="m1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker></defs><rect width="360" height="192" fill="#EEF4FA"/><path d="M0,122.1L2.5,119.9L4.2,118.5L5.3,117L5.8,116.5L6.7,116.7L7,116L7,114.9L9.2,113L10,112.1L11.2,111.2L13.7,109.3L14.5,108.1L16.1,107.8L17,107.4L18.1,106.7L18.6,105L20.8,103.3L21.2,102.8L21.1,102.3L21.9,101.5L22,100.7L24.7,98.7L25.9,97.6L27.3,97L27.5,96.3L28.3,96L29.4,95.5L31.2,94.8L32,94.3L32.6,93.4L33.1,92.5L33.4,91.2L33.6,90.2L33.6,89.5L33.4,88.7L32.6,88.4L31.7,87.6L31.4,87.1L31.9,86.6L32.8,86.4L33.9,86.1L36.2,86.1L36.8,85.9L37,85.8L36.7,85.3L35.8,85L36.2,84.9L37,84.6L37.9,84.4L39.2,83.7L40.6,83.1L41.8,82.8L44.3,82.7L45.4,82.4L46.4,82.5L46.5,81.2L47.3,81L48.4,81.3L49.2,80.9L49.5,80.1L50,79.5L50.6,79.1L51.2,79.4L51.7,78.7L51.7,78L52.3,78.2L52.9,78.8L53.9,79.6L54.5,80.1L55.9,79.6L56.7,79.6L57.5,79L57.8,79.2L57.5,79.7L57.6,79.9L58.1,80L58.4,79.8L59.3,79.5L61,79.3L61.8,79.7L61.2,80.1L60.1,80.5L59.5,80.7L58.7,81.6L58.7,82.3L59,82.9L59.2,83.6L60.4,84.4L62,85.2L63.4,85.5L64.2,85.8L65.1,85.9L65.9,85.7L66.8,83.9L70.6,82.2L72.9,81.6L75.1,82.3L79.5,83.2L87.3,82.6L91.5,81.4L92.6,82.3L98.7,81.4L101.3,80.9L102.4,80.5L103.4,79.9L103.8,78.8L106,78.4L106.8,78.3L107.4,77.5L109,76.9L111.3,76L114.5,74.2L116.6,74.9L119.1,74.6L121,74.7L124.3,74.5L125.7,74.6L127.3,75L127.6,75.7L128.5,75L129.3,75L129.4,75.6L130.1,75.4L131.3,75.9L132.1,75.1L132.9,74.8L132.7,74.1L134,73.2L134.9,73.2L135.7,73.1L136.5,72.6L138.2,71.4L138,70.6L140.2,70L142.4,69.5L143.5,69.4L144.3,68.8L145.4,69.6L145.8,70.6L146.5,71.1L147.1,72.1L147.7,73.3L147.7,74.2L147.4,75L146.6,74.4L145.7,75L144.9,76.9L144.6,77.3L143.3,78.7L142.6,79.9L142.6,81L143,81.3L143.5,81.2L143.5,80.3L144.1,79.7L144.6,78.9L145.2,78.5L145.5,79.6L146.1,80L145.8,80.4L144.9,80.3L144.7,81.2L147.6,82.7L148.2,82.4L148.5,82.1L149,83L148.8,83.7L148.5,84.1L148,85.6L148.3,86.2L148.8,85.9L149.7,84.1L150.5,84.1L151.6,84.7L151.9,84.3L151.9,83.1L150.7,83.3L149.6,82.9L149.1,81.4L150.1,80.5L150.7,80.4L151.9,80.3L152.6,80.1L153.3,79.1L153.5,78.6L154.6,77.9L154.3,78.7L154.1,79.6L154.9,79.9L155.4,80.3L155.2,81.1L155.4,81.6L155.2,82.2L155.7,82.3L156,82.2L156.3,81.7L156.6,80.8L156.6,81.8L156.5,82.8L156.6,83.5L157.4,83.8L158.6,83.9L159.1,83.8L160.4,83.2L160.7,82.5L161.6,81.7L162.5,81.1L163.5,81.5L163.3,81.8L162.2,82.3L161.9,83.8L161.5,84.1L162.4,84.4L164.7,83.9L165.8,83.9L166.4,83.4L166.9,82.7L166.9,81.6L165.7,82.3L165.2,81.3L164.4,81L165,80.1L166.4,79.6L166.9,80L167.2,80.8L168.2,80.7L168.9,81.7L169.6,82L170.7,81.5L170.2,81.4L169.9,80.9L169.3,79.7L169.4,79.4L169.9,79.3L170.4,79.7L170.8,79.5L171.6,79.2L171.4,78.8L170.8,78.1L170.7,77.4L170.5,77.1L169.9,76.4L169.7,75.8L170.2,75.7L171,76.3L171.4,76.8L172.1,77.1L173.6,76.8L173.9,77.3L174.4,77.7L175.2,77.1L175.7,76.5L176.6,76.7L177.1,76.4L177.1,75.8L176.3,75.1L176.8,73.2L176.6,72.6L176,72.7L176,71.2L177.1,70.6L178.6,69.3L179.3,70.3L179.3,70.7L179.6,71.5L179.9,72.5L179.7,73.2L179.3,73.2L178.9,73.8L179.7,74.3L179.9,75L180.8,74.8L181.1,73.9L181.4,73.6L181.4,72.5L181.9,71.9L181.9,70.4L182.2,69.5L182.2,68.6L181.6,67.6L181.1,66.7L180.8,66L179.9,65.3L178.3,63.6L177.5,62.9L177.7,61.3L177.5,60.1L176.6,58.8L176,58.2L176.3,56.7L177.2,56.1L177.8,55.4L178.6,53.6L179.3,52.4L179.7,50.7L181.9,48L182.5,46.7L183,45.9L183.6,44.7L183,43.5L183.2,43.1L184.1,43L184.9,43.1L186.4,42.5L189.9,39.4L190.8,38L192.8,37L194.4,35.7L196.4,33.4L205.6,21L207.7,17.3L210.8,9.7L211.1,8.7L211.1,7.4L210.8,7.1L210.3,6.7L210.8,5.3L211.1,3.8L210.8,2.7L210,1.9L209.5,0.1L209.4,0L219.7,0L219.7,0L220.3,0.2L220.8,0L223.4,0L223.4,0L223.3,1.5L223.6,4.5L222.3,6.1L222.3,7.4L220.6,9.7L221.4,11.7L223.4,12.9L224.7,14.1L226.7,14.9L228,15.7L229.7,15.9L231.7,15.5L234.2,15.9L235.6,15.6L236.4,14.5L237.8,13.6L238.3,12.1L238.9,11.1L239.1,10.2L239.4,9.4L239.2,8.3L239.7,7L240.6,6.3L242.8,5.2L246.7,4.3L250.8,3.4L256.2,1L259,0L360,0L360,103.9L358,103.7L357.1,103.4L355.9,104.8L355.7,105.9L354.6,106.8L353.7,106.8L352.3,107.9L350.9,108.9L350.5,109.5L350.2,110.5L349.8,111.2L349.8,112.1L349.6,113.1L349.3,113.7L348.2,114.9L346.2,115.2L345.7,115L345.1,115.2L344.5,115.2L344.3,115L343.7,114.6L343.7,113.4L343,112.9L341.8,112.4L340.7,112.3L340.6,111.8L340.6,111.2L341.2,111.2L342.4,111.4L343,111.2L343.5,111L343.8,110.5L344.5,110.4L345.2,110.7L345.5,110.4L345.7,110L345.5,109.3L345.1,108.8L344.1,108.5L344.1,108L344.6,107.5L344.8,106.8L344.8,106.3L344.3,105.3L344.1,104.7L344.3,102.8L343.5,101.6L343.7,100.9L343.5,100.1L343.7,99.4L344.9,98.6L345.5,98.1L345.5,96.9L344.8,95.5L344.8,94.4L341.8,93.3L341.8,93L342.7,93.1L343.7,92.5L343.7,91.5L344.3,90.9L344.6,90L346.6,90.6L347.3,89.9L347.3,89.1L347,87.5L347.6,86.9L348.8,86.5L349.6,85.8L350.5,85.6L351.6,84.8L352.3,83.9L354.4,81.1L355.2,81.3L355.5,80.5L355.7,79.8L355.1,79.8L354.8,77.8L353.4,76.4L351.6,74.9L351.2,75L350.5,74.4L349.1,74.2L347.9,74.8L348.7,76.1L347.6,76.8L346.8,77.3L346.6,76.9L346.2,76.8L345.7,76.4L345.4,76.4L344.8,76L344.5,76.5L344.3,77.3L343.7,76.9L343.5,76L342.9,76L342.7,77L342.1,77.9L341.5,77.1L341.6,75.9L341.2,75.2L340.9,76.4L341.3,78L342,79.1L342,79.7L342.6,81.3L342.1,82L342.1,82.8L341.6,83.3L340.2,84.2L339,85.3L337.7,85.5L336.8,85.1L336.2,85.3L335.9,85.9L336.6,86.2L337.4,86.7L337.7,87L337.6,87.7L337.7,88.7L337.3,88.6L336.2,88.2L335.6,88.6L335.9,89.4L336.5,90L336.3,92L336.2,92.6L336.2,93.5L336,94.1L336.5,94.7L336.8,94.1L337.3,94.5L338.1,95.7L339.8,95.9L340.2,96.7L339.5,97.6L339.8,98.2L339.5,99L337.9,98.9L336.8,99.7L336.6,100.5L337,101.5L337.4,102L337.7,102.5L336.8,102.8L335.7,102.5L335.1,103L334.6,102.8L334.5,102.5L334.6,101.8L334.6,100.7L334,99.2L335.1,98.7L334.8,98.3L334.1,98.1L333.8,97.3L332.6,95.7L332.6,95.3L332.3,94.7L331.8,94.7L331.5,93.6L330.9,93.9L329.9,93.8L329,94L328.2,93.3L325.9,93L322.3,93.8L320.3,94.2L318.1,94.8L315.9,96L314.3,97.5L314.2,100.2L314.8,102.7L313.2,102L311.8,104.2L311.4,105.9L311.2,107.1L312.6,107.4L312.3,108.4L312.1,109.3L311.7,110.1L312.3,111.3L313.7,111.8L314.2,113L314.3,115L314,116.8L313.1,116.9L312.3,117.6L311.8,118.3L311.7,119L311.2,120.1L310.6,121L310.3,121.7L309.8,122.2L309.2,122.4L308.7,122.9L307.9,124.1L308.1,124.7L307.8,125.1L307.4,125.8L307.3,126.7L307.6,128.4L307.1,128.7L306.8,128.7L306.4,128.3L305.4,127.9L303.4,129.6L302,130.4L300.7,131.3L300.1,130.9L299.5,130.4L299,129.7L298.1,128.6L298.4,127.7L297.8,127.1L297.1,126.7L297,126.3L297,125.3L296.8,124.3L297.5,123.8L297.6,123.3L298.2,123.1L297.5,121.5L297,119.8L297.5,119L297.6,118.1L297.6,116.8L297.3,116.3L297.6,115.6L298.2,115L298.9,114.9L298.1,113.5L297.8,112.3L297.6,111L298.2,109.8L298.7,108.5L300.4,108.7L301.7,109L302.6,108.9L303.4,108.9L304,108.4L301.7,105.8L300.9,104.7L299.5,103.5L296.8,102.8L294.8,102.6L292.1,103.8L290,103.9L288.6,104.9L287.5,107.3L286.2,108.3L286.1,109.9L286.5,110.4L286.5,109.3L287.1,108.9L287.6,109.1L286.8,111L285,112.1L283.2,112.9L280.4,114.3L280,115.1L279.7,115.9L279.2,116.6L278.9,117.7L278.9,118.1L279.3,119.2L278.7,120.1L278.2,120.6L277.3,122.4L275.4,123.7L273.9,125.1L273.3,127.9L272.9,128.9L273.3,130L274.3,130.2L275,130.9L274.7,131.4L272.8,131L266.7,128.2L263.1,127.5L260,127.5L255.6,129L250.9,127.4L247,127L245,127L239.7,127.5L235.9,128.6L227.3,131.6L225.3,131.5L223.1,132.1L222.5,132.2L221.9,132.2L222.2,131.6L222.5,131.2L223,130.1L223.4,128.6L224.4,127.6L225.6,129.1L225.9,129.8L226.4,129.3L226.4,129.1L227.2,128.7L227.8,128.3L228.4,128.1L229.8,127.2L231.7,125.9L232.5,125.6L233.4,124.2L234.2,124.3L234.2,125.4L234.1,126.3L234.4,126.4L234.7,125.5L234.7,124.4L235.6,124.7L235.9,124.4L234.7,123.9L235.2,122.9L235.3,122.3L235.2,121.9L234.1,120.7L233.3,120.1L232.8,120.3L231.9,120.1L230.9,119.7L230.2,120.4L229.7,120.1L229.4,122.1L228.6,122.5L228.6,121.4L228,121.5L227.3,121.1L226.4,121.1L225.6,121.3L225,121.8L224.4,121.3L223.4,121.8L222.5,121.6L222,121.4L221.3,120.4L220.2,119.2L219.4,118.8L219.5,117.5L220.5,115.3L220.3,114L219.9,114.6L219.4,116L218.6,117.3L218.3,118.1L218,119.1L217.5,121.8L218,122.5L218.4,123.4L219.5,124L220,125.1L220,126L218.9,125.9L217.5,125.2L215.9,124.3L215,123.7L214.5,123L214.4,122.2L214.9,121.2L215,120.2L215.3,119.4L215.3,118.6L215,117.6L214.4,116.8L213.8,116.8L213.4,115.5L213.4,113.2L213.6,112.4L213.9,111.4L214.4,110.5L215,109.5L215.3,108.6L215.9,107.6L216.1,106.2L216.3,105.2L215.6,105L215,106.7L214.7,107.8L214.4,106.7L214.4,105.9L213.8,105.8L214.2,108.3L213.1,108.5L213,107.4L212.5,107.4L212.5,108.7L211.6,108.9L210.5,108.5L210.2,108.7L209.2,108.5L207.4,109.9L206.4,110.8L206,111.6L206,111.9L205.6,112.7L205.8,113L206.6,113.1L205.8,113.6L206,114.6L205.5,115.9L204.5,117.7L202.4,120.5L201,122.4L200.6,124.7L200.3,126.8L201,127.9L201.6,128.3L201.3,129.7L201.3,130.2L201.7,131L202.5,131.3L204.4,131.3L205.3,131.6L206,132.2L207.2,133.5L210.5,135.6L212.7,136.6L213.1,137.1L213.6,136.9L214.2,136.9L214.9,137.1L215.2,137.4L215.5,138L215.8,139.1L216.1,139.6L216.7,139.8L217.5,139.8L218,140.4L218,141L217.7,142.8L217,142.6L216.6,142.6L216.1,142.7L215.8,143.2L215.9,143.5L216.3,143.9L216.7,144L217.4,144L216.6,144.6L216.1,145.4L216.4,145.9L216.7,146.8L216.9,147.8L216.7,148.6L216.3,149L214.7,149.5L214.1,149.7L213.3,149.6L212.4,149.3L211.4,148.9L211.4,148.2L212,148.1L213,148.2L214.4,149L214.2,148.6L214.2,148.2L214.1,147.9L214.7,148.2L215,147.2L214.5,146.5L213.8,146.2L212.8,146.5L213,146.8L212.8,147.2L212.8,147.5L211.4,146.5L210.6,147.1L209.4,147.4L208.3,147.1L208.6,146.3L209.2,145.2L208.5,145.1L207.2,145.5L206,146.1L206.7,146.4L206.7,147L206.3,147.6L204.9,148.2L204.2,148.7L203.5,148.8L202.7,147.9L202.5,148.2L202.2,148.5L202.2,149L201,148.3L200.5,148.2L200.3,148.9L200,149.4L199.7,149.7L200.2,150.5L199.7,150.5L198.3,150.1L196.4,151.3L196,151.9L194.6,151.9L192.4,152.9L190.8,154.5L190.7,156L191.6,156.6L191.7,156.9L191.3,157.9L190.2,158.3L189.7,158.1L189.1,157.1L188.8,156.9L188.5,157.2L187.8,158.2L187.4,158.7L187.4,159L188,159L188.5,159.2L188.8,160.3L189.6,161.1L190,161.7L189.7,162.2L189.7,164.1L189.1,164.3L188.6,164.1L187.8,162.9L187.4,163.6L186.7,164.1L186.7,164.4L187.7,164.6L188,165.3L187.7,165.8L187.1,165.5L186.7,166.4L186.4,166.7L184.7,167.1L184.4,167.5L184.1,168.1L183.8,168.3L182.4,168.2L180.8,170.6L178.6,176.5L177.5,179L177.4,179.2L177.1,180.7L176.1,181.3L176,182.1L175,182.6L175.2,183.3L176.1,183.8L175.5,184.6L174.1,186.2L173.3,186.5L172.9,187.2L170.4,188L169.6,188.4L169.1,188.9L168.5,190.1L168.8,191.1L168.6,191.7L168,191.6L167.6,192L167.4,192L167.4,192L167.2,191.2L167.9,190.3L167.7,189.6L163.5,189.2L162.1,188.9L155.7,186.5L153.8,186L152.2,184.8L151.8,184.3L151.3,183.7L151.3,183L151.5,182.5L151,181.5L150.1,180.7L149.3,180.5L148.6,179.8L149.3,178.5L150.8,178.4L151.9,178.2L151.5,177.6L149.3,175.9L148.3,175.5L148,174.8L147.2,174.9L146,174.1L144.6,174L144.4,173.1L143,172.3L141.9,171.1L141.2,169.1L139.6,168.1L138.8,168.3L137.2,168.6L136.9,168.8L137.1,168.3L137.4,168L136.9,167.7L137.2,167.5L137.9,167.5L137.9,166.8L137.4,166.2L138.2,165.6L138.8,165L138.7,164.7L137.9,164.7L137.7,163.7L138.5,163L139.4,162.9L140.1,162.7L141.2,162.1L141.5,161.3L141.5,160.5L141.2,160L139.3,159.1L138.5,159L139.4,157.3L140.1,156.9L140.1,156.2L139.7,155.4L140.8,155.3L142.6,155.5L142.7,154.7L141.6,152.8L140.8,152.9L140.4,150.6L138.5,149L137.1,148.6L137.6,147.6L139,145.9L143.5,144.6L145.5,142.8L148.3,140.1L149.7,138L150.7,137.2L150.7,135.4L151.5,135.1L151.8,134.6L152.2,134.2L152.4,133.3L152.4,132.2L152.6,130.6L152.1,129.2L151.9,128L152.4,126.2L151.8,126.6L151,126.8L150.2,126.4L149.3,125.3L146.9,125.5L146.9,126.8L145.5,127L145.5,125.8L144,126.3L144.9,128.4L143.7,128.2L143.3,127L142.6,127.1L142.4,128.3L139.3,129L137.9,129.6L136.5,129.8L135.2,128.9L133.5,128.9L132.7,128.8L131.8,127.5L130.4,127L129.6,126.3L127.3,124.7L125.9,124.2L124.1,122.8L123.4,122.3L121.3,121.8L115.7,122.3L114.9,121.9L114.5,122.3L113.8,122.6L113,122.6L112.6,122.4L112.4,121.9L112.4,121.2L111.8,121.5L111.5,122.1L111.5,122.6L110.9,122.6L109.8,124.2L109.5,124.4L108.8,124.4L108.4,124.2L108,123.8L107.6,123.7L107.1,123.9L106.6,124.3L106.3,125L106.5,125.5L105.2,125.6L103.1,125L101.8,124.9L100.7,124.3L100.1,124.3L100.6,125.1L100.9,125.4L103.2,125.9L102.9,126L102,126.1L101.6,126.3L100.9,127.5L100.7,127.7L100.2,127.8L99.6,128.3L98.5,128.6L97.7,129.1L98.1,129.4L98.8,129.4L99.3,129.1L98.8,130.3L97.4,131.2L96,131.8L94.8,132.1L94.2,131.8L93.2,130.8L92.3,130.6L90.9,130.7L90.2,130.8L89.2,131.5L88.4,131.7L87.9,132.3L88.1,133.2L88.5,133.4L89.3,133L90.4,131.6L91.2,131.4L92,131.3L92.6,131.5L93.1,132.1L93.1,133L92.6,133.6L91.8,134L91.3,134.6L91.7,135.3L90.4,134.8L89.6,136L89.2,137.7L88.4,138.9L84.9,138.3L83.4,138.3L83.5,139.6L82.1,139.4L81.5,138.3L81,137L79.9,136L79.6,136.3L79.3,136L79.2,135.5L79.2,134.9L78.9,135.3L78.1,135L77.4,135.3L76.8,135.8L75.6,136.3L73.5,137.2L73.1,137.6L73.1,138L72.8,138.3L72.4,138.5L71.5,138.6L71,139L70.7,139.2L68.1,140.4L69.8,138.3L70.4,137.2L69.5,136.8L69,136.9L68.1,137.6L67.5,137.8L66.4,137.8L65.9,138L65.7,138.9L66,139.2L66,139.2L65.6,140.4L62.5,144.3L61.8,145L60.6,145.6L60,145.8L59.5,145.7L59.2,145.2L59.5,144.8L60,144.6L60.6,144.5L60.9,144.3L61.4,143.4L60.9,142.7L60,142.5L58.9,142.6L58.9,142.1L59.6,141.5L59.3,140.5L58.4,140.2L57.6,142.8L57,143.5L56.2,144.1L55.6,144.7L56.5,145.4L56.8,146.5L56.5,147.4L55.7,147.9L55.4,147.8L55,147.3L54.6,147.2L54,147.8L53.1,148.1L52.1,149.1L51.7,149.3L51.1,149L50.7,148.1L50.9,145.9L51.1,145.9L51.5,145.5L52.1,144.5L52.6,144.2L52.8,144.6L52.8,145.5L52.6,146.1L53.6,145.9L54.2,144.2L55,144L55,143.5L54.3,143L53.6,142.6L53.1,142.4L52.6,142.5L52.1,142.4L51.7,142.1L51.2,142.6L51.4,144.2L50.3,145.1L48.6,145.7L43.9,146.1L42.6,146.7L41.4,147.5L40.6,146.3L39.8,146.7L39,147.7L38.1,148.2L37.5,148.4L37.5,148.8L38.1,149.8L37.8,150.3L35.9,150.5L34.8,150.7L32.8,152.1L31.5,152.2L31.1,151.3L30.9,151.2L30.3,151.4L30.1,151.9L28.9,152.5L28.4,152.5L27.9,151.9L28.6,151.2L28.3,150.5L27.5,149.8L27,148.4L26.2,147.5L26.2,146.8L26.4,146.4L26.4,146L26.2,145.4L27,145.1L27.3,145.1L27.2,144.4L26.9,144.1L25.9,143.5L25.1,144L24.4,144.3L23.4,144.3L21.9,143.3L20.9,143.4L19.4,144.3L18,145.4L14,150.1L14.4,150.8L14.7,151.9L14.8,152.7L14.8,153.8L14.7,155.2L14.2,155.7L13.6,156L13.1,156.9L13,159.2L13.4,161.3L13.6,163.1L12.2,164.8L11.1,165.2L10.5,165.4L10.1,165.8L10.1,167.1L10.3,168.1L11.2,170.1L11.4,170.9L10.8,171.5L8.9,172.6L7.6,173.7L6.7,174.2L6.1,174.3L6.2,173.3L7.2,172.6L7.3,172.5L7.8,171.2L8.1,171.8L8.6,171.8L9.1,171.5L9.2,170.7L9.1,169.7L7.6,168.5L6.9,168.1L4.1,167.1L3.1,166.9L1.9,165.1L1.4,164.9L0.2,164.3L0,164.3L0,122.1ZM50.9,49.8L51.5,49.8L51.5,50.7L50.9,50.9L50.3,51.2L50,52.1L50.1,52.6L50.1,53.4L49.7,53.7L49.3,53.8L48.6,53.4L48.4,53.2L48.4,52.4L47.8,52.3L47.3,52.5L47.5,53.1L47.9,54.1L47.5,54.6L46.8,54.5L46.2,54.1L45.6,53.4L46.4,52.3L48.4,50.7L49.3,49.6L50.1,50ZM329.2,159.4L329.5,157.7L330.7,156.7L332.1,156.7L332.9,157.9L332.3,159.6L331.2,160.6L329.9,160.7ZM47.6,151.7L46.2,152.5L45.7,152.2L46.1,151.2L46.4,150.9L47.2,150.7L47.3,150.5L47.3,149.9L47.2,149.6L46.8,149.4L46.4,149.3L47.2,148.2L48.1,147.4L49,147.1L49.7,148.2L50.1,149.8L50,150.9L49.2,151.7ZM14.5,169.5L14.2,169.9L13.7,170.2L13.4,169.1L12.8,168L12.5,166.7L13.1,165.5L14.2,165.1L15.3,165.2L16.4,165.7L17.3,166.2L18.4,168L19,168L19.7,167.6L20.6,166.9L21.5,167L22,166.6L22.2,166L22.3,165.8L22.9,165.8L24,165.8L24.7,165.8L24.2,166.4L23.3,167.6L22.9,167.7L22.5,167.5L21.4,167.9L21.1,168.1L20.9,168.5L20.8,169.8L20.8,170.3L20.6,170.9L20.1,170.7L19,170.7L18.7,170.5L18.6,170.1L18.6,169.1L18.1,168.7L17.8,169.1L17.3,168.7L17,168.9L16.7,169.8L16.1,169.9L15.5,169.6L14.8,169.8ZM134.6,130.7L135.7,131.6L135.7,132.2L135.2,132.9L134.6,133.6L134.3,134.8L133.8,136.1L132.6,137.2L130.2,140.6L130.1,142.6L129.9,143L130.1,143.6L130.1,144.3L130.8,144.9L131,145.8L131.3,146.4L132.3,147.5L132.7,148.4L131.8,148.8L130.5,149.1L129.4,149.8L128.2,150.2L127.3,150.7L125.9,152.1L123.7,152.5L122.7,152.6L122.6,151.6L121.6,151.2L121.5,151L122.1,150L122.4,149.3L120.9,149.8L119.9,148.7L119.6,147.4L120.1,146.7L120.7,145.4L121.6,145.7L122.4,145.3L125.7,139.1L126.8,138.4L127.6,138L128,137.6L128.7,136.4L128.8,135.8L129.4,134.8L131.8,133.7L133.7,130.9ZM63.7,41.9L64.3,42.8L64.2,45.5L63.9,46.1L63.4,46.4L63.1,45.7L62.6,45.7L62.1,46L61.8,46.4L62.3,46.7L62.5,47.3L62.3,47.8L61.8,48.2L61.5,48.2L59.8,47.8L58.9,47.8L58.6,47.6L56.5,45.8L56.1,45.7L55.9,45.1L56.2,41.7L56.8,40.7L60.4,38.3L60.4,38.9L60.7,39.2L61.7,39.4L61.8,40L62,40.3L63.1,40.8L63.2,41.2ZM107,133.5L106.8,134L107,134.4L107.3,135.6L107.1,137.2L106.2,140L105.9,139.6L105.6,139.3L104.9,139.2L104.3,139.2L104.3,138.9L105.2,138.8L105.4,138.3L104.9,138L104,138.2L103.4,138.8L103.1,139.7L102.4,140.5L101.6,140.7L101.8,138.8L101.6,138.2L100.7,137.8L99.9,137.9L99.1,138.1L98.5,138.1L98.1,137.4L98.5,137.1L98.5,135.9L98.7,135.3L99.9,135.7L101,135.4L102.9,134.2L103.4,134L104.9,133.9L106.5,133.5ZM52.9,50.8L53.6,51.9L53.1,53.3L52,54.6L51.2,55.5L51.1,54L51.2,52.4L51.8,51.2ZM14.8,173.3L15.3,173.8L16.2,174.5L16.2,174.7L15.5,174.8L14.5,174.7L13.3,174L12.5,174.1L12.8,173.3L13.4,173L14.2,173.1ZM319.6,141.9L320.1,141.5L320.6,140.9L321,140.7L321,141.6L320.9,143.3L320.3,145L319.6,145.7L319,144.7L319,144.1L319.5,142.2ZM48.2,55.9L48.7,55.3L49.7,55.6L50.6,56.3L51.2,57L48.9,57L48.4,56.6L48.2,56.3ZM334.9,168.6L335.2,169.3L335.2,169.6L334.9,170.1L334.5,170.3L333.7,170.2L333.2,169.7L333.1,168.8L333.7,168.1L334.5,168ZM32.2,161.9L32.3,162L32.3,162.6L32.2,163.1L32.2,163.5L31.9,163.9L31.9,164.4L31.2,165L30.4,165.2L29.8,164.9L29.8,164.2L30.1,163.6L30.6,163.1L31.4,162.7L32,162.1ZM51.8,153.5L52,153.4L52.1,153.6L51.8,154.2L49.7,156.4L48.9,156.7L48.4,156.4L48.4,155.4L48.6,154.7L48.9,154.5L49.3,154.5L48.9,153.4L49.2,152.7L50.1,152.4L50.7,152.8L51.4,153.4ZM36.4,152.2L37.2,152.7L37.3,153.3L37.2,153.8L36.4,154.2L36.4,153.7L35.8,153.6L34.7,153.1L34.2,152.7L34.5,152.1L35.1,152ZM44.3,148.1L44.7,147.7L44.8,148.2L44.7,149.4L44.2,150.4L44,151L43.6,151.4L42.6,151.6L41.8,151.7L41.2,151.3L40.9,150.6L41.1,150L41.5,149.7L42.8,149.1L43.2,149.1L43.7,148.8ZM19,146.7L19.4,147.5L19.4,147.8L17.2,149.8L16.4,150.1L15.9,149.8L15.9,149.3L16.7,148L17.3,147.3L18,146.8L18.6,146.6ZM78.7,141.8L79.2,142.4L79.2,143.1L79,143.5L78.7,143.7L78.2,144.2L77.9,144L77.6,143.4L77.8,142.7L78.4,141.8ZM93.2,137.7L92.7,137.5L92.7,137.2L93.1,137L93.5,137L94.2,136.4L94.8,136.4L95.2,136.8L95.6,136.8L95.6,137.3L94.8,138.5L94,138.1L94,138ZM216.6,136.5L216.9,136.2L217.2,136.3L217.2,136.6L217,137.1L216.4,137.4L216.1,137.7L215.9,137.2L215.6,136.8ZM216.4,134.7L216.7,134.3L217.4,134.2L217,134.7L217,135L216.4,135.2L215.8,135.6L215,135.8L214.7,135.6ZM212.5,116.5L213,116.5L213.6,117.3L213.6,117.9L213.1,118.1L213.1,118.5L212.8,118.5ZM28.4,158.9L27.5,158.2L25.1,158.3L24,158L24.8,157.1L25.9,156.5L26.4,155.7L25.9,154.4L26.4,153.8L26.9,153.5L27.5,153.3L27.9,153.3L28.3,153.6L27.9,154.3L27.6,154.4L28.1,155L28.1,156.2L28.3,156.9L29.4,156.4L29.5,157.4L29,158.6ZM326,121.6L327,122L327.4,122.8L327.7,123.8L327.9,125.1L327.7,126.3L327.6,126.9L327.1,127L326.2,127L323.5,125.7L323.2,124.8L323.2,122.3L323.4,120.7L325.4,121.1ZM89.8,192L89.8,192L88.5,190.8L87.9,189L84.8,188.7L80.9,187.6L79.8,186.7L76.8,187.2L74,187.9L73.2,188.6L71.4,189.4L67.9,191L67.4,192L21.8,192L21.8,192L21.9,191.9L22.6,191.6L20.9,190.4L20.1,190.3L19.4,190.4L18.3,190.8L17.6,190.5L16.4,191.4L15.3,191.7L14.8,192L11.1,192L11.1,192L11.1,191.9L11.7,191.5L13,191L13.9,191L14.8,190.5L15.8,190.5L17,189.4L22.2,186.8L22.9,186.2L23.4,184.9L24.7,183.4L25.1,183L26.1,182.1L30.4,180.3L31.2,179.6L32.3,178.8L33.7,177.4L34.5,175.3L34.5,173.8L34.2,172.3L34.7,170.4L35.3,167.6L37.2,167.3L37.2,166L37.8,164.9L37.8,162.8L41.1,160.5L41.7,159.7L44.2,159L44.3,158.2L44.7,157.6L44.5,156.7L43.2,156.7L43.2,156.1L44,156.3L44.7,156.3L45.3,155.2L45.7,156L46.1,156.2L46.2,156.6L46.7,156.9L49,159.8L50.3,163L50.7,163.9L51.1,164.7L51.5,165.2L52.5,165.7L53.2,166.1L54,166.2L55.3,165.7L56.8,165.3L58.2,164.9L58.6,163.9L59.8,163.5L60.7,163.6L61.7,163.1L62.5,163.1L63.4,163.5L65.7,163.3L66.7,163.6L68.9,164.3L69.9,164.4L70.7,164.1L71.5,163.6L72.1,162.9L72.6,162.2L73.2,161.5L74.6,160.2L75.3,159.4L75.6,158.4L75.9,156L75.7,153.8L75.6,152.9L74.6,151.5L73.2,150.5L72.6,149.9L72,149L72.9,149.5L74.2,150.1L75.4,150.4L76,150.1L76.8,150.9L78.1,150.5L79.5,149.4L80.4,148.4L81.7,147.4L84.3,146.2L85.6,145.4L86,144.9L86.7,143.5L87.3,143.2L87.6,143.2L88.8,142.8L89.8,143.5L90.6,143.6L91.2,144.1L91.7,144.3L92,144.3L92.7,144L93.1,144L94.6,144.3L94.9,144L95.4,142.8L96.2,143.7L96.3,143.4L96.5,142.6L96.7,142.1L97.3,142L97.7,142.4L98.1,143.5L98.1,145.1L98.4,145.6L99,145.8L99.3,145.5L100.6,144L101.3,144.7L102.4,145.1L102.9,145.7L102.3,147.2L104,148.2L104.5,148.2L105.1,148.5L106,149.5L106.6,149.7L107.7,149.5L108.4,149.5L108.7,150.3L109.1,150.8L110.2,151.7L111.5,151.7L112.6,150.8L115.4,151L116.3,150.5L116.8,150.5L117.4,149.4L117.6,150L117.1,150.6L116.8,151.3L117.6,151.3L118.4,150.4L119.1,150L118.8,150.8L118.4,151.6L118.2,152.1L118.2,152.4L118.4,152.8L117.4,152.9L117.9,153L118.4,153.3L119,153.2L118.7,153.9L118.2,154.7L118,155.5L117.3,156.7L117.3,158.2L117.4,159L117.3,159.2L116.8,160.5L116.9,161L117.1,162.1L117.3,162.5L117.6,162.8L118.2,162.7L118.2,162.1L118.7,162.1L119.8,164.2L121.3,165.1L121,165.6L121.6,165.8L121.5,166.7L121.6,167.5L121,168.1L120.9,168.5L120.2,168.8L119.8,169.1L119.1,170.3L119.8,170.6L122.3,170.5L122.3,170.9L121.8,170.9L121,171.2L121,171.6L121,171.6L122.4,171.2L123.2,171L123.7,171.2L122.9,171.7L121.5,172.3L119.9,173.1L119.3,173.8L117.9,174L117.4,174.8L116.2,174.9L115.9,176.3L114.8,176.5L114.5,177.4L110.9,179.8L108.7,180.7L107.4,181.6L107.9,182.2L106.8,183.4L106.6,184.1L106.3,184.4L105.9,184.7L105.2,184.5L104.6,184.9L104.8,185.8L104.6,186.5L102.9,188.2L101.6,190.7L101.3,192L89.8,192Z" fill="#FFFFFF" stroke="#B8C4D0" stroke-width=".6"/><path d="M63 55 Q67 70 73 77" fill="none" stroke="#2F7F86" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#m1)"/>
+<path d="M84 90 Q125 98 158 106" fill="none" stroke="#2F7F86" stroke-width="2.2" marker-end="url(#m1)"/>
+<path d="M324 100 Q250 134 170 113" fill="none" stroke="#1F4E8C" stroke-width="2.4" marker-end="url(#m1)"/>
+<path d="M326 50 Q338 68 334 82" fill="none" stroke="#1F4E8C" stroke-width="2.2" stroke-dasharray="5 3" marker-end="url(#m1)"/>
+<g stroke="#5A6878" stroke-width=".8"><line x1="160" y1="109" x2="148" y2="118"/><line x1="167" y1="109" x2="178" y2="100"/></g>
+<circle cx="160" cy="109" r="2.5" fill="#1F4E8C"/><circle cx="167" cy="109" r="2.5" fill="#1F4E8C"/>
+<g style="font:700 11px 'Noto Sans JP',sans-serif" text-anchor="middle"><circle cx="163" cy="142" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="163" y="146" fill="#fff">1</text><circle cx="61" cy="46" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="61" y="50" fill="#fff">2</text><circle cx="75" cy="86" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="75" y="90" fill="#fff">3</text><circle cx="142" cy="122" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="142" y="126" fill="#fff">4</text><rect x="175" y="87" width="18" height="18" rx="4" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="184" y="100" fill="#fff">5</text><circle cx="324" cy="41" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="324" y="45" fill="#fff">6</text><rect x="323" y="84" width="18" height="18" rx="4" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="332" y="97" fill="#fff">7</text></g>
+<g style="font:500 11px 'Noto Sans JP',sans-serif" fill="#5A6878"><text x="74" y="43">隠岐</text><text x="198" y="92">京都</text><text x="298" y="82">鎌倉</text></g></svg>
+<div class="legend"><span><i></i>後醍醐方</span><span><i class="n"></i>足利高氏</span><span><i class="nd"></i>新田義貞</span><span><i class="sq"></i>幕府の拠点</span></div>
+<ol class="steps"><li><span class="num ">1</span><span><b>2月〜 千早城</b><span class="d">楠木正成がこもり、幕府の大軍を引きつける</span></span></li><li><span class="num ">2</span><span><b>閏2月 隠岐</b><span class="d">後醍醐天皇が島を脱出</span></span></li><li><span class="num ">3</span><span><b>閏2月 船上山</b><span class="d">名和長年に迎えられ、後醍醐が兵を挙げる</span></span></li><li><span class="num n">4</span><span><b>4月末 丹波・篠村</b><span class="d">西へ向かった足利高氏が幕府に背く</span></span></li><li><span class="num n sq">5</span><span><b>5月7日 京都・六波羅探題</b><span class="d">高氏が攻め落とす</span></span></li><li><span class="num n">6</span><span><b>5月8日 上野・新田荘</b><span class="d">新田義貞が挙兵し、鎌倉へ向かう</span></span></li><li><span class="num n sq">7</span><span><b>5月22日 鎌倉</b><span class="d">北条高時ら一族が自害し、幕府が滅ぶ</span></span></li></ol>
+</figure>
+<h2><span class="no">第3節</span>建武の新政</h2>
+<div class="point"><b>この節のポイント</b><ul><li>後醍醐は幕府を置かず、天皇みずから政治を行おうとした</li><li>中央と地方に新しい役所を置いた</li><li>綸旨の乱発や恩賞の不公平で、武士の不満が高まった</li></ul></div>
+<p>6月に京都へ戻った後醍醐天皇は、幕府も院政も摂政・関白も置かず、天皇がみずから政治を行う体制をめざした。翌1334年には年号を<span class="rb">建武<span class="rt" aria-hidden="true">けんむ</span></span>と改める。この政治を建武の新政という。</p>
+<p>後醍醐が理想としたのは、平安時代の醍醐天皇・村上天皇の治世(<span class="rb">延喜<span class="rt" aria-hidden="true">えんぎ</span></span>・<span class="rb">天暦<span class="rt" aria-hidden="true">てんりゃく</span></span>の治)だったとされる。</p>
+<p>中央には、重要な政務を扱う<span class="rb">記録所<span class="rt" aria-hidden="true">きろくじょ</span></span>、恩賞を決める<span class="rb">恩賞方<span class="rt" aria-hidden="true">おんしょうがた</span></span>、所領の訴訟を裁く<span class="rb">雑訴決断所<span class="rt" aria-hidden="true">ざっそけつだんしょ</span></span>、京都の警備にあたる<span class="rb">武者所<span class="rt" aria-hidden="true">むしゃどころ</span></span>が置かれた。</p>
+<p>地方では、国ごとに国司と守護を並べて置き、東北には<span class="rb">義良<span class="rt" aria-hidden="true">のりよし</span></span>親王と<span class="rb">北畠顕家<span class="rt" aria-hidden="true">きたばたけあきいえ</span></span>を送って<span class="rb">陸奥<span class="rt" aria-hidden="true">むつ</span></span>将軍府を、関東には<span class="rb">成良<span class="rt" aria-hidden="true">なりよし</span></span>親王と足利<span class="rb">直義<span class="rt" aria-hidden="true">ただよし</span></span>を送って鎌倉将軍府を設けた。</p>
+<figure><p class="figt"><span>図1-4</span>建武政権のしくみと問題点</p>
+<div class="flow">
+<div class="fs dk"><b>後醍醐天皇</b><span class="d">綸旨(天皇の命令書)で直接命じる</span></div>
+<div class="grp"><h4>中央(京都)</h4><div class="rows">
+<div><b>記録所</b><span>重要な政務を審議する。公家が中心</span></div>
+<div><b>恩賞方</b><span>武士への恩賞を決める。処理が遅れる</span></div>
+<div><b>雑訴決断所</b><span>所領の訴訟を裁く。訴えが殺到</span></div>
+<div><b>武者所</b><span>京都の警備。新田義貞らが担当</span></div></div></div>
+<div class="grp"><h4>地方</h4><div class="rows">
+<div><b>陸奥将軍府</b><span>義良親王・北畠顕家が東北を治める</span></div>
+<div><b>鎌倉将軍府</b><span>成良親王・足利直義が関東を治める</span></div>
+<div><b>諸国</b><span>国司と守護を並べて置く</span></div></div></div>
+<div class="grp"><h4>政権の問題点</h4><div class="chips"><span class="chip dk">綸旨の乱発・偽の綸旨</span><span class="chip dk">恩賞の遅れと不公平</span><span class="chip dk">大内裏造営の重い負担</span></div></div>
+<div class="fs s"><b>武士の不満が高まる</b><span class="d">足利尊氏への期待が集まっていく</span></div>
+</div>
+</figure>
+<p>しかし新政はすぐに行き詰まる。土地の所有を認めてもらうには天皇の命令書である<span class="rb">綸旨<span class="rt" aria-hidden="true">りんじ</span></span>が必要とされたため、京都には綸旨を求める武士が殺到し、偽の綸旨まで出回った。</p>
+<p>恩賞の決定は遅れ、公家や寺社に手厚く武士には薄いという不満も広がった。さらに、焼失していた<span class="rb">大内裏<span class="rt" aria-hidden="true">だいだいり</span></span>を建て直す計画が立てられ、その費用は武士たちにも課された。</p>
+<p>倒幕に命をかけた武士の多くが、新政に失望していったのである。</p>
+<h2><span class="no">第4節</span>新政の崩壊</h2>
+<div class="point"><b>この節のポイント</b><ul><li>武士の期待は足利尊氏に集まった</li><li>中先代の乱を鎮めた尊氏は、独断で恩賞を与えた</li><li>後醍醐と尊氏の対立は決定的になった</li></ul></div>
+<p>武士たちの期待は、源氏の名門であり、倒幕の最大の功労者でもある足利尊氏に集まっていった。後醍醐から名前の一字「尊」を与えられ、高氏から尊氏に改めた彼は、新政の要職にはつかず、一歩引いた位置にいた。</p>
+<p>その尊氏を強く警戒したのが護良親王である。しかし1334年、護良は逆に謀反の疑いをかけられて捕らえられ、鎌倉の直義のもとへ送られた。</p>
+<p>1335年7月、北条高時の子・<span class="rb">時行<span class="rt" aria-hidden="true">ときゆき</span></span>が信濃で兵を挙げ、一時鎌倉を奪い返した。<span class="rb">中先代<span class="rt" aria-hidden="true">なかせんだい</span></span>の乱である。鎌倉を逃れる際、直義は捕らえていた護良親王を殺害した。尊氏は天皇の許しを得ないまま鎌倉へ向かい、8月に時行を破る。</p>
+<p>そしてそのまま鎌倉にとどまり、独断で武士たちに恩賞を与え始めた。11月、後醍醐は新田義貞に尊氏の討伐を命じる。尊氏は12月の箱根・竹ノ下の戦いで義貞を破り、京都へ兵を進めた。ここから先の動乱は、第2章で見ていく。</p>
+<figure><p class="figt"><span>図1-5</span>建武の新政が崩れるまで</p>
+<div class="flow">
+<div class="fs s"><em>1334年</em><b>護良親王が失脚する</b></div>
+<div class="fs s"><em>1335年7月</em><b>中先代の乱</b><span class="d">北条時行が挙兵し、一時鎌倉を奪う</span></div>
+<div class="fs s"><em>1335年8月</em><b>尊氏が鎌倉を奪回</b></div>
+<div class="fs"><em>1335年秋</em><b>独断で恩賞を与える</b></div>
+<div class="fs dk"><b>1335年11月 後醍醐天皇が尊氏の討伐を命じる</b><span class="d">→ 第2章へ</span></div>
+</div>
+</figure>
+<section class="summary" aria-labelledby="pt"><h3 id="pt">この章の要点</h3><ul><li>元寇の負担、分割相続、得宗専制が重なり、御家人の心は幕府から離れていた。</li><li>後醍醐天皇の倒幕は、皇位を自分の子孫に伝えたいという動機とも結びついていた。</li><li>幕府を倒した決め手は、足利高氏と新田義貞という有力御家人の寝返りだった。</li><li>天皇中心の建武の新政は、恩賞や土地の保証をめぐる混乱で武士の支持を失い、3年足らずで崩れた。</li></ul></section>
+<section class="column" aria-labelledby="col"><h3 id="col">コラム 二条河原に掲げられた落書</h3>
+<p>1334年の夏、京都の<span class="rb">二条河原<span class="rt" aria-hidden="true">にじょうがわら</span></span>に、新政下の都の様子を皮肉った落書が掲げられた。</p>
+<p>「<span class="rb">此比<span class="rt" aria-hidden="true">このごろ</span></span>都ニハヤル物 夜討 強盗 <span class="rb">謀綸旨<span class="rt" aria-hidden="true">にせりんじ</span></span>」で始まるこの文は、夜討ちや強盗と並べて偽の綸旨を「流行り物」に数え、にわかに成り上がった大名や、領地を離れて京都に訴えに来る人々など、新政がもたらした混乱を次々に挙げていく。</p>
+<p>作者はわからないが、巧みな言葉選びから、教養のある人物だったと考えられている。新政の混乱ぶりを生き生きと伝える史料として、『<span class="rb">建武年間記<span class="rt" aria-hidden="true">けんむねんかんき</span></span>』に収められて今日まで伝わっている。</p>
+</section>
+</main>
+<footer>第1章 スマホ版 ・ 全7章のうちの1章</footer>
+</div>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('rubyBtn');
+  b.addEventListener('click',function(){
+    var off=document.body.classList.toggle('noruby');
+    b.textContent=off?'ふりがな:なし':'ふりがな:あり';
+    b.setAttribute('aria-pressed',off?'false':'true');
+    if(!off&&window.fitRuby)window.fitRuby();
+  });
+})();
+</script>
+</body>
+</html>
