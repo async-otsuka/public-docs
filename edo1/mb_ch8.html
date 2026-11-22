@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>江戸幕府の確立 第8章(スマホ版)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* スマホ優先の1カラム。カード枠をやめて画面幅を本文に使う。図は縦長に組み直す */
+  --paper:#FFFFFF; --ink:#1E2A3A; --sub:#5A6878; --navy:#1F4E8C; --teal:#2F7F86;
+  --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#D6E4F3;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.85;-webkit-text-size-adjust:100%}
+.wrap{max-width:520px;margin:0 auto}
+.topbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 20px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);font-size:13px;color:var(--sub)}
+.topbar button{font:inherit;font-size:13px;color:var(--navy);background:var(--sky);border:0;border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.topbar button:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+header.ch{background:var(--navy);color:#fff;padding:22px 20px 20px}
+header.ch .eyebrow{font-size:13px;letter-spacing:.15em;opacity:.85;margin:0 0 6px}
+header.ch h1{font-size:25px;line-height:1.4;font-weight:700;margin:0;text-wrap:balance}
+header.ch .lead{font-size:14.5px;line-height:1.7;margin:8px 0 0;opacity:.9}
+main{padding:0 20px 40px}
+h2{font-size:20px;line-height:1.5;font-weight:700;margin:40px 0 14px;padding-left:12px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{display:block;font-size:13px;color:var(--navy);font-weight:500}
+p{margin:0 0 1.15em}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.32em;transform:translateX(-50%);font-size:.5em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;letter-spacing:0;pointer-events:none}
+body.noruby .rt{display:none}
+.tl{list-style:none;margin:20px 0 0 6px;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:8px;padding:5px 0 5px 16px;font-size:15px;line-height:1.6}
+.tl li::before{content:"";position:absolute;left:-7px;top:12px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--navy)}
+.tl li.k::before{border-color:var(--teal)}
+.tl li.hl{font-weight:700}
+.tl li.hl::before{background:var(--navy)}
+.tl .y{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.tl li.k .y{color:var(--teal)}
+.tlnote{display:flex;gap:16px;font-size:12.5px;color:var(--sub);margin:8px 0 0 6px}
+.tlnote span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid var(--navy);margin-right:5px;vertical-align:-1px}
+.tlnote span.k::before{border-color:var(--teal)}
+.point{background:var(--sky);border-radius:10px;padding:14px 16px;margin:0 0 22px;font-size:15px;line-height:1.7}
+.point b{display:block;color:var(--navy);font-size:13px;margin-bottom:4px}
+.point ul{margin:0;padding-left:1.2em}
+figure{margin:26px -20px 28px;padding:16px 20px 12px;background:#F7FAFD;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+figure svg{display:block;width:100%;height:auto}
+.figt{font-size:15px;font-weight:700;margin:0 0 12px;line-height:1.5}
+.figt span{color:var(--navy);margin-right:8px}
+.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.back{margin-top:10px;font-size:14px;font-weight:700;color:var(--teal);display:flex;gap:6px;align-items:center}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+.summary{background:var(--sky);border-radius:10px;padding:16px 18px 10px;margin:36px 0 18px}
+.summary h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy)}
+.summary ul{margin:0;padding-left:1.2em;font-size:16px}
+.summary li{margin:0 0 .5em}
+.column{border:1.5px dashed #9AAABB;border-radius:10px;padding:16px 18px 4px;margin:18px 0 0}
+.column h3{color:var(--teal)}
+.column figure{margin:16px -18px 16px}
+footer{font-size:12.5px;color:var(--sub);text-align:center;padding:0 20px 40px}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+.tlh{font-size:15px;color:var(--navy);margin:1.6em 0 .2em}
+</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style></head>
+<body>
+<div class="wrap">
+<div class="topbar"><span>江戸幕府の確立 解説資料</span><button type="button" id="rubyBtn" aria-pressed="true">ふりがな:あり</button></div>
+<header class="ch">
+<p class="eyebrow">第八章 ・ 元禄文化</p>
+<h1>元禄文化</h1>
+<p class="lead">豊かになった上方の町人たちが生み出した、現実を見つめる文化</p>
+</header>
+<main>
+<ol class="tl" aria-label="この章の年表"><li><span class="y">1682</span><span>井原西鶴『好色一代男』</span></li><li class="k"><span class="y">1684</span><span>渋川春海の貞享暦、竹本義太夫が竹本座を開く</span></li><li class="hl"><span class="y">1689</span><span>松尾芭蕉が奥の細道の旅に出る</span></li><li><span class="y">1690</span><span>湯島聖堂</span></li><li class="hl"><span class="y">1703</span><span>近松門左衛門『曽根崎心中』</span></li><li><span class="y">1715</span><span>近松門左衛門『国性爺合戦』</span></li></ol>
+<figure><p class="figt"><span>図8-2</span>この章の登場人物</p>
+<div class="ppl"><div class="pg n"><h4>文学と芸能</h4><ul><li><b><span class="rb">井原西鶴<span class="rt" aria-hidden="true">いはらさいかく</span></span></b><span class="pd">大坂の町人。町人の欲や暮らしをいきいきと描く浮世草子を書いた</span></li><li><b><span class="rb">松尾芭蕉<span class="rt" aria-hidden="true">まつおばしょう</span></span></b><span class="pd">俳諧を芸術に高めた。旅を重ね、『おくのほそ道』を著した</span></li><li><b><span class="rb">近松門左衛門<span class="rt" aria-hidden="true">ちかまつもんざえもん</span></span></b><span class="pd">人形浄瑠璃や歌舞伎の脚本を書いた</span></li></ul></div><div class="pg t"><h4>美術</h4><ul><li><b><span class="rb">尾形光琳<span class="rt" aria-hidden="true">おがたこうりん</span></span></b><span class="pd">京都の呉服商の出身。大胆な構図の屏風絵で知られる</span></li><li><b><span class="rb">菱川師宣<span class="rt" aria-hidden="true">ひしかわもろのぶ</span></span></b><span class="pd">江戸で浮世絵を始めた絵師。「見返り美人図」が有名</span></li></ul></div><div class="pg g"><h4>学問</h4><ul><li><b><span class="rb">関孝和<span class="rt" aria-hidden="true">せきたかかず</span></span></b><span class="pd">和算(日本独自の数学)を大きく発展させた</span></li><li><b><span class="rb">徳川光圀<span class="rt" aria-hidden="true">とくがわみつくに</span></span></b><span class="pd">水戸藩主。歴史書『大日本史』の編さんを始めた</span></li></ul></div></div>
+</figure>
+<h2><span class="no">第1節</span>町人が担った元禄文化</h2>
+<div class="point"><b>この節のポイント</b><ul><li>綱吉の時代を中心とする文化を元禄文化という</li><li>上方(大坂・京都)の豊かな町人が担い手となった</li><li>現実の暮らしや人の心を描いた</li></ul></div>
+<p>5代将軍綱吉のころ、<span class="rb">元禄<span class="rt" aria-hidden="true">げんろく</span></span>の年号の時代を中心に栄えた文化を元禄文化という。経済の発展によって豊かになった<span class="rb">大坂<span class="rt" aria-hidden="true">おおさか</span></span>や京都など<span class="rb">上方<span class="rt" aria-hidden="true">かみがた</span></span>の町人が担い手となり、現実の暮らしや人の心の動きを生き生きと描くところに特徴がある。</p>
+<p>大坂の町人<span class="rb">井原西鶴<span class="rt" aria-hidden="true">いはらさいかく</span></span>は、町人の恋や金銭への欲を描いた<span class="rb">浮世草子<span class="rt" aria-hidden="true">うきよぞうし</span></span>と呼ばれる小説を書いた。</p>
+<p>1682年の『好色一代男』に続き、『<span class="rb">日本永代蔵<span class="rt" aria-hidden="true">にっぽんえいたいぐら</span></span>』では商売で成功したり失敗したりする町人の姿を、『<span class="rb">世間胸算用<span class="rt" aria-hidden="true">せけんむねさんよう</span></span>』では大みそかの借金取りとのやり取りを描いた。</p>
+<h2><span class="no">第2節</span>芭蕉と俳諧</h2>
+<div class="point"><b>この節のポイント</b><ul><li>松尾芭蕉は俳諧を芸術に高めた</li><li>1689年、東北・北陸をめぐる旅に出た</li><li>旅の記録を『おくのほそ道』にまとめた</li></ul></div>
+<p><span class="rb">連歌<span class="rt" aria-hidden="true">れんが</span></span>の遊びから生まれた俳諧を、深い味わいのある芸術に高めたのが<span class="rb">松尾芭蕉<span class="rt" aria-hidden="true">まつおばしょう</span></span>である。芭蕉は江戸の<span class="rb">深川<span class="rt" aria-hidden="true">ふかがわ</span></span>に住み、自然や旅の中にわびしさや静けさを見いだす句を詠んだ(<span class="rb">蕉風<span class="rt" aria-hidden="true">しょうふう</span></span>)。</p>
+<p>1689年、芭蕉は弟子の<span class="rb">曽良<span class="rt" aria-hidden="true">そら</span></span>を連れて江戸を出発し、東北から北陸をめぐって<span class="rb">美濃<span class="rt" aria-hidden="true">みの</span></span>の<span class="rb">大垣<span class="rt" aria-hidden="true">おおがき</span></span>まで、約150日にわたる旅をした。</p>
+<p><span class="rb">平泉<span class="rt" aria-hidden="true">ひらいずみ</span></span>では、かつて栄えた<span class="rb">奥州藤原氏<span class="rt" aria-hidden="true">おうしゅうふじわらし</span></span>をしのんで「夏草や<span class="rb">兵ども<span class="rt" aria-hidden="true">つわものども</span></span>が夢の跡」と詠み、山形の<span class="rb">立石寺<span class="rt" aria-hidden="true">りっしゃくじ</span></span>では「<span class="rb">閑さ<span class="rt" aria-hidden="true">しずかさ</span></span>や岩にしみ入る<span class="rb">蝉<span class="rt" aria-hidden="true">せみ</span></span>の声」と詠んだ。この旅をもとにした紀行文が『おくのほそ道』である。</p>
+<figure><p class="figt"><span>図8-3</span>芭蕉の「おくのほそ道」の旅(1689年)</p>
+<svg viewBox="0 0 360 367" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>芭蕉の「おくのほそ道」の旅(1689年)</title><desc>約150日、およそ2400kmの旅。経路はおもな訪問地を結んだ模式図</desc><rect width="360" height="367" fill="#EAF2FB"/><path d="M359,0L358.5,13.8L353.8,39.2L338.9,50.1L331.9,67.1L327,95.5L304.7,100.7L295.5,115.7L293.5,131.4L298.2,151.2L300.2,169.3L296,205.5L285,217.5L274.7,244.1L271.4,265.1L274.5,278.4L283,294.7L290.2,304L275.6,308.8L264.2,320.3L261.8,338.8L258,345.4L239.4,356.2L230.9,366.7L223.3,362.4L226,358.3L225.1,336.6L241.2,318.1L235.2,308.3L225.6,309.1L221.3,321.5L214.2,328L220,340L213.3,348.3L203.2,336.5L189.4,338L180.9,351.8L181.3,362.4L179.6,367L160.8,367L160.8,367L161.5,361.1L167.7,357.3L156.3,349.8L147.6,352.5L136.2,367L41.9,367L41.9,367L40.6,354.6L30.5,360.3L27.7,367L0,367L0,263.4L10,255.1L31,225.7L34.1,209.4L32.3,190.3L39.9,175.9L69.6,164.9L70.5,171.6L59.1,183.6L45,192.3L49.3,203.6L50.6,218.3L57.3,223.2L71,223.5L81.5,209.4L106.3,200.7L131.5,188.6L145.8,175.1L155.6,161.9L166.6,139.7L189.2,126.8L198.8,116.2L203.5,95.9L209.7,80.1L223.6,57.6L230.5,29.8L238.1,15.2L238.7,0L359,0ZM133.1,141.4L129.3,138.9L131.7,128.1L127,127.8L130.8,114.7L142.9,102.5L139.8,121.4L147.4,122.2L142.5,135Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><defs><marker id="ared8n360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="ared8t360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="ared8k360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="ared8g360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><path d="M222.4,300.5 Q227.1,264.8 212.0,232.0" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ared8n360)"/><path d="M216.9,221.3 Q232.8,217.6 243.0,204.8" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ared8n360)"/><path d="M252.1,194.8 Q287.6,155.9 298.5,104.4" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ared8n360)"/><path d="M302.3,91.2 Q309.8,74.1 305.4,55.9" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ared8n360)"/><path d="M301.7,54.4 Q278.1,70.8 267.5,97.5" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ared8n360)"/><path d="M260.2,96.7 Q255.1,63.1 232.7,37.6" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ared8n360)"/><path d="M224.8,36.3 Q104.1,111.4 33.5,234.8" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ared8n360)"/><path d="M28.4,246.8 Q16.3,285.5 26.3,324.8" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ared8n360)"/><circle cx="223.4" cy="307.4" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="223.4" y="311.4" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">1</text><circle cx="211.0" cy="225.1" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="211.0" y="229.1" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">2</text><circle cx="248.9" cy="201.0" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="248.9" y="205.0" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">3</text><circle cx="301.7" cy="98.2" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="301.7" y="102.2" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">4</text><circle cx="306.0" cy="48.9" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="306.0" y="52.9" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">5</text><circle cx="263.2" cy="103.0" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="263.2" y="107.0" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">6</text><circle cx="229.7" cy="31.3" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="229.7" y="35.3" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">7</text><circle cx="28.6" cy="239.8" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="28.6" y="243.8" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">8</text><circle cx="26.1" cy="331.8" r="9" fill="#B4532A" stroke="#fff" stroke-width="1.2"/><text x="26.1" y="335.8" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">9</text></svg><ol class="mapl"><li><i class="n">1</i>江戸・深川<span class="pd">3月 出発</span></li><li><i class="n">2</i>日光</li><li><i class="n">3</i>白河の関</li><li><i class="n">4</i>松島</li><li><i class="t">5</i>平泉<span class="pd">夏草や兵どもが夢の跡</span></li><li><i class="t">6</i>立石寺<span class="pd">閑さや岩にしみ入る蝉の声</span></li><li><i class="n">7</i>象潟</li><li><i class="n">8</i>金沢</li><li><i class="k">9</i>大垣<span class="pd">9月 旅を終える</span></li></ol><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">約150日、およそ2400kmの旅。経路はおもな訪問地を結んだ模式図</p>
+</figure>
+<h2><span class="no">第3節</span>人形浄瑠璃と歌舞伎</h2>
+<div class="point"><b>この節のポイント</b><ul><li>近松門左衛門が人形浄瑠璃や歌舞伎の脚本を書いた</li><li>竹本義太夫の語りが人気を集めた</li><li>歌舞伎では江戸の荒事と上方の和事が人気だった</li></ul></div>
+<p><span class="rb">三味線<span class="rt" aria-hidden="true">しゃみせん</span></span>の伴奏で物語を語り、人形を操って演じる<span class="rb">人形浄瑠璃<span class="rt" aria-hidden="true">にんぎょうじょうるり</span></span>は、この時代に大きく発展した。大坂では<span class="rb">竹本義太夫<span class="rt" aria-hidden="true">たけもとぎだゆう</span></span>が竹本座を開き、その語りは<span class="rb">義太夫節<span class="rt" aria-hidden="true">ぎだゆうぶし</span></span>と呼ばれた。脚本を書いたのが<span class="rb">近松門左衛門<span class="rt" aria-hidden="true">ちかまつもんざえもん</span></span>である。</p>
+<p>実際に起こった<span class="rb">心中<span class="rt" aria-hidden="true">しんじゅう</span></span>事件を題材にした『<span class="rb">曽根崎心中<span class="rt" aria-hidden="true">そねざきしんじゅう</span></span>』は、義理と人情の間で苦しむ町人の姿を描いて大評判となった。</p>
+<figure><p class="figt"><span>図8-4</span>人形浄瑠璃と歌舞伎</p>
+<div class="flow"><div class="pair"><div class="fs t"><em>人形浄瑠璃</em><b>竹本義太夫が語り、近松門左衛門が脚本を書く</b><span class="d">『曽根崎心中』など、町人の義理と人情を描く</span></div><div class="fs s"><em>歌舞伎</em><b>役者が演じる芝居</b><span class="d">江戸の市川団十郎は勇ましい荒事、上方の坂田藤十郎は優美な和事で人気</span></div></div><div class="fs dk"><b>芝居は町人の最大の娯楽となった</b><span class="d">人気役者の姿は浮世絵にも描かれた</span></div></div>
+</figure>
+<p>歌舞伎も町人の娯楽として盛んになった。江戸では<span class="rb">市川団十郎<span class="rt" aria-hidden="true">いちかわだんじゅうろう</span></span>が勇ましく荒々しい<span class="rb">荒事<span class="rt" aria-hidden="true">あらごと</span></span>を、上方では<span class="rb">坂田藤十郎<span class="rt" aria-hidden="true">さかたとうじゅうろう</span></span>が優美な恋の場面を演じる<span class="rb">和事<span class="rt" aria-hidden="true">わごと</span></span>を得意とし、人気を集めた。</p>
+<h2><span class="no">第4節</span>美術と学問</h2>
+<div class="point"><b>この節のポイント</b><ul><li>尾形光琳は大胆な屏風絵を描いた</li><li>菱川師宣が浮世絵を始めた</li><li>儒学や歴史、自然科学の学問も発達した</li></ul></div>
+<p>美術では、京都の<span class="rb">尾形光琳<span class="rt" aria-hidden="true">おがたこうりん</span></span>が、<span class="rb">俵屋宗達<span class="rt" aria-hidden="true">たわらやそうたつ</span></span>の画風を受け継ぎ、金地に大胆な構図の「<span class="rb">燕子花図屏風<span class="rt" aria-hidden="true">かきつばたずびょうぶ</span></span>」などを描いた。江戸では<span class="rb">菱川師宣<span class="rt" aria-hidden="true">ひしかわもろのぶ</span></span>が、町の人々の姿を描いた浮世絵を始めた。</p>
+<p>版画にすることで、浮世絵は安く多くの人々の手に渡るようになった。</p>
+<p>学問では、幕府が重んじた<span class="rb">朱子学<span class="rt" aria-hidden="true">しゅしがく</span></span>のほか、<span class="rb">中江藤樹<span class="rt" aria-hidden="true">なかえとうじゅ</span></span>の<span class="rb">陽明学<span class="rt" aria-hidden="true">ようめいがく</span></span>や、<span class="rb">孔子<span class="rt" aria-hidden="true">こうし</span></span>や<span class="rb">孟子<span class="rt" aria-hidden="true">もうし</span></span>の教えに直接学ぼうとする<span class="rb">山鹿素行<span class="rt" aria-hidden="true">やまがそこう</span></span>・<span class="rb">伊藤仁斎<span class="rt" aria-hidden="true">いとうじんさい</span></span>らの古学も広まった。水戸藩主の<span class="rb">徳川光圀<span class="rt" aria-hidden="true">とくがわみつくに</span></span>は歴史書『<span class="rb">大日本史<span class="rt" aria-hidden="true">だいにほんし</span></span>』の編さんを始め、<span class="rb">関孝和<span class="rt" aria-hidden="true">せきたかかず</span></span>は和算を発展させた。</p>
+<p><span class="rb">渋川春海<span class="rt" aria-hidden="true">しぶかわはるみ</span></span>は天体の観測をもとに新しい暦(<span class="rb">貞享暦<span class="rt" aria-hidden="true">じょうきょうれき</span></span>)をつくった。平和な時代の中で、学問や芸術は武士だけでなく、町人や百姓にも広がっていった。</p>
+<figure><p class="figt"><span>図8-5</span>元禄期の美術と学問</p>
+<div class="card n" style="margin-bottom:10px"><div class="hd">美術</div><div class="bd"><div class="rows"><div><b>尾形光琳</b><span>「燕子花図屏風」「紅白梅図屏風」― 金地に大胆な構図</span></div><div><b>菱川師宣</b><span>「見返り美人図」― 浮世絵の始まり</span></div><div><b>野々村仁清・尾形乾山</b><span>色鮮やかな色絵の焼き物</span></div></div></div></div><div class="card t" style="margin-bottom:10px"><div class="hd">学問</div><div class="bd"><div class="rows"><div><b>儒学</b><span>朱子学が幕府に重んじられる。陽明学の中江藤樹、古学の山鹿素行・伊藤仁斎</span></div><div><b>歴史</b><span>徳川光圀が『大日本史』の編さんを始める</span></div><div><b>自然科学</b><span>関孝和の和算、渋川春海の貞享暦、貝原益軒の本草学</span></div></div></div></div>
+</figure>
+<section class="summary" aria-labelledby="pt"><h3 id="pt">この章の要点</h3><ul><li>元禄文化は、上方の豊かな町人が担い手となり、現実の暮らしや人の心を描いたところに特徴がある。</li><li>井原西鶴は浮世草子で町人の姿を描き、松尾芭蕉は俳諧を芸術に高めて『おくのほそ道』を著した。</li><li>近松門左衛門の脚本による人形浄瑠璃や、歌舞伎が町人の娯楽として栄えた。</li><li>尾形光琳の屏風絵や菱川師宣の浮世絵が生まれ、儒学・歴史・和算・暦学などの学問も発達した。</li></ul></section>
+<section class="column" aria-labelledby="col"><h3 id="col">コラム 『おくのほそ道』は旅の記録どおりか</h3>
+<p>『おくのほそ道』は芭蕉の旅の記録として読まれてきたが、旅に同行した弟子の曽良が書いた日記が、20世紀に入って広く知られるようになると、両者の間にさまざまな食い違いがあることがわかった。</p>
+<p>日付や訪れた場所の順番、天気などが、曽良の日記と一致しない部分があるのである。</p>
+<p>芭蕉は旅を終えてから数年をかけて文章を練り上げており、事実をもとにしながらも、より深い感動を伝えるために構成を工夫した文学作品だったと考えられている。</p>
+</section>
+<div class="navs"><a href="mb_ch7.html">← 第7章</a><a href="index.html">目次</a><a href="mb_summary.html">まとめ →</a></div>
+</main>
+<footer>第8章 スマホ版 ・ 全8章のうちの1章</footer>
+</div>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('rubyBtn');
+  b.addEventListener('click',function(){
+    var off=document.body.classList.toggle('noruby');
+    b.textContent=off?'ふりがな:なし':'ふりがな:あり';
+    b.setAttribute('aria-pressed',off?'false':'true');
+    if(!off&&window.fitRuby)window.fitRuby();
+  });
+})();
+</script>
+</body>
+</html>

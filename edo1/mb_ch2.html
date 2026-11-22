@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>江戸幕府の確立 第2章(スマホ版)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* スマホ優先の1カラム。カード枠をやめて画面幅を本文に使う。図は縦長に組み直す */
+  --paper:#FFFFFF; --ink:#1E2A3A; --sub:#5A6878; --navy:#1F4E8C; --teal:#2F7F86;
+  --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#D6E4F3;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.85;-webkit-text-size-adjust:100%}
+.wrap{max-width:520px;margin:0 auto}
+.topbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 20px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);font-size:13px;color:var(--sub)}
+.topbar button{font:inherit;font-size:13px;color:var(--navy);background:var(--sky);border:0;border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.topbar button:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+header.ch{background:var(--navy);color:#fff;padding:22px 20px 20px}
+header.ch .eyebrow{font-size:13px;letter-spacing:.15em;opacity:.85;margin:0 0 6px}
+header.ch h1{font-size:25px;line-height:1.4;font-weight:700;margin:0;text-wrap:balance}
+header.ch .lead{font-size:14.5px;line-height:1.7;margin:8px 0 0;opacity:.9}
+main{padding:0 20px 40px}
+h2{font-size:20px;line-height:1.5;font-weight:700;margin:40px 0 14px;padding-left:12px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{display:block;font-size:13px;color:var(--navy);font-weight:500}
+p{margin:0 0 1.15em}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.32em;transform:translateX(-50%);font-size:.5em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;letter-spacing:0;pointer-events:none}
+body.noruby .rt{display:none}
+.tl{list-style:none;margin:20px 0 0 6px;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:8px;padding:5px 0 5px 16px;font-size:15px;line-height:1.6}
+.tl li::before{content:"";position:absolute;left:-7px;top:12px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--navy)}
+.tl li.k::before{border-color:var(--teal)}
+.tl li.hl{font-weight:700}
+.tl li.hl::before{background:var(--navy)}
+.tl .y{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.tl li.k .y{color:var(--teal)}
+.tlnote{display:flex;gap:16px;font-size:12.5px;color:var(--sub);margin:8px 0 0 6px}
+.tlnote span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid var(--navy);margin-right:5px;vertical-align:-1px}
+.tlnote span.k::before{border-color:var(--teal)}
+.point{background:var(--sky);border-radius:10px;padding:14px 16px;margin:0 0 22px;font-size:15px;line-height:1.7}
+.point b{display:block;color:var(--navy);font-size:13px;margin-bottom:4px}
+.point ul{margin:0;padding-left:1.2em}
+figure{margin:26px -20px 28px;padding:16px 20px 12px;background:#F7FAFD;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+figure svg{display:block;width:100%;height:auto}
+.figt{font-size:15px;font-weight:700;margin:0 0 12px;line-height:1.5}
+.figt span{color:var(--navy);margin-right:8px}
+.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.back{margin-top:10px;font-size:14px;font-weight:700;color:var(--teal);display:flex;gap:6px;align-items:center}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+.summary{background:var(--sky);border-radius:10px;padding:16px 18px 10px;margin:36px 0 18px}
+.summary h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy)}
+.summary ul{margin:0;padding-left:1.2em;font-size:16px}
+.summary li{margin:0 0 .5em}
+.column{border:1.5px dashed #9AAABB;border-radius:10px;padding:16px 18px 4px;margin:18px 0 0}
+.column h3{color:var(--teal)}
+.column figure{margin:16px -18px 16px}
+footer{font-size:12.5px;color:var(--sub);text-align:center;padding:0 20px 40px}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+.tlh{font-size:15px;color:var(--navy);margin:1.6em 0 .2em}
+</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style></head>
+<body>
+<div class="wrap">
+<div class="topbar"><span>江戸幕府の確立 解説資料</span><button type="button" id="rubyBtn" aria-pressed="true">ふりがな:あり</button></div>
+<header class="ch">
+<p class="eyebrow">第二章 ・ 1603 ― 1616</p>
+<h1>大坂の陣と豊臣家の滅亡</h1>
+<p class="lead">徳川の世を固めるため、家康は最後の大きな戦いに臨んだ</p>
+</header>
+<main>
+<ol class="tl" aria-label="この章の年表"><li><span class="y">1605</span><span>秀忠が2代将軍に</span></li><li><span class="y">1611</span><span>家康と秀頼が二条城で会見</span></li><li class="hl"><span class="y">1614</span><span>方広寺鐘銘事件、大坂冬の陣</span></li><li class="hl"><span class="y">1615</span><span>大坂夏の陣、豊臣氏が滅ぶ</span></li><li class="k"><span class="y">1615</span><span>一国一城令・武家諸法度・禁中並公家諸法度</span></li><li><span class="y">1616</span><span>家康が死去</span></li></ol>
+<figure><p class="figt"><span>図2-2</span>この章の登場人物</p>
+<div class="ppl"><div class="pg n"><h4>徳川家</h4><ul><li><b>徳川家康</b><span class="pd">将軍職を秀忠に譲った後も、大御所として駿府から政治を動かした</span></li><li><b><span class="rb">徳川秀忠<span class="rt" aria-hidden="true">とくがわひでただ</span></span></b><span class="pd">2代将軍。大坂の陣では家康とともに大坂城を攻めた</span></li></ul></div><div class="pg t"><h4>豊臣家</h4><ul><li><b><span class="rb">豊臣秀頼<span class="rt" aria-hidden="true">とよとみひでより</span></span></b><span class="pd">秀吉の子。大坂城に住み、なお多くの大名から重んじられていた</span></li><li><b><span class="rb">淀殿<span class="rt" aria-hidden="true">よどどの</span></span></b><span class="pd">秀頼の母。大坂城で実権を握った</span></li><li><b><span class="rb">真田信繁<span class="rt" aria-hidden="true">さなだのぶしげ</span></span>(幸村)</b><span class="pd">大坂城に入った浪人の一人。冬の陣では出城の真田丸で活躍した</span></li></ul></div></div>
+</figure>
+<h2><span class="no">第1節</span>大御所家康と豊臣秀頼</h2>
+<div class="point"><b>この節のポイント</b><ul><li>家康は2年で将軍職を秀忠に譲り、大御所となった</li><li>大坂城の秀頼は、なお大きな存在だった</li><li>1611年、家康と秀頼は二条城で会見した</li></ul></div>
+<p>1603年に<span class="rb">征夷大将軍<span class="rt" aria-hidden="true">せいいたいしょうぐん</span></span>となった家康は、わずか2年後の1605年、将軍職を子の秀忠に譲った。将軍の地位は徳川家が代々受け継ぐものであることを、世に示すためである。家康自身は<span class="rb">大御所<span class="rt" aria-hidden="true">おおごしょ</span></span>として<span class="rb">駿府<span class="rt" aria-hidden="true">すんぷ</span></span>に移り、実権を握り続けた。</p>
+<figure><p class="figt"><span>図2-3</span>大御所時代の家康と大坂</p>
+<svg viewBox="0 0 360 150" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>大御所時代の家康と大坂</title><desc>位置はおおよそ。家康は1616年に駿府で亡くなり、久能山に葬られた後、日光に移された</desc><rect width="360" height="150" fill="#EAF2FB"/><path d="M0,37.8L1.9,38.4L3.1,37.3L4.3,36.8L4.1,35.8L6,34.4L7.5,34.4L8.7,34.1L9.9,33.4L12.6,31.4L12.4,30.3L15.8,29.3L19.2,28.6L20.9,28.3L22.2,27.4L23.9,28.7L24.6,30.3L25.6,31L26.6,32.5L27.5,34.5L27.5,35.9L27.1,37L25.8,36.2L24.4,37.2L23.1,40L22.7,40.7L20.7,43L19.5,44.8L19.5,46.5L20.2,46.9L20.9,46.8L20.9,45.4L21.9,44.5L22.7,43.2L23.6,42.5L24.1,44.4L25.1,44.9L24.6,45.5L23.1,45.4L22.9,46.8L27.3,49.2L28.3,48.7L28.8,48.2L29.5,49.6L29.3,50.7L28.8,51.4L28,53.7L28.5,54.7L29.3,54.1L30.7,51.3L31.9,51.4L33.7,52.3L34.1,51.7L34.1,49.7L32.2,50.1L30.5,49.4L29.7,47.2L31.2,45.8L32.2,45.5L34.1,45.4L35.1,45.1L36.4,43.5L36.6,42.7L38.3,41.7L37.8,43L37.6,44.2L38.8,44.8L39.5,45.4L39.3,46.6L39.5,47.5L39.3,48.3L40,48.5L40.5,48.3L41,47.6L41.5,46.2L41.5,47.8L41.2,49.3L41.5,50.4L42.7,50.9L44.7,51L45.4,50.9L47.4,49.9L47.8,48.9L49.3,47.6L50.8,46.6L52.2,47.3L52,47.8L50.3,48.5L49.8,50.9L49.1,51.4L50.5,51.8L54.2,51L55.9,51L56.9,50.3L57.6,49.2L57.6,47.5L55.7,48.5L54.9,46.9L53.7,46.5L54.7,45.1L56.9,44.4L57.6,44.9L58.1,46.2L59.6,46.1L60.8,47.6L61.8,48L63.5,47.3L62.8,47L62.3,46.3L61.3,44.5L61.5,43.9L62.3,43.8L63,44.5L63.7,44.1L65,43.7L64.7,43.1L63.7,42L63.5,40.8L63.2,40.4L62.3,39.3L62,38.3L62.8,38.2L64,39.2L64.7,39.9L65.7,40.4L68.1,39.9L68.6,40.7L69.4,41.3L70.6,40.4L71.3,39.4L72.8,39.7L73.5,39.3L73.5,38.3L72.3,37.3L73,34.4L72.8,33.4L71.8,33.5L71.8,31.1L73.5,30.3L76,28.1L76.9,29.7L76.9,30.4L77.4,31.7L77.9,33.2L77.7,34.2L76.9,34.2L76.5,35.2L77.7,36L77.9,37L79.4,36.8L79.9,35.3L80.4,34.9L80.4,33.2L81.1,32.2L81.1,30L81.6,28.6L81.6,27.1L80.6,25.6L79.9,24.2L79.4,23L77.9,21.9L75.5,19.2L74.3,18.1L74.5,15.7L74.3,13.8L72.8,11.7L71.8,10.7L72.3,8.5L73.8,7.5L74.7,6.3L76,3.6L76.9,1.6L77.4,0L360,0L360,82.3L356.9,82.1L355.5,81.6L353.5,83.7L353.3,85.6L351.6,87L350.1,87L347.9,88.6L345.7,90.2L345.2,91.2L344.7,92.7L344,93.8L344,95.2L343.7,96.8L343.2,97.7L341.5,99.6L338.3,100L337.6,99.7L336.6,100L335.7,100.1L335.4,99.7L334.4,99.1L334.4,97.2L333.5,96.5L331.5,95.6L329.8,95.5L329.5,94.8L329.5,93.8L330.5,93.8L332.5,94.1L333.5,93.8L334.2,93.4L334.7,92.7L335.7,92.6L336.9,93L337.4,92.6L337.6,91.9L337.4,90.7L336.6,90L335.2,89.6L335.2,88.8L335.9,87.9L336.1,87L336.1,86.1L335.4,84.6L335.2,83.6L335.4,80.7L334.2,78.7L334.4,77.7L334.2,76.4L334.4,75.3L336.4,74.1L337.4,73.2L337.4,71.4L336.1,69.3L336.1,67.5L331.5,65.8L331.5,65.3L333,65.5L334.4,64.5L334.4,63L335.4,62L335.9,60.6L339.1,61.6L340.1,60.4L340.1,59.2L339.6,56.6L340.5,55.8L342.5,55.1L343.7,54L345.2,53.7L346.9,52.4L347.9,51L351.3,46.6L352.5,46.9L353,45.6L353.3,44.7L352.3,44.7L351.8,41.5L349.6,39.3L346.9,36.9L346.2,37.2L345.2,36.2L343,35.9L341,36.8L342.3,38.9L340.5,39.9L339.3,40.7L339.1,40L338.3,39.9L337.6,39.3L337.1,39.3L336.1,38.7L335.7,39.4L335.4,40.7L334.4,40L334.2,38.7L333.2,38.7L333,40.3L332,41.7L331,40.4L331.3,38.4L330.5,37.5L330,39.3L330.8,41.8L331.7,43.5L331.7,44.5L332.7,46.9L332,48L332,49.3L331.3,50.1L329.1,51.6L327.1,53.2L325.1,53.5L323.7,53L322.7,53.2L322.2,54.1L323.4,54.7L324.7,55.4L325.1,55.9L324.9,57L325.1,58.6L324.4,58.5L322.7,57.8L321.7,58.5L322.2,59.6L323.2,60.6L322.9,63.7L322.7,64.6L322.7,66L322.5,67L323.2,68L323.7,67L324.4,67.6L325.6,69.6L328.3,69.8L329.1,71.1L327.8,72.5L328.3,73.4L327.8,74.6L325.4,74.5L323.7,75.7L323.4,77L323.9,78.5L324.7,79.4L325.1,80.2L323.7,80.7L322,80.2L321,80.9L320.3,80.7L320,80.1L320.3,79.1L320.3,77.4L319.3,75L321,74.2L320.5,73.6L319.5,73.2L319,72L317.1,69.6L317.1,68.9L316.6,68L315.8,67.9L315.4,66.2L314.4,66.8L312.9,66.6L311.4,66.9L310.2,65.8L306.6,65.3L300.9,66.6L297.8,67.2L294.3,68.2L290.9,70L288.5,72.4L288.2,76.6L289.2,80.5L286.7,79.4L284.5,82.8L283.8,85.6L283.6,87.4L285.8,87.8L285.3,89.3L285,90.9L284.3,92L285.3,94L287.5,94.7L288.2,96.6L288.5,99.7L288,102.5L286.5,102.8L285.3,103.8L284.5,104.9L284.3,106L283.6,107.7L282.6,109.1L282.1,110.2L281.4,111L280.4,111.3L279.7,112.1L278.4,113.9L278.7,114.9L278.2,115.5L277.7,116.6L277.5,118L277.9,120.8L277.2,121.2L276.7,121.2L276,120.6L274.5,119.9L271.3,122.6L269.1,123.9L267.2,125.2L266.2,124.7L265.2,123.9L264.5,122.7L263,121.1L263.5,119.7L262.5,118.7L261.6,118.1L261.3,117.4L261.3,115.9L261.1,114.2L262.1,113.5L262.3,112.7L263.3,112.4L262.1,109.9L261.3,107.2L262.1,106L262.3,104.6L262.3,102.6L261.8,101.8L262.3,100.7L263.3,99.7L264.3,99.6L263,97.5L262.5,95.5L262.3,93.5L263.3,91.6L264,89.6L266.7,89.9L268.7,90.3L270.1,90.2L271.3,90.2L272.3,89.3L268.7,85.3L267.4,83.6L265.2,81.8L261.1,80.7L257.9,80.4L253.7,82.2L250.3,82.3L248.1,83.9L246.4,87.7L244.4,89.2L244.2,91.7L244.9,92.6L244.9,90.9L245.9,90.2L246.6,90.5L245.4,93.5L242.5,95.2L239.8,96.5L235.4,98.7L234.7,99.8L234.2,101.1L233.4,102.2L233,103.9L233,104.6L233.7,106.3L232.7,107.8L232,108.5L230.5,111.3L227.6,113.4L225.1,115.6L224.1,119.9L223.7,121.5L224.1,123.2L225.9,123.6L226.8,124.7L226.4,125.4L223.4,124.8L213.9,120.4L208.3,119.4L203.4,119.4L196.5,121.6L189.2,119.1L183.1,118.6L179.9,118.6L171.6,119.4L165.7,121.1L152.3,125.8L149.1,125.5L145.7,126.5L144.7,126.6L143.7,126.6L144.2,125.7L144.7,125.1L145.4,123.4L146.1,121.1L147.6,119.5L149.6,121.8L150.1,122.9L150.8,122.2L150.8,121.8L152,121.2L153,120.6L154,120.2L156.2,118.8L159.1,116.9L160.3,116.3L161.8,114.1L163,114.4L163,116L162.8,117.4L163.3,117.6L163.8,116.2L163.8,114.5L165.2,114.9L165.7,114.5L163.8,113.7L164.5,112.1L164.7,111.2L164.5,110.6L162.8,108.6L161.5,107.7L160.8,108.1L159.3,107.7L157.9,107.1L156.7,108.2L155.9,107.8L155.4,110.9L154.2,111.4L154.2,109.8L153.2,109.9L152.3,109.3L150.8,109.3L149.6,109.6L148.6,110.3L147.6,109.6L146.1,110.3L144.7,110L143.9,109.8L142.7,108.2L141,106.3L139.8,105.7L140,103.6L141.5,100.3L141.3,98.2L140.5,99.1L139.8,101.4L138.6,103.3L138.1,104.6L137.6,106.1L136.9,110.5L137.6,111.4L138.3,112.8L140,113.8L140.8,115.6L140.8,117L139.1,116.7L136.9,115.8L134.4,114.4L132.9,113.4L132.2,112.3L132,111L132.7,109.5L132.9,107.9L133.4,106.7L133.4,105.4L132.9,103.8L132,102.5L131,102.5L130.5,100.5L130.5,96.9L130.7,95.6L131.2,94.1L132,92.7L132.9,91.2L133.4,89.8L134.4,88.2L134.7,86L134.9,84.4L133.9,84.2L132.9,86.7L132.5,88.5L132,86.8L132,85.6L131,85.3L131.7,89.2L130,89.6L129.8,87.8L129,87.8L129,89.9L127.6,90.2L125.8,89.6L125.4,89.9L123.9,89.6L121,91.7L119.5,93.1L118.8,94.4L118.8,94.9L118.3,96.2L118.5,96.6L119.7,96.8L118.5,97.6L118.8,99.1L118,101.1L116.6,104L113.1,108.4L110.9,111.3L110.4,114.9L110,118.3L110.9,119.9L111.9,120.6L111.4,122.7L111.4,123.6L112.2,124.8L113.4,125.2L116.3,125.2L117.8,125.7L118.8,126.6L120.7,128.7L125.8,132.1L129.3,133.6L130,134.3L130.7,134L131.7,134L132.7,134.3L133.2,134.9L133.7,135.8L134.2,137.5L134.7,138.3L135.6,138.6L136.9,138.6L137.6,139.4L137.6,140.4L137.1,143.3L136.1,142.9L135.4,142.9L134.7,143.2L134.2,143.9L134.4,144.4L134.9,145L135.6,145.1L136.6,145.1L135.4,146.1L134.7,147.4L135.1,148.2L135.6,149.6L135.7,150L132.8,150L132.8,150L132.2,149L131,148.6L129.5,149L129.8,149.6L129.6,150L128.6,150L128.6,150L127.3,149L126.1,150L122.4,150L122.4,150L122.9,148.8L123.9,147.1L122.7,146.8L120.7,147.5L118.8,148.5L120,148.9L120,149.9L119.9,150L12.3,150L12.3,150L13.9,148.2L20.9,146.1L24.1,143.3L28.5,139L30.7,135.8L32.2,134.4L32.2,131.7L33.4,131.2L33.9,130.4L34.6,129.8L34.9,128.4L34.9,126.6L35.1,124.1L34.4,122L34.1,120.1L34.9,117.3L33.9,117.9L32.7,118.3L31.5,117.6L30,115.9L26.3,116.2L26.3,118.3L24.1,118.6L24.1,116.6L21.7,117.4L23.1,120.8L21.2,120.4L20.7,118.6L19.5,118.7L19.2,120.6L14.3,121.6L12.1,122.6L9.9,122.9L8,121.5L5.3,121.5L4.1,121.3L2.6,119.4L0.4,118.6L0,118.2L0,37.8ZM0,145.6L1.1,146.5L1.4,147.9L1.9,148.9L2.8,150L0,150ZM0,130.2L2.6,129L5.5,124.7L7,124.3L7,124.3L8.7,125.7L8.7,126.6L8,127.8L7,128.9L6.5,130.7L5.8,132.8L3.8,134.4L0.2,139.9L0,141.9L0,130.2ZM296.8,141.8L297.5,141.2L298.2,140.3L299,140L299,141.4L298.7,144L297.8,146.7L296.8,147.8L295.8,146.3L295.8,145.3L296.5,142.4ZM135.4,133.5L135.9,132.9L136.4,133L136.4,133.6L136.1,134.3L135.1,134.9L134.7,135.3L134.4,134.6L133.9,133.9ZM135.1,130.5L135.6,130L136.6,129.8L136.1,130.5L136.1,131.1L135.1,131.4L134.2,132.1L132.9,132.3L132.5,131.9ZM129,102.1L129.8,102.1L130.7,103.3L130.7,104.3L130,104.6L130,105.2L129.5,105.2ZM306.8,110L308.3,110.7L309,112L309.5,113.5L309.7,115.5L309.5,117.4L309.2,118.4L308.5,118.6L307,118.6L302.9,116.5L302.4,115.1L302.4,111.2L302.6,108.6L305.8,109.3Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><defs><marker id="ared2n360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="ared2t360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="ared2k360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="ared2g360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><circle cx="330.1" cy="34.4" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="330.1" y="38.4" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">1</text><circle cx="236.4" cy="93.5" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="236.4" y="97.5" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">2</text><circle cx="57.7" cy="91.0" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="57.7" y="95.0" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">3</text><circle cx="42.8" cy="117.5" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="42.8" y="121.5" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">4</text></svg><ol class="mapl"><li><i class="n">1</i>江戸<span class="pd">将軍秀忠</span></li><li><i class="n">2</i>駿府<span class="pd">大御所家康</span></li><li><i class="n">3</i>京都・二条城<span class="pd">1611 家康と秀頼の会見</span></li><li><i class="t">4</i>大坂城<span class="pd">豊臣秀頼</span></li></ol><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">位置はおおよそ。家康は1616年に駿府で亡くなり、久能山に葬られた後、日光に移された</p>
+</figure>
+<p>それでも、<span class="rb">大坂<span class="rt" aria-hidden="true">おおさか</span></span>城には秀吉の子の<span class="rb">豊臣秀頼<span class="rt" aria-hidden="true">とよとみひでより</span></span>がいた。豊臣家の領地は約65万石にすぎなかったが、秀吉に取り立てられた大名の中には、なお豊臣家を重んじる者も多かった。1611年、家康は京都の<span class="rb">二条城<span class="rt" aria-hidden="true">にじょうじょう</span></span>で秀頼と会見した。</p>
+<p>立派に成長した秀頼の姿を見た家康は、豊臣家の存在に危機感を強めたともいわれる。</p>
+<h2><span class="no">第2節</span>大坂冬の陣・夏の陣</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1614年、方広寺の鐘の文字が問題にされた</li><li>冬の陣の和睦で大坂城の堀が埋められた</li><li>1615年の夏の陣で大坂城は落ち、豊臣氏は滅んだ</li></ul></div>
+<p>1614年、豊臣家が再建した京都の<span class="rb">方広寺<span class="rt" aria-hidden="true">ほうこうじ</span></span>の大仏殿の鐘に刻まれた「<span class="rb">国家安康<span class="rt" aria-hidden="true">こっかあんこう</span></span>」「<span class="rb">君臣豊楽<span class="rt" aria-hidden="true">くんしんほうらく</span></span>」の文字を、家康は問題にした。家康の名を分断し、豊臣家の繁栄を願うものだというのである。これを方広寺<span class="rb">鐘銘<span class="rt" aria-hidden="true">しょうめい</span></span>事件という。両者の交渉は決裂し、豊臣方は各地の<span class="rb">浪人<span class="rt" aria-hidden="true">ろうにん</span></span>を大坂城に集めた。</p>
+<p>1614年冬、徳川方は約20万の大軍で大坂城を囲んだ(<span class="rb">大坂冬の陣<span class="rt" aria-hidden="true">おおさかふゆのじん</span></span>)。豊臣方は堅固な城に立てこもり、<span class="rb">真田信繁<span class="rt" aria-hidden="true">さなだのぶしげ</span></span>が城の南に築いた出城(<span class="rb">真田丸<span class="rt" aria-hidden="true">さなだまる</span></span>)などで徳川方を苦しめた。</p>
+<p>やがて和睦が結ばれたが、その条件として大坂城の堀は埋められた。翌1615年、再び戦いが始まると(<span class="rb">大坂夏の陣<span class="rt" aria-hidden="true">おおさかなつのじん</span></span>)、堀を失った大坂城は守りきれなかった。</p>
+<p>真田信繁らは家康の本陣に迫ったが討ち死にし、5月8日、秀頼と<span class="rb">淀殿<span class="rt" aria-hidden="true">よどどの</span></span>は自害して豊臣氏は滅んだ。</p>
+<figure><p class="figt"><span>図2-4</span>大坂冬の陣と夏の陣</p>
+<div class="flow"><div class="fs s"><em>1614年7月</em><b>方広寺鐘銘事件</b><span class="d">豊臣家が再建した方広寺の鐘の文字を、家康が問題にする</span></div><div class="fs t"><em>1614年11〜12月 冬の陣</em><b>徳川方約20万が大坂城を囲む</b><span class="d">豊臣方は浪人を集めて籠城。和睦の条件として堀が埋められる</span></div><div class="fs t"><em>1615年4〜5月 夏の陣</em><b>堀を失った大坂城で再び戦う</b><span class="d">真田信繁らが家康の本陣に迫るが、5月8日に城は落ちる</span></div><div class="fs dk"><b>秀頼と淀殿は自害し、豊臣氏は滅ぶ</b><span class="d">戦乱の時代の終わりを告げる「元和偃武」</span></div></div>
+</figure>
+<h2><span class="no">第3節</span>元和偃武と三つの法</h2>
+<div class="point"><b>この節のポイント</b><ul><li>戦乱の時代が終わり、「元和偃武」と呼ばれた</li><li>一国一城令で大名の城を一つにした</li><li>武家諸法度と禁中並公家諸法度で大名と朝廷を統制した</li></ul></div>
+<p><span class="rb">大坂の陣<span class="rt" aria-hidden="true">おおさかのじん</span></span>の後、元号は<span class="rb">元和<span class="rt" aria-hidden="true">げんな</span></span>と改められた。応仁の乱から150年近く続いた戦乱の時代は、ここで終わった。武器を収めて用いないという意味で、これを「<span class="rb">元和偃武<span class="rt" aria-hidden="true">げんなえんぶ</span></span>」という。</p>
+<p>1615年、幕府は大名を統制する決まりを次々に出した。まず<span class="rb">一国一城令<span class="rt" aria-hidden="true">いっこくいちじょうれい</span></span>で、大名の居城以外の城を壊させた。続いて<span class="rb">武家諸法度<span class="rt" aria-hidden="true">ぶけしょはっと</span></span>を定め、城を修理するときや大名どうしで結婚するときには幕府の許可を得ることなどを命じた。</p>
+<p>さらに<span class="rb">禁中並公家諸法度<span class="rt" aria-hidden="true">きんちゅうならびにくげしょはっと</span></span>を定め、天皇や公家の行動にも決まりを設けた。朝廷も、幕府の定めた枠の中に置かれたのである。</p>
+<figure><p class="figt"><span>図2-5</span>1615年に出された三つの法</p>
+<div class="card n" style="margin-bottom:10px"><div class="hd">大名と朝廷を縛る決まり</div><div class="bd"><div class="rows"><div><b>一国一城令</b><span>大名の居城以外の城を壊させ、一つの国に一つの城とする</span></div><div><b>武家諸法度</b><span>城の修理や大名どうしの結婚に幕府の許可を求めるなど、大名の守るべきことを定める</span></div><div><b>禁中並公家諸法度</b><span>天皇は学問を第一とすることなどを定め、朝廷や公家の行動を規制する</span></div></div></div></div>
+</figure>
+<h2><span class="no">第4節</span>家康の死と神となった家康</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1616年、家康は駿府で亡くなった</li><li>家康は神として東照宮にまつられた</li><li>幕府の基礎は、家康・秀忠のもとで固まった</li></ul></div>
+<p>大坂の陣の翌年の1616年、家康は駿府で75歳の生涯を閉じた。遺体はいったん<span class="rb">駿河<span class="rt" aria-hidden="true">するが</span></span>の<span class="rb">久能山<span class="rt" aria-hidden="true">くのうざん</span></span>に葬られ、翌年、<span class="rb">下野<span class="rt" aria-hidden="true">しもつけ</span></span>の日光に移されて、東照大権現という神としてまつられた。のちに家光が建て替えた<span class="rb">日光東照宮<span class="rt" aria-hidden="true">にっこうとうしょうぐう</span></span>は、豪華な装飾で知られる。</p>
+<p>家康の死後、秀忠は大名の<span class="rb">改易<span class="rt" aria-hidden="true">かいえき</span></span>を進め、朝廷への統制も強めていく。将軍の家が神をまつり、その権威で全国を治める ― 徳川の天下は、こうして形と心の両面から固められていった。</p>
+<section class="summary" aria-labelledby="pt"><h3 id="pt">この章の要点</h3><ul><li>家康は1605年に将軍職を秀忠に譲り、大御所として実権を握った。</li><li>1614年の方広寺鐘銘事件をきっかけに大坂冬の陣・夏の陣が起こり、1615年に豊臣氏は滅んだ。</li><li>1615年、一国一城令・武家諸法度・禁中並公家諸法度が出され、大名と朝廷が統制された。</li><li>家康は1616年に亡くなり、日光東照宮に神としてまつられた。</li></ul></section>
+<section class="column" aria-labelledby="col"><h3 id="col">コラム 真田「幸村」の本当の名前</h3>
+<p>大坂の陣で活躍した<span class="rb">真田<span class="rt" aria-hidden="true">さなだ</span></span>幸村は、江戸時代から今に至るまで人気の高い武将である。しかし、本人が「幸村」と名乗った確かな記録は見つかっていない。当時の手紙などから、本当の名は真田信繁であったことがわかっている。</p>
+<p>「幸村」の名は、江戸時代に書かれた軍記物や講談の中で広まったものと考えられている。強大な徳川に立ち向かって散った姿は、人々の心をとらえ、物語の中で英雄として語り継がれていった。</p>
+</section>
+<div class="navs"><a href="mb_ch1.html">← 第1章</a><a href="index.html">目次</a><a href="mb_ch3.html">第3章 →</a></div>
+</main>
+<footer>第2章 スマホ版 ・ 全8章のうちの1章</footer>
+</div>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('rubyBtn');
+  b.addEventListener('click',function(){
+    var off=document.body.classList.toggle('noruby');
+    b.textContent=off?'ふりがな:なし':'ふりがな:あり';
+    b.setAttribute('aria-pressed',off?'false':'true');
+    if(!off&&window.fitRuby)window.fitRuby();
+  });
+})();
+</script>
+</body>
+</html>

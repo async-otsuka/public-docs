@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>江戸幕府の確立 まとめ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style>.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+
+.cfig{background:#F7FAFD;border:1px solid #DCE4EE;border-radius:8px;padding:16px 18px}
+.ppl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ppl .pg{margin:0}
+.mapwrap{display:flex;gap:16px;align-items:flex-start}
+footer a{color:var(--navy)}
+.tlh{font-size:15px;color:var(--navy);margin:1.4em 0 .3em}
+</style><style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style><style>.figstatic{cursor:default}.figstatic:hover{border-color:#DCE4EE}</style></head>
+<body>
+<div class="page">
+<p class="series">江戸幕府の確立 解説資料</p>
+<article class="sheet">
+<div class="band">まとめ ・ 1603 ― 1716</div>
+<header class="ch">
+<h1>まとめ ― 年表・系図・各章の要点</h1>
+<p class="lead">江戸幕府の成立から吉宗の登場までの110年あまりをふりかえる</p>
+</header>
+<div class="body">
+<h2><span class="no">1</span>全体の年表</h2>
+<h3 class="tlh">第1章 江戸幕府の仕組み</h3><ol class="tl" aria-label="この章の年表"><li><span class="y">1600</span><span><span class="rb">関ヶ原<span class="rt" aria-hidden="true">せきがはら</span></span>の戦い</span></li><li class="hl"><span class="y">1603</span><span>家康が<span class="rb">征夷大将軍<span class="rt" aria-hidden="true">せいいたいしょうぐん</span></span>に</span></li><li><span class="y">1605</span><span>秀忠が2代将軍に、家康は<span class="rb">大御所<span class="rt" aria-hidden="true">おおごしょ</span></span>に</span></li><li class="k"><span class="y">1615</span><span><span class="rb">武家諸法度<span class="rt" aria-hidden="true">ぶけしょはっと</span></span>を定める</span></li><li><span class="y">1634</span><span><span class="rb">老中<span class="rt" aria-hidden="true">ろうじゅう</span></span>・<span class="rb">若年寄<span class="rt" aria-hidden="true">わかどしより</span></span>の職務を定める</span></li><li class="k"><span class="y">1635</span><span><span class="rb">寺社奉行<span class="rt" aria-hidden="true">じしゃぶぎょう</span></span>などの職制が整う</span></li></ol><h3 class="tlh">第2章 <span class="rb">大坂の陣<span class="rt" aria-hidden="true">おおさかのじん</span></span>と豊臣家の滅亡</h3><ol class="tl" aria-label="この章の年表"><li><span class="y">1605</span><span>秀忠が2代将軍に</span></li><li><span class="y">1611</span><span>家康と秀頼が<span class="rb">二条城<span class="rt" aria-hidden="true">にじょうじょう</span></span>で会見</span></li><li class="hl"><span class="y">1614</span><span><span class="rb">方広寺<span class="rt" aria-hidden="true">ほうこうじ</span></span><span class="rb">鐘銘<span class="rt" aria-hidden="true">しょうめい</span></span>事件、<span class="rb">大坂冬の陣<span class="rt" aria-hidden="true">おおさかふゆのじん</span></span></span></li><li class="hl"><span class="y">1615</span><span><span class="rb">大坂夏の陣<span class="rt" aria-hidden="true">おおさかなつのじん</span></span>、豊臣氏が滅ぶ</span></li><li class="k"><span class="y">1615</span><span><span class="rb">一国一城令<span class="rt" aria-hidden="true">いっこくいちじょうれい</span></span>・武家諸法度・<span class="rb">禁中並公家諸法度<span class="rt" aria-hidden="true">きんちゅうならびにくげしょはっと</span></span></span></li><li><span class="y">1616</span><span>家康が死去</span></li></ol><h3 class="tlh">第3章 家光と大名統制</h3><ol class="tl" aria-label="この章の年表"><li><span class="y">1619</span><span><span class="rb">福島正則<span class="rt" aria-hidden="true">ふくしままさのり</span></span>が<span class="rb">改易<span class="rt" aria-hidden="true">かいえき</span></span>される</span></li><li class="hl"><span class="y">1623</span><span>家光が3代将軍に</span></li><li class="k"><span class="y">1627</span><span><span class="rb">紫衣事件<span class="rt" aria-hidden="true">しえじけん</span></span></span></li><li><span class="y">1632</span><span>秀忠が死去、<span class="rb">加藤忠広<span class="rt" aria-hidden="true">かとうただひろ</span></span>が改易</span></li><li class="hl"><span class="y">1635</span><span>武家諸法度(<span class="rb">寛永<span class="rt" aria-hidden="true">かんえい</span></span>令)で<span class="rb">参勤交代<span class="rt" aria-hidden="true">さんきんこうたい</span></span>を制度に</span></li><li><span class="y">1651</span><span>家光が死去</span></li></ol><h3 class="tlh">第4章 禁教と「<span class="rb">鎖国<span class="rt" aria-hidden="true">さこく</span></span>」</h3><ol class="tl" aria-label="この章の年表"><li><span class="y">1609</span><span>オランダが<span class="rb">平戸<span class="rt" aria-hidden="true">ひらど</span></span>に商館を開く</span></li><li><span class="y">1612</span><span>幕府の直轄地に<span class="rb">禁教令<span class="rt" aria-hidden="true">きんきょうれい</span></span></span></li><li><span class="y">1624</span><span>スペイン船の来航を禁止</span></li><li class="hl"><span class="y">1635</span><span>日本人の海外渡航・帰国を禁止</span></li><li class="hl"><span class="y">1637</span><span><span class="rb">島原<span class="rt" aria-hidden="true">しまばら</span></span>・<span class="rb">天草<span class="rt" aria-hidden="true">あまくさ</span></span>一揆</span></li><li class="hl"><span class="y">1639</span><span>ポルトガル船の来航を禁止</span></li><li class="k"><span class="y">1641</span><span>オランダ商館を<span class="rb">出島<span class="rt" aria-hidden="true">でじま</span></span>に移す</span></li></ol><h3 class="tlh">第5章 村と町のくらし</h3><ol class="tl" aria-label="この章の年表"><li><span class="y">1640</span><span><span class="rb">宗門改<span class="rt" aria-hidden="true">しゅうもんあらため</span></span>の役職を置く</span></li><li class="hl"><span class="y">1643</span><span><span class="rb">田畑永代売買禁止令<span class="rt" aria-hidden="true">でんぱたえいたいばいばいきんしれい</span></span></span></li><li class="k"><span class="y">1649</span><span>「<span class="rb">慶安<span class="rt" aria-hidden="true">けいあん</span></span>の<span class="rb">御触書<span class="rt" aria-hidden="true">おふれがき</span></span>」とされる法令</span></li><li><span class="y">1657</span><span><span class="rb">明暦の大火<span class="rt" aria-hidden="true">めいれきのたいか</span></span>、江戸の町を再整備</span></li><li class="hl"><span class="y">1673</span><span><span class="rb">分地制限令<span class="rt" aria-hidden="true">ぶんちせいげんれい</span></span></span></li><li class="k"><span class="y">1700</span><span>このころ江戸の人口が100万人近くに</span></li></ol><h3 class="tlh">第6章 <span class="rb">武断政治<span class="rt" aria-hidden="true">ぶだんせいじ</span></span>から<span class="rb">文治政治<span class="rt" aria-hidden="true">ぶんちせいじ</span></span>へ</h3><ol class="tl" aria-label="この章の年表"><li class="hl"><span class="y">1651</span><span>家綱が4代将軍に、慶安の変</span></li><li><span class="y">1657</span><span>明暦の大火</span></li><li class="hl"><span class="y">1680</span><span>綱吉が5代将軍に</span></li><li class="k"><span class="y">1685</span><span><span class="rb">生類憐みの令<span class="rt" aria-hidden="true">しょうるいあわれみのれい</span></span>が出始める</span></li><li><span class="y">1695</span><span><span class="rb">元禄<span class="rt" aria-hidden="true">げんろく</span></span>の貨幣<span class="rb">改鋳<span class="rt" aria-hidden="true">かいちゅう</span></span></span></li><li class="hl"><span class="y">1709</span><span>綱吉が死去、家宣が6代将軍に</span></li><li class="k"><span class="y">1715</span><span><span class="rb">海舶互市新例<span class="rt" aria-hidden="true">かいはくごしししんれい</span></span></span></li><li><span class="y">1716</span><span>家継が死去、吉宗が8代将軍に</span></li></ol><h3 class="tlh">第7章 経済の発展</h3><ol class="tl" aria-label="この章の年表"><li><span class="y">1619</span><span><span class="rb">菱垣廻船<span class="rt" aria-hidden="true">ひがきかいせん</span></span>が始まる</span></li><li><span class="y">1636</span><span><span class="rb">寛永通宝<span class="rt" aria-hidden="true">かんえいつうほう</span></span>をつくり始める</span></li><li class="hl"><span class="y">1671</span><span><span class="rb">河村瑞賢<span class="rt" aria-hidden="true">かわむらずいけん</span></span>が東廻り航路を開く</span></li><li class="hl"><span class="y">1672</span><span>河村瑞賢が西廻り航路を整える</span></li><li class="k"><span class="y">1673</span><span><span class="rb">三井高利<span class="rt" aria-hidden="true">みついたかとし</span></span>が江戸に<span class="rb">越後屋<span class="rt" aria-hidden="true">えちごや</span></span>を開く</span></li><li class="k"><span class="y">1697</span><span><span class="rb">宮崎安貞<span class="rt" aria-hidden="true">みやざきやすさだ</span></span>『<span class="rb">農業全書<span class="rt" aria-hidden="true">のうぎょうぜんしょ</span></span>』</span></li></ol><h3 class="tlh">第8章 元禄文化</h3><ol class="tl" aria-label="この章の年表"><li><span class="y">1682</span><span><span class="rb">井原西鶴<span class="rt" aria-hidden="true">いはらさいかく</span></span>『好色一代男』</span></li><li class="k"><span class="y">1684</span><span><span class="rb">渋川春海<span class="rt" aria-hidden="true">しぶかわはるみ</span></span>の<span class="rb">貞享暦<span class="rt" aria-hidden="true">じょうきょうれき</span></span>、<span class="rb">竹本義太夫<span class="rt" aria-hidden="true">たけもとぎだゆう</span></span>が竹本座を開く</span></li><li class="hl"><span class="y">1689</span><span><span class="rb">松尾芭蕉<span class="rt" aria-hidden="true">まつおばしょう</span></span>が<span class="rb">奥の細道<span class="rt" aria-hidden="true">おくのほそみち</span></span>の旅に出る</span></li><li><span class="y">1690</span><span><span class="rb">湯島聖堂<span class="rt" aria-hidden="true">ゆしませいどう</span></span></span></li><li class="hl"><span class="y">1703</span><span><span class="rb">近松門左衛門<span class="rt" aria-hidden="true">ちかまつもんざえもん</span></span>『<span class="rb">曽根崎心中<span class="rt" aria-hidden="true">そねざきしんじゅう</span></span>』</span></li><li><span class="y">1715</span><span>近松門左衛門『<span class="rb">国性爺合戦<span class="rt" aria-hidden="true">こくせんやかっせん</span></span>』</span></li></ol><h2><span class="no">2</span>系図</h2>
+<figure><div class="cfig"><ul class="tree"><li><span class="sh">1</span>徳川家康<ul><li><span class="sh">2</span><span class="rb">徳川秀忠<span class="rt" aria-hidden="true">とくがわひでただ</span></span><ul><li><span class="sh">3</span><span class="rb">徳川家光<span class="rt" aria-hidden="true">とくがわいえみつ</span></span><ul><li><span class="sh">4</span><span class="rb">徳川家綱<span class="rt" aria-hidden="true">とくがわいえつな</span></span><small>11歳で将軍に</small></li><li>徳川<span class="rb">綱重<span class="rt" aria-hidden="true">つなしげ</span></span><small>甲府藩主</small><ul><li><span class="sh">6</span><span class="rb">徳川家宣<span class="rt" aria-hidden="true">とくがわいえのぶ</span></span><ul><li><span class="sh">7</span><span class="rb">徳川家継<span class="rt" aria-hidden="true">とくがわいえつぐ</span></span><small>8歳で死去</small></li></ul></li></ul></li><li><span class="sh">5</span><span class="rb">徳川綱吉<span class="rt" aria-hidden="true">とくがわつなよし</span></span><small>館林藩主から将軍に</small></li></ul></li></ul></li><li><span class="rb">徳川義直<span class="rt" aria-hidden="true">とくがわよしなお</span></span><small><span class="rb">尾張<span class="rt" aria-hidden="true">おわり</span></span>徳川家の祖</small></li><li><span class="rb">徳川頼宣<span class="rt" aria-hidden="true">とくがわよりのぶ</span></span><small><span class="rb">紀伊<span class="rt" aria-hidden="true">きい</span></span>徳川家の祖</small><ul><li><span class="rb">徳川光貞<span class="rt" aria-hidden="true">とくがわみつさだ</span></span><ul><li><span class="sh t">8</span><span class="rb">徳川吉宗<span class="rt" aria-hidden="true">とくがわよしむね</span></span><small>1716年 8代将軍に</small></li></ul></li></ul></li><li><span class="rb">徳川頼房<span class="rt" aria-hidden="true">とくがわよりふさ</span></span><small>水戸徳川家の祖</small><ul><li><span class="rb">徳川光圀<span class="rt" aria-hidden="true">とくがわみつくに</span></span><small>『<span class="rb">大日本史<span class="rt" aria-hidden="true">だいにほんし</span></span>』の編さんを始める</small></li></ul></li></ul></li></ul><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">数字は将軍の代。義直・頼宣・頼房は家康の子で、<span class="rb">御三家<span class="rt" aria-hidden="true">ごさんけ</span></span>の祖</p></div><figcaption><span><b>図M-1</b>徳川<span class="rb">将軍家<span class="rt" aria-hidden="true">しょうぐんけ</span></span>と御三家</span></figcaption></figure>
+<h2><span class="no">3</span>各章の要点</h2>
+<ul class="chs"><li><a href="pc_ch1.html">第1章 江戸幕府の仕組み</a><ul><li>江戸幕府は広い直轄地と重要な都市・鉱山を押さえ、将軍が幕府、大名が藩を治める<span class="rb">幕藩体制<span class="rt" aria-hidden="true">ばくはんたいせい</span></span>をつくった。</li><li>大名は<span class="rb">親藩<span class="rt" aria-hidden="true">しんぱん</span></span>・<span class="rb">譜代<span class="rt" aria-hidden="true">ふだい</span></span>・<span class="rb">外様<span class="rt" aria-hidden="true">とざま</span></span>に分けられ、重要な土地には親藩や譜代、外様は遠い地域に置かれることが多かった。</li><li>老中を中心に、若年寄・<span class="rb">大目付<span class="rt" aria-hidden="true">おおめつけ</span></span>・三奉行などの役職が家光のころまでに整えられた。</li><li>一つの役職に複数の人を置く<span class="rb">月番<span class="rt" aria-hidden="true">つきばん</span></span>制など、権力が一人に集まらない工夫がされた。</li></ul></li><li><a href="pc_ch2.html">第2章 大坂の陣と豊臣家の滅亡</a><ul><li>家康は1605年に将軍職を秀忠に譲り、大御所として実権を握った。</li><li>1614年の方広寺鐘銘事件をきっかけに大坂冬の陣・夏の陣が起こり、1615年に豊臣氏は滅んだ。</li><li>1615年、一国一城令・武家諸法度・禁中並公家諸法度が出され、大名と朝廷が統制された。</li><li>家康は1616年に亡くなり、<span class="rb">日光東照宮<span class="rt" aria-hidden="true">にっこうとうしょうぐう</span></span>に神としてまつられた。</li></ul></li><li><a href="pc_ch3.html">第3章 家光と大名統制</a><ul><li>秀忠・家光は法度違反や跡継ぎがいないことなどを理由に多くの大名を改易し、その数は100家を超えた。</li><li>家光は1623年に3代将軍となり、秀忠の死後は自ら政治を行って幕府の仕組みを整えた。</li><li>1635年の武家諸法度(寛永令)で参勤交代が制度となり、大名は1年おきに江戸と<span class="rb">国元<span class="rt" aria-hidden="true">くにもと</span></span>を行き来した。</li><li>紫衣事件で、幕府は天皇の許可を取り消させ、朝廷への統制を強めた。</li></ul></li><li><a href="pc_ch4.html">第4章 禁教と「鎖国」</a><ul><li>家康は<span class="rb">朱印船<span class="rt" aria-hidden="true">しゅいんせん</span></span>貿易を進め、オランダ・イギリスにも貿易を認めたが、1612〜1613年にキリスト教を禁じた。</li><li><span class="rb">絵踏<span class="rt" aria-hidden="true">えぶみ</span></span>や<span class="rb">寺請制度<span class="rt" aria-hidden="true">てらうけせいど</span></span>によって、信者を見つけ出し、すべての人を寺に属させた。</li><li>1637年の島原・天草一揆は、重い年貢とキリシタンへの取り締まりが原因で、幕府の大軍によって鎮圧された。</li><li>1639年にポルトガル船を禁じ、1641年にオランダ商館を出島に移したが、長崎・<span class="rb">対馬<span class="rt" aria-hidden="true">つしま</span></span>・<span class="rb">薩摩<span class="rt" aria-hidden="true">さつま</span></span>・<span class="rb">松前<span class="rt" aria-hidden="true">まつまえ</span></span>の「四つの口」で外とつながっていた。</li></ul></li><li><a href="pc_ch5.html">第5章 村と町のくらし</a><ul><li>人々は武士・百姓・町人などの身分に分けられ、人口の大半は百姓だった。厳しい差別を受けた人々もいた。</li><li>村は<span class="rb">村方三役<span class="rt" aria-hidden="true">むらかたさんやく</span></span>を中心に自治を行い、年貢は村がまとめて納めた。<span class="rb">五人組<span class="rt" aria-hidden="true">ごにんぐみ</span></span>で連帯責任を負わせた。</li><li>幕府は田畑永代売買禁止令や分地制限令で、年貢を納める<span class="rb">本百姓<span class="rt" aria-hidden="true">ほんびゃくしょう</span></span>の経営を守ろうとした。</li><li>城下町は身分ごとに住む場所が分けられ、町人は町ごとに自治を行った。</li></ul></li><li><a href="pc_ch6.html">第6章 武断政治から文治政治へ</a><ul><li>家綱の時代、慶安の変をきっかけに<span class="rb">末期養子<span class="rt" aria-hidden="true">まつごようし</span></span>の禁止がゆるめられ、武断政治から文治政治への転換が進んだ。</li><li>1657年の明暦の大火の後、江戸の町は火事に強い町へとつくり直された。</li><li>綱吉は儒学を重んじて湯島聖堂を建て、生類憐みの令を出した。元禄の貨幣改鋳で物価が上がった。</li><li><span class="rb">新井白石<span class="rt" aria-hidden="true">あらいはくせき</span></span>は<span class="rb">正徳<span class="rt" aria-hidden="true">しょうとく</span></span>の治で貨幣の質を戻し、海舶互市新例で長崎貿易を制限した。1716年に吉宗が8代将軍となった。</li></ul></li><li><a href="pc_ch7.html">第7章 経済の発展</a><ul><li><span class="rb">新田開発<span class="rt" aria-hidden="true">しんでんかいはつ</span></span>で耕地は約2倍に増え、農具や肥料の改良、商品作物の栽培が進んだ。</li><li><span class="rb">五街道<span class="rt" aria-hidden="true">ごかいどう</span></span>が整えられ、河村瑞賢が東廻り・西廻り航路を開いて、全国の物流が発達した。</li><li>江戸・<span class="rb">大坂<span class="rt" aria-hidden="true">おおさか</span></span>・京都の三都が栄え、大坂は「天下の台所」と呼ばれた。</li><li>金・銀・銭の貨幣が使われ、<span class="rb">両替商<span class="rt" aria-hidden="true">りょうがえしょう</span></span>や三井高利のような大商人が力をつけた。</li></ul></li><li><a href="pc_ch8.html">第8章 元禄文化</a><ul><li>元禄文化は、<span class="rb">上方<span class="rt" aria-hidden="true">かみがた</span></span>の豊かな町人が担い手となり、現実の暮らしや人の心を描いたところに特徴がある。</li><li>井原西鶴は<span class="rb">浮世草子<span class="rt" aria-hidden="true">うきよぞうし</span></span>で町人の姿を描き、松尾芭蕉は俳諧を芸術に高めて『おくのほそ道』を著した。</li><li>近松門左衛門の脚本による<span class="rb">人形浄瑠璃<span class="rt" aria-hidden="true">にんぎょうじょうるり</span></span>や、歌舞伎が町人の娯楽として栄えた。</li><li><span class="rb">尾形光琳<span class="rt" aria-hidden="true">おがたこうりん</span></span>の屏風絵や<span class="rb">菱川師宣<span class="rt" aria-hidden="true">ひしかわもろのぶ</span></span>の浮世絵が生まれ、儒学・歴史・和算・暦学などの学問も発達した。</li></ul></li></ul></div>
+</article>
+<div class="navs"><a href="pc_ch8.html">← 第8章</a><a href="index.html">目次</a></div>
+<footer>まとめ</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn-zoom').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>

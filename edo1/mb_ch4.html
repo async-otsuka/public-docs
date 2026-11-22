@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>江戸幕府の確立 第4章(スマホ版)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* スマホ優先の1カラム。カード枠をやめて画面幅を本文に使う。図は縦長に組み直す */
+  --paper:#FFFFFF; --ink:#1E2A3A; --sub:#5A6878; --navy:#1F4E8C; --teal:#2F7F86;
+  --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#D6E4F3;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.85;-webkit-text-size-adjust:100%}
+.wrap{max-width:520px;margin:0 auto}
+.topbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 20px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);font-size:13px;color:var(--sub)}
+.topbar button{font:inherit;font-size:13px;color:var(--navy);background:var(--sky);border:0;border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.topbar button:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+header.ch{background:var(--navy);color:#fff;padding:22px 20px 20px}
+header.ch .eyebrow{font-size:13px;letter-spacing:.15em;opacity:.85;margin:0 0 6px}
+header.ch h1{font-size:25px;line-height:1.4;font-weight:700;margin:0;text-wrap:balance}
+header.ch .lead{font-size:14.5px;line-height:1.7;margin:8px 0 0;opacity:.9}
+main{padding:0 20px 40px}
+h2{font-size:20px;line-height:1.5;font-weight:700;margin:40px 0 14px;padding-left:12px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{display:block;font-size:13px;color:var(--navy);font-weight:500}
+p{margin:0 0 1.15em}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.32em;transform:translateX(-50%);font-size:.5em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;letter-spacing:0;pointer-events:none}
+body.noruby .rt{display:none}
+.tl{list-style:none;margin:20px 0 0 6px;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:8px;padding:5px 0 5px 16px;font-size:15px;line-height:1.6}
+.tl li::before{content:"";position:absolute;left:-7px;top:12px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--navy)}
+.tl li.k::before{border-color:var(--teal)}
+.tl li.hl{font-weight:700}
+.tl li.hl::before{background:var(--navy)}
+.tl .y{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.tl li.k .y{color:var(--teal)}
+.tlnote{display:flex;gap:16px;font-size:12.5px;color:var(--sub);margin:8px 0 0 6px}
+.tlnote span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid var(--navy);margin-right:5px;vertical-align:-1px}
+.tlnote span.k::before{border-color:var(--teal)}
+.point{background:var(--sky);border-radius:10px;padding:14px 16px;margin:0 0 22px;font-size:15px;line-height:1.7}
+.point b{display:block;color:var(--navy);font-size:13px;margin-bottom:4px}
+.point ul{margin:0;padding-left:1.2em}
+figure{margin:26px -20px 28px;padding:16px 20px 12px;background:#F7FAFD;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+figure svg{display:block;width:100%;height:auto}
+.figt{font-size:15px;font-weight:700;margin:0 0 12px;line-height:1.5}
+.figt span{color:var(--navy);margin-right:8px}
+.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.back{margin-top:10px;font-size:14px;font-weight:700;color:var(--teal);display:flex;gap:6px;align-items:center}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+.summary{background:var(--sky);border-radius:10px;padding:16px 18px 10px;margin:36px 0 18px}
+.summary h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy)}
+.summary ul{margin:0;padding-left:1.2em;font-size:16px}
+.summary li{margin:0 0 .5em}
+.column{border:1.5px dashed #9AAABB;border-radius:10px;padding:16px 18px 4px;margin:18px 0 0}
+.column h3{color:var(--teal)}
+.column figure{margin:16px -18px 16px}
+footer{font-size:12.5px;color:var(--sub);text-align:center;padding:0 20px 40px}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+.tlh{font-size:15px;color:var(--navy);margin:1.6em 0 .2em}
+</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style></head>
+<body>
+<div class="wrap">
+<div class="topbar"><span>江戸幕府の確立 解説資料</span><button type="button" id="rubyBtn" aria-pressed="true">ふりがな:あり</button></div>
+<header class="ch">
+<p class="eyebrow">第四章 ・ 1600 ― 1641</p>
+<h1>禁教と「鎖国」</h1>
+<p class="lead">キリスト教を禁じ、外国との行き来を幕府の管理のもとに置いた</p>
+</header>
+<main>
+<ol class="tl" aria-label="この章の年表"><li><span class="y">1609</span><span>オランダが平戸に商館を開く</span></li><li><span class="y">1612</span><span>幕府の直轄地に禁教令</span></li><li><span class="y">1624</span><span>スペイン船の来航を禁止</span></li><li class="hl"><span class="y">1635</span><span>日本人の海外渡航・帰国を禁止</span></li><li class="hl"><span class="y">1637</span><span>島原・天草一揆</span></li><li class="hl"><span class="y">1639</span><span>ポルトガル船の来航を禁止</span></li><li class="k"><span class="y">1641</span><span>オランダ商館を出島に移す</span></li></ol>
+<figure><p class="figt"><span>図4-2</span>この章の登場人物</p>
+<div class="ppl"><div class="pg n"><h4>貿易と外交</h4><ul><li><b>ウィリアム・アダムズ</b><span class="pd">イギリス人の航海士。1600年にオランダ船で漂着し、家康の外交顧問となる</span></li><li><b><span class="rb">山田長政<span class="rt" aria-hidden="true">やまだながまさ</span></span></b><span class="pd">タイのアユタヤの日本町で活躍した人物</span></li></ul></div><div class="pg t"><h4>禁教と一揆</h4><ul><li><b><span class="rb">高山右近<span class="rt" aria-hidden="true">たかやまうこん</span></span></b><span class="pd">キリシタン大名。1614年にマニラへ追放された</span></li><li><b><span class="rb">天草四郎<span class="rt" aria-hidden="true">あまくさしろう</span></span>(<span class="rb">益田時貞<span class="rt" aria-hidden="true">ますだときさだ</span></span>)</b><span class="pd">島原・天草一揆の総大将とされる少年</span></li><li><b><span class="rb">松倉勝家<span class="rt" aria-hidden="true">まつくらかついえ</span></span></b><span class="pd">島原の領主。重い年貢と厳しい取り締まりで一揆を招いた</span></li></ul></div></div>
+</figure>
+<h2><span class="no">第1節</span>開かれた海 ― 家康の外交</h2>
+<div class="point"><b>この節のポイント</b><ul><li>家康は海外との貿易を積極的に進めた</li><li>朱印船が東南アジアに渡り、各地に日本町ができた</li><li>オランダ・イギリスも平戸に商館を開いた</li></ul></div>
+<p>江戸幕府の初めのころ、家康は海外との貿易に積極的だった。1600年に<span class="rb">豊後<span class="rt" aria-hidden="true">ぶんご</span></span>に流れ着いたオランダ船リーフデ号のイギリス人航海士ウィリアム・アダムズを外交の顧問とし、オランダやイギリスにも貿易を認めた。両国は<span class="rb">肥前<span class="rt" aria-hidden="true">ひぜん</span></span>の<span class="rb">平戸<span class="rt" aria-hidden="true">ひらど</span></span>に商館を開いた。</p>
+<p>家康は、海外に渡る商人に<span class="rb">朱印状<span class="rt" aria-hidden="true">しゅいんじょう</span></span>という許可証を与えた。朱印状をもつ<span class="rb">朱印船<span class="rt" aria-hidden="true">しゅいんせん</span></span>は東南アジア各地に渡り、ベトナムやタイなどには日本人が住む<span class="rb">日本町<span class="rt" aria-hidden="true">にほんまち</span></span>ができた。</p>
+<p>タイのアユタヤの日本町では、<span class="rb">山田長政<span class="rt" aria-hidden="true">やまだながまさ</span></span>が国王に重く用いられたと伝えられる。</p>
+<h2><span class="no">第2節</span>禁教令とキリスト教の取り締まり</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1612〜1613年、幕府はキリスト教を禁じた</li><li>宣教師や信者は国外に追放されたり処刑されたりした</li><li>絵踏や寺請制度で、信者を見つけ出そうとした</li></ul></div>
+<p>その一方で、幕府はキリスト教への警戒を強めていった。信者が神のもとで団結し、幕府や大名の命令よりも信仰を重んじることを恐れたのである。1612年に幕府の直轄地で、翌年には全国でキリスト教を禁じた(<span class="rb">禁教令<span class="rt" aria-hidden="true">きんきょうれい</span></span>)。</p>
+<p>1614年には、<span class="rb">高山右近<span class="rt" aria-hidden="true">たかやまうこん</span></span>ら多くの信者がマニラなどへ追放された。1622年には長崎で宣教師や信者55人が処刑された(<span class="rb">元和の大殉教<span class="rt" aria-hidden="true">げんなのだいじゅんきょう</span></span>)。</p>
+<p>幕府や藩は、キリストや聖母マリアの像を踏ませて信者を見つけ出す<span class="rb">絵踏<span class="rt" aria-hidden="true">えぶみ</span></span>を行った。また、すべての人を寺に属させ、キリシタンでないことを寺に証明させる<span class="rb">寺請制度<span class="rt" aria-hidden="true">てらうけせいど</span></span>をつくった。こうして寺は、人々を管理する役割も担うようになった。</p>
+<h2><span class="no">第3節</span>島原・天草一揆</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1637年、島原と天草の人々が一揆を起こした</li><li>原因は重い年貢とキリシタンへの厳しい取り締まりだった</li><li>幕府は12万以上の大軍で原城を攻め落とした</li></ul></div>
+<p>1637年、肥前の<span class="rb">島原<span class="rt" aria-hidden="true">しまばら</span></span>と<span class="rb">肥後<span class="rt" aria-hidden="true">ひご</span></span>の<span class="rb">天草<span class="rt" aria-hidden="true">あまくさ</span></span>で、大規模な一揆が起こった。島原の領主松倉氏と天草の領主<span class="rb">寺沢<span class="rt" aria-hidden="true">てらざわ</span></span>氏は、重い年貢を取り立て、キリシタンを厳しく取り締まっていた。</p>
+<p>そこに<span class="rb">飢饉<span class="rt" aria-hidden="true">ききん</span></span>が重なり、追い詰められた人々が立ち上がったのである。一揆の人々は、<span class="rb">天草四郎<span class="rt" aria-hidden="true">あまくさしろう</span></span>(<span class="rb">益田時貞<span class="rt" aria-hidden="true">ますだときさだ</span></span>)という少年を総大将とし、島原半島の<span class="rb">原城<span class="rt" aria-hidden="true">はらじょう</span></span>跡に立てこもった。</p>
+<figure><p class="figt"><span>図4-3</span>「四つの口」― 開かれていた窓口</p>
+<svg viewBox="0 0 360 398" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>「四つの口」― 開かれていた窓口</title><desc>「四つの口」を通じて、日本は外の世界とつながり続けた。位置はおおよそ</desc><rect width="360" height="398" fill="#EAF2FB"/><path d="M299.2,0L306.2,8L310.6,14.5L313.3,17.6L319.3,23.4L324.8,27L327.3,29.2L327.3,29.2L331.5,29.6L337.2,32.7L342,32.9L350.1,24.7L350.3,26.9L346.9,34.4L346.5,36.6L350.1,46.2L352.3,46.6L355.1,44.4L357.5,44.4L354.3,46.4L352.6,48.8L350.2,48.7L345.4,51.7L339.4,53.4L333,52.9L329.6,54.8L323.7,60.6L320.5,66.1L319.7,71L318.5,72.7L316.7,72.3L313.6,70.3L307.6,67.5L297.8,61L291.1,61.6L284.8,65.8L280.6,61.5L277.2,61.4L275.8,62.8L274.8,65.9L276.3,68.6L278.6,70.3L281,70.4L287.3,76.6L285,78L279.9,76.4L277.3,79.3L275.8,82.4L272.2,84.3L270.5,83.3L269.9,81.2L271.6,74.5L270.9,71.3L268.4,68.9L267.3,64.9L268.4,59.5L271.7,57.8L276.5,53.3L277.3,51.3L275.9,48.9L275.9,46.1L277.3,45.4L281.7,47.9L287.1,48.7L289.4,48.3L291.2,44.5L291,39.1L291.7,36.9L294,33.4L294.7,31.3L294.9,26.2L296.4,21.6L296.7,16.7L295.8,11.9L293.8,7.3L295,2.1L297.4,1.3L298.8,0L299.2,0ZM288.4,85.3L291.8,84.7L291,90.8L291.4,98.2L291.9,100.4L294.7,103.2L296.9,106.7L299.9,116.5L299.6,123.6L298.5,129.8L294.9,132.4L293.2,136.5L292,143.4L286.6,144.6L284.4,148.2L283.9,152L285.1,156.8L285.6,161.2L284.5,169.9L281.9,172.8L279.4,179.3L278.6,184.4L279.3,187.5L281.4,191.5L283.1,193.7L279.6,194.9L276.9,197.7L276.3,202.2L275.3,203.8L270.9,206.4L268.8,208.9L267,207.9L267.6,206.9L267.4,201.6L271.3,197.1L269.8,194.8L267.5,195L266.5,198L264.8,199.5L266.2,202.4L264.5,204.5L262.1,201.6L258.8,202L256.7,205.3L256.8,207.9L255.3,211.9L253.5,213.9L251.4,212.6L252,207.5L253.5,206.6L250.8,204.8L248.7,205.5L245.2,209.9L242.8,214.5L239.7,213.6L233.2,213.2L225.9,214.7L229.3,212.5L229.1,211.2L225.5,211.3L223.3,210.6L222.8,206L220.4,207.3L218,212.9L219.2,214.6L223.2,217.4L222.8,219.4L218.2,220.6L215,222.1L208.8,233.2L205.4,234.5L201.8,233.3L200.2,230.3L197.6,227.1L196.9,225.1L196.5,220L199,218.4L200.8,216.2L201.3,214L200.3,213.4L195.6,213.8L191.1,211.3L188.8,211.3L183.1,212.6L179.5,215.7L171.7,217.4L167.1,219.8L165.3,219.3L159.8,220.8L156.3,218.9L154.7,219.4L153.6,221.1L152.2,228.2L146.1,224.3L142.1,224.9L138.5,226.2L136.1,224.9L133.8,225.7L133.3,220.5L135.1,218.1L140.3,217.8L144.1,214.1L147.9,212.1L151,208.9L153.9,206.6L159.3,201.4L160.5,199.4L163.8,197.7L169,196.9L170.6,198.6L174.3,197.7L177.9,198L183.2,197.1L186.8,195.5L193.2,194.9L197.6,193.3L199,193.8L198.5,196.2L199.9,197.4L205.2,197.8L208.5,195.9L211.4,192.9L210.1,188.8L212.3,184.5L215.4,181.9L220.5,174.8L221.2,170.9L220.8,166.3L222.6,162.8L229.8,160.1L230,161.7L227.3,164.7L223.9,166.7L224.9,169.5L225.2,173L226.9,174.2L230.1,174.3L232.7,170.9L238.7,168.8L244.8,165.9L248.2,162.6L250.6,159.4L253.3,154L258.7,150.9L261,148.4L262.2,143.5L263.7,139.6L267,134.2L268.7,127.5L270.5,123.9L270.8,117.4L269.2,114.7L266.1,114L268.6,112L270.2,106.3L268.9,100.7L270.4,98L272.2,97.7L274.2,95.8L275.1,92.6L274.8,89.5L275.8,88.2L279.4,88.8L280.2,94.8L282,96L284,93.9L286.8,95.1L287.8,94.3L289,90.7L288,87.9L282,90L282.9,84.3L284,82.7L286.6,83.6ZM185.4,220.6L189.5,221.2L189.5,224.5L191.1,228.5L188.2,230.2L185.7,232.3L183.7,235.4L182.7,238.8L179.4,235.2L177.8,234.4L174.5,234.1L169.3,236.8L166.5,242.8L165.2,243.5L164.6,246.1L163,247.7L159.6,247.5L160.6,245L157.4,244.7L156.4,242.2L157.7,238L156.1,237.3L156.2,235.5L151.3,237.2L159.6,230.9L161.8,225.4L164.9,223.7L167,226.6L173.7,224.9L174.6,222.8L174,220.9L175.6,221L179.2,219L181.1,218.8ZM137.6,232.4L141.3,232.8L143.7,231.5L145.4,232.4L145.6,234.3L143,238.3L148.4,238.7L147.7,241.1L149.3,242.4L148.7,243.7L150.1,244.7L149.6,246L146,250.5L143.5,257.1L141.9,263.1L141.9,266.9L140.1,271.5L136.1,271L135.5,272L136.5,274.2L133.5,276.7L130.3,278.4L131.9,273.9L130.6,268.5L131.7,268L131.7,266.2L129.8,266L127.9,270.6L129.7,273.9L128.8,275.5L123,273.5L122.2,271.5L124.4,270.7L124.8,268.1L122.8,265.1L123.2,263.7L122.9,259.4L124.8,258.5L127,255.7L129.6,250.1L127.5,249.4L128.5,248L128.2,246.3L125.7,241.6L123.6,240.1L121.9,241.4L122.6,245.9L124.9,245.9L125.1,248.6L123.7,249L120.8,247.3L116.5,250.9L117.4,248.1L115.3,245.5L115.2,242.2L117.4,245.2L119.9,245.9L118.5,242.8L113.7,239L114.9,236.7L117.7,237.5L117.4,235.4L121.1,233.9L122.5,232.5L125.5,231.9L127.3,228.2L130.7,226.6L134.3,227.6L135.9,231.2ZM229,0L227.2,2.3L222,7L216.9,14.4L213.8,17.7L212.1,21.4L208.1,23.9L203,32.3L202.2,35.1L198.9,38.2L197,41.5L190.4,46.4L182.4,51.5L180.1,53.4L175.7,55.9L173.8,55.9L167.4,58.6L165,56.3L163,56.6L160.6,54.9L157.2,54.2L154.5,54.8L155,47.4L154.7,45.9L150.4,49.9L148,50.4L150.2,46.6L146.9,47.1L142.7,52.4L140.9,56L139.4,57L137.4,60L130.6,59.4L132.5,62.1L130.9,66.1L129.5,67.2L126.8,66.6L123.6,69L121,71.8L118.2,76.6L116.4,78.5L115.2,82.9L116.5,86.7L115.7,90.3L116.2,94.1L115.6,95.6L110.1,98.2L106.6,102.8L102.7,105.4L100.5,106.2L99.1,108.6L94.6,111.8L89.5,112.5L88,114.5L83.5,116.7L82.9,118.4L83.2,123L80.7,126.2L80.9,127.9L86.8,130.3L89.6,133.9L93.7,136.8L95.6,139.2L99.3,147.7L102.8,153.2L105.8,157.2L110.1,164.8L111.3,168.9L112.1,174.8L111.5,176.8L111.7,179.9L110.9,182.6L111.1,187.7L111.9,188.5L113.6,187.7L113.5,189.6L111.3,197.9L108.2,203.7L104.7,205.2L99.6,204.9L97.7,205.2L96.3,206.8L96.7,209.4L91.4,208.3L90.6,206.6L85.7,207.9L84.6,209.1L86.1,211L84.5,212.7L82.8,210L81.1,210.3L80.8,211.8L82.2,213.9L79.9,216.9L77.6,215.4L78.9,213.2L78.7,211.5L75.4,214.3L73.4,217.3L71.3,216L69.2,218L68.7,219.5L67.6,218.9L67.2,216.3L64,213L64.5,212.2L67.9,212.6L67.1,211.5L68.9,210.3L66.3,210.3L64.4,204.2L65.4,203.1L67.4,197.8L69.2,196.6L67.3,195.2L70.7,192.9L71.3,191L69.7,190.1L70.4,188.4L68.1,185.5L68.2,179.8L67.3,175.7L65.8,176.5L62.7,175.8L63.2,172.4L65.3,170.8L68.7,169.6L71.8,171L72.6,172.9L74.4,171.7L73.1,170.4L71.2,166.4L71.9,164.4L69.8,161.5L69.9,159.6L68.5,156.4L69.5,155.2L65.6,153.4L63.1,154.3L61.8,156L60.7,153.5L59.1,153.5L56.5,151.3L55.4,151.8L53.7,154.6L50.4,156.3L49.7,154L44.8,152.4L48.7,150L47.5,149.3L44.9,149.6L40.4,148.6L43.1,146.6L43.2,144.5L46,140.4L49.6,138.4L53.3,138L51.4,136.8L49.5,136.9L47.5,135.7L47.4,134.4L51.1,126.3L50.4,121.7L46.5,120.5L41.6,117.2L41,119.2L39.6,120L38.3,116.6L35.2,114.3L35.3,112.2L34,114L31.6,115.6L26.4,115.9L24.8,114.8L23.7,116.6L20.2,117.1L18.4,118.6L15.5,118.8L12.6,120.3L5,124.8L1.8,129L0,130.4L0,109.4L0,109.4L2.9,105.4L4.1,101.8L2.1,98.9L0,97.4L0,0ZM0,161L0.9,160L5.1,162.4L9,161.9L10,162.4L8.6,164L8.8,166.6L6.7,168.7L7.8,171L5.1,173.1L3.6,172.8L2.4,170.8L0,170.7L0,161ZM360,28.2L358.7,29.5L356.5,32.9L353.8,34.9L353.3,38.7L351.6,37.1L351.9,34.4L355,31.7L359.1,26L360,24.3L360,28.2ZM93.9,353.1L91.9,354.8L88,356.6L88.6,358.5L86.8,359.7L87,361.5L84.8,362.4L85.9,358.9L85.9,356.8L86.9,356.5L89.2,354.1L88.6,352.4L90.7,353.3L93.3,350.7L93.9,349.2L95,350.4ZM111.8,326.8L110.5,328.2L107.5,326.1L109.8,324.2L112.6,323.6L115.3,321.5L114.6,323.3L111.6,326ZM134.4,289.2L133.1,289.3L134.2,284.4L135.2,282.3L136.2,282.3L135.9,284.9ZM121.2,257L120,257.6L119.7,254.9L120.1,251.8L122.5,251.4L123,255ZM245.2,154.4L244.2,153.8L244.8,151.2L243.7,151.2L244.6,148L247.5,145L246.8,149.6L248.6,149.8L247.4,152.9ZM194,220L192.3,221.6L190.9,221.5L190,219.9L192.5,216.7L195,215.4L193.6,218.1ZM91,210.6L90.8,212.4L89.2,211.3L88.1,211.9L87.5,209.3L88.7,208.5L90.6,209.3ZM64.9,239.2L63.6,239.4L62.5,237.7L65.1,235L70.4,233.4L73.5,234L74,235.3L73.1,237.2L68.7,239ZM0,293.6L1.7,293.6L4.9,295.5L4.4,296.7L4.4,296.7L0.4,295.8L0,294.8L0,293.6Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><text x="79.5" y="154.9" text-anchor="middle" style="font-size:13.6px;font-weight:700;letter-spacing:.2em" fill="#9AA6B4">朝鮮</text><text x="22.5" y="278.6" text-anchor="middle" style="font-size:13.6px;font-weight:700;letter-spacing:.2em" fill="#9AA6B4">中国</text><text x="319.5" y="44.1" text-anchor="middle" style="font-size:11.9px;font-weight:700;letter-spacing:.2em" fill="#9AA6B4">蝦夷地</text><defs><marker id="ared4n360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="ared4t360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="ared4k360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="ared4g360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><path d="M107.6,211.9 Q106.0,212.1 107.5,211.3" fill="none" stroke="#2F7F86" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ared4t360)"/><path d="M88.2,354.2 Q117.9,319.5 125.4,274.4" fill="none" stroke="#2F7F86" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ared4t360)"/><line x1="118" y1="247.7" x2="118.0" y2="227.7" stroke="#1F4E8C" stroke-width="1.2"/><circle cx="118" cy="247.7" r="3" fill="#1F4E8C"/><circle cx="118.0" cy="227.7" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="118.0" y="231.7" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">1</text><line x1="109.5" y1="218" x2="119.5" y2="200.7" stroke="#1F4E8C" stroke-width="1.2"/><circle cx="109.5" cy="218" r="3" fill="#1F4E8C"/><circle cx="119.5" cy="200.7" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="119.5" y="204.7" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">2</text><line x1="105.6" y1="205.2" x2="105.6" y2="185.2" stroke="#5A6878" stroke-width="1.2"/><circle cx="105.6" cy="205.2" r="3" fill="#5A6878"/><circle cx="105.6" cy="185.2" r="9" fill="#5A6878" stroke="#fff" stroke-width="1.2"/><text x="105.6" y="189.2" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">3</text><circle cx="128.4" cy="268.1" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="128.4" y="272.1" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">4</text><circle cx="85.2" cy="360.5" r="9" fill="#5A6878" stroke="#fff" stroke-width="1.2"/><text x="85.2" y="364.5" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">5</text><circle cx="271.6" cy="84.2" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="271.6" y="88.2" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">6</text><circle cx="266.4" cy="194.4" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="266.4" y="198.4" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">7</text><line x1="123.9" y1="249.9" x2="141.2" y2="239.9" stroke="#B4532A" stroke-width="1.2"/><circle cx="123.9" cy="249.9" r="3" fill="#B4532A"/><circle cx="141.2" cy="239.9" r="9" fill="#B4532A" stroke="#fff" stroke-width="1.2"/><text x="141.2" y="243.9" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">8</text></svg><ol class="mapl"><li><i class="n">1</i>長崎<span class="pd">オランダ・中国</span></li><li><i class="n">2</i>対馬(宗氏)<span class="pd">朝鮮</span></li><li><i class="g">3</i>釜山の倭館</li><li><i class="n">4</i>薩摩(島津氏)<span class="pd">琉球</span></li><li><i class="g">5</i>琉球王国</li><li><i class="n">6</i>松前(松前氏)<span class="pd">アイヌ</span></li><li><i class="n">7</i>江戸</li><li><i class="k">8</i>島原・天草<span class="pd">1637 一揆</span></li></ol><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">「四つの口」を通じて、日本は外の世界とつながり続けた。位置はおおよそ</p>
+</figure>
+<p>幕府は九州の大名を中心に12万人以上の大軍を送り、オランダ船にも海から砲撃させた。数か月の<span class="rb">籠城<span class="rt" aria-hidden="true">ろうじょう</span></span>の末、1638年に原城は落ち、立てこもった人々のほとんどが殺された。その数は2万数千人とも3万人以上ともいわれる。</p>
+<p>一揆の後、<span class="rb">松倉勝家<span class="rt" aria-hidden="true">まつくらかついえ</span></span>は責任を問われて処刑された。この一揆は、幕府にキリスト教への恐れをいっそう強く抱かせることになった。</p>
+<h2><span class="no">第4節</span>「鎖国」の完成と四つの口</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1639年にポルトガル船を禁じ、1641年にオランダ商館を出島に移した</li><li>日本人は海外に出ることも帰ることもできなくなった</li><li>長崎・対馬・薩摩・松前の四つの口で外とつながっていた</li></ul></div>
+<p>幕府は日本人の海外渡航を段階的に禁じ、1635年には海外への渡航も、海外にいる日本人の帰国も禁じた。1639年には、布教と結びついていたポルトガル船の来航を禁じた。</p>
+<p>1641年には平戸のオランダ商館を長崎の<span class="rb">出島<span class="rt" aria-hidden="true">でじま</span></span>に移し、オランダ人と日本人の自由な行き来を制限した。この体制を、のちに「<span class="rb">鎖国<span class="rt" aria-hidden="true">さこく</span></span>」と呼ぶようになる。</p>
+<figure><p class="figt"><span>図4-4</span>「鎖国」への歩み</p>
+<ol class="steps"><li><span class="num t">1</span><span><b>1612〜1613年 禁教令</b><span class="d">幕府の直轄地、続いて全国でキリスト教を禁じる</span></span></li><li><span class="num t">2</span><span><b>1624年</b><span class="d">スペイン船の来航を禁じる</span></span></li><li><span class="num t">3</span><span><b>1633〜1635年</b><span class="d">日本人の海外渡航と、海外にいる日本人の帰国を禁じる</span></span></li><li><span class="num t">4</span><span><b>1637〜1638年 島原・天草一揆</b><span class="d">キリスト教への警戒が一段と強まる</span></span></li><li><span class="num t">5</span><span><b>1639年</b><span class="d">ポルトガル船の来航を禁じる</span></span></li><li><span class="num t">6</span><span><b>1641年</b><span class="d">オランダ商館を平戸から長崎の出島に移す。体制が完成する</span></span></li></ol>
+</figure>
+<p>しかし、日本は外の世界と完全に切れていたわけではない。長崎ではオランダや中国と貿易を行い、<span class="rb">対馬<span class="rt" aria-hidden="true">つしま</span></span>の<span class="rb">宗氏<span class="rt" aria-hidden="true">そうし</span></span>を通じて朝鮮と、<span class="rb">薩摩<span class="rt" aria-hidden="true">さつま</span></span>の島津氏を通じて<span class="rb">琉球<span class="rt" aria-hidden="true">りゅうきゅう</span></span>王国と、<span class="rb">松前<span class="rt" aria-hidden="true">まつまえ</span></span>藩を通じて<span class="rb">蝦夷地<span class="rt" aria-hidden="true">えぞち</span></span>のアイヌの人々と交易や外交が続いた。</p>
+<p>これを「四つの口」という。朝鮮からは、将軍の代替わりなどの際に<span class="rb">朝鮮通信使<span class="rt" aria-hidden="true">ちょうせんつうしんし</span></span>が江戸を訪れた。幕府は、外国との窓口を自らの管理のもとに置いたのである。</p>
+<section class="summary" aria-labelledby="pt"><h3 id="pt">この章の要点</h3><ul><li>家康は朱印船貿易を進め、オランダ・イギリスにも貿易を認めたが、1612〜1613年にキリスト教を禁じた。</li><li>絵踏や寺請制度によって、信者を見つけ出し、すべての人を寺に属させた。</li><li>1637年の島原・天草一揆は、重い年貢とキリシタンへの取り締まりが原因で、幕府の大軍によって鎮圧された。</li><li>1639年にポルトガル船を禁じ、1641年にオランダ商館を出島に移したが、長崎・対馬・薩摩・松前の「四つの口」で外とつながっていた。</li></ul></section>
+<section class="column" aria-labelledby="col"><h3 id="col">コラム 「鎖国」という言葉はいつ生まれたか</h3>
+<p>江戸幕府は「鎖国」という言葉を使っていたわけではない。この言葉が生まれたのは、体制が完成してから160年ほど後の1801年である。</p>
+<p>長崎のオランダ<span class="rb">通詞<span class="rt" aria-hidden="true">つうじ</span></span>(通訳)だった<span class="rb">志筑忠雄<span class="rt" aria-hidden="true">しづきただお</span></span>が、ドイツ人医師ケンペルが書いた日本についての本の一部を訳した際、『鎖国論』という題をつけた。ここから「鎖国」という言葉が広まった。</p>
+<p>近年の教科書では、「四つの口」で外国とつながっていた実態をふまえ、「鎖国」をかっこ付きで書いたり、「<span class="rb">海禁<span class="rt" aria-hidden="true">かいきん</span></span>」という言葉で説明したりすることも増えている。</p>
+</section>
+<div class="navs"><a href="mb_ch3.html">← 第3章</a><a href="index.html">目次</a><a href="mb_ch5.html">第5章 →</a></div>
+</main>
+<footer>第4章 スマホ版 ・ 全8章のうちの1章</footer>
+</div>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('rubyBtn');
+  b.addEventListener('click',function(){
+    var off=document.body.classList.toggle('noruby');
+    b.textContent=off?'ふりがな:なし':'ふりがな:あり';
+    b.setAttribute('aria-pressed',off?'false':'true');
+    if(!off&&window.fitRuby)window.fitRuby();
+  });
+})();
+</script>
+</body>
+</html>

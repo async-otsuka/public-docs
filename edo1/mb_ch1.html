@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>江戸幕府の確立 第1章(スマホ版)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* スマホ優先の1カラム。カード枠をやめて画面幅を本文に使う。図は縦長に組み直す */
+  --paper:#FFFFFF; --ink:#1E2A3A; --sub:#5A6878; --navy:#1F4E8C; --teal:#2F7F86;
+  --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#D6E4F3;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.85;-webkit-text-size-adjust:100%}
+.wrap{max-width:520px;margin:0 auto}
+.topbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 20px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);font-size:13px;color:var(--sub)}
+.topbar button{font:inherit;font-size:13px;color:var(--navy);background:var(--sky);border:0;border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.topbar button:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+header.ch{background:var(--navy);color:#fff;padding:22px 20px 20px}
+header.ch .eyebrow{font-size:13px;letter-spacing:.15em;opacity:.85;margin:0 0 6px}
+header.ch h1{font-size:25px;line-height:1.4;font-weight:700;margin:0;text-wrap:balance}
+header.ch .lead{font-size:14.5px;line-height:1.7;margin:8px 0 0;opacity:.9}
+main{padding:0 20px 40px}
+h2{font-size:20px;line-height:1.5;font-weight:700;margin:40px 0 14px;padding-left:12px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{display:block;font-size:13px;color:var(--navy);font-weight:500}
+p{margin:0 0 1.15em}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.32em;transform:translateX(-50%);font-size:.5em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;letter-spacing:0;pointer-events:none}
+body.noruby .rt{display:none}
+.tl{list-style:none;margin:20px 0 0 6px;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:8px;padding:5px 0 5px 16px;font-size:15px;line-height:1.6}
+.tl li::before{content:"";position:absolute;left:-7px;top:12px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--navy)}
+.tl li.k::before{border-color:var(--teal)}
+.tl li.hl{font-weight:700}
+.tl li.hl::before{background:var(--navy)}
+.tl .y{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.tl li.k .y{color:var(--teal)}
+.tlnote{display:flex;gap:16px;font-size:12.5px;color:var(--sub);margin:8px 0 0 6px}
+.tlnote span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid var(--navy);margin-right:5px;vertical-align:-1px}
+.tlnote span.k::before{border-color:var(--teal)}
+.point{background:var(--sky);border-radius:10px;padding:14px 16px;margin:0 0 22px;font-size:15px;line-height:1.7}
+.point b{display:block;color:var(--navy);font-size:13px;margin-bottom:4px}
+.point ul{margin:0;padding-left:1.2em}
+figure{margin:26px -20px 28px;padding:16px 20px 12px;background:#F7FAFD;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+figure svg{display:block;width:100%;height:auto}
+.figt{font-size:15px;font-weight:700;margin:0 0 12px;line-height:1.5}
+.figt span{color:var(--navy);margin-right:8px}
+.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.back{margin-top:10px;font-size:14px;font-weight:700;color:var(--teal);display:flex;gap:6px;align-items:center}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+.summary{background:var(--sky);border-radius:10px;padding:16px 18px 10px;margin:36px 0 18px}
+.summary h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy)}
+.summary ul{margin:0;padding-left:1.2em;font-size:16px}
+.summary li{margin:0 0 .5em}
+.column{border:1.5px dashed #9AAABB;border-radius:10px;padding:16px 18px 4px;margin:18px 0 0}
+.column h3{color:var(--teal)}
+.column figure{margin:16px -18px 16px}
+footer{font-size:12.5px;color:var(--sub);text-align:center;padding:0 20px 40px}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+.tlh{font-size:15px;color:var(--navy);margin:1.6em 0 .2em}
+</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style></head>
+<body>
+<div class="wrap">
+<div class="topbar"><span>江戸幕府の確立 解説資料</span><button type="button" id="rubyBtn" aria-pressed="true">ふりがな:あり</button></div>
+<header class="ch">
+<p class="eyebrow">第一章 ・ 1603 ― 1651</p>
+<h1>江戸幕府の仕組み</h1>
+<p class="lead">将軍と大名がそれぞれの領地を治める、260年続く体制の骨組み</p>
+</header>
+<main>
+<ol class="tl" aria-label="この章の年表"><li><span class="y">1600</span><span>関ヶ原の戦い</span></li><li class="hl"><span class="y">1603</span><span>家康が征夷大将軍に</span></li><li><span class="y">1605</span><span>秀忠が2代将軍に、家康は大御所に</span></li><li class="k"><span class="y">1615</span><span>武家諸法度を定める</span></li><li><span class="y">1634</span><span>老中・若年寄の職務を定める</span></li><li class="k"><span class="y">1635</span><span>寺社奉行などの職制が整う</span></li></ol>
+<figure><p class="figt"><span>図1-2</span>この章の登場人物</p>
+<div class="ppl"><div class="pg n"><h4>将軍家</h4><ul><li><b>徳川家康</b><span class="pd">江戸幕府の初代将軍。2年で将軍職を譲り、駿府で大御所として実権を握った</span></li><li><b><span class="rb">徳川秀忠<span class="rt" aria-hidden="true">とくがわひでただ</span></span></b><span class="pd">2代将軍。家康の死後、大名や朝廷への統制を強めた</span></li><li><b><span class="rb">徳川家光<span class="rt" aria-hidden="true">とくがわいえみつ</span></span></b><span class="pd">3代将軍。幕府の役職や大名統制の仕組みを完成させた</span></li></ul></div><div class="pg t"><h4>大名の区別</h4><ul><li><b><span class="rb">親藩<span class="rt" aria-hidden="true">しんぱん</span></span></b><span class="pd">徳川家の一族。尾張・紀伊・水戸の御三家など</span></li><li><b><span class="rb">譜代<span class="rt" aria-hidden="true">ふだい</span></span></b><span class="pd">関ヶ原の戦いより前から徳川家に仕えていた大名</span></li><li><b><span class="rb">外様<span class="rt" aria-hidden="true">とざま</span></span></b><span class="pd">関ヶ原の戦いの前後に徳川家に従った大名。前田・島津・伊達など</span></li></ul></div></div>
+</figure>
+<h2><span class="no">第1節</span>将軍と幕府の力</h2>
+<div class="point"><b>この節のポイント</b><ul><li>幕府は広い直轄地と重要な都市・鉱山を押さえた</li><li>将軍に直接仕える家臣を旗本・御家人という</li><li>将軍と大名が土地と人々を治める体制を幕藩体制という</li></ul></div>
+<p>1603年に徳川家康が開いた江戸幕府は、その後260年あまり続いた。幕府の力の源は、まず豊かな財力にあった。幕府は全国に直轄地(のちに<span class="rb">天領<span class="rt" aria-hidden="true">てんりょう</span></span>と呼ばれる)をもち、その<span class="rb">石高<span class="rt" aria-hidden="true">こくだか</span></span>は17世紀の終わりには約400万石に達した。</p>
+<p>さらに江戸・京都・<span class="rb">大坂<span class="rt" aria-hidden="true">おおさか</span></span>・長崎などの重要な都市や、佐渡の金山などのおもな鉱山を直接治め、貨幣をつくる権限も握った。</p>
+<p>将軍に直接仕える家臣のうち、将軍に会うことのできる者を<span class="rb">旗本<span class="rt" aria-hidden="true">はたもと</span></span>、できない者を<span class="rb">御家人<span class="rt" aria-hidden="true">ごけにん</span></span>という。全国の土地と人々は、将軍が治める幕府と、大名が治める藩とによって支配された。この仕組みを<span class="rb">幕藩体制<span class="rt" aria-hidden="true">ばくはんたいせい</span></span>という。</p>
+<h2><span class="no">第2節</span>大名の区別と配置</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1万石以上の領地をもつ武士を大名という</li><li>大名は親藩・譜代・外様に分けられた</li><li>外様の大名は江戸から遠い地域に置かれることが多かった</li></ul></div>
+<p>将軍から1万石以上の領地を与えられた武士を大名という。大名は、徳川家との関係によって三つに分けられた。徳川家の一族である<span class="rb">親藩<span class="rt" aria-hidden="true">しんぱん</span></span>、<span class="rb">関ヶ原<span class="rt" aria-hidden="true">せきがはら</span></span>の戦いより前から徳川家に仕えていた<span class="rb">譜代<span class="rt" aria-hidden="true">ふだい</span></span>、関ヶ原の戦いの前後に従った<span class="rb">外様<span class="rt" aria-hidden="true">とざま</span></span>である。</p>
+<p>親藩のうち、家康の子を祖とする<span class="rb">尾張<span class="rt" aria-hidden="true">おわり</span></span>・<span class="rb">紀伊<span class="rt" aria-hidden="true">きい</span></span>・水戸の三家は<span class="rb">御三家<span class="rt" aria-hidden="true">ごさんけ</span></span>と呼ばれ、将軍の跡継ぎがいないときには将軍を出す家とされた。</p>
+<figure><p class="figt"><span>図1-3</span>おもな大名の配置(17世紀後半)</p>
+<svg viewBox="0 0 360 284" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>おもな大名の配置(17世紀後半)</title><desc>点はおもな大名の城下町。大名の家や領地は時期によって変わる</desc><rect width="360" height="284" fill="#EAF2FB"/><path d="M351.4,0L350.1,0.9L346.9,8.9L344.6,22.2L334.1,24.6L329.8,31.6L328.9,39L331.1,48.2L332,56.7L330.1,73.6L324.9,79.2L320.1,91.7L318.6,101.5L320,107.7L324,115.3L327.3,119.7L320.5,121.9L315.2,127.3L314.1,136L312.3,139.1L303.6,144.1L299.6,149L296.1,147L297.3,145.1L296.9,134.9L304.4,126.3L301.6,121.7L297.1,122.1L295.1,127.9L291.8,130.9L294.5,136.5L291.4,140.4L286.7,134.9L280.2,135.6L276.2,142L276.4,147L273.4,154.8L270,158.6L266,156.1L267.1,146.4L270.1,144.6L264.7,141.1L260.7,142.4L254,150.9L249.4,159.8L243.3,158.2L230.7,157.4L216.6,160.2L223.2,156L222.8,153.5L215.8,153.8L211.5,152.3L210.6,143.4L205.9,146L201.3,156.8L203.7,160L211.3,165.5L210.6,169.3L201.6,171.7L195.4,174.5L183.4,196L176.9,198.6L169.9,196.3L166.8,190.4L161.9,184.3L160.5,180.4L159.7,170.6L164.5,167.3L167.9,163.1L168.9,159L167.1,157.7L158,158.5L149.2,153.8L144.7,153.6L133.8,156.2L126.9,162.2L111.6,165.5L102.8,170.1L99.3,169.1L88.7,172L81.9,168.3L78.8,169.3L76.6,172.7L73.9,186.3L62.2,178.9L54.4,180L47.4,182.5L42.7,180L38.2,181.5L37.4,171.5L40.7,166.9L50.9,166.2L58.3,159.1L65.5,155.2L71.6,149L77.2,144.7L87.7,134.6L90,130.6L96.5,127.3L106.5,125.7L109.6,129.2L116.6,127.3L123.7,127.9L134,126.3L141,123.1L153.3,121.9L161.9,118.9L164.5,119.8L163.6,124.4L166.3,126.8L176.5,127.6L183,123.9L188.5,118.1L186,110.2L190.3,101.8L196.3,96.8L206.1,83.1L207.6,75.5L206.7,66.5L210.3,59.8L224.2,54.6L224.6,57.7L219.3,63.4L212.7,67.4L214.7,72.7L215.3,79.6L218.4,81.9L224.8,82L229.7,75.5L241.3,71.4L253.1,65.7L259.8,59.4L264.4,53.2L269.5,42.8L280.1,36.8L284.6,31.8L286.8,22.3L289.7,14.9L296.2,4.4L297.3,0L351.4,0ZM138.2,171.7L146.2,172.8L146.2,179.2L149.2,187L143.7,190.2L138.7,194.4L134.8,200.3L133,207L126.6,200L123.5,198.4L117,197.8L107,203L101.7,214.5L99.2,216L98,221L94.9,224L88.3,223.7L90.3,218.9L84,218.4L82.1,213.5L84.5,205.3L81.4,204L81.6,200.6L72.2,203.7L88.3,191.6L92.5,181L98.4,177.6L102.6,183.2L115.6,180.1L117.4,176L116.2,172.2L119.2,172.4L126.2,168.5L129.9,168.1ZM0,206.3L1.8,202.9L7.1,204.4L6.6,200.3L13.7,197.4L16.5,194.8L22.2,193.5L25.7,186.5L32.4,183.2L39.3,185.2L42.3,192.2L45.8,194.6L45.8,194.6L52.8,195.2L57.6,192.8L60.8,194.6L61.2,198.1L56.2,206L66.7,206.7L65.3,211.4L68.2,213.9L67.1,216.4L69.9,218.3L69,220.9L61.9,229.6L57.1,242.3L54,253.9L54,261.2L50.5,270.2L42.7,269.2L41.7,271.2L43.5,275.3L37.8,280.2L31.5,283.5L34.6,274.9L32.1,264.4L34.3,263.4L34.2,260L30.6,259.5L27,268.4L30.3,274.9L28.7,277.9L17.4,274.1L15.9,270.1L20.2,268.7L21,263.6L17,257.8L17.8,255.1L17.2,246.8L20.9,245.1L25.1,239.5L30.2,228.7L26.1,227.4L28.1,224.7L27.5,221.3L22.7,212.3L18.5,209.4L15.2,211.9L16.7,220.7L21.1,220.6L21.5,225.8L18.7,226.7L13.2,223.4L4.9,230.3L6.6,225L2.6,219.8L2.3,213.5L6.7,219.2L11.4,220.7L8.7,214.7L0,207.8L0,206.3ZM14,242.1L11.7,243.3L11,238.1L11.9,232L16.5,231.3L17.4,238.3ZM253.9,43.6L252.1,42.5L253.2,37.4L251,37.3L252.8,31.1L258.5,25.4L257,34.3L260.5,34.7L258.2,40.6ZM154.8,170.6L151.6,173.6L148.9,173.4L147.1,170.4L152,164.1L156.9,161.6L154,166.7Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><defs><marker id="ared1n360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="ared1t360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="ared1k360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="ared1g360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><circle cx="295.0" cy="120.9" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="295.0" y="124.9" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">1</text><circle cx="211.9" cy="139.1" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="211.9" y="143.1" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">2</text><circle cx="161.7" cy="172.6" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="161.7" y="176.6" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">3</text><circle cx="315.6" cy="96.5" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="315.6" y="100.5" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">4</text><circle cx="193.1" cy="135.5" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="193.1" y="139.5" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">5</text><circle cx="277.3" cy="136.6" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="277.3" y="140.6" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">6</text><circle cx="205.0" cy="89.6" r="9" fill="#B4532A" stroke="#fff" stroke-width="1.2"/><text x="205.0" y="93.6" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">7</text><circle cx="327.2" cy="27.1" r="9" fill="#B4532A" stroke="#fff" stroke-width="1.2"/><text x="327.2" y="31.1" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">8</text><circle cx="27.9" cy="263.6" r="9" fill="#B4532A" stroke="#fff" stroke-width="1.2"/><text x="27.9" y="267.6" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">9</text><circle cx="52.3" cy="166.3" r="9" fill="#B4532A" stroke="#fff" stroke-width="1.2"/><text x="52.3" y="170.3" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">10</text><circle cx="22.9" cy="195.0" r="9" fill="#B4532A" stroke="#fff" stroke-width="1.2"/><text x="22.9" y="199.0" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">11</text><circle cx="32.2" cy="222.1" r="9" fill="#B4532A" stroke="#fff" stroke-width="1.2"/><text x="32.2" y="226.1" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">12</text><circle cx="83.0" cy="166.7" r="9" fill="#B4532A" stroke="#fff" stroke-width="1.2"/><text x="83.0" y="170.7" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">13</text></svg><div class="legend"><span><i class="sq"></i>将軍・親藩</span><span><i class="sqt"></i>譜代</span><span><i class="sq" style="background:#B4532A"></i>外様</span></div><ol class="mapl"><li><i class="n">1</i>江戸(将軍)</li><li><i class="n">2</i>尾張(御三家)</li><li><i class="n">3</i>紀伊(御三家)</li><li><i class="n">4</i>水戸(御三家)</li><li><i class="t">5</i>彦根(井伊・譜代)</li><li><i class="t">6</i>小田原(譜代)</li><li><i class="k">7</i>加賀(前田・外様)<span class="pd">約102万石</span></li><li><i class="k">8</i>仙台(伊達・外様)</li><li><i class="k">9</i>薩摩(島津・外様)</li><li><i class="k">10</i>長州(毛利・外様)</li><li><i class="k">11</i>福岡(黒田・外様)</li><li><i class="k">12</i>熊本(細川・外様)</li><li><i class="k">13</i>広島(浅野・外様)</li></ol><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">点はおもな大名の城下町。大名の家や領地は時期によって変わる</p>
+</figure>
+<p>幕府は大名の配置にも気を配った。江戸の周りや京都・大坂への道筋など重要な土地には、親藩や譜代の大名を置いた。</p>
+<p><span class="rb">加賀<span class="rt" aria-hidden="true">かが</span></span>の前田氏のように大きな領地をもつ外様の大名は、九州や東北、北陸など江戸から離れた地域に置かれることが多かった。また幕府の重要な役職には、原則として譜代の大名や旗本だけが就いた。</p>
+<h2><span class="no">第3節</span>幕府の役職</h2>
+<div class="point"><b>この節のポイント</b><ul><li>政治の中心は老中で、重要な時には大老が置かれた</li><li>寺社・町・勘定の三奉行が実務を担った</li><li>一つの役職に複数の人を置き、月ごとに交代させた</li></ul></div>
+<p>幕府の役職は、3代将軍の家光のころまでに整えられた。政治全体をまとめるのは、譜代の大名から選ばれる数人の<span class="rb">老中<span class="rt" aria-hidden="true">ろうじゅう</span></span>であり、重要な時には臨時に最高職の<span class="rb">大老<span class="rt" aria-hidden="true">たいろう</span></span>が置かれた。</p>
+<p>老中を補佐して旗本・御家人を監督したのが<span class="rb">若年寄<span class="rt" aria-hidden="true">わかどしより</span></span>である。大名の監視には<span class="rb">大目付<span class="rt" aria-hidden="true">おおめつけ</span></span>があたった。</p>
+<figure><p class="figt"><span>図1-4</span>江戸幕府のおもな役職(17世紀半ば)</p>
+<div class="flow"><div class="fs dk"><b>将軍</b></div><div class="fs "><em>臨時</em><b>大老</b><span class="d">重要な時だけ置かれる最高職</span></div><div class="pair"><div class="fs s"><em>老中(4〜5人)</em><b>幕府の政治全体をまとめる</b><span class="d">大名を監督する大目付、江戸の町奉行、財政の勘定奉行など</span></div><div class="fs s"><em>若年寄</em><b>老中を補佐する</b><span class="d">旗本・御家人を監督する</span></div></div><div class="fs t"><em>将軍直属</em><b>寺社奉行</b><span class="d">寺社の取り締まり。町奉行・勘定奉行と合わせて三奉行と呼ぶ</span></div><div class="fs t"><em>遠国</em><b>京都所司代・大坂城代</b><span class="d">朝廷や西国の大名を監視する</span></div></div>
+</figure>
+<p>実務を担う役職としては、寺社を取り締まる<span class="rb">寺社奉行<span class="rt" aria-hidden="true">じしゃぶぎょう</span></span>、江戸の町の政治や裁判を行う<span class="rb">町奉行<span class="rt" aria-hidden="true">まちぶぎょう</span></span>、幕府の財政や直轄地を治める<span class="rb">勘定奉行<span class="rt" aria-hidden="true">かんじょうぶぎょう</span></span>があり、合わせて三奉行と呼ばれた。</p>
+<p>京都には朝廷や西国の大名を監視する<span class="rb">京都所司代<span class="rt" aria-hidden="true">きょうとしょしだい</span></span>が、大坂には<span class="rb">大坂城代<span class="rt" aria-hidden="true">おおさかじょうだい</span></span>が置かれた。多くの役職には複数の人が就き、月ごとに交代で仕事を担当した(<span class="rb">月番<span class="rt" aria-hidden="true">つきばん</span></span>)。一人に権力が集まらないようにする工夫である。</p>
+<h2><span class="no">第4節</span>260年続いた仕組み</h2>
+<div class="point"><b>この節のポイント</b><ul><li>幕府は大名の力を抑えつつ、藩の政治は大名に任せた</li><li>朝廷や寺社も幕府の統制下に置かれた</li><li>安定した仕組みが、長い平和を支えた</li></ul></div>
+<p>幕藩体制の特徴は、幕府が大名を厳しく統制しながらも、それぞれの藩の政治は大名に任せたことにある。大名は自分の領地で年貢を取り、家臣を養い、独自の法を定めることもできた。</p>
+<p>その代わり、幕府の命令に従い、江戸城の工事などの負担を引き受けた。</p>
+<p>幕府はまた、朝廷や寺社にも決まりを定めて統制した(第2章・第3章)。将軍を頂点に、大名・朝廷・寺社がそれぞれの役割を担うこの仕組みは、大きな戦乱のない時代を260年あまり支えることになった。</p>
+<section class="summary" aria-labelledby="pt"><h3 id="pt">この章の要点</h3><ul><li>江戸幕府は広い直轄地と重要な都市・鉱山を押さえ、将軍が幕府、大名が藩を治める幕藩体制をつくった。</li><li>大名は親藩・譜代・外様に分けられ、重要な土地には親藩や譜代、外様は遠い地域に置かれることが多かった。</li><li>老中を中心に、若年寄・大目付・三奉行などの役職が家光のころまでに整えられた。</li><li>一つの役職に複数の人を置く月番制など、権力が一人に集まらない工夫がされた。</li></ul></section>
+<section class="column" aria-labelledby="col"><h3 id="col">コラム 「旗本八万騎」は本当か</h3>
+<p>江戸時代には、将軍の直属の家臣団の大きさを表して「旗本八万騎」という言葉が使われた。しかし実際の数はずっと少ない。</p>
+<p>18世紀の初めの調べでは、旗本はおよそ5000人、御家人はおよそ1万7000人だったとされる。旗本や御家人が抱える家来まで含めれば8万人ほどになるという計算から、この言葉が生まれたとも考えられている。</p>
+<p>「八万騎」は、徳川家の武力の大きさを誇る言い方だったのである。</p>
+</section>
+<div class="navs"><a href="index.html">← 目次</a><a href="index.html">目次</a><a href="mb_ch2.html">第2章 →</a></div>
+</main>
+<footer>第1章 スマホ版 ・ 全8章のうちの1章</footer>
+</div>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('rubyBtn');
+  b.addEventListener('click',function(){
+    var off=document.body.classList.toggle('noruby');
+    b.textContent=off?'ふりがな:なし':'ふりがな:あり';
+    b.setAttribute('aria-pressed',off?'false':'true');
+    if(!off&&window.fitRuby)window.fitRuby();
+  });
+})();
+</script>
+</body>
+</html>
