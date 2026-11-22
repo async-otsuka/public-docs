@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>明治の日本 第7章</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style>.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+
+.cfig{background:#F7FAFD;border:1px solid #DCE4EE;border-radius:8px;padding:16px 18px}
+.ppl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ppl .pg{margin:0}
+.mapwrap{display:flex;gap:16px;align-items:flex-start}
+footer a{color:var(--navy)}
+.tlh{font-size:15px;color:var(--navy);margin:1.4em 0 .3em}
+</style><style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style><style>.figstatic{cursor:default}.figstatic:hover{border-color:#DCE4EE}</style></head>
+<body>
+<div class="page">
+<p class="series">明治の日本 解説資料</p>
+<article class="sheet">
+<div class="band">第七章 ・ 1871 ― 1911</div>
+<header class="ch">
+<h1>条約改正と日清・日露戦争</h1>
+<p class="lead">対等な国をめざした日本は、やがて周りの国々を支配する側に立った</p>
+</header>
+<div class="body">
+<figure><div class="figbtn figstatic"><svg viewBox="0 0 680 270" role="img"><title>図7-1 この章の年表</title><desc>1886 ノルマントン号事件、1894 領事裁判権の撤廃、日清戦争、1895 下関条約、三国干渉、1902 日英同盟、1904 日露戦争、1905 ポーツマス条約、第2次日韓協約、1910 韓国併合、1911 関税自主権の回復</desc><rect x="50" y="146" width="580" height="8" rx="3" fill="#1F4E8C"/><line x1="60.0" y1="118" x2="60.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="60.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1886</text><text x="60.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">ノルマントン号事件</text><circle cx="60.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="239.2" y1="118" x2="239.2" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="239.2" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1894</text><text x="239.2" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">領事裁判権の撤廃、日清戦争</text><circle cx="239.2" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="261.6" y1="154" x2="261.6" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="261.6" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1895</text><text x="261.6" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">下関条約、三国干渉</text><circle cx="261.6" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="418.4" y1="118" x2="418.4" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="418.4" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1902</text><text x="418.4" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">日英同盟</text><circle cx="418.4" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="463.2" y1="154" x2="463.2" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="463.2" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1904</text><text x="463.2" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">日露戦争</text><circle cx="463.2" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="485.6" y1="78" x2="485.6" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="485.6" y="56" text-anchor="end" class="h" style="fill:#1F4E8C">1905</text><text x="485.6" y="72" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:400">ポーツマス条約、第2次日韓協約</text><circle cx="485.6" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="597.6" y1="118" x2="597.6" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="597.6" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1910</text><text x="597.6" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">韓国併合</text><circle cx="597.6" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="620.0" y1="78" x2="620.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="620.0" y="56" text-anchor="end" class="h" style="fill:#2F7F86">1911</text><text x="620.0" y="72" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:400">関税自主権の回復</text><circle cx="620.0" cy="150" r="4.5" fill="#fff" stroke="#2F7F86" stroke-width="2"/></svg></div><figcaption><span><b>図7-1</b>この章の年表</span></figcaption></figure>
+<figure><div class="cfig"><div class="ppl"><div class="pg n"><h4>日本の外交</h4><ul><li><b><span class="rb">陸奥宗光<span class="rt" aria-hidden="true">むつむねみつ</span></span></b><span class="pd">外務大臣。1894年に領事裁判権の撤廃を実現した</span></li><li><b><span class="rb">小村寿太郎<span class="rt" aria-hidden="true">こむらじゅたろう</span></span></b><span class="pd">外務大臣。ポーツマス条約を結び、1911年に関税自主権を回復した</span></li><li><b><span class="rb">伊藤博文<span class="rt" aria-hidden="true">いとうひろぶみ</span></span></b><span class="pd">韓国統監として韓国の支配を進め、1909年に暗殺された</span></li></ul></div><div class="pg t"><h4>朝鮮・韓国の人々</h4><ul><li><b><span class="rb">甲午農民戦争<span class="rt" aria-hidden="true">こうごのうみんせんそう</span></span>の農民たち</b><span class="pd">1894年、重い税や外国の進出に反対して立ち上がった</span></li><li><b><span class="rb">安重根<span class="rt" aria-hidden="true">アンジュングン</span></span></b><span class="pd">韓国の独立運動家。1909年、ハルビンで伊藤博文を暗殺した</span></li></ul></div><div class="pg g"><h4>戦争に反対した人々</h4><ul><li><b><span class="rb">与謝野晶子<span class="rt" aria-hidden="true">よさのあきこ</span></span></b><span class="pd">戦地の弟を思い、「君死にたまふことなかれ」をうたった</span></li><li><b><span class="rb">内村鑑三<span class="rt" aria-hidden="true">うちむらかんぞう</span></span></b><span class="pd">キリスト教徒の立場から日露戦争に反対した</span></li></ul></div></div></div><figcaption><span><b>図7-2</b>この章の登場人物</span></figcaption></figure>
+<h2><span class="no">第1節</span>条約改正</h2>
+<p>幕末に結んだ不平等条約を改めることは、明治政府の長年の課題であった。外務卿・外務大臣の<span class="rb">井上馨<span class="rt" aria-hidden="true">いのうえかおる</span></span>は、東京に<span class="rb">鹿鳴館<span class="rt" aria-hidden="true">ろくめいかん</span></span>を建てて舞踏会を開くなど、日本が西洋と同じ文明国であることを示そうとした(<span class="rb">欧化政策<span class="rt" aria-hidden="true">おうかせいさく</span></span>)。しかし、外国人を裁判官に加えるという改正案に国内の反対が強く、井上は辞任した。</p>
+<p>1886年、イギリスの貨物船ノルマントン号が<span class="rb">紀州<span class="rt" aria-hidden="true">きしゅう</span></span>沖で沈没し、イギリス人の船員は助かったのに日本人の乗客は全員が亡くなった。領事裁判で船長が軽い罪で済んだことに国民は怒り、条約改正を求める声が高まった。1894年、外務大臣の<span class="rb">陸奥宗光<span class="rt" aria-hidden="true">むつむねみつ</span></span>は、ロシアの南下を警戒するイギリスとの間で、<span class="rb">領事裁判権<span class="rt" aria-hidden="true">りょうじさいばんけん</span></span>を撤廃する条約を結んだ。<span class="rb">関税自主権<span class="rt" aria-hidden="true">かんぜいじしゅけん</span></span>の完全な回復は、1911年、外務大臣の<span class="rb">小村寿太郎<span class="rt" aria-hidden="true">こむらじゅたろう</span></span>のときに実現した。</p>
+<figure><div class="cfig"><ol class="steps"><li><span class="num n">1</span><span><b>1871〜1873年 岩倉使節団</b><span class="d">予備交渉に失敗</span></span></li><li><span class="num n">2</span><span><b>1880年代 井上馨</b><span class="d">鹿鳴館で欧化政策を進めるが、外国人の裁判官を置く案に反対が強く辞任</span></span></li><li><span class="num n">3</span><span><b>1886年 ノルマントン号事件</b><span class="d">イギリス船の沈没で日本人乗客が全員死亡。船長が軽い罪で済み、改正を求める世論が高まる</span></span></li><li><span class="num n">4</span><span><b>1894年 陸奥宗光</b><span class="d">イギリスとの条約で領事裁判権を撤廃</span></span></li><li><span class="num n">5</span><span><b>1911年 小村寿太郎</b><span class="d">関税自主権を回復。条約改正が完成する</span></span></li></ol></div><figcaption><span><b>図7-3</b>条約改正の歩み</span></figcaption></figure>
+<h2><span class="no">第2節</span>日清戦争</h2>
+<p>朝鮮をめぐっては、日本と、朝鮮を属国とみなす清が対立していた。1894年、朝鮮で重い税や外国の進出に反対する農民が大規模に立ち上がった(<span class="rb">甲午農民戦争<span class="rt" aria-hidden="true">こうごのうみんせんそう</span></span>)。朝鮮政府の求めで清が出兵すると、日本も兵を送り、8月に<span class="rb">日清戦争<span class="rt" aria-hidden="true">にっしんせんそう</span></span>が始まった。</p>
+<figure><div class="figbtn figstatic"><svg viewBox="0 0 640 777" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>日清・日露戦争と韓国併合</title><desc>位置はおおよそ</desc><rect width="640" height="777" fill="#EAF2FB"/><path d="M597,0L598.3,3.5L601.6,14.9L603.2,22.7L606.5,31.2L612,37L612.5,44.5L610.6,38.8L600,26L596.6,23.8L591.6,22.7L584.1,23.4L578.2,26.4L576.6,29.4L575.4,35.5L566.9,62.7L566.5,73.4L570.6,82.4L573.1,84.3L576.1,89.6L577.9,96.6L580.7,103L585.6,103.1L586.3,104.4L588.4,116.5L585.2,126.7L585,120.8L583.5,112.9L582,110.4L572.4,108.9L569.4,105.6L567,106L563.3,110.5L561.2,116.6L559.1,124.9L556.3,130.2L553.9,127.2L551,113.7L551.8,106.2L554.9,95.7L555.5,92.2L554.3,85.7L553.9,78.1L558.5,64.6L557.5,55.8L552.5,44.1L551.8,41L555.1,30.3L557.7,14.2L557.8,0L597,0ZM593.6,184.5L599.5,184.9L607.6,189.5L614.4,189.7L626,178L626.2,181.1L621.4,191.8L620.8,194.9L626,208.6L629,209.2L633,206L636.4,206.1L632,208.9L629.4,212.3L626,212.2L619.3,216.5L610.8,218.9L601.5,218.1L596.7,220.8L588.4,229L583.9,237L582.7,243.9L581,246.3L578.4,245.7L574,242.9L565.5,238.9L551.5,229.6L542,230.6L533,236.5L527.1,230.3L522.2,230.2L520.2,232.3L518.8,236.7L520.9,240.5L524.3,242.9L527.7,243L536.6,251.9L533.4,253.8L526.1,251.6L522.4,255.7L520.2,260.1L515.1,262.8L512.8,261.4L511.9,258.4L514.3,248.8L513.2,244.4L509.8,240.8L508.2,235.2L509.7,227.6L514.5,225.2L521.2,218.7L522.4,215.9L520.4,212.5L520.4,208.5L522.4,207.5L528.7,211.1L536.3,212.1L539.6,211.6L542.1,206.2L541.8,198.6L542.9,195.4L546.2,190.3L547.1,187.4L547.4,180.1L549.6,173.6L550,166.6L548.7,159.8L545.8,153.3L547.6,145.9L551,144.8L553.3,142.6L563.5,154.3L569.7,163.5L573.5,168L582.1,176.1L590,181.4ZM538.2,264.2L543,263.3L541.9,272.1L542.5,282.6L543.2,285.8L547.1,289.6L550.3,294.7L554.5,308.7L554.2,318.7L552.6,327.5L547.4,331.2L545,337L543.3,346.8L535.7,348.6L532.5,353.7L531.8,359.1L533.4,365.9L534.1,372.1L532.7,384.6L528.9,388.7L525.4,397.9L524.2,405.1L525.3,409.6L528.2,415.3L530.7,418.5L525.7,420.1L521.8,424.1L520.9,430.4L519.6,432.7L513.2,436.4L510.3,440L507.7,438.5L508.6,437.1L508.3,429.6L513.8,423.3L511.8,419.9L508.5,420.2L507,424.5L504.6,426.7L506.5,430.8L504.2,433.7L500.8,429.6L496,430.1L493.1,434.9L493.3,438.5L491,444.3L488.5,447L485.6,445.2L486.4,438.1L488.6,436.8L484.7,434.2L481.7,435.1L476.7,441.4L473.4,447.9L468.9,446.7L459.6,446.1L449.3,448.2L454.2,445.1L453.9,443.3L448.7,443.5L445.6,442.5L444.9,435.9L441.4,437.8L438,445.7L439.8,448.1L445.4,452.1L444.9,454.9L438.3,456.7L433.7,458.7L424.9,474.6L420.1,476.5L415,474.7L412.7,470.4L409.1,465.9L408.1,463.1L407.5,455.9L411,453.5L413.5,450.4L414.2,447.3L412.9,446.4L406.2,447L399.8,443.5L396.5,443.4L388.4,445.2L383.4,449.7L372.1,452.1L365.7,455.5L363.1,454.8L355.3,456.9L350.3,454.2L348,454.9L346.4,457.4L344.4,467.4L335.8,461.9L330.1,462.8L325,464.6L321.5,462.7L318.2,463.9L317.6,456.5L320.1,453.2L327.5,452.6L333,447.4L338.3,444.5L342.7,440L346.9,436.8L354.6,429.4L356.2,426.5L361,424.1L368.4,422.9L370.7,425.4L375.8,424.1L381.1,424.5L388.6,423.3L393.7,421L402.8,420.1L409.1,417.9L411,418.5L410.3,421.9L412.3,423.7L419.8,424.2L424.6,421.6L428.7,417.3L426.8,411.5L430,405.3L434.4,401.6L441.6,391.6L442.6,386L442,379.4L444.6,374.4L454.9,370.6L455.2,372.9L451.3,377.1L446.4,380.1L447.9,384L448.3,389L450.6,390.7L455.3,390.8L458.9,386L467.5,382.9L476.1,378.8L481,374.1L484.4,369.6L488.2,362L495.9,357.5L499.3,353.9L500.9,346.9L503,341.5L507.8,333.7L510.2,324.2L512.8,319.2L513.2,309.8L510.8,306L506.5,305.1L510,302.2L512.3,294.1L510.4,286.1L512.6,282.3L515.1,281.8L518,279.2L519.3,274.7L518.8,270.2L520.2,268.3L525.4,269.3L526.5,277.8L529,279.5L532,276.5L535.9,278.1L537.3,277L539,271.9L537.6,267.9L529,270.9L530.4,262.7L532,260.5L535.6,261.9ZM391.7,456.7L397.6,457.5L397.6,462.2L399.8,467.9L395.7,470.2L392,473.4L389.2,477.7L387.9,482.6L383.1,477.4L380.9,476.3L376.1,475.8L368.8,479.7L364.8,488.2L363,489.3L362.2,492.9L359.9,495.1L355,494.9L356.5,491.3L351.9,491L350.5,487.4L352.3,481.4L350,480.4L350.1,477.9L343.2,480.2L355,471.3L358.1,463.5L362.5,461L365.5,465.2L375.1,462.8L376.4,459.8L375.5,457L377.8,457.2L382.9,454.3L385.6,454.1ZM323.8,473.5L328.9,474L332.4,472.2L334.8,473.5L335.1,476.1L331.4,481.9L339.1,482.4L338.1,485.9L340.3,487.7L339.4,489.5L341.5,490.9L340.8,492.8L335.6,499.2L332.1,508.6L329.8,517.1L329.8,522.4L327.2,529.1L321.5,528.3L320.8,529.8L322.1,532.8L317.9,536.4L313.3,538.8L315.5,532.5L313.7,524.8L315.3,524.1L315.2,521.5L312.6,521.2L309.9,527.7L312.4,532.5L311.2,534.7L302.9,531.9L301.8,529L304.9,528L305.6,524.2L302.6,520L303.2,518L302.8,511.9L305.5,510.6L308.6,506.5L312.3,498.6L309.3,497.6L310.8,495.6L310.3,493.1L306.8,486.5L303.7,484.4L301.3,486.2L302.4,492.7L305.6,492.6L305.9,496.4L303.9,497.1L299.8,494.7L293.7,499.7L295,495.8L292,492L291.8,487.4L295,491.6L298.5,492.7L296.5,488.3L289.7,482.8L291.4,479.6L295.3,480.7L295,477.7L300.2,475.6L302.3,473.6L306.5,472.7L309,467.5L313.9,465.2L319,466.6L321.2,471.7ZM106.9,739.7L104.5,745.3L103.3,755.8L100,753.3L99.8,750.4L97.7,745.8L92.3,741.5L90.3,737.5L86.9,727.5L88.4,721.7L88.1,715.8L98.7,696.5L104.6,688.6L107.6,683.5L114.5,680.5L116.2,678.4L119.3,677.8L121.3,680L124.8,681.8L126.5,684.9L124,690.2L124.3,695.2L122.4,701L120.3,704.7L116.9,721.1L115.2,727L112.9,731.7L110.1,736.1ZM523.7,0L521.9,3L523.1,13.3L521.2,22.1L518.6,31.1L520.1,34L516.8,40.2L515.6,48.3L512,54.7L506.9,59.3L505.1,62.2L498.6,68.7L494.3,76.6L490.7,84.6L481.8,94.8L477.7,104.6L476.5,110.9L473.8,113.3L471.6,119.9L464.4,129.8L462.6,133.2L457.1,138.6L451.2,146.1L443.8,152.9L436.5,163.4L432.1,168.1L429.7,173.4L424,176.9L416.7,188.8L415.6,192.9L410.9,197.3L408.2,202L398.8,208.9L387.4,216.2L384.2,218.9L377.8,222.3L375.2,222.4L366.1,226.2L362.6,222.9L359.8,223.4L356.5,221L351.6,220L347.8,220.8L348.5,210.4L348,208.2L342,213.9L338.5,214.6L341.6,209.2L337,209.9L331,217.5L328.4,222.5L326.2,224L323.4,228.2L313.8,227.4L316.5,231.3L314.2,236.9L312.2,238.4L308.4,237.6L303.7,241L300.1,245L296,251.9L293.5,254.6L291.9,260.8L293.7,266.2L292.5,271.3L293.2,276.7L292.4,278.8L284.6,282.5L279.7,289.1L274,292.8L271,294L269,297.3L262.5,301.8L255.3,303L253.2,305.8L246.8,308.9L245.9,311.3L246.3,317.8L242.8,322.3L243.1,324.8L251.4,328.2L255.4,333.3L261.3,337.5L264,340.8L269.2,353L274.1,360.8L278.4,366.5L284.5,377.3L286.3,383.1L287.4,391.6L286.6,394.3L286.8,398.7L285.7,402.7L286,409.8L287.1,411L289.6,409.9L289.4,412.6L286.3,424.4L281.9,432.6L276.9,434.8L269.7,434.3L266.9,434.8L264.9,437L265.5,440.8L258,439.1L256.8,436.8L249.9,438.6L248.3,440.3L250.5,443L248.2,445.5L245.8,441.5L243.3,442L243,444.1L244.9,447.1L241.6,451.3L238.4,449.2L240.2,446.2L240,443.8L235.3,447.6L232.4,451.9L229.4,450.1L226.4,452.9L225.8,455.1L224.2,454.2L223.6,450.6L219,445.9L219.8,444.7L224.5,445.2L223.4,443.7L226,442L222.3,442L219.5,433.4L221,431.7L223.8,424.3L226.5,422.5L223.8,420.5L228.6,417.3L229.4,414.6L227.1,413.3L228.1,410.8L224.8,406.8L225,398.6L223.8,392.8L221.6,394L217.2,392.9L217.9,388.1L220.8,385.8L225.7,384.1L230.1,386L231.2,388.8L233.8,387.2L231.9,385.3L229.2,379.5L230.2,376.8L227.2,372.7L227.4,369.9L225.4,365.4L226.8,363.7L221.2,361.1L217.7,362.4L215.9,364.7L214.4,361.3L212.1,361.2L208.4,358.1L206.8,358.8L204.4,362.8L199.7,365.2L198.7,362L191.7,359.6L197.3,356.2L195.5,355.2L191.9,355.6L185.4,354.3L189.4,351.5L189.4,348.5L193.4,342.6L198.6,339.7L203.8,339.1L201,337.5L198.3,337.5L195.6,335.8L195.4,334L200.7,322.6L199.7,316L194.1,314.2L187.2,309.6L186.3,312.5L184.3,313.6L182.5,308.7L178.1,305.5L178.1,302.5L176.4,305L172.9,307.3L165.6,307.8L163.2,306.1L161.7,308.8L156.8,309.4L154.2,311.5L150,311.9L145.9,313.9L135.1,320.4L130.6,326.3L125.1,330.6L121.1,330.4L120.5,334.2L113.5,335.7L110.2,337.9L108.9,332.7L121.2,327.5L120.1,324.4L124.2,319.8L112.6,319.9L112.4,315.5L117.7,312.9L116.8,309.7L117.7,307.2L123.8,304.2L132.1,292.9L133.8,287.7L131,283.6L125,279.3L124.5,275.5L122.2,279.2L118.1,278.2L110.4,277.6L105,283.7L101.8,286.4L95.6,296.4L93.2,297.2L82.1,303.2L76.6,305.6L72.3,309.8L69.6,315.1L68.8,319.3L64.9,324.4L62.1,325.9L56,325.6L49,328.6L45.8,325.2L43.5,324.3L38.1,326.8L34.5,334.6L33.2,340.8L35.3,346.3L37.7,349.3L43,352.8L54.3,355.2L59.7,354.3L62.7,356.6L64.6,360.3L65.9,365.8L63.8,367.5L63,375.8L66.4,379.3L70.2,380.9L73.6,381.3L80.2,380.5L82.9,377.9L82.8,375.3L88.7,371.4L92,367.9L90.8,366.4L101.3,362.3L107.7,365.2L111.3,368.5L114.9,369.2L120.3,372.3L127.2,372.7L129.2,370.5L135.2,373.8L140.8,373.2L142.2,373.9L140.2,376.1L140.5,379.8L137.5,382.8L139.1,386.1L135.3,389.1L133.1,388.7L131.5,385.8L126.5,385.7L115.5,391.6L106.4,395.4L102.3,395.1L104.4,399.4L101.9,399.1L99.9,402.2L99.9,406.7L93.7,409.8L92.4,408.3L92.4,405.2L89.2,405.8L87.4,408.1L89.2,410.7L91.4,411.6L86.5,414.9L82.5,420.6L79.4,422L75.2,428.1L73.2,429.5L71.5,434.5L68.6,437.1L67.6,441.3L68.3,443.9L71.5,443.9L76.5,448.3L84.5,451.7L91.1,456.2L92.2,458.9L96.1,472.6L98.5,476.4L101,482.8L103.9,488.5L104.5,492.8L103.6,497.5L106.4,499.9L112.9,502.6L115.2,504.8L115.2,509L117.2,511.1L121.1,512.9L124.5,516.7L125.2,521.6L121.2,521.4L114.2,517.7L109.8,518.1L106.1,517.4L102.2,513.4L96.4,511.5L89.3,515L86.1,515.8L89.4,516.5L96,513.7L100.6,514.6L102.1,518.7L107.9,521.2L111,523.5L114.2,527.1L120.8,531.2L123.5,535.1L125.4,541.2L123.1,542.4L117.9,543.1L113.3,546.6L106.6,550.2L104.5,554.2L102.9,555.2L94.9,554.4L90.6,557L92.8,557.9L95.9,556.5L98.8,560.7L104.6,560L110.1,556.5L113.9,557L115.9,558.4L121.2,564.4L129.8,567.1L126,569.4L121.1,574.2L117.5,576.6L121.4,576L124.2,573.7L126.8,573.6L127.3,576.5L126.2,585.2L124.8,585.3L122,582.2L118.1,582.7L116.2,585.3L120.9,588.2L120.1,594.1L116.8,597.2L119.5,603.9L112.5,607.3L111.3,604.4L108.8,605.7L105.8,611.8L101.3,612.5L103.1,615.4L100,618.9L97.9,622.8L98.7,625.2L96.8,629.2L93.5,633.1L91.3,634.4L88.3,639.5L87.2,644.7L84.7,646.7L82.8,646.1L80.8,640.8L79.2,643.3L76.5,641.9L77.6,645.9L80.8,647.6L82.8,652.7L78.8,655L73.9,659.3L66.9,657.7L69.6,661.2L72.9,661.7L77.2,660.5L77.8,662.5L75.8,667.8L75.5,670.3L77.2,673.9L76.6,675.6L73,673.4L69.6,673.2L67.1,674.5L70.1,678.8L64.6,679L62.2,681.3L63,684.2L62,685.9L56.3,688.7L58,690.2L56.6,693.2L54.7,694.1L49,694.3L44.5,693L42.8,696.4L39.3,696.6L40.1,698.4L43.2,698.8L43.9,702L39.2,707.4L37.1,707.4L34.8,711.5L31.3,711.4L31.2,713.8L29.2,717.3L28.4,714.5L23.1,717.5L19.4,715.9L18.4,720.5L13.4,722.8L14.9,724.5L11.5,726.8L11.1,730.8L10,732.2L5.3,731.4L3.3,733.6L0,734.6L0,0ZM640,183.1L638.2,184.9L635,189.7L631.2,192.6L630.5,197.9L628,195.7L628.5,191.8L632.9,188L638.7,179.9L640,177.5L640,183.1ZM261.6,645.1L258.7,647.5L253.2,650.1L253.9,652.8L251.5,654.5L251.8,657L248.6,658.4L250.2,653.3L250.2,650.3L251.6,650L254.9,646.5L254,644.1L257,645.3L260.6,641.6L261.5,639.6L263.1,641.3ZM287,607.7L285.1,609.7L280.8,606.7L284.2,604L288.2,603.1L292,600.2L291,602.8L286.7,606.6ZM319.2,554.2L317.3,554.4L318.8,547.4L320.2,544.4L321.8,544.4L321.2,548.1ZM300.4,508.4L298.7,509.3L298.2,505.4L298.9,501L302.3,500.5L302.9,505.6ZM476.7,362.6L475.4,361.7L476.2,358L474.6,357.9L475.9,353.4L480.1,349.2L479,355.7L481.6,356L479.9,360.3ZM403.9,455.9L401.6,458L399.6,457.9L398.3,455.7L401.8,451.1L405.4,449.3L403.3,453ZM257.4,442.5L257.2,445L254.8,443.5L253.3,444.3L252.4,440.6L254.2,439.5L256.8,440.6ZM220.3,483.2L218.5,483.4L216.9,480.9L220.5,477.1L228.1,474.9L232.5,475.7L233.2,477.6L232,480.2L225.8,482.8ZM125.1,526.9L123.3,527.6L117.8,525.5L113.9,523.1L111.2,519L116.6,520.3L118.9,523.3L123.9,525.4Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><text x="32" y="476.1" text-anchor="middle" style="font-size:18.0px;font-weight:700;letter-spacing:.2em" fill="#9AA6B4">清</text><text x="341.3" y="49" text-anchor="middle" style="font-size:16.0px;font-weight:700;letter-spacing:.2em" fill="#9AA6B4">ロシア</text><text x="243.2" y="286.1" text-anchor="middle" style="font-size:13.0px;font-weight:700;letter-spacing:.2em" fill="#9AA6B4">朝鮮(韓国)</text><defs><marker id="armj7n640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="armj7t640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="armj7k640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="armj7g640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><circle cx="318.7" cy="464.3" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="326.7" y="464.3" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="326.7" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">下関</tspan><tspan x="326.7" dy="14.5" style="font-size:11.0px" fill="#5A6878">1895 下関条約</tspan></text><circle cx="234.2" cy="369.4" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="242.2" y="373.4" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="242.2" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">漢城(ソウル)</tspan><tspan x="242.2" dy="14.5" style="font-size:11.0px" fill="#5A6878">1910 朝鮮総督府</tspan></text><circle cx="208" cy="330" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="216.0" y="334.0" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="216.0" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">平壌</tspan><tspan x="216.0" dy="14.5" style="font-size:11.0px" fill="#5A6878">日清戦争の戦場</tspan></text><circle cx="112" cy="335.7" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="104.0" y="339.7" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="104.0" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">旅順</tspan><tspan x="104.0" dy="14.5" style="font-size:11.0px" fill="#5A6878">1905年1月 陥落</tspan></text><circle cx="158.5" cy="252" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="150.5" y="256.0" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="150.5" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">奉天</tspan><tspan x="150.5" dy="14.5" style="font-size:11.0px" fill="#5A6878">1905年3月 奉天会戦</tspan></text><circle cx="290.1" cy="458.1" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="290.1" y="481.1" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="290.1" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">対馬沖</tspan><tspan x="290.1" dy="14.5" style="font-size:11.0px" fill="#5A6878">1905年5月 日本海海戦</tspan></text><circle cx="118.6" cy="683.6" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="126.6" y="687.6" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="126.6" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">台湾</tspan><tspan x="126.6" dy="14.5" style="font-size:11.0px" fill="#5A6878">1895 日本の植民地に</tspan></text><circle cx="226.8" cy="135.3" r="4.5" fill="#5A6878" stroke="#fff" stroke-width="1.5"/><text x="234.8" y="139.3" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="234.8" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">ハルビン</tspan><tspan x="234.8" dy="14.5" style="font-size:11.0px" fill="#5A6878">1909 伊藤博文が暗殺される</tspan></text><circle cx="569.6" cy="80.9" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="547.2" y="84.9" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="547.2" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">樺太の南半分</tspan><tspan x="547.2" dy="14.5" style="font-size:11.0px" fill="#5A6878">1905 日本領に</tspan></text><circle cx="134.4" cy="302.9" r="4.5" fill="#5A6878" stroke="#fff" stroke-width="1.5"/><text x="126.4" y="306.9" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="126.4" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">遼東半島</tspan><tspan x="126.4" dy="14.5" style="font-size:11.0px" fill="#5A6878">三国干渉で返還</tspan></text><circle cx="507.1" cy="419.6" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="515.1" y="423.6" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="515.1" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">東京</tspan></text></svg></div><div style=margin-top:6px><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">位置はおおよそ</p></div><figcaption><span><b>図7-4</b>日清・日露戦争と韓国併合</span></figcaption></figure>
+<p>戦いは日本の勝利に終わり、1895年に<span class="rb">下関条約<span class="rt" aria-hidden="true">しものせきじょうやく</span></span>が結ばれた。清は朝鮮の独立を認め、<span class="rb">遼東半島<span class="rt" aria-hidden="true">りょうとうはんとう</span></span>・台湾などを日本にゆずり、多額の賠償金を支払った。しかし、ロシア・ドイツ・フランスが遼東半島を清に返すよう求め(<span class="rb">三国干渉<span class="rt" aria-hidden="true">さんごくかんしょう</span></span>)、日本はこれを受け入れた。台湾では日本の支配に抵抗する人々を武力でおさえ、植民地としての支配が始まった。同じ1895年、朝鮮では、日本の公使らが王宮に押し入り、ロシアに近づこうとしていた王妃(<span class="rb">閔妃<span class="rt" aria-hidden="true">びんひ</span></span>)を殺害する事件も起こっている。</p>
+<h2><span class="no">第3節</span>日露戦争</h2>
+<p>三国干渉の後、ロシアは<span class="rb">満州<span class="rt" aria-hidden="true">まんしゅう</span></span>(中国東北部)に勢力をのばし、朝鮮にも影響力を強めた。日本は1902年、ロシアの南下を警戒するイギリスと<span class="rb">日英同盟<span class="rt" aria-hidden="true">にちえいどうめい</span></span>を結び、1904年2月、<span class="rb">日露戦争<span class="rt" aria-hidden="true">にちろせんそう</span></span>が始まった。日本は多くの犠牲を出しながら<span class="rb">旅順<span class="rt" aria-hidden="true">りょじゅん</span></span>を攻め落とし、<span class="rb">奉天<span class="rt" aria-hidden="true">ほうてん</span></span>の会戦に勝ち、<span class="rb">日本海海戦<span class="rt" aria-hidden="true">にほんかいかいせん</span></span>で<span class="rb">東郷平八郎<span class="rt" aria-hidden="true">とうごうへいはちろう</span></span>の率いる艦隊がロシアのバルチック艦隊を破った。</p>
+<p>しかし日本の国力も限界に達しており、1905年、アメリカの仲立ちでポーツマス条約が結ばれた。日本は、韓国での優越的な地位、旅順・<span class="rb">大連<span class="rt" aria-hidden="true">だいれん</span></span>の<span class="rb">租借権<span class="rt" aria-hidden="true">そしゃくけん</span></span>、南満州の鉄道の権利、<span class="rb">樺太<span class="rt" aria-hidden="true">からふと</span></span>の南半分を得たが、賠償金は得られなかった。重い税に耐えてきた国民の不満は爆発し、東京では<span class="rb">日比谷焼き打ち事件<span class="rt" aria-hidden="true">ひびややきうちじけん</span></span>が起こった。戦争中には、<span class="rb">与謝野晶子<span class="rt" aria-hidden="true">よさのあきこ</span></span>が戦地の弟を思う詩を発表し、<span class="rb">内村鑑三<span class="rt" aria-hidden="true">うちむらかんぞう</span></span>らが戦争に反対の声を上げた。</p>
+<h2><span class="no">第4節</span>韓国併合</h2>
+<p>日露戦争の後、日本は韓国の支配を強めていった。1905年には韓国の外交権を奪い、<span class="rb">統監府<span class="rt" aria-hidden="true">とうかんふ</span></span>を置いて<span class="rb">伊藤博文<span class="rt" aria-hidden="true">いとうひろぶみ</span></span>を初代の統監とした。1907年には内政の権限も奪い、韓国の軍隊を解散させた。これに対し、元兵士や民衆が各地で<span class="rb">義兵<span class="rt" aria-hidden="true">ぎへい</span></span>として立ち上がり、激しく抵抗したが、日本の軍隊によって鎮圧された。</p>
+<figure><div class="cfig"><ol class="steps"><li><span class="num k">1</span><span><b>1904年 日韓議定書・第1次日韓協約</b><span class="d">日露戦争中、韓国に日本の推薦する顧問を置かせる</span></span></li><li><span class="num k">2</span><span><b>1905年 第2次日韓協約</b><span class="d">韓国の外交権を奪い、統監府を置く。初代統監は伊藤博文</span></span></li><li><span class="num k">3</span><span><b>1907年 第3次日韓協約</b><span class="d">韓国の内政の権限も奪い、軍隊を解散させる。各地で義兵の抵抗が広がる</span></span></li><li><span class="num k">4</span><span><b>1909年</b><span class="d">伊藤博文がハルビンで安重根に暗殺される</span></span></li><li><span class="num k">5</span><span><b>1910年 韓国併合</b><span class="d">韓国を植民地とし、朝鮮総督府を置く。1945年まで35年間支配が続く</span></span></li></ol></div><figcaption><span><b>図7-5</b>韓国併合までの流れ</span></figcaption></figure>
+<p>1909年、伊藤博文はハルビンの駅で、韓国の独立運動家<span class="rb">安重根<span class="rt" aria-hidden="true">アンジュングン</span></span>に暗殺された。翌1910年、日本は韓国を併合して植民地とし、<span class="rb">朝鮮総督府<span class="rt" aria-hidden="true">ちょうせんそうとくふ</span></span>を置いた。朝鮮では、土地の所有権を調べる事業によって土地を失う農民も多く、日本語の教育が進められるなど、人々は厳しい支配の下に置かれた。日本が欧米と対等な国をめざした歩みは、同時に、周りの国々を支配する歩みでもあったのである。</p>
+<section class="points" aria-labelledby="pt">
+<h3 id="pt">この章の要点</h3>
+<ul>
+<li>条約改正は長く難航したが、1894年に陸奥宗光が領事裁判権を撤廃し、1911年に小村寿太郎が関税自主権を回復した。</li>
+<li>1894年の日清戦争に勝った日本は、下関条約で台湾などを得たが、三国干渉で遼東半島を返還した。</li>
+<li>1904年の日露戦争の後、ポーツマス条約で韓国での優越的地位などを得たが、賠償金はなく国民の不満が高まった。</li>
+<li>日本は韓国の外交権・内政権を奪い、義兵の抵抗を鎮圧して、1910年に韓国を併合し植民地とした。</li>
+</ul>
+</section>
+<section class="column" aria-labelledby="col">
+<h3 id="col">コラム 「君死にたまふことなかれ」</h3>
+<p>日露戦争のさなかの1904年、歌人の与謝野晶子は、旅順を攻める軍にいた弟を思う詩「君死にたまふことなかれ」を雑誌に発表した。弟の命を案じ、家の跡を継ぐ弟に生きて帰ってほしいと願う率直な思いをうたったものである。</p>
+<p>評論家の<span class="rb">大町桂月<span class="rt" aria-hidden="true">おおまちけいげつ</span></span>は、天皇を中心とする国家の戦争を批判するものだとして晶子を激しく非難した。これに対し晶子は、まことの心を歌にしたまでだと反論した。国中が戦争に沸く中で、一人の家族として命の大切さを訴えた晶子の詩は、今も多くの人に読み継がれている。</p>
+</section>
+</div>
+</article>
+<div class="navs"><a href="pc_ch6.html">← 第6章</a><a href="index.html">目次</a><a href="pc_ch8.html">第8章 →</a></div>
+<footer>第7章 ・ 全8章のうちの1章</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn-zoom').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>明治の日本 第5章</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style>.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+
+.cfig{background:#F7FAFD;border:1px solid #DCE4EE;border-radius:8px;padding:16px 18px}
+.ppl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ppl .pg{margin:0}
+.mapwrap{display:flex;gap:16px;align-items:flex-start}
+footer a{color:var(--navy)}
+.tlh{font-size:15px;color:var(--navy);margin:1.4em 0 .3em}
+</style><style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style><style>.figstatic{cursor:default}.figstatic:hover{border-color:#DCE4EE}</style></head>
+<body>
+<div class="page">
+<p class="series">明治の日本 解説資料</p>
+<article class="sheet">
+<div class="band">第五章 ・ 1874 ― 1884</div>
+<header class="ch">
+<h1>士族の反乱と自由民権運動</h1>
+<p class="lead">武力による抵抗から、言論による政治参加の要求へ</p>
+</header>
+<div class="body">
+<figure><div class="figbtn figstatic"><svg viewBox="0 0 680 270" role="img"><title>図5-1 この章の年表</title><desc>1874 民撰議院設立建白書、佐賀の乱、1875 愛国社の結成、1876 神風連の乱・秋月の乱・萩の乱、1877 西南戦争、1880 国会期成同盟、1881 国会開設の勅諭、自由党の結成、1882 立憲改進党の結成、1884 秩父事件、自由党が解党</desc><rect x="50" y="146" width="580" height="8" rx="3" fill="#1F4E8C"/><line x1="60.0" y1="118" x2="60.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="60.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1874</text><text x="60.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">民撰議院設立建白書、佐賀の乱</text><circle cx="60.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="116.0" y1="154" x2="116.0" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="116.0" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1875</text><text x="116.0" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">愛国社の結成</text><circle cx="116.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="172.0" y1="78" x2="172.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="172.0" y="56" text-anchor="start" class="h" style="fill:#1F4E8C">1876</text><text x="172.0" y="72" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">神風連の乱・秋月の乱・萩の乱</text><circle cx="172.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="228.0" y1="154" x2="228.0" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="228.0" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1877</text><text x="228.0" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">西南戦争</text><circle cx="228.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="396.0" y1="118" x2="396.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="396.0" y="96" text-anchor="start" class="h" style="fill:#2F7F86">1880</text><text x="396.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">国会期成同盟</text><circle cx="396.0" cy="150" r="4.5" fill="#fff" stroke="#2F7F86" stroke-width="2"/><line x1="452.0" y1="154" x2="452.0" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="452.0" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1881</text><text x="452.0" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">国会開設の勅諭、自由党の結成</text><circle cx="452.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="508.0" y1="118" x2="508.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="508.0" y="96" text-anchor="start" class="h" style="fill:#2F7F86">1882</text><text x="508.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">立憲改進党の結成</text><circle cx="508.0" cy="150" r="4.5" fill="#fff" stroke="#2F7F86" stroke-width="2"/><line x1="620.0" y1="78" x2="620.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="620.0" y="56" text-anchor="end" class="h" style="fill:#1F4E8C">1884</text><text x="620.0" y="72" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:400">秩父事件、自由党が解党</text><circle cx="620.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/></svg></div><figcaption><span><b>図5-1</b>この章の年表</span></figcaption></figure>
+<figure><div class="cfig"><div class="ppl"><div class="pg k"><h4>士族の反乱</h4><ul><li><b><span class="rb">江藤新平<span class="rt" aria-hidden="true">えとうしんぺい</span></span></b><span class="pd">元参議。1874年、佐賀の乱を起こして敗れ、処刑された</span></li><li><b><span class="rb">西郷隆盛<span class="rt" aria-hidden="true">さいごうたかもり</span></span></b><span class="pd">鹿児島の私学校の生徒らに担がれて挙兵し、西南戦争で敗れて自害した</span></li></ul></div><div class="pg n"><h4>自由民権運動</h4><ul><li><b><span class="rb">板垣退助<span class="rt" aria-hidden="true">いたがきたいすけ</span></span></b><span class="pd">土佐出身。民撰議院設立建白書を出し、自由党の党首となった</span></li><li><b><span class="rb">大隈重信<span class="rt" aria-hidden="true">おおくましげのぶ</span></span></b><span class="pd">明治十四年の政変で政府を追われ、立憲改進党をつくった</span></li><li><b><span class="rb">植木枝盛<span class="rt" aria-hidden="true">うえきえもり</span></span></b><span class="pd">土佐の民権家。人々の権利を重んじる憲法の案をつくった</span></li></ul></div></div></div><figcaption><span><b>図5-2</b>この章の登場人物</span></figcaption></figure>
+<h2><span class="no">第1節</span>民撰議院設立建白書</h2>
+<p><span class="rb">征韓論<span class="rt" aria-hidden="true">せいかんろん</span></span>に敗れて政府を去った<span class="rb">板垣退助<span class="rt" aria-hidden="true">いたがきたいすけ</span></span>らは、1874年、<span class="rb">民撰議院設立建白書<span class="rt" aria-hidden="true">みんせんぎいんせつりつけんぱくしょ</span></span>を政府に出した。政府の政治は一部の<span class="rb">藩閥<span class="rt" aria-hidden="true">はんばつ</span></span>の役人によって行われているとして、国民が選んだ議員による議会(民撰議院)を開くよう求めたのである。建白書は新聞に載って大きな反響を呼び、国民の政治参加を求める<span class="rb">自由民権運動<span class="rt" aria-hidden="true">じゆうみんけんうんどう</span></span>が始まった。</p>
+<p>板垣は故郷の高知で<span class="rb">立志社<span class="rt" aria-hidden="true">りっししゃ</span></span>をつくり、翌1875年には大阪で全国の団体を集めて<span class="rb">愛国社<span class="rt" aria-hidden="true">あいこくしゃ</span></span>を結成した。政府は、将来は憲法を定めて立憲政治を行う方針を示す一方で、新聞や言論を取り締まる法律を出して運動を抑えようとした。</p>
+<h2><span class="no">第2節</span>士族の反乱と西南戦争</h2>
+<p>一方、特権を奪われた<span class="rb">士族<span class="rt" aria-hidden="true">しぞく</span></span>の中には、武力で政府に抵抗する者もいた。1874年には<span class="rb">江藤新平<span class="rt" aria-hidden="true">えとうしんぺい</span></span>が<span class="rb">佐賀の乱<span class="rt" aria-hidden="true">さがのらん</span></span>を起こし、1876年には熊本の<span class="rb">神風連<span class="rt" aria-hidden="true">しんぷうれん</span></span>の乱、福岡の<span class="rb">秋月<span class="rt" aria-hidden="true">あきづき</span></span>の乱、山口の<span class="rb">萩の乱<span class="rt" aria-hidden="true">はぎのらん</span></span>が相次いだ。いずれも政府軍にすぐに鎮圧された。</p>
+<figure><div class="figbtn figstatic"><svg viewBox="0 0 640 422" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>士族の反乱と自由民権運動</title><desc>位置はおおよそ</desc><rect width="640" height="422" fill="#EAF2FB"/><path d="M640,45.7L638.4,55.7L640,62.5L640,99.1L640,99.1L631.7,107.5L629.4,124.8L625.8,131L608.4,141.1L600.5,151L593.4,146.9L595.9,143.1L595,122.7L610.1,105.4L604.5,96.2L595.5,96.9L591.5,108.6L584.8,114.7L590.2,125.9L583.9,133.7L574.5,122.6L561.5,124.1L553.6,136.9L554,146.9L547.9,162.5L541,170.2L533,165.1L535.3,145.7L541.2,142.1L530.5,135.1L522.4,137.7L509,154.7L499.7,172.5L487.6,169.3L462.2,167.7L434.2,173.4L447.4,164.9L446.5,160L432.5,160.5L423.9,157.6L422,139.6L412.6,144.9L403.4,166.6L408.2,173L423.5,183.9L422,191.6L404,196.4L391.7,202L367.6,245.2L354.6,250.4L340.5,245.7L334.3,233.9L324.4,221.6L321.7,213.9L320,194.2L329.7,187.7L336.6,179.2L338.5,170.9L334.9,168.3L316.7,170L299.1,160.5L290.1,160.1L268.1,165.3L254.3,177.3L223.7,184L206.1,193.2L199,191.2L177.8,197.1L164.2,189.6L157.9,191.6L153.5,198.4L148.1,225.8L124.6,210.8L109.1,213.1L95.1,218.1L85.6,213L76.6,216.1L75,196L81.7,186.8L102,185.4L116.8,171.1L131.3,163.3L143.4,151L154.8,142.2L175.7,122L180.3,114L193.3,107.5L213.4,104.2L219.7,111.2L233.7,107.5L248,108.6L268.5,105.4L282.5,99L307.2,96.5L324.4,90.6L329.7,92.3L327.8,101.6L333.2,106.4L353.7,108L366.7,100.6L377.8,89.1L372.8,73.1L381.4,56.2L393.3,46.3L413,18.8L416,3.5L415.6,0L430.4,0L430.4,0L431.5,11.9L437.7,16.4L450.5,16.7L460.4,3.5L470.4,0L640,0ZM276.9,196.4L293,198.6L293,211.4L299.1,227.1L288,233.4L277.9,241.9L270.2,253.7L266.6,267.1L253.6,253L247.5,249.9L234.6,248.7L214.5,259.2L203.8,282.3L198.7,285.3L196.4,295.1L190.2,301.3L177,300.7L180.9,290.9L168.4,290L164.6,280.1L169.4,263.8L163.1,261.2L163.6,254.3L144.7,260.5L177,236.2L185.3,215L197.3,208.2L205.7,219.5L231.6,213.2L235.2,205L232.9,197.3L239,197.7L253,190L260.3,189.3ZM0,265.7L3.5,258.9L14.2,261.9L13.2,253.8L27.4,248L33.1,242.6L44.6,240.1L51.5,226L64.9,219.5L78.7,223.4L84.8,237.4L91.7,242.3L91.7,242.3L105.7,243.6L115.4,238.7L121.9,242.3L122.7,249.3L112.7,265.1L133.6,266.6L130.9,276L136.7,280.9L134.4,286L140.1,289.9L138.2,295L124,312.4L114.3,337.9L108.3,361.2L108.3,375.8L101.1,393.9L85.6,391.8L83.5,395.8L87.1,404.1L75.8,413.9L63.2,420.5L69.3,403.1L64.3,382.2L68.7,380.3L68.5,373.3L61.3,372.4L54,390.1L60.7,403.2L57.6,409.3L34.9,401.6L31.8,393.7L40.4,390.8L42.1,380.5L34.1,369L35.6,363.5L34.5,347L41.9,343.4L50.2,332.3L60.5,310.6L52.3,308L56.3,302.6L55.1,295.9L45.4,277.8L37,271.9L30.6,277L33.5,294.5L42.3,294.4L43.1,304.9L37.5,306.6L26.4,300.1L9.8,313.9L13.2,303.2L5.2,292.9L4.6,280.1L13.4,291.7L22.8,294.5L17.4,282.6L0,268.7L0,265.7ZM28,337.4L23.4,339.8L22,329.4L23.8,317.4L33.1,315.9L34.9,329.8ZM310.2,194.2L303.9,200.2L298.4,199.8L294.9,193.8L304.5,181.2L314.4,176.2L308.7,186.5Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><defs><marker id="armj5n640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="armj5t640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="armj5k640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="armj5g640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><circle cx="40.7" cy="266.9" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="54.0" y="270.9" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="54.0" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">佐賀の乱</tspan><tspan x="54.0" dy="14.5" style="font-size:11.0px" fill="#5A6878">1874</tspan></text><circle cx="63.4" cy="252.2" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="63.4" y="228.7" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="63.4" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">秋月の乱</tspan><tspan x="63.4" dy="14.5" style="font-size:11.0px" fill="#5A6878">1876</tspan></text><circle cx="64.6" cy="298.1" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="72.6" y="312.1" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="72.6" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">熊本</tspan><tspan x="72.6" dy="14.5" style="font-size:11.0px" fill="#5A6878">神風連の乱1876・熊本城の戦い1877</tspan></text><circle cx="104.7" cy="185.6" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="104.7" y="162.1" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="104.7" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">萩の乱</tspan><tspan x="104.7" dy="14.5" style="font-size:11.0px" fill="#5A6878">1876</tspan></text><circle cx="55.3" cy="380.6" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="63.3" y="384.6" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="63.3" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">鹿児島・城山</tspan><tspan x="63.3" dy="14.5" style="font-size:11.0px" fill="#5A6878">1877 西郷が自害</tspan></text><circle cx="228.7" cy="245.2" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="228.7" y="262.2" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="228.7" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">高知</tspan><tspan x="228.7" dy="14.5" style="font-size:11.0px" fill="#5A6878">立志社(1874)</tspan></text><circle cx="343.3" cy="165.8" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="343.3" y="182.8" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="343.3" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">大阪</tspan><tspan x="343.3" dy="14.5" style="font-size:11.0px" fill="#5A6878">愛国社(1875)</tspan></text><circle cx="551.6" cy="73.1" r="4.5" fill="#5A6878" stroke="#fff" stroke-width="1.5"/><text x="551.6" y="49.6" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="551.6" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">秩父事件</tspan><tspan x="551.6" dy="14.5" style="font-size:11.0px" fill="#5A6878">1884</tspan></text><circle cx="591.7" cy="95.3" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="599.7" y="99.3" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="599.7" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">東京</tspan></text></svg></div><div style=margin-top:6px><div class="legend"><span><i class="sq" style="background:#B4532A"></i>士族の反乱</span><span><i class="sq"></i>自由民権運動の拠点</span><span><i class="sq" style="background:#5A6878"></i>農民の蜂起</span></div><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">位置はおおよそ</p></div><figcaption><span><b>図5-3</b>士族の反乱と自由民権運動</span></figcaption></figure>
+<p>1877年、鹿児島の<span class="rb">私学校<span class="rt" aria-hidden="true">しがっこう</span></span>の生徒たちが<span class="rb">西郷隆盛<span class="rt" aria-hidden="true">さいごうたかもり</span></span>を担いで兵を挙げ、最大の士族の反乱である<span class="rb">西南戦争<span class="rt" aria-hidden="true">せいなんせんそう</span></span>が起こった。西郷軍は熊本城を囲んだが落とせず、<span class="rb">田原坂<span class="rt" aria-hidden="true">たばるざか</span></span>などでの激しい戦いの末、各地で敗れた。9月、西郷は鹿児島の<span class="rb">城山<span class="rt" aria-hidden="true">しろやま</span></span>で自害した。農民などから集めた徴兵制の政府軍が、士族の軍に勝ったのである。翌1878年には、政府の中心であった<span class="rb">大久保利通<span class="rt" aria-hidden="true">おおくぼとしみち</span></span>も、東京で不平士族に暗殺された。これ以後、政府への批判は、言論によるものが中心となっていく。</p>
+<h2><span class="no">第3節</span>国会開設の約束と政党の誕生</h2>
+<p>自由民権運動は、士族だけでなく、地主や商工業者、農民にも広がった。1880年、全国の代表が大阪に集まって<span class="rb">国会期成同盟<span class="rt" aria-hidden="true">こっかいきせいどうめい</span></span>をつくり、国会の開設を求める<span class="rb">請願<span class="rt" aria-hidden="true">せいがん</span></span>を政府に出した。民間でも、さまざまな憲法の案(<span class="rb">私擬憲法<span class="rt" aria-hidden="true">しぎけんぽう</span></span>)がつくられた。</p>
+<figure><div class="cfig"><div class="flow"><div class="fs s"><em>1874年</em><b>民撰議院設立建白書</b><span class="d">板垣退助らが、選挙で選ばれた議員による議会を開くよう求める</span></div><div class="fs s"><em>1880年</em><b>国会期成同盟</b><span class="d">全国の民権派が集まり、国会の開設を政府に願い出る</span></div><div class="fs t"><em>1881年</em><b>開拓使官有物払下げ事件</b><span class="d">北海道の官営事業を、政府高官と同郷の商人に安く払い下げようとして批判を浴びる</span></div><div class="pair"><div class="fs t"><em>同じ年</em><b>明治十四年の政変</b><span class="d">国会の早期開設を唱えた大隈重信を政府から追い出す</span></div><div class="fs t"><em>同じ年</em><b>国会開設の勅諭</b><span class="d">10年後の1890年に国会を開くと約束する</span></div></div><div class="fs dk"><b>政党が生まれる</b><span class="d">板垣の自由党(1881年)、大隈の立憲改進党(1882年)</span></div></div></div><figcaption><span><b>図5-4</b>国会開設への道</span></figcaption></figure>
+<p>1881年、北海道の<span class="rb">開拓使<span class="rt" aria-hidden="true">かいたくし</span></span>の官営事業を、政府高官と同郷の商人に安く払い下げようとしたことが発覚し、政府は激しい批判を浴びた。政府は、国会の早期開設を唱えていた<span class="rb">大隈重信<span class="rt" aria-hidden="true">おおくましげのぶ</span></span>を政府から追い出すと同時に、10年後の1890年に国会を開くことを約束した(<span class="rb">国会開設の勅諭<span class="rt" aria-hidden="true">こっかいかいせつのちょくゆ</span></span>)。これを受けて、1881年には板垣を党首とする<span class="rb">自由党<span class="rt" aria-hidden="true">じゆうとう</span></span>が、1882年には大隈を党首とする<span class="rb">立憲改進党<span class="rt" aria-hidden="true">りっけんかいしんとう</span></span>が結成された。</p>
+<h2><span class="no">第4節</span>民権運動の激化と衰え</h2>
+<p>1881年から大蔵卿となった<span class="rb">松方正義<span class="rt" aria-hidden="true">まつかたまさよし</span></span>は、西南戦争のころに発行した大量の紙幣を整理し、財政を立て直そうとした。その結果、米や生糸の値段が大きく下がり、借金を返せずに土地を失う農民が続出した。</p>
+<p>困窮した農民の中には、自由党の一部の人々と結びついて実力行動に出る者もいた。1884年、埼玉県の秩父地方では、借金の返済の延期などを求める数千人の農民が<span class="rb">蜂起<span class="rt" aria-hidden="true">ほうき</span></span>し、軍隊によって鎮圧された(<span class="rb">秩父事件<span class="rt" aria-hidden="true">ちちぶじけん</span></span>)。こうした事件が続く中で自由党は解党し、民権運動はいったん衰えた。しかし国会の開設が近づくと、運動は再び勢いを取り戻していく。</p>
+<section class="points" aria-labelledby="pt">
+<h3 id="pt">この章の要点</h3>
+<ul>
+<li>1874年の民撰議院設立建白書をきっかけに、国民の政治参加を求める自由民権運動が始まった。</li>
+<li>特権を失った士族は各地で反乱を起こしたが、1877年の西南戦争で西郷隆盛が敗れ、武力による抵抗は終わった。</li>
+<li>1881年、政府は国会開設の勅諭で1890年の国会開設を約束し、自由党・立憲改進党が結成された。</li>
+<li>松方財政のデフレで農民が苦しみ、秩父事件などが起こった。自由党は解党し、運動はいったん衰えた。</li>
+</ul>
+</section>
+<section class="column" aria-labelledby="col">
+<h3 id="col">コラム 民衆がつくった憲法 ― 五日市憲法</h3>
+<p>1968年、東京都の五日市町(今のあきる野市)の旧家の<span class="rb">土蔵<span class="rt" aria-hidden="true">どぞう</span></span>から、明治時代の憲法の草案が見つかった。のちに<span class="rb">五日市憲法<span class="rt" aria-hidden="true">いつかいちけんぽう</span></span>と呼ばれるこの草案は、地元の青年たちの学習会の中で、教員の<span class="rb">千葉卓三郎<span class="rt" aria-hidden="true">ちばたくさぶろう</span></span>が中心となってまとめたものであった。</p>
+<p>草案には、国民の権利や自由について多くの条文が設けられていた。都会の知識人だけでなく、地方の人々も、自分たちの手で国の形を考えようとしていたことがわかる。<span class="rb">土佐<span class="rt" aria-hidden="true">とさ</span></span>の<span class="rb">植木枝盛<span class="rt" aria-hidden="true">うえきえもり</span></span>がつくった憲法の案も、政府が国民の権利を不当に奪った場合に抵抗することを認めるなど、大胆な内容を含んでいた。</p>
+</section>
+</div>
+</article>
+<div class="navs"><a href="pc_ch4.html">← 第4章</a><a href="index.html">目次</a><a href="pc_ch6.html">第6章 →</a></div>
+<footer>第5章 ・ 全8章のうちの1章</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn-zoom').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>

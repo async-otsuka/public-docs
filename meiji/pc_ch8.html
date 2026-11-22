@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>明治の日本 第8章</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style>.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+
+.cfig{background:#F7FAFD;border:1px solid #DCE4EE;border-radius:8px;padding:16px 18px}
+.ppl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ppl .pg{margin:0}
+.mapwrap{display:flex;gap:16px;align-items:flex-start}
+footer a{color:var(--navy)}
+.tlh{font-size:15px;color:var(--navy);margin:1.4em 0 .3em}
+</style><style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style><style>.figstatic{cursor:default}.figstatic:hover{border-color:#DCE4EE}</style></head>
+<body>
+<div class="page">
+<p class="series">明治の日本 解説資料</p>
+<article class="sheet">
+<div class="band">第八章 ・ 1880年代 ― 1912</div>
+<header class="ch">
+<h1>産業革命と明治の文化</h1>
+<p class="lead">工業国への歩みと、その陰で生まれた社会問題、そして新しい文化</p>
+</header>
+<div class="body">
+<figure><div class="figbtn figstatic"><svg viewBox="0 0 680 270" role="img"><title>図8-1 この章の年表</title><desc>1883 大阪紡績会社が操業を始める、1890 北里柴三郎が破傷風の血清療法を発見、1897 綿糸の輸出が輸入を上回る、1901 八幡製鉄所が操業、田中正造が天皇に直訴、1905 夏目漱石『吾輩は猫である』、1910 大逆事件、1911 工場法、1912 明治天皇が死去</desc><rect x="50" y="146" width="580" height="8" rx="3" fill="#1F4E8C"/><line x1="60.0" y1="118" x2="60.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="60.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1883</text><text x="60.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">大阪紡績会社が操業を始める</text><circle cx="60.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="195.2" y1="154" x2="195.2" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="195.2" y="198" text-anchor="start" class="h" style="fill:#2F7F86">1890</text><text x="195.2" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">北里柴三郎が破傷風の血清療法を発見</text><circle cx="195.2" cy="150" r="4.5" fill="#fff" stroke="#2F7F86" stroke-width="2"/><line x1="330.3" y1="118" x2="330.3" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="330.3" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1897</text><text x="330.3" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">綿糸の輸出が輸入を上回る</text><circle cx="330.3" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="407.6" y1="78" x2="407.6" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="407.6" y="56" text-anchor="start" class="h" style="fill:#1F4E8C">1901</text><text x="407.6" y="72" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">八幡製鉄所が操業、田中正造が天皇に直訴</text><circle cx="407.6" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="484.8" y1="154" x2="484.8" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="484.8" y="198" text-anchor="start" class="h" style="fill:#2F7F86">1905</text><text x="484.8" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">夏目漱石『吾輩は猫である』</text><circle cx="484.8" cy="150" r="4.5" fill="#fff" stroke="#2F7F86" stroke-width="2"/><line x1="581.4" y1="118" x2="581.4" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="581.4" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1910</text><text x="581.4" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">大逆事件</text><circle cx="581.4" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="600.7" y1="154" x2="600.7" y2="226" stroke="#9AAABB" stroke-width=".8"/><text x="600.7" y="240" text-anchor="start" class="h" style="fill:#1F4E8C">1911</text><text x="600.7" y="256" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">工場法</text><circle cx="600.7" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="620.0" y1="40" x2="620.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="620.0" y="18" text-anchor="end" class="h" style="fill:#1F4E8C">1912</text><text x="620.0" y="34" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:700">明治天皇が死去</text><circle cx="620.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/></svg></div><figcaption><span><b>図8-1</b>この章の年表</span></figcaption></figure>
+<figure><div class="cfig"><div class="ppl"><div class="pg n"><h4>産業と社会</h4><ul><li><b><span class="rb">渋沢栄一<span class="rt" aria-hidden="true">しぶさわえいいち</span></span></b><span class="pd">大阪紡績会社など、多くの企業の設立にかかわった</span></li><li><b><span class="rb">田中正造<span class="rt" aria-hidden="true">たなかしょうぞう</span></span></b><span class="pd">衆議院議員。足尾銅山の鉱毒問題に生涯をかけて取り組んだ</span></li></ul></div><div class="pg t"><h4>文学</h4><ul><li><b><span class="rb">森鷗外<span class="rt" aria-hidden="true">もりおうがい</span></span>・<span class="rb">夏目漱石<span class="rt" aria-hidden="true">なつめそうせき</span></span></b><span class="pd">ヨーロッパに留学した経験をもとに、近代人の心を描いた</span></li><li><b><span class="rb">樋口一葉<span class="rt" aria-hidden="true">ひぐちいちよう</span></span></b><span class="pd">『たけくらべ』などで、明治の女性や子どもの姿を描いた。24歳で死去</span></li></ul></div><div class="pg g"><h4>科学</h4><ul><li><b><span class="rb">北里柴三郎<span class="rt" aria-hidden="true">きたさとしばさぶろう</span></span>・<span class="rb">志賀潔<span class="rt" aria-hidden="true">しがきよし</span></span></b><span class="pd">北里は破傷風の血清療法、志賀は赤痢菌を発見した</span></li></ul></div></div></div><figcaption><span><b>図8-2</b>この章の登場人物</span></figcaption></figure>
+<h2><span class="no">第1節</span>軽工業から重工業へ</h2>
+<p>1880年代の後半から、日本でも機械を使った工業が本格的に発達し始めた(<span class="rb">産業革命<span class="rt" aria-hidden="true">さんぎょうかくめい</span></span>)。中心となったのは、綿花から糸をつくる<span class="rb">紡績<span class="rt" aria-hidden="true">ぼうせき</span></span>業と、<span class="rb">繭<span class="rt" aria-hidden="true">まゆ</span></span>から生糸をつくる<span class="rb">製糸<span class="rt" aria-hidden="true">せいし</span></span>業である。1883年に操業を始めた大阪紡績会社は、蒸気の力で動くイギリス製の機械を使い、昼夜交代で大量の綿糸を生産した。1897年には綿糸の輸出が輸入を上回り、生糸は日本最大の輸出品となった。</p>
+<figure><div class="cfig"><div class="flow"><div class="pair"><div class="fs s"><em>1880〜1890年代 軽工業</em><b>紡績業・製糸業</b><span class="d">大阪紡績会社が蒸気の機械で大量生産。生糸は最大の輸出品に</span></div><div class="fs t"><em>1900年代 重工業</em><b>製鉄・造船・機械</b><span class="d">日清戦争の賠償金をもとに、八幡製鉄所が1901年に操業</span></div></div><div class="fs "><em>交通</em><b>鉄道網が全国に広がる</b><span class="d">1889年に東海道線が全通。1906年には主な鉄道が国有化された</span></div><div class="fs dk"><b>三井・三菱・住友・安田などの財閥が成長</b><span class="d">銀行・鉱山・貿易など、多くの事業を一族で支配した</span></div></div></div><figcaption><span><b>図8-3</b>日本の産業革命</span></figcaption></figure>
+<p><span class="rb">日清戦争<span class="rt" aria-hidden="true">にっしんせんそう</span></span>の後には、賠償金の一部をもとに、北九州に官営の<span class="rb">八幡製鉄所<span class="rt" aria-hidden="true">やはたせいてつしょ</span></span>がつくられ、1901年に操業を始めた。<span class="rb">日露戦争<span class="rt" aria-hidden="true">にちろせんそう</span></span>の後には、造船や機械などの重工業も発達した。鉄道は全国に広がり、三井・三菱・住友・安田などの<span class="rb">財閥<span class="rt" aria-hidden="true">ざいばつ</span></span>は、銀行や鉱山、貿易など多くの事業を手がけて経済を支配するようになった。</p>
+<h2><span class="no">第2節</span>働く人々と社会問題</h2>
+<p>産業の発展を支えたのは、農村から出てきた若い女性労働者(<span class="rb">女工<span class="rt" aria-hidden="true">じょこう</span></span>)であった。製糸や紡績の工場では、1日に十数時間も働くことが珍しくなく、賃金は低く、<span class="rb">寄宿舎<span class="rt" aria-hidden="true">きしゅくしゃ</span></span>で病気になる人も多かった。政府は1911年に工場法を定めたが、例外の多い不十分なものであった。</p>
+<figure><div class="figbtn figstatic"><svg viewBox="0 0 640 474" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>産業の発展と社会問題の場所</title><desc>位置はおおよそ</desc><rect width="640" height="474" fill="#EAF2FB"/><path d="M625.3,0L629.4,13.8L628.6,37.7L624.8,58.6L612.6,67.4L606.9,81.4L602.9,104.6L584.6,108.9L577.1,121.1L575.4,134L579.3,150.2L580.9,165L577.4,194.6L568.5,204.5L560.1,226.2L557.3,243.4L559.9,254.2L566.8,267.6L572.7,275.2L560.8,279.1L551.5,288.6L549.5,303.7L546.4,309.1L531.2,318L524.2,326.6L518,323L520.2,319.7L519.5,301.9L532.6,286.7L527.7,278.7L519.8,279.4L516.4,289.6L510.5,294.9L515.3,304.7L509.8,311.5L501.6,301.8L490.2,303.1L483.3,314.3L483.6,323L478.3,336.7L472.3,343.3L465.4,338.9L467.4,321.9L472.5,318.8L463.2,312.7L456,314.9L444.3,329.8L436.3,345.3L425.7,342.6L403.5,341.2L379,346.1L390.6,338.7L389.8,334.4L377.6,334.8L370.1,332.4L368.4,316.7L360.2,321.3L352.2,340.2L356.4,345.8L369.7,355.3L368.4,362L352.7,366.2L341.9,371.1L320.9,408.8L309.6,413.3L297.3,409.2L291.8,399L283.2,388.2L280.8,381.5L279.4,364.3L287.8,358.6L293.8,351.2L295.5,344L292.4,341.7L276.5,343.2L261.1,334.8L253.2,334.5L234,339L222,349.5L195.3,355.4L179.9,363.4L173.7,361.7L155.2,366.8L143.3,360.3L137.9,362L134,368L129.3,391.8L108.8,378.8L95.2,380.8L83,385.2L74.8,380.7L66.9,383.4L65.4,365.9L71.3,357.9L89,356.6L102,344.2L114.6,337.3L125.2,326.6L135.1,318.9L153.4,301.2L157.4,294.3L168.8,288.6L186.3,285.8L191.8,291.8L204,288.6L216.5,289.6L234.4,286.7L246.7,281.2L268.2,279L283.2,273.8L287.8,275.3L286.1,283.5L290.9,287.6L308.8,289L320.2,282.6L329.9,272.5L325.5,258.6L333,243.9L343.4,235.2L360.6,211.2L363.1,197.8L361.7,182.2L367.9,170.4L392.2,161.4L392.9,166.9L383.6,176.7L372.1,183.8L375.6,193.1L376.7,205.1L382.1,209.1L393.3,209.3L401.9,197.8L422.2,190.7L442.9,180.8L454.6,169.7L462.6,159L471.6,140.8L490,130.2L497.9,121.5L501.7,104.9L506.9,92L518.2,73.5L523.9,50.8L530.1,38.9L531,16.6L525.5,7.6L515.1,5.3L521.7,0L625.3,0ZM241.7,366.2L255.8,368.1L255.8,379.3L261.1,393L251.4,398.5L242.6,405.9L235.9,416.2L232.8,427.9L221.4,415.7L216.1,412.9L204.8,411.9L187.2,421.1L177.9,441.2L173.5,443.8L171.5,452.4L166,457.8L154.5,457.3L158,448.8L147,447.9L143.7,439.3L147.9,425.1L142.4,422.8L142.8,416.7L126.3,422.2L154.5,401L161.8,382.5L172.2,376.5L179.5,386.4L202.2,380.9L205.3,373.8L203.3,367L208.6,367.4L220.9,360.6L227.3,360ZM49,474L52.8,466L45.7,463.6L49.2,458.9L48.1,453.1L39.7,437.3L32.3,432.1L26.7,436.6L29.2,451.9L36.9,451.8L37.6,460.9L32.7,462.4L23,456.7L8.6,468.8L11.5,459.5L4.5,450.4L4,439.3L11.7,449.4L19.9,451.9L15.2,441.5L0,429.3L0,426.7L0,426.7L3.1,420.7L12.4,423.4L11.5,416.3L23.9,411.2L28.9,406.6L38.9,404.4L45,392.1L56.7,386.4L68.7,389.8L74,402L80.1,406.3L80.1,406.3L92.3,407.4L100.7,403.2L106.4,406.3L107.1,412.4L98.4,426.2L116.6,427.5L114.3,435.7L119.4,440L117.4,444.4L122.3,447.8L120.7,452.3L108.2,467.5L105.8,474L49,474ZM444.1,142.1L441,140.1L443,131.3L439.2,131.1L442.3,120.3L452.2,110.3L449.6,125.8L455.8,126.5L451.8,136.9ZM270.8,364.3L265.3,369.5L260.5,369.2L257.4,364L265.9,352.9L274.4,348.6L269.5,357.5Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><defs><marker id="armj8n640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="armj8t640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="armj8k640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="armj8g640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><circle cx="62.5" cy="389.9" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="62.5" y="380.9" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="62.5" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">八幡製鉄所(1901)</tspan></text><circle cx="299.7" cy="339.5" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="299.7" y="356.5" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="299.7" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">大阪</tspan><tspan x="299.7" dy="14.5" style="font-size:11.0px" fill="#5A6878">紡績業の中心</tspan></text><circle cx="500.3" cy="218.2" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="508.3" y="214.2" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="508.3" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">足尾銅山</tspan><tspan x="508.3" dy="14.5" style="font-size:11.0px" fill="#5A6878">鉱毒事件</tspan></text><circle cx="471.9" cy="241.6" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="463.9" y="239.6" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="463.9" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">富岡製糸場</tspan></text><circle cx="432.8" cy="254.8" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="432.8" y="271.8" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="432.8" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">諏訪</tspan><tspan x="432.8" dy="14.5" style="font-size:11.0px" fill="#5A6878">製糸業がさかん</tspan></text><circle cx="623.7" cy="47.5" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="611.0" y="51.5" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="611.0" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">釜石</tspan><tspan x="611.0" dy="14.5" style="font-size:11.0px" fill="#5A6878">製鉄</tspan></text><circle cx="13.7" cy="458" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="21.7" y="462.0" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="21.7" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">長崎造船所</tspan></text><circle cx="516.6" cy="278" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="524.6" y="290.0" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="524.6" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">東京</tspan></text></svg></div><div style=margin-top:6px><div class="legend"><span><i class="sq"></i>産業の拠点</span><span><i class="sq" style="background:#B4532A"></i>公害</span></div><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">位置はおおよそ</p></div><figcaption><span><b>図8-4</b>産業の発展と社会問題の場所</span></figcaption></figure>
+<p>栃木県の<span class="rb">足尾銅山<span class="rt" aria-hidden="true">あしおどうざん</span></span>では、鉱山から流れ出た有毒な物質が<span class="rb">渡良瀬川<span class="rt" aria-hidden="true">わたらせがわ</span></span>の流域の田畑を荒らし、住民の健康にも被害を与えた。<span class="rb">衆議院<span class="rt" aria-hidden="true">しゅうぎいん</span></span>議員の<span class="rb">田中正造<span class="rt" aria-hidden="true">たなかしょうぞう</span></span>は、この問題を議会で繰り返し訴え、1901年には議員を辞めて天皇に<span class="rb">直訴<span class="rt" aria-hidden="true">じきそ</span></span>しようとした。<span class="rb">労働組合<span class="rt" aria-hidden="true">ろうどうくみあい</span></span>をつくる動きや、社会主義の運動も起こったが、政府はこれを厳しく取り締まり、1910年の<span class="rb">大逆事件<span class="rt" aria-hidden="true">たいぎゃくじけん</span></span>では、天皇の暗殺を計画したとして<span class="rb">幸徳秋水<span class="rt" aria-hidden="true">こうとくしゅうすい</span></span>らが処刑された。</p>
+<h2><span class="no">第3節</span>明治の文化</h2>
+<p>文学では、<span class="rb">坪内逍遥<span class="rt" aria-hidden="true">つぼうちしょうよう</span></span>が人の心をありのままに描く写実主義を唱え、<span class="rb">二葉亭四迷<span class="rt" aria-hidden="true">ふたばていしめい</span></span>は話し言葉に近い<span class="rb">言文一致<span class="rt" aria-hidden="true">げんぶんいっち</span></span>の文章で小説を書いた。ドイツに留学した<span class="rb">森鷗外<span class="rt" aria-hidden="true">もりおうがい</span></span>は『<span class="rb">舞姫<span class="rt" aria-hidden="true">まいひめ</span></span>』を、イギリスに留学した<span class="rb">夏目漱石<span class="rt" aria-hidden="true">なつめそうせき</span></span>は『吾輩は猫である』を書いた。<span class="rb">樋口一葉<span class="rt" aria-hidden="true">ひぐちいちよう</span></span>は『たけくらべ』で、東京の下町に生きる子どもたちを描いた。<span class="rb">正岡子規<span class="rt" aria-hidden="true">まさおかしき</span></span>は俳句や短歌の革新を進めた。</p>
+<figure><div class="cfig"><div class="card n" style="margin-bottom:10px"><div class="hd">文学</div><div class="bd"><div class="rows"><div><b>写実と言文一致</b><span>坪内逍遥『小説神髄』、二葉亭四迷『浮雲』― 話し言葉に近い文章で書く</span></div><div><b>作家たち</b><span>森鷗外『舞姫』、樋口一葉『たけくらべ』、夏目漱石『吾輩は猫である』、島崎藤村『破戒』</span></div><div><b>詩歌</b><span>正岡子規が俳句・短歌を改革。与謝野晶子『みだれ髪』</span></div></div></div></div><div class="card t" style="margin-bottom:10px"><div class="hd">美術・音楽</div><div class="bd"><div class="rows"><div><b>日本画</b><span>フェノロサと岡倉天心が伝統美術を見直し、横山大観らが新しい日本画を描く</span></div><div><b>洋画</b><span>黒田清輝が明るい色彩の洋画を広める(「湖畔」)</span></div><div><b>音楽</b><span>学校で唱歌が教えられる。滝廉太郎「荒城の月」</span></div></div></div></div><div class="card g" style="margin-bottom:10px"><div class="hd">科学</div><div class="bd"><div class="rows"><div><b>医学</b><span>北里柴三郎(破傷風の血清療法・ペスト菌)、志賀潔(赤痢菌)</span></div><div><b>化学</b><span>高峰譲吉がアドレナリンを取り出す</span></div></div></div></div></div><figcaption><span><b>図8-5</b>明治の文化</span></figcaption></figure>
+<p>美術では、アメリカ人のフェノロサと<span class="rb">岡倉天心<span class="rt" aria-hidden="true">おかくらてんしん</span></span>が日本の伝統美術を高く評価し、<span class="rb">横山大観<span class="rt" aria-hidden="true">よこやまたいかん</span></span>らが新しい日本画を生み出した。一方、フランスに学んだ<span class="rb">黒田清輝<span class="rt" aria-hidden="true">くろだせいき</span></span>は、明るい光を描く洋画を広めた。科学の分野でも、<span class="rb">北里柴三郎<span class="rt" aria-hidden="true">きたさとしばさぶろう</span></span>や<span class="rb">志賀潔<span class="rt" aria-hidden="true">しがきよし</span></span>らが世界的な業績をあげた。教育も広がり、1907年には義務教育が6年に延ばされた。</p>
+<h2><span class="no">第4節</span>明治の終わり</h2>
+<p>1912年7月、<span class="rb">明治天皇<span class="rt" aria-hidden="true">めいじてんのう</span></span>が亡くなり、元号は大正と改められた。天皇の葬儀の日には、日露戦争で<span class="rb">旅順<span class="rt" aria-hidden="true">りょじゅん</span></span>を攻めた陸軍大将の<span class="rb">乃木希典<span class="rt" aria-hidden="true">のぎまれすけ</span></span>が、妻とともに後を追って自害し、人々に衝撃を与えた。</p>
+<p>明治の45年の間に、日本は封建的な藩の集まりから、憲法と議会をもち、鉄道が走り、工場が煙を上げる近代国家へと大きく姿を変えた。条約改正も果たし、欧米の国々と並ぶ立場に立った。しかしその歩みは、農民や女工の苦しい労働、公害、言論の取り締まりの上に成り立っていた。そして、アイヌや<span class="rb">琉球<span class="rt" aria-hidden="true">りゅうきゅう</span></span>の人々、台湾や朝鮮の人々を支配する歩みでもあった。明治の日本が残した光と影は、次の大正・昭和の時代へと引き継がれていく。</p>
+<section class="points" aria-labelledby="pt">
+<h3 id="pt">この章の要点</h3>
+<ul>
+<li>1880年代後半から紡績業・製糸業を中心に産業革命が進み、日清戦争後には八幡製鉄所がつくられて重工業も発達した。</li>
+<li>女工の長時間労働や足尾銅山の鉱毒事件などの社会問題が起こり、政府は労働運動や社会主義運動を取り締まった。</li>
+<li>言文一致の文章が生まれ、森鷗外・夏目漱石・樋口一葉らが活躍した。美術・音楽・科学も発展した。</li>
+<li>1912年に明治天皇が亡くなった。明治の近代化には、光とともに多くの影があった。</li>
+</ul>
+</section>
+<section class="column" aria-labelledby="col">
+<h3 id="col">コラム 田中正造と足尾鉱毒事件</h3>
+<p>足尾銅山は、明治時代に日本一の銅山となり、日本の産業を支えた。しかし、鉱山から出る有毒な物質と煙は、周辺の山の木々を枯らし、渡良瀬川に流れ込んで、下流の田畑や魚、人々の体をむしばんだ。</p>
+<p>地元出身の衆議院議員田中正造は、議会で何度も政府を追及した。1901年には議員を辞め、天皇に直接訴えようとしたが、取り押さえられた。政府は、下流の<span class="rb">谷中村<span class="rt" aria-hidden="true">やなかむら</span></span>を廃村にして<span class="rb">遊水地<span class="rt" aria-hidden="true">ゆうすいち</span></span>とする対策をとり、正造は村に移り住んで、最後まで村人とともに抵抗した。足尾<span class="rb">鉱毒<span class="rt" aria-hidden="true">こうどく</span></span>事件は、「日本の公害の原点」と呼ばれている。</p>
+</section>
+</div>
+</article>
+<div class="navs"><a href="pc_ch7.html">← 第7章</a><a href="index.html">目次</a><a href="pc_summary.html">まとめ →</a></div>
+<footer>第8章 ・ 全8章のうちの1章</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn-zoom').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>

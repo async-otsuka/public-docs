@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>明治の日本 第1章</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style>.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+
+.cfig{background:#F7FAFD;border:1px solid #DCE4EE;border-radius:8px;padding:16px 18px}
+.ppl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ppl .pg{margin:0}
+.mapwrap{display:flex;gap:16px;align-items:flex-start}
+footer a{color:var(--navy)}
+.tlh{font-size:15px;color:var(--navy);margin:1.4em 0 .3em}
+</style><style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style><style>.figstatic{cursor:default}.figstatic:hover{border-color:#DCE4EE}</style></head>
+<body>
+<div class="page">
+<p class="series">明治の日本 解説資料</p>
+<article class="sheet">
+<div class="band">第一章 ・ 1868 ― 1871</div>
+<header class="ch">
+<h1>明治維新</h1>
+<p class="lead">天皇を中心とする新しい国家へ ― わずか4年で藩がなくなった</p>
+</header>
+<div class="body">
+<figure><div class="figbtn figstatic"><svg viewBox="0 0 680 270" role="img"><title>図1-1 この章の年表</title><desc>1868 戊辰戦争が始まる、五箇条の御誓文、1868 江戸を東京と改める、明治と改元、1869 版籍奉還、戊辰戦争が終わる、1869 天皇が東京に移る、1871 廃藩置県</desc><rect x="50" y="146" width="580" height="8" rx="3" fill="#1F4E8C"/><line x1="60.0" y1="118" x2="60.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="60.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1868</text><text x="60.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">戊辰戦争が始まる、五箇条の御誓文</text><circle cx="60.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="60.0" y1="154" x2="60.0" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="60.0" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1868</text><text x="60.0" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">江戸を東京と改める、明治と改元</text><circle cx="60.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="246.7" y1="78" x2="246.7" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="246.7" y="56" text-anchor="start" class="h" style="fill:#1F4E8C">1869</text><text x="246.7" y="72" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">版籍奉還、戊辰戦争が終わる</text><circle cx="246.7" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="246.7" y1="154" x2="246.7" y2="226" stroke="#9AAABB" stroke-width=".8"/><text x="246.7" y="240" text-anchor="start" class="h" style="fill:#1F4E8C">1869</text><text x="246.7" y="256" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">天皇が東京に移る</text><circle cx="246.7" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="620.0" y1="118" x2="620.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="620.0" y="96" text-anchor="end" class="h" style="fill:#1F4E8C">1871</text><text x="620.0" y="112" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:700">廃藩置県</text><circle cx="620.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/></svg></div><figcaption><span><b>図1-1</b>この章の年表</span></figcaption></figure>
+<figure><div class="cfig"><div class="ppl"><div class="pg n"><h4>新政府の中心</h4><ul><li><b><span class="rb">明治天皇<span class="rt" aria-hidden="true">めいじてんのう</span></span></b><span class="pd">1867年に14歳で即位。新政府の頂点に立った</span></li><li><b><span class="rb">岩倉具視<span class="rt" aria-hidden="true">いわくらともみ</span></span>・<span class="rb">三条実美<span class="rt" aria-hidden="true">さんじょうさねとみ</span></span></b><span class="pd">公家出身の政府の指導者</span></li><li><b><span class="rb">大久保利通<span class="rt" aria-hidden="true">おおくぼとしみち</span></span>・<span class="rb">西郷隆盛<span class="rt" aria-hidden="true">さいごうたかもり</span></span>・<span class="rb">木戸孝允<span class="rt" aria-hidden="true">きどたかよし</span></span></b><span class="pd">薩摩・長州出身の指導者。「維新の三傑」と呼ばれる</span></li></ul></div><div class="pg t"><h4>旧幕府側</h4><ul><li><b><span class="rb">徳川慶喜<span class="rt" aria-hidden="true">とくがわよしのぶ</span></span></b><span class="pd">鳥羽・伏見の戦いの後、江戸に戻って新政府に恭順した</span></li><li><b><span class="rb">勝海舟<span class="rt" aria-hidden="true">かつかいしゅう</span></span></b><span class="pd">旧幕府の代表として西郷隆盛と会談し、江戸城の明け渡しを決めた</span></li></ul></div></div></div><figcaption><span><b>図1-2</b>この章の登場人物</span></figcaption></figure>
+<h2><span class="no">第1節</span>戊辰戦争</h2>
+<p>1868年1月、京都の南の<span class="rb">鳥羽・伏見<span class="rt" aria-hidden="true">とば・ふしみ</span></span>で、旧幕府軍と<span class="rb">薩摩<span class="rt" aria-hidden="true">さつま</span></span>・長州を中心とする新政府軍が衝突した。新政府軍が勝ち、<span class="rb">徳川慶喜<span class="rt" aria-hidden="true">とくがわよしのぶ</span></span>は<span class="rb">大坂<span class="rt" aria-hidden="true">おおさか</span></span>から船で江戸へ逃れた。ここから1年半近く続く戦いを、その年の<span class="rb">干支<span class="rt" aria-hidden="true">えと</span></span>から<span class="rb">戊辰戦争<span class="rt" aria-hidden="true">ぼしんせんそう</span></span>という。</p>
+<p>新政府軍は江戸に迫ったが、旧幕府の<span class="rb">勝海舟<span class="rt" aria-hidden="true">かつかいしゅう</span></span>と新政府軍の<span class="rb">西郷隆盛<span class="rt" aria-hidden="true">さいごうたかもり</span></span>が会談し、4月に江戸城は戦わずに明け渡された(江戸無血開城)。しかし東北や北越の諸藩は同盟を結んで新政府に抵抗し、<span class="rb">会津<span class="rt" aria-hidden="true">あいづ</span></span>若松では激しい戦いの末、9月に会津藩が降伏した。旧幕府の海軍を率いた<span class="rb">榎本武揚<span class="rt" aria-hidden="true">えのもとたけあき</span></span>らは<span class="rb">箱館<span class="rt" aria-hidden="true">はこだて</span></span>の<span class="rb">五稜郭<span class="rt" aria-hidden="true">ごりょうかく</span></span>に立てこもったが、1869年5月に降伏し、戊辰戦争は終わった。</p>
+<figure><div class="figbtn figstatic"><svg viewBox="0 0 640 908" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>戊辰戦争(1868〜1869年)</title><desc>東北・北越の諸藩は奥羽越列藩同盟を結んで新政府軍に抵抗した</desc><rect width="640" height="908" fill="#EAF2FB"/><path d="M492.7,0L499.3,11.9L513.4,21.9L527.5,22.1L564.6,59.2L551.2,67.3L520.8,58L505.7,75.1L496.5,93.3L475.3,104.6L465.4,98.7L461.9,86.5L471.8,46.4L467.3,27.9L452.9,13.1L449.2,0L492.7,0ZM28.2,908L41.4,899.1L52,886.2L54.9,873.5L49.4,869.5L21.6,872.2L0,860.4L0,760.6L0,760.6L7.2,759.9L33.4,750.8L41.4,753.4L38.5,767.7L46.9,774.9L78.2,777.3L98.1,766.1L115,748.5L107.3,724.1L120.5,698.3L138.7,683.2L168.8,641.1L173.3,617.8L170.7,590.3L181.6,569.8L224.1,554L225.4,563.5L209.1,580.8L188.9,593.2L195,609.5L196.9,630.5L206.5,637.5L226.1,637.8L241.1,617.8L276.6,605.2L312.8,588L333.3,568.6L347.3,549.7L363,517.9L395.3,499.4L409.1,484.3L415.8,455.2L424.8,432.5L444.6,400.3L454.5,360.5L465.4,339.6L467,300.5L457.4,284.9L439.2,280.8L453.9,269L463.5,235L455.5,201.8L464.8,186.1L475.3,183.9L487.2,172.9L492.6,154.1L490.4,135.6L496.5,127.6L517.9,131.5L522.7,167.1L533.3,174.1L545.4,161.6L561.7,168.6L567.5,163.7L574.5,142.6L568.8,126L533.3,138.3L538.7,104.4L545.4,94.9L560.5,100.7L571.3,110.6L571.3,110.6L591.5,106.9L586.7,143.2L589.3,187.1L592.1,200.3L608.5,216.4L621.9,237.7L639.2,295.7L637.9,337.6L631.2,374L609.7,389.5L599.8,413.9L592.8,454.6L560.8,462.1L547.7,483.5L544.8,506L551.5,534.3L554.4,560.2L548.3,612.2L532.6,629.4L517.9,667.5L513.1,697.5L517.6,716.5L529.7,739.9L540,753.2L519.2,760.1L502.9,776.6L499.3,803.1L493.9,812.5L467.3,828L455.2,843.1L444.3,836.8L448.1,831L446.9,799.9L469.9,773.4L461.3,759.3L447.5,760.4L441.4,778.3L431.2,787.6L439.5,804.8L429.9,816.7L415.5,799.7L395.7,801.9L383.5,821.6L384.1,836.8L374.9,860.7L364.3,872.4L352.1,864.7L355.7,835L364.6,829.5L348.3,818.7L335.8,822.7L315.3,848.7L301.3,875.9L282.7,871L244,868.6L201.1,877.2L221.3,864.3L220,856.8L198.5,857.5L185.4,853.2L182.5,825.7L168.1,833.8L154.1,866.9L161.4,876.7L184.8,893.3L182.5,905.1L171.6,908L28.2,908ZM315,520.3L309.6,516.8L313.1,501.3L306.4,500.9L311.8,482.1L329.1,464.6L324.6,491.7L335.5,492.9L328.5,511.1ZM0,893.2L3,889.2L18.1,881.5L9.4,897.3L11.5,908L0,908Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><defs><marker id="armj1n640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="armj1t640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="armj1k640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="armj1g640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><path d="M90.4,837.2 Q272.4,841.4 435.0,759.6" fill="none" stroke="#B4532A" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#armj1k640)"/><path d="M442.3,751.1 Q472.9,659.6 455.5,564.7" fill="none" stroke="#B4532A" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#armj1k640)"/><path d="M457.0,550.8 Q552.2,317.5 527.9,66.8" fill="none" stroke="#B4532A" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#armj1k640)"/><circle cx="83.6" cy="838.7" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="83.6" y="855.7" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="83.6" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">鳥羽・伏見</tspan><tspan x="83.6" dy="14.5" style="font-size:11.0px" fill="#5A6878">1868年1月 開戦</tspan></text><circle cx="441.8" cy="758.1" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="441.8" y="775.1" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="441.8" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">江戸</tspan><tspan x="441.8" dy="14.5" style="font-size:11.0px" fill="#5A6878">1868年4月 無血開城</tspan></text><circle cx="360" cy="562.2" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="352.0" y="566.2" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="352.0" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">長岡</tspan><tspan x="352.0" dy="14.5" style="font-size:11.0px" fill="#5A6878">1868年5〜7月</tspan></text><circle cx="456" cy="557.7" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="464.0" y="567.7" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="464.0" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">会津若松</tspan><tspan x="464.0" dy="14.5" style="font-size:11.0px" fill="#5A6878">1868年9月 降伏</tspan></text><circle cx="539.6" cy="469.8" r="4.5" fill="#2F7F86" stroke="#fff" stroke-width="1.5"/><text x="547.6" y="473.8" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="547.6" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">仙台</tspan><tspan x="547.6" dy="14.5" style="font-size:11.0px" fill="#5A6878">奥羽越列藩同盟</tspan></text><circle cx="528.9" cy="59.9" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="536.9" y="63.9" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="536.9" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">箱館・五稜郭</tspan><tspan x="536.9" dy="14.5" style="font-size:11.0px" fill="#5A6878">1869年5月 降伏</tspan></text></svg></div><div style=margin-top:6px><div class="legend"><span><i class="kd" style="border-color:#B4532A"></i>新政府軍の進んだ方向(おおよそ)</span></div><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">東北・北越の諸藩は奥羽越列藩同盟を結んで新政府軍に抵抗した</p></div><figcaption><span><b>図1-3</b>戊辰戦争(1868〜1869年)</span></figcaption></figure>
+<h2><span class="no">第2節</span>五箇条の御誓文</h2>
+<p>戦いが続く中の1868年3月、新政府は、<span class="rb">明治天皇<span class="rt" aria-hidden="true">めいじてんのう</span></span>が神々に誓う形で、新しい政治の方針を示した。これを<span class="rb">五箇条の御誓文<span class="rt" aria-hidden="true">ごかじょうのごせいもん</span></span>という。広く会議を開いて人々の意見によって政治を行うこと、知識を世界に求めることなどがうたわれた。</p>
+<figure><div class="cfig"><div class="card n" style="margin-bottom:10px"><div class="hd">天皇が神々に誓う形で示した新しい政治の方針</div><div class="bd"><div class="rows"><div><b>一</b><span>広く会議を開き、大事なことは人々の意見によって決める</span></div><div><b>二</b><span>身分の上下にかかわらず、心を一つにして国を治める</span></div><div><b>三</b><span>役人から庶民まで、それぞれの志をとげられるようにする</span></div><div><b>四</b><span>古い悪い習慣を改める</span></div><div><b>五</b><span>知識を世界に求め、国を盛んにする</span></div></div></div></div></div><figcaption><span><b>図1-4</b>五箇条の御誓文(1868年3月)のおもな内容</span></figcaption></figure>
+<p>その翌日、新政府は民衆に向けて<span class="rb">五榜の掲示<span class="rt" aria-hidden="true">ごぼうのけいじ</span></span>を出した。こちらは、一揆やキリスト教を禁じるなど、江戸幕府の方針をほぼ受け継ぐものであった。7月には江戸を東京と改め、9月には年号を明治と改めて、天皇一代の間は年号を変えない<span class="rb">一世一元<span class="rt" aria-hidden="true">いっせいいちげん</span></span>の制を定めた。翌1869年、天皇は東京に移り、東京が事実上の首都となった。</p>
+<h2><span class="no">第3節</span>版籍奉還</h2>
+<p>新政府にとって大きな課題は、全国に260あまりあった藩をどうするかであった。藩はそれぞれ年貢を取り、軍隊をもっていた。1869年、薩摩・長州・<span class="rb">土佐<span class="rt" aria-hidden="true">とさ</span></span>・<span class="rb">肥前<span class="rt" aria-hidden="true">ひぜん</span></span>の4藩の藩主が、領地(版)と領民(籍)を天皇に返すことを申し出ると、他の藩もこれにならった。これを<span class="rb">版籍奉還<span class="rt" aria-hidden="true">はんせきほうかん</span></span>という。</p>
+<p>しかし、旧藩主はそのまま<span class="rb">知藩事<span class="rt" aria-hidden="true">ちはんじ</span></span>に任命されて藩を治め続けたため、実際の藩の仕組みはほとんど変わらなかった。年貢も軍隊も、藩のもとに残されていた。</p>
+<h2><span class="no">第4節</span>廃藩置県</h2>
+<p>1871年7月、新政府は薩摩・長州・土佐の兵約1万を<span class="rb">御親兵<span class="rt" aria-hidden="true">ごしんぺい</span></span>として東京に集めたうえで、すべての藩を廃止し、府と県を置くことを命じた。これを<span class="rb">廃藩置県<span class="rt" aria-hidden="true">はいはんちけん</span></span>という。知藩事は東京に住むことを命じられ、代わりに政府が任命した<span class="rb">府知事<span class="rt" aria-hidden="true">ふちじ</span></span>や<span class="rb">県令<span class="rt" aria-hidden="true">けんれい</span></span>が地方を治めることになった。</p>
+<figure><div class="cfig"><div class="flow"><div class="fs s"><em>1869年 版籍奉還</em><b>大名が土地(版)と人民(籍)を天皇に返す</b><span class="d">旧藩主はそのまま知藩事として藩を治める</span></div><div class="fs "><b>実際には、藩の仕組みはほとんど変わらなかった</b><span class="d">年貢の取り立てや軍隊も藩のまま</span></div><div class="fs t"><em>1871年 廃藩置県</em><b>藩を廃止して府と県を置く</b><span class="d">知藩事は東京に移り、政府が任命した府知事・県令が治める</span></div><div class="fs dk"><b>全国が政府の直接の支配のもとに置かれる</b><span class="d">最初は3府302県。その年のうちに3府72県にまとめられた</span></div></div></div><figcaption><span><b>図1-5</b>版籍奉還から廃藩置県へ</span></figcaption></figure>
+<p>大きな反乱は起こらなかった。多くの藩は財政が苦しく、借金を政府が引き受けたこともあって、旧藩主の多くはこれを受け入れた。こうして、全国の土地と人々は政府の直接の支配のもとに置かれた。政府の実権は、薩摩・長州・土佐・肥前の出身者が握り、これは<span class="rb">藩閥<span class="rt" aria-hidden="true">はんばつ</span></span>政府と呼ばれるようになる。わずか4年で、700年近く続いた武士による地方の支配は終わりを告げたのである。</p>
+<section class="points" aria-labelledby="pt">
+<h3 id="pt">この章の要点</h3>
+<ul>
+<li>1868年から1869年にかけての戊辰戦争で、新政府軍は旧幕府側を破った。江戸城は戦わずに明け渡された。</li>
+<li>1868年、新政府は五箇条の御誓文で政治の方針を示し、江戸を東京と改め、年号を明治とした。</li>
+<li>1869年の版籍奉還で大名は土地と人民を天皇に返したが、旧藩主が知藩事として藩を治め続けた。</li>
+<li>1871年の廃藩置県で藩は廃止され、政府が任命した府知事・県令が治める中央集権の国家ができた。</li>
+</ul>
+</section>
+<section class="column" aria-labelledby="col">
+<h3 id="col">コラム 五箇条の御誓文はどうつくられたか</h3>
+<p>五箇条の御誓文は、はじめから今の形だったわけではない。最初の案は、<span class="rb">越前<span class="rt" aria-hidden="true">えちぜん</span></span>藩出身の<span class="rb">由利公正<span class="rt" aria-hidden="true">ゆりきみまさ</span></span>が書き、土佐藩出身の<span class="rb">福岡孝弟<span class="rt" aria-hidden="true">ふくおかたかちか</span></span>が手を加えたものだった。福岡の案では、第1条は「<span class="rb">列侯<span class="rt" aria-hidden="true">れっこう</span></span>会議を興し」となっていた。列侯とは大名のことで、大名たちの会議で政治を決めるという意味である。</p>
+<p>これを長州藩出身の<span class="rb">木戸孝允<span class="rt" aria-hidden="true">きどたかよし</span></span>が「広く会議を興し」と改めた。大名だけでなく、より広い人々の会議を思わせる表現になったのである。この一文は、のちに<span class="rb">自由民権運動<span class="rt" aria-hidden="true">じゆうみんけんうんどう</span></span>の人々が、国会を開くよう求める根拠として持ち出すことになる。</p>
+</section>
+</div>
+</article>
+<div class="navs"><a href="index.html">← 目次</a><a href="index.html">目次</a><a href="pc_ch2.html">第2章 →</a></div>
+<footer>第1章 ・ 全8章のうちの1章</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn-zoom').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>

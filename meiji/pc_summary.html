@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>明治の日本 まとめ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style>.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+
+.cfig{background:#F7FAFD;border:1px solid #DCE4EE;border-radius:8px;padding:16px 18px}
+.ppl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ppl .pg{margin:0}
+.mapwrap{display:flex;gap:16px;align-items:flex-start}
+footer a{color:var(--navy)}
+.tlh{font-size:15px;color:var(--navy);margin:1.4em 0 .3em}
+</style><style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style><style>.figstatic{cursor:default}.figstatic:hover{border-color:#DCE4EE}</style></head>
+<body>
+<div class="page">
+<p class="series">明治の日本 解説資料</p>
+<article class="sheet">
+<div class="band">まとめ ・ 1868 ― 1912</div>
+<header class="ch">
+<h1>まとめ ― 年表・系図・各章の要点</h1>
+<p class="lead">明治維新から明治の終わりまでの45年をふりかえる</p>
+</header>
+<div class="body">
+<h2><span class="no">1</span>全体の年表</h2>
+<h3 class="tlh">第1章 明治維新</h3><ol class="tl" aria-label="この章の年表"><li class="hl"><span class="y">1868</span><span><span class="rb">戊辰戦争<span class="rt" aria-hidden="true">ぼしんせんそう</span></span>が始まる、<span class="rb">五箇条の御誓文<span class="rt" aria-hidden="true">ごかじょうのごせいもん</span></span></span></li><li><span class="y">1868</span><span>江戸を東京と改める、明治と改元</span></li><li class="hl"><span class="y">1869</span><span><span class="rb">版籍奉還<span class="rt" aria-hidden="true">はんせきほうかん</span></span>、戊辰戦争が終わる</span></li><li><span class="y">1869</span><span>天皇が東京に移る</span></li><li class="hl"><span class="y">1871</span><span><span class="rb">廃藩置県<span class="rt" aria-hidden="true">はいはんちけん</span></span></span></li></ol><h3 class="tlh">第2章 新政府の改革</h3><ol class="tl" aria-label="この章の年表"><li><span class="y">1869</span><span><span class="rb">華族<span class="rt" aria-hidden="true">かぞく</span></span>・<span class="rb">士族<span class="rt" aria-hidden="true">しぞく</span></span>・<span class="rb">平民<span class="rt" aria-hidden="true">へいみん</span></span>の身分を定める</span></li><li><span class="y">1871</span><span><span class="rb">解放令<span class="rt" aria-hidden="true">かいほうれい</span></span></span></li><li class="hl"><span class="y">1872</span><span><span class="rb">学制<span class="rt" aria-hidden="true">がくせい</span></span></span></li><li class="hl"><span class="y">1873</span><span><span class="rb">徴兵令<span class="rt" aria-hidden="true">ちょうへいれい</span></span>、<span class="rb">地租改正<span class="rt" aria-hidden="true">ちそかいせい</span></span></span></li><li class="k"><span class="y">1873</span><span><span class="rb">太陽暦<span class="rt" aria-hidden="true">たいようれき</span></span>を採用</span></li><li><span class="y">1876</span><span><span class="rb">廃刀令<span class="rt" aria-hidden="true">はいとうれい</span></span>、<span class="rb">秩禄処分<span class="rt" aria-hidden="true">ちつろくしょぶん</span></span></span></li><li class="k"><span class="y">1877</span><span><span class="rb">地租<span class="rt" aria-hidden="true">ちそ</span></span>を2.5%に引き下げる</span></li></ol><h3 class="tlh">第3章 <span class="rb">文明開化<span class="rt" aria-hidden="true">ぶんめいかいか</span></span>と<span class="rb">殖産興業<span class="rt" aria-hidden="true">しょくさんこうぎょう</span></span></h3><ol class="tl" aria-label="この章の年表"><li><span class="y">1869</span><span>東京・横浜間に電信</span></li><li class="hl"><span class="y">1871</span><span>郵便制度、<span class="rb">岩倉使節団<span class="rt" aria-hidden="true">いわくらしせつだん</span></span>が出発</span></li><li class="hl"><span class="y">1872</span><span>新橋・横浜間に鉄道、<span class="rb">富岡製糸場<span class="rt" aria-hidden="true">とみおかせいしじょう</span></span></span></li><li class="k"><span class="y">1872</span><span><span class="rb">福沢諭吉<span class="rt" aria-hidden="true">ふくざわゆきち</span></span>『<span class="rb">学問のすゝめ<span class="rt" aria-hidden="true">がくもんのすすめ</span></span>』</span></li><li><span class="y">1873</span><span>使節団が帰国、第一国立銀行</span></li><li><span class="y">1877</span><span>第1回内国勧業博覧会</span></li></ol><h3 class="tlh">第4章 国境の画定と近隣外交</h3><ol class="tl" aria-label="この章の年表"><li><span class="y">1869</span><span><span class="rb">蝦夷地<span class="rt" aria-hidden="true">えぞち</span></span>を北海道と改め、<span class="rb">開拓使<span class="rt" aria-hidden="true">かいたくし</span></span>を置く</span></li><li><span class="y">1871</span><span>日清修好条規</span></li><li class="hl"><span class="y">1873</span><span><span class="rb">征韓論<span class="rt" aria-hidden="true">せいかんろん</span></span>で政府が分裂</span></li><li><span class="y">1874</span><span><span class="rb">台湾出兵<span class="rt" aria-hidden="true">たいわんしゅっぺい</span></span></span></li><li class="hl"><span class="y">1875</span><span><span class="rb">樺太・千島交換条約<span class="rt" aria-hidden="true">からふと・ちしまこうかんじょうやく</span></span>、<span class="rb">江華島<span class="rt" aria-hidden="true">カンファド</span></span>事件</span></li><li class="hl"><span class="y">1876</span><span><span class="rb">日朝修好条規<span class="rt" aria-hidden="true">にっちょうしゅうこうじょうき</span></span></span></li><li class="k"><span class="y">1879</span><span>沖縄県を置く(<span class="rb">琉球処分<span class="rt" aria-hidden="true">りゅうきゅうしょぶん</span></span>)</span></li></ol><h3 class="tlh">第5章 士族の反乱と<span class="rb">自由民権運動<span class="rt" aria-hidden="true">じゆうみんけんうんどう</span></span></h3><ol class="tl" aria-label="この章の年表"><li class="hl"><span class="y">1874</span><span><span class="rb">民撰議院設立建白書<span class="rt" aria-hidden="true">みんせんぎいんせつりつけんぱくしょ</span></span>、<span class="rb">佐賀の乱<span class="rt" aria-hidden="true">さがのらん</span></span></span></li><li><span class="y">1875</span><span><span class="rb">愛国社<span class="rt" aria-hidden="true">あいこくしゃ</span></span>の結成</span></li><li><span class="y">1876</span><span><span class="rb">神風連<span class="rt" aria-hidden="true">しんぷうれん</span></span>の乱・<span class="rb">秋月<span class="rt" aria-hidden="true">あきづき</span></span>の乱・<span class="rb">萩の乱<span class="rt" aria-hidden="true">はぎのらん</span></span></span></li><li class="hl"><span class="y">1877</span><span><span class="rb">西南戦争<span class="rt" aria-hidden="true">せいなんせんそう</span></span></span></li><li class="k"><span class="y">1880</span><span><span class="rb">国会期成同盟<span class="rt" aria-hidden="true">こっかいきせいどうめい</span></span></span></li><li class="hl"><span class="y">1881</span><span><span class="rb">国会開設の勅諭<span class="rt" aria-hidden="true">こっかいかいせつのちょくゆ</span></span>、<span class="rb">自由党<span class="rt" aria-hidden="true">じゆうとう</span></span>の結成</span></li><li class="k"><span class="y">1882</span><span><span class="rb">立憲改進党<span class="rt" aria-hidden="true">りっけんかいしんとう</span></span>の結成</span></li><li><span class="y">1884</span><span><span class="rb">秩父事件<span class="rt" aria-hidden="true">ちちぶじけん</span></span>、自由党が解党</span></li></ol><h3 class="tlh">第6章 <span class="rb">大日本帝国憲法<span class="rt" aria-hidden="true">だいにっぽんていこくけんぽう</span></span>と議会</h3><ol class="tl" aria-label="この章の年表"><li><span class="y">1882</span><span><span class="rb">伊藤博文<span class="rt" aria-hidden="true">いとうひろぶみ</span></span>がヨーロッパで憲法を調べる</span></li><li class="hl"><span class="y">1885</span><span><span class="rb">内閣制度<span class="rt" aria-hidden="true">ないかくせいど</span></span>、伊藤が初代の内閣総理大臣に</span></li><li><span class="y">1888</span><span><span class="rb">枢密院<span class="rt" aria-hidden="true">すうみついん</span></span>を設ける</span></li><li class="hl"><span class="y">1889</span><span>大日本帝国憲法を発布</span></li><li class="hl"><span class="y">1890</span><span>第1回<span class="rb">衆議院<span class="rt" aria-hidden="true">しゅうぎいん</span></span>議員総選挙、第1回<span class="rb">帝国議会<span class="rt" aria-hidden="true">ていこくぎかい</span></span></span></li><li class="k"><span class="y">1890</span><span><span class="rb">教育勅語<span class="rt" aria-hidden="true">きょういくちょくご</span></span></span></li></ol><h3 class="tlh">第7章 条約改正と日清・<span class="rb">日露戦争<span class="rt" aria-hidden="true">にちろせんそう</span></span></h3><ol class="tl" aria-label="この章の年表"><li><span class="y">1886</span><span>ノルマントン号事件</span></li><li class="hl"><span class="y">1894</span><span><span class="rb">領事裁判権<span class="rt" aria-hidden="true">りょうじさいばんけん</span></span>の撤廃、<span class="rb">日清戦争<span class="rt" aria-hidden="true">にっしんせんそう</span></span></span></li><li><span class="y">1895</span><span><span class="rb">下関条約<span class="rt" aria-hidden="true">しものせきじょうやく</span></span>、<span class="rb">三国干渉<span class="rt" aria-hidden="true">さんごくかんしょう</span></span></span></li><li><span class="y">1902</span><span><span class="rb">日英同盟<span class="rt" aria-hidden="true">にちえいどうめい</span></span></span></li><li class="hl"><span class="y">1904</span><span>日露戦争</span></li><li><span class="y">1905</span><span>ポーツマス条約、第2次日韓協約</span></li><li class="hl"><span class="y">1910</span><span><span class="rb">韓国併合<span class="rt" aria-hidden="true">かんこくへいごう</span></span></span></li><li class="k"><span class="y">1911</span><span><span class="rb">関税自主権<span class="rt" aria-hidden="true">かんぜいじしゅけん</span></span>の回復</span></li></ol><h3 class="tlh">第8章 <span class="rb">産業革命<span class="rt" aria-hidden="true">さんぎょうかくめい</span></span>と明治の文化</h3><ol class="tl" aria-label="この章の年表"><li><span class="y">1883</span><span>大阪<span class="rb">紡績<span class="rt" aria-hidden="true">ぼうせき</span></span>会社が操業を始める</span></li><li class="k"><span class="y">1890</span><span><span class="rb">北里柴三郎<span class="rt" aria-hidden="true">きたさとしばさぶろう</span></span>が<span class="rb">破傷風<span class="rt" aria-hidden="true">はしょうふう</span></span>の<span class="rb">血清療法<span class="rt" aria-hidden="true">けっせいりょうほう</span></span>を発見</span></li><li><span class="y">1897</span><span>綿糸の輸出が輸入を上回る</span></li><li class="hl"><span class="y">1901</span><span><span class="rb">八幡製鉄所<span class="rt" aria-hidden="true">やはたせいてつしょ</span></span>が操業、<span class="rb">田中正造<span class="rt" aria-hidden="true">たなかしょうぞう</span></span>が天皇に<span class="rb">直訴<span class="rt" aria-hidden="true">じきそ</span></span></span></li><li class="k"><span class="y">1905</span><span><span class="rb">夏目漱石<span class="rt" aria-hidden="true">なつめそうせき</span></span>『吾輩は猫である』</span></li><li><span class="y">1910</span><span><span class="rb">大逆事件<span class="rt" aria-hidden="true">たいぎゃくじけん</span></span></span></li><li><span class="y">1911</span><span>工場法</span></li><li class="hl"><span class="y">1912</span><span><span class="rb">明治天皇<span class="rt" aria-hidden="true">めいじてんのう</span></span>が死去</span></li></ol><h2><span class="no">2</span>おもな人物</h2>
+<figure><div class="cfig"><ul class="tree"><li><span class="sh"><span class="rb">薩摩<span class="rt" aria-hidden="true">さつま</span></span></span><span class="rb">西郷隆盛<span class="rt" aria-hidden="true">さいごうたかもり</span></span>・<span class="rb">大久保利通<span class="rt" aria-hidden="true">おおくぼとしみち</span></span><small>のちに<span class="rb">松方正義<span class="rt" aria-hidden="true">まつかたまさよし</span></span>・黒田清隆・<span class="rb">東郷平八郎<span class="rt" aria-hidden="true">とうごうへいはちろう</span></span>ら</small></li><li><span class="sh">長州</span><span class="rb">木戸孝允<span class="rt" aria-hidden="true">きどたかよし</span></span><small>のちに伊藤博文・<span class="rb">山県有朋<span class="rt" aria-hidden="true">やまがたありとも</span></span>・<span class="rb">井上馨<span class="rt" aria-hidden="true">いのうえかおる</span></span>ら</small></li><li><span class="sh t"><span class="rb">土佐<span class="rt" aria-hidden="true">とさ</span></span></span><span class="rb">板垣退助<span class="rt" aria-hidden="true">いたがきたいすけ</span></span>・<span class="rb">後藤象二郎<span class="rt" aria-hidden="true">ごとうしょうじろう</span></span><small>自由民権運動へ</small></li><li><span class="sh t"><span class="rb">肥前<span class="rt" aria-hidden="true">ひぜん</span></span></span><span class="rb">大隈重信<span class="rt" aria-hidden="true">おおくましげのぶ</span></span>・<span class="rb">江藤新平<span class="rt" aria-hidden="true">えとうしんぺい</span></span><small>大隈は立憲改進党へ</small></li><li><span class="sh">公家</span><span class="rb">岩倉具視<span class="rt" aria-hidden="true">いわくらともみ</span></span>・<span class="rb">三条実美<span class="rt" aria-hidden="true">さんじょうさねとみ</span></span></li></ul><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">薩摩・長州・土佐・肥前の出身者が政府の実権を握り、<span class="rb">藩閥<span class="rt" aria-hidden="true">はんばつ</span></span>政府と呼ばれた</p></div><figcaption><span><b>図M-1</b>明治政府のおもな指導者と出身</span></figcaption></figure>
+<h2><span class="no">3</span>各章の要点</h2>
+<ul class="chs"><li><a href="pc_ch1.html">第1章 明治維新</a><ul><li>1868年から1869年にかけての戊辰戦争で、新政府軍は旧幕府側を破った。江戸城は戦わずに明け渡された。</li><li>1868年、新政府は五箇条の御誓文で政治の方針を示し、江戸を東京と改め、年号を明治とした。</li><li>1869年の版籍奉還で大名は土地と人民を天皇に返したが、旧藩主が<span class="rb">知藩事<span class="rt" aria-hidden="true">ちはんじ</span></span>として藩を治め続けた。</li><li>1871年の廃藩置県で藩は廃止され、政府が任命した<span class="rb">府知事<span class="rt" aria-hidden="true">ふちじ</span></span>・<span class="rb">県令<span class="rt" aria-hidden="true">けんれい</span></span>が治める中央集権の国家ができた。</li></ul></li><li><a href="pc_ch2.html">第2章 新政府の改革</a><ul><li>華族・士族・平民の身分が定められ、<span class="rb">四民平等<span class="rt" aria-hidden="true">しみんびょうどう</span></span>が進められた。解放令が出されたが、差別は長く残った。</li><li>1872年の学制で男女すべての子どもに教育を、1873年の徴兵令で満20歳の男子に兵役を義務づけた。</li><li>1873年の地租改正で、<span class="rb">地価<span class="rt" aria-hidden="true">ちか</span></span>の3%を土地の持ち主が現金で納める仕組みとなり、政府の収入が安定した。</li><li>秩禄処分と廃刀令で士族の特権は失われ、その不満が高まった。</li></ul></li><li><a href="pc_ch3.html">第3章 文明開化と殖産興業</a><ul><li>1871年に出発した岩倉使節団は、条約改正の予備交渉に失敗したが、欧米の制度や産業を学んで帰国した。</li><li>政府は殖産興業を進め、富岡製糸場などの<span class="rb">官営模範工場<span class="rt" aria-hidden="true">かんえいもはんこうじょう</span></span>をつくり、鉄道・郵便・銀行などを整えた。</li><li>都市では文明開化が進み、洋服・<span class="rb">牛鍋<span class="rt" aria-hidden="true">ぎゅうなべ</span></span>・<span class="rb">煉瓦<span class="rt" aria-hidden="true">れんが</span></span>街などが広まった。福沢諭吉らが西洋の思想を紹介した。</li><li>農村の暮らしはすぐには変わらず、<span class="rb">廃仏毀釈<span class="rt" aria-hidden="true">はいぶつきしゃく</span></span>で多くの寺院や仏像が失われるなど、急な近代化には負の面もあった。</li></ul></li><li><a href="pc_ch4.html">第4章 国境の画定と近隣外交</a><ul><li>1873年、朝鮮への使節派遣をめぐる征韓論で政府は分裂し、西郷隆盛・板垣退助らが政府を去った。</li><li>1874年に台湾に出兵し、1876年には江華島事件をきっかけに、朝鮮に不平等な日朝修好条規を結ばせた。</li><li>1875年の樺太・千島交換条約で北の国境を定め、北海道の開拓を進めたが、アイヌの人々は土地や暮らしを奪われた。</li><li>1879年、軍隊と警察を送って沖縄県を置いた(琉球処分)。<span class="rb">琉球<span class="rt" aria-hidden="true">りゅうきゅう</span></span>王国は終わり、清は抗議を続けた。</li></ul></li><li><a href="pc_ch5.html">第5章 士族の反乱と自由民権運動</a><ul><li>1874年の民撰議院設立建白書をきっかけに、国民の政治参加を求める自由民権運動が始まった。</li><li>特権を失った士族は各地で反乱を起こしたが、1877年の西南戦争で西郷隆盛が敗れ、武力による抵抗は終わった。</li><li>1881年、政府は国会開設の勅諭で1890年の国会開設を約束し、自由党・立憲改進党が結成された。</li><li>松方財政のデフレで農民が苦しみ、秩父事件などが起こった。自由党は解党し、運動はいったん衰えた。</li></ul></li><li><a href="pc_ch6.html">第6章 大日本帝国憲法と議会</a><ul><li>伊藤博文はドイツなどで憲法を学び、1885年に内閣制度をつくって初代の内閣総理大臣となった。</li><li>1889年に発布された大日本帝国憲法は<span class="rb">欽定憲法<span class="rt" aria-hidden="true">きんていけんぽう</span></span>で、天皇が強い権限をもち、国民の権利は法律の範囲内で認められた。</li><li>1890年の第1回総選挙では、選挙権は人口の約1.1%に限られた。帝国議会では民党が政府と予算をめぐって対立した。</li><li>1890年の教育勅語で、天皇への忠義と親への孝行が国民の道徳の基本とされ、<span class="rb">民法<span class="rt" aria-hidden="true">みんぽう</span></span>で「家」の制度が定められた。</li></ul></li><li><a href="pc_ch7.html">第7章 条約改正と日清・日露戦争</a><ul><li>条約改正は長く難航したが、1894年に<span class="rb">陸奥宗光<span class="rt" aria-hidden="true">むつむねみつ</span></span>が領事裁判権を撤廃し、1911年に<span class="rb">小村寿太郎<span class="rt" aria-hidden="true">こむらじゅたろう</span></span>が関税自主権を回復した。</li><li>1894年の日清戦争に勝った日本は、下関条約で台湾などを得たが、三国干渉で<span class="rb">遼東半島<span class="rt" aria-hidden="true">りょうとうはんとう</span></span>を返還した。</li><li>1904年の日露戦争の後、ポーツマス条約で韓国での優越的地位などを得たが、賠償金はなく国民の不満が高まった。</li><li>日本は韓国の外交権・内政権を奪い、<span class="rb">義兵<span class="rt" aria-hidden="true">ぎへい</span></span>の抵抗を鎮圧して、1910年に韓国を併合し植民地とした。</li></ul></li><li><a href="pc_ch8.html">第8章 産業革命と明治の文化</a><ul><li>1880年代後半から紡績業・<span class="rb">製糸<span class="rt" aria-hidden="true">せいし</span></span>業を中心に産業革命が進み、日清戦争後には八幡製鉄所がつくられて重工業も発達した。</li><li><span class="rb">女工<span class="rt" aria-hidden="true">じょこう</span></span>の長時間労働や<span class="rb">足尾銅山<span class="rt" aria-hidden="true">あしおどうざん</span></span>の<span class="rb">鉱毒<span class="rt" aria-hidden="true">こうどく</span></span>事件などの社会問題が起こり、政府は労働運動や社会主義運動を取り締まった。</li><li><span class="rb">言文一致<span class="rt" aria-hidden="true">げんぶんいっち</span></span>の文章が生まれ、<span class="rb">森鷗外<span class="rt" aria-hidden="true">もりおうがい</span></span>・夏目漱石・<span class="rb">樋口一葉<span class="rt" aria-hidden="true">ひぐちいちよう</span></span>らが活躍した。美術・音楽・科学も発展した。</li><li>1912年に明治天皇が亡くなった。明治の近代化には、光とともに多くの影があった。</li></ul></li></ul></div>
+</article>
+<div class="navs"><a href="pc_ch8.html">← 第8章</a><a href="index.html">目次</a></div>
+<footer>まとめ</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn-zoom').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>

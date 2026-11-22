@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>明治の日本 第3章(スマホ版)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* スマホ優先の1カラム。カード枠をやめて画面幅を本文に使う。図は縦長に組み直す */
+  --paper:#FFFFFF; --ink:#1E2A3A; --sub:#5A6878; --navy:#1F4E8C; --teal:#2F7F86;
+  --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#D6E4F3;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.85;-webkit-text-size-adjust:100%}
+.wrap{max-width:520px;margin:0 auto}
+.topbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 20px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);font-size:13px;color:var(--sub)}
+.topbar button{font:inherit;font-size:13px;color:var(--navy);background:var(--sky);border:0;border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.topbar button:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+header.ch{background:var(--navy);color:#fff;padding:22px 20px 20px}
+header.ch .eyebrow{font-size:13px;letter-spacing:.15em;opacity:.85;margin:0 0 6px}
+header.ch h1{font-size:25px;line-height:1.4;font-weight:700;margin:0;text-wrap:balance}
+header.ch .lead{font-size:14.5px;line-height:1.7;margin:8px 0 0;opacity:.9}
+main{padding:0 20px 40px}
+h2{font-size:20px;line-height:1.5;font-weight:700;margin:40px 0 14px;padding-left:12px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{display:block;font-size:13px;color:var(--navy);font-weight:500}
+p{margin:0 0 1.15em}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.32em;transform:translateX(-50%);font-size:.5em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;letter-spacing:0;pointer-events:none}
+body.noruby .rt{display:none}
+.tl{list-style:none;margin:20px 0 0 6px;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:8px;padding:5px 0 5px 16px;font-size:15px;line-height:1.6}
+.tl li::before{content:"";position:absolute;left:-7px;top:12px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--navy)}
+.tl li.k::before{border-color:var(--teal)}
+.tl li.hl{font-weight:700}
+.tl li.hl::before{background:var(--navy)}
+.tl .y{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.tl li.k .y{color:var(--teal)}
+.tlnote{display:flex;gap:16px;font-size:12.5px;color:var(--sub);margin:8px 0 0 6px}
+.tlnote span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid var(--navy);margin-right:5px;vertical-align:-1px}
+.tlnote span.k::before{border-color:var(--teal)}
+.point{background:var(--sky);border-radius:10px;padding:14px 16px;margin:0 0 22px;font-size:15px;line-height:1.7}
+.point b{display:block;color:var(--navy);font-size:13px;margin-bottom:4px}
+.point ul{margin:0;padding-left:1.2em}
+figure{margin:26px -20px 28px;padding:16px 20px 12px;background:#F7FAFD;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+figure svg{display:block;width:100%;height:auto}
+.figt{font-size:15px;font-weight:700;margin:0 0 12px;line-height:1.5}
+.figt span{color:var(--navy);margin-right:8px}
+.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.back{margin-top:10px;font-size:14px;font-weight:700;color:var(--teal);display:flex;gap:6px;align-items:center}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+.summary{background:var(--sky);border-radius:10px;padding:16px 18px 10px;margin:36px 0 18px}
+.summary h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy)}
+.summary ul{margin:0;padding-left:1.2em;font-size:16px}
+.summary li{margin:0 0 .5em}
+.column{border:1.5px dashed #9AAABB;border-radius:10px;padding:16px 18px 4px;margin:18px 0 0}
+.column h3{color:var(--teal)}
+.column figure{margin:16px -18px 16px}
+footer{font-size:12.5px;color:var(--sub);text-align:center;padding:0 20px 40px}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+.tlh{font-size:15px;color:var(--navy);margin:1.6em 0 .2em}
+</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style></head>
+<body>
+<div class="wrap">
+<div class="topbar"><span>明治の日本 解説資料</span><button type="button" id="rubyBtn" aria-pressed="true">ふりがな:あり</button></div>
+<header class="ch">
+<p class="eyebrow">第三章 ・ 1871 ― 1877</p>
+<h1>文明開化と殖産興業</h1>
+<p class="lead">欧米に学び、追いつく ― 産業と暮らしの近代化</p>
+</header>
+<main>
+<ol class="tl" aria-label="この章の年表"><li><span class="y">1869</span><span>東京・横浜間に電信</span></li><li class="hl"><span class="y">1871</span><span>郵便制度、岩倉使節団が出発</span></li><li class="hl"><span class="y">1872</span><span>新橋・横浜間に鉄道、富岡製糸場</span></li><li class="k"><span class="y">1872</span><span>福沢諭吉『学問のすゝめ』</span></li><li><span class="y">1873</span><span>使節団が帰国、第一国立銀行</span></li><li><span class="y">1877</span><span>第1回内国勧業博覧会</span></li></ol>
+<figure><p class="figt"><span>図3-2</span>この章の登場人物</p>
+<div class="ppl"><div class="pg n"><h4>岩倉使節団</h4><ul><li><b><span class="rb">岩倉具視<span class="rt" aria-hidden="true">いわくらともみ</span></span></b><span class="pd">全権大使。大久保利通・木戸孝允・伊藤博文らとともに欧米をめぐった</span></li><li><b><span class="rb">津田梅子<span class="rt" aria-hidden="true">つだうめこ</span></span></b><span class="pd">6歳で使節団とともにアメリカに留学。のちに女子英学塾(今の津田塾大学)を開く</span></li></ul></div><div class="pg t"><h4>近代化の担い手</h4><ul><li><b><span class="rb">渋沢栄一<span class="rt" aria-hidden="true">しぶさわえいいち</span></span></b><span class="pd">第一国立銀行をはじめ、生涯に500ほどの会社の設立にかかわった</span></li><li><b><span class="rb">前島密<span class="rt" aria-hidden="true">まえじまひそか</span></span></b><span class="pd">郵便制度をつくった</span></li><li><b><span class="rb">福沢諭吉<span class="rt" aria-hidden="true">ふくざわゆきち</span></span></b><span class="pd">『学問のすゝめ』で、学ぶことの大切さと人の平等を説いた</span></li></ul></div></div>
+</figure>
+<h2><span class="no">第1節</span>岩倉使節団</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1871年、岩倉具視を大使とする使節団が欧米に向かった</li><li>条約改正の予備交渉には失敗した</li><li>欧米の進んだ制度や産業を見て回った</li></ul></div>
+<p><span class="rb">廃藩置県<span class="rt" aria-hidden="true">はいはんちけん</span></span>の直後の1871年11月、<span class="rb">岩倉具視<span class="rt" aria-hidden="true">いわくらともみ</span></span>を全権大使とし、<span class="rb">大久保利通<span class="rt" aria-hidden="true">おおくぼとしみち</span></span>・<span class="rb">木戸孝允<span class="rt" aria-hidden="true">きどたかよし</span></span>・<span class="rb">伊藤博文<span class="rt" aria-hidden="true">いとうひろぶみ</span></span>らを加えた大使節団が、横浜からアメリカへ向かった。政府の指導者の約半数が、2年近くも日本を離れるという大胆な計画であった。</p>
+<p>使節団には、6歳の<span class="rb">津田梅子<span class="rt" aria-hidden="true">つだうめこ</span></span>ら女子5人を含む留学生も同行した。</p>
+<p>使節団の目的の一つは、幕末に結んだ不平等条約を改めるための話し合いであった。しかしアメリカでの交渉はうまくいかず、使節団は欧米の制度や産業を学ぶことに力を注いだ。</p>
+<p>イギリスの工場、フランスの都市、ドイツの政治の仕組みなどを見て回った経験は、帰国後の日本の国づくりに大きな影響を与えた。</p>
+<figure><p class="figt"><span>図3-3</span>岩倉使節団(1871〜1873年)</p>
+<div class="flow"><div class="fs s"><em>1871年11月</em><b>横浜を出発</b><span class="d">政府の指導者の約半数が加わる大使節団。留学生も同行</span></div><div class="fs t"><em>アメリカ</em><b>条約改正の予備交渉に失敗</b><span class="d">日本の法律や制度が整っていないことを理由に相手にされなかった</span></div><div class="fs "><em>ヨーロッパ</em><b>イギリス・フランス・ドイツなどの工場・議会・学校を見学</b><span class="d">近代国家の仕組みを直接学ぶ</span></div><div class="fs dk"><em>1873年9月</em><b>帰国</b><span class="d">「まず国の力をつけることが先だ」という考えを強くする</span></div></div>
+</figure>
+<h2><span class="no">第2節</span>殖産興業</h2>
+<div class="point"><b>この節のポイント</b><ul><li>政府は自ら工場を建てて産業を育てた</li><li>1872年、富岡製糸場が操業を始めた</li><li>鉄道・郵便・銀行など、近代の仕組みが整えられた</li></ul></div>
+<p>政府は、欧米に負けない国をつくるため、産業を盛んにすることに力を入れた。これを<span class="rb">殖産興業<span class="rt" aria-hidden="true">しょくさんこうぎょう</span></span>という。政府は外国人の技術者を招き、自ら工場を建てて手本を示した。</p>
+<p>1872年に群馬県で操業を始めた<span class="rb">富岡製糸場<span class="rt" aria-hidden="true">とみおかせいしじょう</span></span>は、フランスの機械と技術を取り入れた<span class="rb">官営模範工場<span class="rt" aria-hidden="true">かんえいもはんこうじょう</span></span>で、全国から集まった工女たちが技術を学び、各地に広めた。</p>
+<figure><p class="figt"><span>図3-4</span>殖産興業のおもな施設</p>
+<svg viewBox="0 0 360 392" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>殖産興業のおもな施設</title><desc>位置はおおよそ。官営の工場や鉱山の多くは、のちに民間に払い下げられた</desc><rect width="360" height="392" fill="#EAF2FB"/><path d="M360,50.6L342,38.7L329.7,39.9L318.1,47.6L310.4,39.6L304,39.5L301.4,42.2L299.5,47.9L302.3,52.9L306.7,56L311.1,56.1L322.7,67.6L318.5,70.1L309,67.2L304.3,72.6L301.4,78.3L294.9,81.8L291.8,79.9L290.7,76.1L293.8,63.6L292.4,57.9L287.9,53.3L285.8,45.9L287.8,36.1L294,32.9L302.7,24.6L304.2,20.9L301.7,16.5L301.6,11.3L304.2,10L312.4,14.7L322.3,16L326.7,15.3L329.8,8.3L329.5,0L360,0ZM324.8,83.6L331,82.5L329.5,93.8L330.3,107.5L331.2,111.6L336.3,116.6L340.5,123.2L345.9,141.3L345.5,154.4L343.4,165.7L336.7,170.5L333.6,178.1L331.4,190.8L321.5,193.1L317.4,199.8L316.5,206.8L318.6,215.7L319.5,223.7L317.6,239.9L312.7,245.3L308.1,257.1L306.6,266.5L308,272.4L311.8,279.7L315,283.8L308.5,286L303.4,291.1L302.3,299.4L300.6,302.3L292.4,307.1L288.6,311.8L285.2,309.9L286.4,308.1L286,298.4L293.2,290.1L290.5,285.7L286.2,286.1L284.3,291.7L281.1,294.5L283.7,299.9L280.7,303.6L276.2,298.3L270,299L266.2,305.1L266.4,309.9L263.6,317.3L260.3,321L256.5,318.6L257.6,309.3L260.4,307.6L255.3,304.3L251.4,305.5L245,313.6L240.6,322.1L234.8,320.5L222.8,319.8L209.4,322.5L215.7,318.4L215.3,316.1L208.6,316.3L204.5,315L203.6,306.4L199.2,309L194.8,319.3L197.1,322.3L204.3,327.5L203.6,331.2L195.1,333.4L189.2,336.1L177.7,356.7L171.5,359.1L164.9,356.9L161.9,351.3L157.2,345.4L155.9,341.8L155.1,332.4L159.7,329.3L163,325.3L163.9,321.3L162.2,320.1L153.5,320.9L145.1,316.3L140.8,316.2L130.4,318.6L123.8,324.3L109.2,327.6L100.9,331.9L97.5,331L87.4,333.8L80.9,330.2L77.9,331.2L75.8,334.4L73.2,347.4L62.1,340.3L54.7,341.4L48,343.8L43.5,341.3L39.2,342.8L38.4,333.3L41.6,328.9L51.3,328.2L58.4,321.4L65.3,317.7L71,311.8L76.4,307.7L86.4,298L88.6,294.2L94.8,291.1L104.3,289.6L107.3,292.9L114,291.1L120.8,291.7L130.6,290.1L137.2,287.1L149,285.9L157.2,283.1L159.7,283.9L158.8,288.3L161.4,290.6L171.1,291.4L177.3,287.9L182.6,282.4L180.2,274.8L184.3,266.7L190,262L199.4,248.9L200.7,241.7L199.9,233.1L203.3,226.7L216.6,221.8L217,224.8L211.9,230.1L205.6,234L207.5,239.1L208.1,245.6L211.1,247.8L217.2,247.9L221.9,241.7L232.9,237.7L244.2,232.4L250.6,226.3L255,220.5L259.9,210.5L269.9,204.8L274.2,200.1L276.3,191L279.1,183.9L285.3,173.9L288.4,161.5L291.8,155L292.3,142.8L289.3,137.9L283.6,136.7L288.2,133L291.2,122.4L288.7,112L291.6,107.2L294.9,106.5L298.5,103L300.2,97.2L299.5,91.4L301.4,89L308.1,90.2L309.6,101.3L312.9,103.4L316.7,99.5L321.8,101.7L323.6,100.2L325.8,93.6L324,88.4L312.9,92.3L314.6,81.7L316.7,78.8L321.4,80.6ZM134.5,333.4L142.2,334.5L142.2,340.6L145.1,348.1L139.8,351.1L135,355.1L131.4,360.7L129.7,367.1L123.5,360.4L120.6,358.9L114.4,358.3L104.8,363.3L99.8,374.3L97.4,375.8L96.3,380.4L93.3,383.4L87,383.1L88.9,378.4L82.9,378L81.1,373.3L83.4,365.5L80.4,364.3L80.6,361L71.6,364L87,352.4L91,342.3L96.7,339.1L100.7,344.5L113,341.4L114.7,337.6L113.6,333.9L116.5,334.1L123.2,330.4L126.7,330.1ZM29.6,392L31.6,387.8L27.7,386.6L29.6,384L29,380.8L24.4,372.2L20.4,369.4L17.3,371.8L18.7,380.2L22.9,380.1L23.3,385.1L20.6,385.9L15.3,382.8L7.4,389.4L9,384.3L5.2,379.4L4.9,373.3L9.1,378.8L13.6,380.2L11,374.5L2.3,367.4L4.5,363.2L9.5,364.6L9,360.8L15.8,358L18.5,355.5L24,354.2L27.3,347.5L33.7,344.5L40.2,346.3L43.1,353L46.4,355.3L46.4,355.3L53.1,355.9L57.7,353.6L60.8,355.3L61.2,358.6L56.4,366.2L66.4,366.9L65.1,371.3L67.9,373.7L66.8,376.1L69.5,377.9L68.6,380.4L61.8,388.7L60.5,392L29.6,392ZM157.6,0L156,2.8L143.8,11.8L129,21.3L124.9,24.8L116.6,29.3L113.2,29.3L101.4,34.3L96.9,30.1L93.2,30.7L88.9,27.5L82.6,26.3L77.6,27.2L78.5,13.8L77.8,10.9L70,18.3L65.6,19.2L69.5,12.2L63.6,13.2L55.8,23L52.4,29.5L49.6,31.4L45.9,36.9L33.5,35.8L37,40.8L34.1,48.2L31.5,50.2L26.5,49.1L20.4,53.5L15.7,58.7L10.4,67.6L7.1,71.1L5,79.2L7.3,86.2L5.8,92.8L6.7,99.9L5.7,102.6L0,105.3L0,0ZM244.9,211.3L243.2,210.2L244.3,205.4L242.2,205.2L243.9,199.4L249.3,193.9L247.9,202.4L251.3,202.7L249.1,208.4ZM150.4,332.4L147.4,335.2L144.8,335.1L143.1,332.2L147.7,326.2L152.4,323.8L149.7,328.7Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><defs><marker id="armj3n360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="armj3t360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="armj3k360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="armj3g360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><circle cx="260.0" cy="265.5" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="260.0" y="269.5" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">1</text><line x1="284.4" y1="285.3" x2="284.4" y2="265.3" stroke="#1F4E8C" stroke-width="1.2"/><circle cx="284.4" cy="285.3" r="3" fill="#1F4E8C"/><circle cx="284.4" cy="265.3" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="284.4" y="269.3" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">2</text><line x1="280.8" y1="293.5" x2="298.1" y2="283.5" stroke="#1F4E8C" stroke-width="1.2"/><circle cx="280.8" cy="293.5" r="3" fill="#1F4E8C"/><circle cx="298.1" cy="283.5" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="298.1" y="287.5" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">3</text><line x1="166.7" y1="318.6" x2="166.7" y2="298.6" stroke="#1F4E8C" stroke-width="1.2"/><circle cx="166.7" cy="318.6" r="3" fill="#1F4E8C"/><circle cx="166.7" cy="298.6" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="166.7" y="302.6" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">4</text><line x1="165.6" y1="322.9" x2="182.9" y2="312.9" stroke="#1F4E8C" stroke-width="1.2"/><circle cx="165.6" cy="322.9" r="3" fill="#1F4E8C"/><circle cx="182.9" cy="312.9" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="182.9" y="316.9" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">5</text><circle cx="328.2" cy="20.6" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="328.2" y="24.6" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">6</text><circle cx="342.8" cy="159.7" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="342.8" y="163.7" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">7</text><circle cx="10.2" cy="383.5" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="10.2" y="387.5" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">8</text></svg><ol class="mapl"><li><i class="n">1</i>富岡製糸場(1872)</li><li><i class="n">2</i>東京(新橋)</li><li><i class="n">3</i>横浜<span class="pd">1872 新橋〜横浜に鉄道</span></li><li><i class="n">4</i>大阪の造幣局(1871)</li><li><i class="n">5</i>堺紡績所</li><li><i class="t">6</i>札幌<span class="pd">開拓使</span></li><li><i class="n">7</i>釜石<span class="pd">官営の製鉄所</span></li><li><i class="n">8</i>長崎<span class="pd">官営の造船所</span></li></ol><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">位置はおおよそ。官営の工場や鉱山の多くは、のちに民間に払い下げられた</p>
+</figure>
+<p>交通や通信も整えられた。1869年に東京と横浜の間に電信が開通し、1871年には<span class="rb">前島密<span class="rt" aria-hidden="true">まえじまひそか</span></span>の努力で郵便制度が始まった。1872年には新橋と横浜の間に鉄道が開通した。</p>
+<p>1871年には新しい貨幣の単位として円が定められ、1873年には<span class="rb">渋沢栄一<span class="rt" aria-hidden="true">しぶさわえいいち</span></span>らによって第一国立銀行が設立された。</p>
+<h2><span class="no">第3節</span>文明開化</h2>
+<div class="point"><b>この節のポイント</b><ul><li>都市では、洋服や散切り頭、牛鍋などが広まった</li><li>銀座には煉瓦街ができ、ガス灯がともった</li><li>福沢諭吉らが西洋の思想を紹介した</li></ul></div>
+<p>西洋の文化を取り入れて、人々の暮らしも変わっていった。これを<span class="rb">文明開化<span class="rt" aria-hidden="true">ぶんめいかいか</span></span>という。東京や横浜などの都市では、ちょんまげを切った<span class="rb">散切り頭<span class="rt" aria-hidden="true">ざんぎりあたま</span></span>や洋服が広まり、<span class="rb">牛鍋<span class="rt" aria-hidden="true">ぎゅうなべ</span></span>を食べることが流行した。</p>
+<p>東京の銀座には<span class="rb">煉瓦<span class="rt" aria-hidden="true">れんが</span></span>造りの街並みがつくられ、夜にはガス灯がともった。<span class="rb">人力車<span class="rt" aria-hidden="true">じんりきしゃ</span></span>が走り、新聞や雑誌が次々に発行された。</p>
+<figure><p class="figt"><span>図3-5</span>文明開化のくらし</p>
+<div class="card n" style="margin-bottom:10px"><div class="hd">都市で変わったこと</div><div class="bd"><div class="rows"><div><b>身なり</b><span>ちょんまげを切った散切り頭や洋服が広まる</span></div><div><b>食</b><span>牛鍋など、肉を食べる習慣が広まる</span></div><div><b>町並み</b><span>東京の銀座に煉瓦街。ガス灯がともり、人力車や鉄道馬車が走る</span></div><div><b>情報</b><span>新聞や雑誌が次々に生まれる</span></div></div></div></div><div class="card t" style="margin-bottom:10px"><div class="hd">考え方の変化</div><div class="bd"><div class="rows"><div><b>思想</b><span>福沢諭吉『学問のすゝめ』、中江兆民らが西洋の思想を紹介</span></div><div><b>宗教</b><span>1873年、キリスト教の禁止を示す高札を取り除く</span></div><div><b>暦</b><span>1873年から太陽暦。1日24時間、日曜日を休日とする</span></div></div></div></div>
+</figure>
+<p>考え方にも新しい風が吹き込まれた。<span class="rb">福沢諭吉<span class="rt" aria-hidden="true">ふくざわゆきち</span></span>は『<span class="rb">学問のすゝめ<span class="rt" aria-hidden="true">がくもんのすすめ</span></span>』で、人は生まれながらに平等であり、学問によって身を立てるべきだと説き、大ベストセラーとなった。</p>
+<p>1873年にはキリスト教を禁じる<span class="rb">高札<span class="rt" aria-hidden="true">こうさつ</span></span>が取り除かれ、暦も<span class="rb">太陽暦<span class="rt" aria-hidden="true">たいようれき</span></span>に改められた。</p>
+<h2><span class="no">第4節</span>都市と農村の差</h2>
+<div class="point"><b>この節のポイント</b><ul><li>文明開化は主に都市でのことだった</li><li>農村の暮らしは、すぐには変わらなかった</li><li>急な変化への戸惑いや反発もあった</li></ul></div>
+<p>ただし、文明開化の変化は、主に東京や横浜などの都市でのことであった。人口の大半が住む農村では、暮らしはすぐには変わらず、新しい制度の負担への不満や、慣れない習慣への戸惑いも大きかった。</p>
+<p>政府は、神道を重んじる政策をとり、仏教を排斥する動きが各地で起こって、多くの寺院や仏像が失われた(<span class="rb">廃仏毀釈<span class="rt" aria-hidden="true">はいぶつきしゃく</span></span>)。欧米に追いつこうとする急速な近代化は、古いものを壊しながら進んだ面もあったのである。</p>
+<section class="summary" aria-labelledby="pt"><h3 id="pt">この章の要点</h3><ul><li>1871年に出発した岩倉使節団は、条約改正の予備交渉に失敗したが、欧米の制度や産業を学んで帰国した。</li><li>政府は殖産興業を進め、富岡製糸場などの官営模範工場をつくり、鉄道・郵便・銀行などを整えた。</li><li>都市では文明開化が進み、洋服・牛鍋・煉瓦街などが広まった。福沢諭吉らが西洋の思想を紹介した。</li><li>農村の暮らしはすぐには変わらず、廃仏毀釈で多くの寺院や仏像が失われるなど、急な近代化には負の面もあった。</li></ul></section>
+<section class="column" aria-labelledby="col"><h3 id="col">コラム 富岡製糸場の工女たち</h3>
+<p>富岡製糸場が開業したとき、工女はなかなか集まらなかった。フランス人の技師が飲んでいたワインを見て、「外国人に生き血を吸われる」という噂が広まったためといわれる。</p>
+<p>そこで、工場の設立にかかわった<span class="rb">尾高惇忠<span class="rt" aria-hidden="true">おだかあつただ</span></span>は、自分の娘を最初の工女として入れた。その後、各地の<span class="rb">士族<span class="rt" aria-hidden="true">しぞく</span></span>の娘などが集まり、技術を身につけて故郷に帰り、各地の<span class="rb">製糸<span class="rt" aria-hidden="true">せいし</span></span>工場の指導者となった。富岡製糸場は2014年、世界文化遺産に登録されている。</p>
+</section>
+<div class="navs"><a href="mb_ch2.html">← 第2章</a><a href="index.html">目次</a><a href="mb_ch4.html">第4章 →</a></div>
+</main>
+<footer>第3章 スマホ版 ・ 全8章のうちの1章</footer>
+</div>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('rubyBtn');
+  b.addEventListener('click',function(){
+    var off=document.body.classList.toggle('noruby');
+    b.textContent=off?'ふりがな:なし':'ふりがな:あり';
+    b.setAttribute('aria-pressed',off?'false':'true');
+    if(!off&&window.fitRuby)window.fitRuby();
+  });
+})();
+</script>
+</body>
+</html>

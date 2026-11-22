@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>明治の日本 第7章(スマホ版)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* スマホ優先の1カラム。カード枠をやめて画面幅を本文に使う。図は縦長に組み直す */
+  --paper:#FFFFFF; --ink:#1E2A3A; --sub:#5A6878; --navy:#1F4E8C; --teal:#2F7F86;
+  --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#D6E4F3;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.85;-webkit-text-size-adjust:100%}
+.wrap{max-width:520px;margin:0 auto}
+.topbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 20px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);font-size:13px;color:var(--sub)}
+.topbar button{font:inherit;font-size:13px;color:var(--navy);background:var(--sky);border:0;border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.topbar button:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+header.ch{background:var(--navy);color:#fff;padding:22px 20px 20px}
+header.ch .eyebrow{font-size:13px;letter-spacing:.15em;opacity:.85;margin:0 0 6px}
+header.ch h1{font-size:25px;line-height:1.4;font-weight:700;margin:0;text-wrap:balance}
+header.ch .lead{font-size:14.5px;line-height:1.7;margin:8px 0 0;opacity:.9}
+main{padding:0 20px 40px}
+h2{font-size:20px;line-height:1.5;font-weight:700;margin:40px 0 14px;padding-left:12px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{display:block;font-size:13px;color:var(--navy);font-weight:500}
+p{margin:0 0 1.15em}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.32em;transform:translateX(-50%);font-size:.5em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;letter-spacing:0;pointer-events:none}
+body.noruby .rt{display:none}
+.tl{list-style:none;margin:20px 0 0 6px;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:8px;padding:5px 0 5px 16px;font-size:15px;line-height:1.6}
+.tl li::before{content:"";position:absolute;left:-7px;top:12px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--navy)}
+.tl li.k::before{border-color:var(--teal)}
+.tl li.hl{font-weight:700}
+.tl li.hl::before{background:var(--navy)}
+.tl .y{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.tl li.k .y{color:var(--teal)}
+.tlnote{display:flex;gap:16px;font-size:12.5px;color:var(--sub);margin:8px 0 0 6px}
+.tlnote span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid var(--navy);margin-right:5px;vertical-align:-1px}
+.tlnote span.k::before{border-color:var(--teal)}
+.point{background:var(--sky);border-radius:10px;padding:14px 16px;margin:0 0 22px;font-size:15px;line-height:1.7}
+.point b{display:block;color:var(--navy);font-size:13px;margin-bottom:4px}
+.point ul{margin:0;padding-left:1.2em}
+figure{margin:26px -20px 28px;padding:16px 20px 12px;background:#F7FAFD;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+figure svg{display:block;width:100%;height:auto}
+.figt{font-size:15px;font-weight:700;margin:0 0 12px;line-height:1.5}
+.figt span{color:var(--navy);margin-right:8px}
+.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.back{margin-top:10px;font-size:14px;font-weight:700;color:var(--teal);display:flex;gap:6px;align-items:center}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+.summary{background:var(--sky);border-radius:10px;padding:16px 18px 10px;margin:36px 0 18px}
+.summary h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy)}
+.summary ul{margin:0;padding-left:1.2em;font-size:16px}
+.summary li{margin:0 0 .5em}
+.column{border:1.5px dashed #9AAABB;border-radius:10px;padding:16px 18px 4px;margin:18px 0 0}
+.column h3{color:var(--teal)}
+.column figure{margin:16px -18px 16px}
+footer{font-size:12.5px;color:var(--sub);text-align:center;padding:0 20px 40px}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+.tlh{font-size:15px;color:var(--navy);margin:1.6em 0 .2em}
+</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style></head>
+<body>
+<div class="wrap">
+<div class="topbar"><span>明治の日本 解説資料</span><button type="button" id="rubyBtn" aria-pressed="true">ふりがな:あり</button></div>
+<header class="ch">
+<p class="eyebrow">第七章 ・ 1871 ― 1911</p>
+<h1>条約改正と日清・日露戦争</h1>
+<p class="lead">対等な国をめざした日本は、やがて周りの国々を支配する側に立った</p>
+</header>
+<main>
+<ol class="tl" aria-label="この章の年表"><li><span class="y">1886</span><span>ノルマントン号事件</span></li><li class="hl"><span class="y">1894</span><span>領事裁判権の撤廃、日清戦争</span></li><li><span class="y">1895</span><span>下関条約、三国干渉</span></li><li><span class="y">1902</span><span>日英同盟</span></li><li class="hl"><span class="y">1904</span><span>日露戦争</span></li><li><span class="y">1905</span><span>ポーツマス条約、第2次日韓協約</span></li><li class="hl"><span class="y">1910</span><span>韓国併合</span></li><li class="k"><span class="y">1911</span><span>関税自主権の回復</span></li></ol>
+<figure><p class="figt"><span>図7-2</span>この章の登場人物</p>
+<div class="ppl"><div class="pg n"><h4>日本の外交</h4><ul><li><b><span class="rb">陸奥宗光<span class="rt" aria-hidden="true">むつむねみつ</span></span></b><span class="pd">外務大臣。1894年に領事裁判権の撤廃を実現した</span></li><li><b><span class="rb">小村寿太郎<span class="rt" aria-hidden="true">こむらじゅたろう</span></span></b><span class="pd">外務大臣。ポーツマス条約を結び、1911年に関税自主権を回復した</span></li><li><b><span class="rb">伊藤博文<span class="rt" aria-hidden="true">いとうひろぶみ</span></span></b><span class="pd">韓国統監として韓国の支配を進め、1909年に暗殺された</span></li></ul></div><div class="pg t"><h4>朝鮮・韓国の人々</h4><ul><li><b><span class="rb">甲午農民戦争<span class="rt" aria-hidden="true">こうごのうみんせんそう</span></span>の農民たち</b><span class="pd">1894年、重い税や外国の進出に反対して立ち上がった</span></li><li><b><span class="rb">安重根<span class="rt" aria-hidden="true">アンジュングン</span></span></b><span class="pd">韓国の独立運動家。1909年、ハルビンで伊藤博文を暗殺した</span></li></ul></div><div class="pg g"><h4>戦争に反対した人々</h4><ul><li><b><span class="rb">与謝野晶子<span class="rt" aria-hidden="true">よさのあきこ</span></span></b><span class="pd">戦地の弟を思い、「君死にたまふことなかれ」をうたった</span></li><li><b><span class="rb">内村鑑三<span class="rt" aria-hidden="true">うちむらかんぞう</span></span></b><span class="pd">キリスト教徒の立場から日露戦争に反対した</span></li></ul></div></div>
+</figure>
+<h2><span class="no">第1節</span>条約改正</h2>
+<div class="point"><b>この節のポイント</b><ul><li>井上馨は欧化政策を進めたが、改正に失敗した</li><li>ノルマントン号事件で、改正を求める声が高まった</li><li>1894年に領事裁判権を撤廃し、1911年に関税自主権を回復した</li></ul></div>
+<p>幕末に結んだ不平等条約を改めることは、明治政府の長年の課題であった。外務卿・外務大臣の<span class="rb">井上馨<span class="rt" aria-hidden="true">いのうえかおる</span></span>は、東京に<span class="rb">鹿鳴館<span class="rt" aria-hidden="true">ろくめいかん</span></span>を建てて舞踏会を開くなど、日本が西洋と同じ文明国であることを示そうとした(<span class="rb">欧化政策<span class="rt" aria-hidden="true">おうかせいさく</span></span>)。</p>
+<p>しかし、外国人を裁判官に加えるという改正案に国内の反対が強く、井上は辞任した。</p>
+<p>1886年、イギリスの貨物船ノルマントン号が<span class="rb">紀州<span class="rt" aria-hidden="true">きしゅう</span></span>沖で沈没し、イギリス人の船員は助かったのに日本人の乗客は全員が亡くなった。領事裁判で船長が軽い罪で済んだことに国民は怒り、条約改正を求める声が高まった。</p>
+<p>1894年、外務大臣の<span class="rb">陸奥宗光<span class="rt" aria-hidden="true">むつむねみつ</span></span>は、ロシアの南下を警戒するイギリスとの間で、<span class="rb">領事裁判権<span class="rt" aria-hidden="true">りょうじさいばんけん</span></span>を撤廃する条約を結んだ。<span class="rb">関税自主権<span class="rt" aria-hidden="true">かんぜいじしゅけん</span></span>の完全な回復は、1911年、外務大臣の<span class="rb">小村寿太郎<span class="rt" aria-hidden="true">こむらじゅたろう</span></span>のときに実現した。</p>
+<figure><p class="figt"><span>図7-3</span>条約改正の歩み</p>
+<ol class="steps"><li><span class="num n">1</span><span><b>1871〜1873年 岩倉使節団</b><span class="d">予備交渉に失敗</span></span></li><li><span class="num n">2</span><span><b>1880年代 井上馨</b><span class="d">鹿鳴館で欧化政策を進めるが、外国人の裁判官を置く案に反対が強く辞任</span></span></li><li><span class="num n">3</span><span><b>1886年 ノルマントン号事件</b><span class="d">イギリス船の沈没で日本人乗客が全員死亡。船長が軽い罪で済み、改正を求める世論が高まる</span></span></li><li><span class="num n">4</span><span><b>1894年 陸奥宗光</b><span class="d">イギリスとの条約で領事裁判権を撤廃</span></span></li><li><span class="num n">5</span><span><b>1911年 小村寿太郎</b><span class="d">関税自主権を回復。条約改正が完成する</span></span></li></ol>
+</figure>
+<h2><span class="no">第2節</span>日清戦争</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1894年、朝鮮で甲午農民戦争が起こり、日清両国が出兵した</li><li>日清戦争で日本が勝ち、1895年に下関条約を結んだ</li><li>三国干渉で遼東半島を返還した</li></ul></div>
+<p>朝鮮をめぐっては、日本と、朝鮮を属国とみなす清が対立していた。1894年、朝鮮で重い税や外国の進出に反対する農民が大規模に立ち上がった(<span class="rb">甲午農民戦争<span class="rt" aria-hidden="true">こうごのうみんせんそう</span></span>)。</p>
+<p>朝鮮政府の求めで清が出兵すると、日本も兵を送り、8月に<span class="rb">日清戦争<span class="rt" aria-hidden="true">にっしんせんそう</span></span>が始まった。</p>
+<figure><p class="figt"><span>図7-4</span>日清・日露戦争と韓国併合</p>
+<svg viewBox="0 0 360 438" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>日清・日露戦争と韓国併合</title><desc>位置はおおよそ</desc><rect width="360" height="438" fill="#EAF2FB"/><path d="M335.8,0L336.6,2L338.4,8.4L339.3,12.8L341.2,17.5L344.2,20.8L344.5,25L343.5,21.9L337.5,14.6L335.6,13.4L332.8,12.8L328.6,13.1L325.2,14.8L324.3,16.6L323.6,20L318.9,35.3L318.7,41.3L321,46.4L322.4,47.4L324.1,50.4L325.1,54.3L326.6,58L329.4,58L329.8,58.7L331,65.5L329.2,71.3L329,67.9L328.2,63.5L327.4,62.1L322,61.3L320.3,59.4L318.9,59.6L316.9,62.1L315.6,65.6L314.5,70.3L312.9,73.2L311.5,71.6L309.9,64L310.4,59.7L312.1,53.8L312.5,51.9L311.8,48.2L311.6,43.9L314.2,36.4L313.6,31.4L310.8,24.8L310.4,23.1L312.2,17L313.7,8L313.8,0L335.8,0ZM333.9,103.8L337.2,104L341.8,106.6L345.6,106.7L352.1,100.1L352.2,101.9L349.5,107.9L349.2,109.6L352.1,117.3L353.8,117.7L356.1,115.9L358,115.9L355.5,117.5L354.1,119.4L352.2,119.4L348.4,121.8L343.6,123.1L338.4,122.7L335.7,124.2L331,128.8L328.4,133.3L327.7,137.2L326.8,138.6L325.3,138.2L322.9,136.6L318.1,134.4L310.2,129.2L304.9,129.7L299.8,133L296.5,129.5L293.7,129.5L292.6,130.6L291.8,133.1L293,135.3L294.9,136.6L296.8,136.7L301.8,141.7L300,142.8L295.9,141.5L293.9,143.8L292.6,146.3L289.8,147.8L288.4,147L288,145.4L289.3,140L288.7,137.5L286.7,135.5L285.8,132.3L286.7,128L289.4,126.7L293.2,123L293.8,121.5L292.8,119.5L292.7,117.3L293.8,116.7L297.4,118.7L301.7,119.3L303.6,119L304.9,116L304.8,111.7L305.4,109.9L307.2,107.1L307.7,105.4L307.9,101.3L309.1,97.7L309.4,93.7L308.6,89.9L307,86.3L308,82.1L309.9,81.4L311.2,80.2L317,86.8L320.4,92L322.6,94.5L327.4,99.1L331.8,102ZM302.7,148.6L305.5,148.1L304.8,153L305.2,159L305.5,160.7L307.7,162.9L309.6,165.8L311.9,173.6L311.7,179.3L310.8,184.2L307.9,186.3L306.6,189.6L305.6,195.1L301.3,196.1L299.5,199L299.1,202L300.1,205.8L300.4,209.3L299.6,216.3L297.5,218.7L295.5,223.8L294.9,227.9L295.5,230.4L297.1,233.6L298.5,235.4L295.7,236.3L293.5,238.5L293,242.1L292.3,243.4L288.7,245.5L287,247.5L285.6,246.7L286.1,245.9L285.9,241.7L289,238.1L287.9,236.2L286,236.4L285.2,238.8L283.8,240L284.9,242.3L283.6,243.9L281.7,241.7L279,242L277.4,244.6L277.5,246.7L276.2,249.9L274.8,251.5L273.1,250.4L273.6,246.4L274.8,245.7L272.6,244.2L270.9,244.8L268.2,248.3L266.3,251.9L263.8,251.3L258.5,251L252.7,252.1L255.5,250.4L255.3,249.4L252.4,249.5L250.6,248.9L250.2,245.2L248.3,246.3L246.4,250.7L247.4,252L250.5,254.3L250.2,255.9L246.5,256.9L244,258L239,266.9L236.3,268L233.4,267L232.1,264.6L230.1,262.1L229.5,260.5L229.2,256.4L231.2,255.1L232.6,253.3L233,251.6L232.3,251.1L228.5,251.4L224.9,249.5L223,249.4L218.5,250.5L215.6,252.9L209.3,254.3L205.7,256.2L204.2,255.8L199.9,257L197.1,255.5L195.8,255.9L194.9,257.3L193.7,262.9L188.9,259.8L185.7,260.3L182.8,261.3L180.9,260.3L179,260.9L178.7,256.8L180,254.9L184.2,254.6L187.3,251.7L190.3,250L192.8,247.5L195.1,245.7L199.4,241.5L200.4,239.9L203.1,238.5L207.2,237.9L208.5,239.3L211.4,238.5L214.3,238.8L218.6,238.1L221.5,236.8L226.6,236.3L230.1,235L231.2,235.4L230.8,237.3L231.9,238.3L236.2,238.6L238.8,237.1L241.1,234.7L240.1,231.4L241.9,228L244.3,225.9L248.4,220.2L249,217.1L248.6,213.4L250.1,210.6L255.9,208.5L256,209.8L253.8,212.1L251.1,213.8L251.9,216L252.2,218.8L253.5,219.8L256.1,219.8L258.1,217.1L262.9,215.4L267.8,213.1L270.6,210.5L272.5,207.9L274.6,203.6L279,201.1L280.8,199.1L281.7,195.1L282.9,192.1L285.6,187.7L287,182.4L288.4,179.5L288.6,174.3L287.4,172.2L284.9,171.6L286.9,170L288.2,165.4L287.1,160.9L288.3,158.8L289.8,158.5L291.4,157L292.1,154.5L291.8,152L292.6,150.9L295.5,151.5L296.2,156.3L297.6,157.2L299.2,155.5L301.4,156.5L302.2,155.8L303.2,152.9L302.4,150.7L297.6,152.4L298.3,147.8L299.2,146.5L301.3,147.3ZM220.3,256.9L223.6,257.3L223.6,260L224.9,263.2L222.6,264.5L220.5,266.3L218.9,268.7L218.2,271.5L215.5,268.6L214.3,267.9L211.6,267.7L207.4,269.8L205.2,274.6L204.2,275.2L203.7,277.2L202.4,278.5L199.7,278.4L200.5,276.4L197.9,276.2L197.1,274.1L198.1,270.8L196.8,270.2L196.9,268.8L193,270.1L199.7,265.1L201.4,260.7L203.9,259.3L205.6,261.6L211,260.3L211.7,258.7L211.2,257.1L212.5,257.1L215.4,255.6L216.9,255.4ZM182.1,266.3L185,266.6L187,265.6L188.3,266.3L188.5,267.8L186.4,271.1L190.8,271.4L190.2,273.3L191.4,274.3L190.9,275.4L192.1,276.2L191.7,277.2L188.8,280.8L186.8,286.1L185.5,290.9L185.5,293.9L184.1,297.6L180.9,297.2L180.4,298L181.2,299.7L178.8,301.7L176.2,303.1L177.5,299.5L176.5,295.2L177.4,294.8L177.3,293.4L175.9,293.2L174.3,296.8L175.7,299.5L175.1,300.8L170.4,299.2L169.8,297.6L171.5,297L171.9,294.9L170.2,292.5L170.5,291.3L170.3,287.9L171.8,287.2L173.6,284.9L175.7,280.4L174,279.9L174.8,278.8L174.6,277.4L172.6,273.7L170.8,272.4L169.5,273.5L170.1,277.1L171.9,277.1L172.1,279.2L170.9,279.6L168.6,278.3L165.2,281.1L165.9,278.9L164.3,276.8L164.1,274.1L166,276.5L167.9,277.1L166.8,274.7L163,271.6L163.9,269.8L166.1,270.4L165.9,268.7L168.9,267.5L170,266.4L172.4,265.9L173.8,263L176.6,261.6L179.4,262.5L180.7,265.3ZM60.1,416.1L58.8,419.2L58.1,425.1L56.3,423.7L56.1,422.1L55,419.5L51.9,417.1L50.8,414.8L48.9,409.2L49.7,406L49.6,402.6L55.5,391.8L58.8,387.4L60.5,384.5L64.4,382.8L65.4,381.6L67.1,381.2L68.2,382.5L70.2,383.5L71.1,385.3L69.8,388.3L69.9,391.1L68.8,394.3L67.7,396.4L65.7,405.6L64.8,408.9L63.5,411.6L61.9,414.1ZM294.6,0L293.6,1.7L294.2,7.5L293.2,12.4L291.7,17.5L292.5,19.1L290.7,22.6L290,27.1L288,30.8L285.1,33.4L284.1,35L280.5,38.6L278,43.1L276,47.6L271,53.4L268.7,58.8L268,62.4L266.5,63.8L265.3,67.4L261.2,73L260.2,74.9L257.1,78L253.8,82.2L249.6,86L245.5,91.9L243,94.6L241.7,97.5L238.5,99.5L234.4,106.2L233.8,108.5L231.1,111L229.6,113.6L224.3,117.5L217.9,121.6L216.1,123.1L212.5,125.1L211.1,125.1L205.9,127.2L204,125.4L202.4,125.7L200.5,124.3L197.8,123.8L195.6,124.2L196,118.3L195.7,117.1L192.4,120.3L190.4,120.7L192.1,117.7L189.5,118.1L186.2,122.3L184.7,125.2L183.5,126L181.9,128.4L176.5,127.9L178,130.1L176.8,133.3L175.6,134.1L173.5,133.7L170.8,135.6L168.8,137.8L166.5,141.7L165.1,143.2L164.2,146.7L165.2,149.7L164.5,152.6L164.9,155.7L164.5,156.8L160.1,158.9L157.3,162.6L154.1,164.7L152.4,165.4L151.3,167.3L147.6,169.8L143.6,170.4L142.4,172L138.8,173.8L138.3,175.1L138.6,178.8L136.6,181.3L136.8,182.7L141.4,184.6L143.7,187.5L147,189.8L148.5,191.7L151.4,198.6L154.2,203L156.6,206.1L160,212.2L161,215.5L161.7,220.2L161.2,221.8L161.3,224.3L160.7,226.5L160.9,230.5L161.5,231.2L162.9,230.5L162.8,232.1L161,238.7L158.6,243.4L155.8,244.6L151.7,244.3L150.1,244.6L149,245.8L149.3,247.9L145.1,247L144.4,245.7L140.6,246.7L139.7,247.7L140.9,249.2L139.6,250.6L138.3,248.4L136.8,248.6L136.7,249.8L137.7,251.5L135.9,253.9L134.1,252.7L135.1,251L135,249.6L132.3,251.8L130.8,254.2L129.1,253.2L127.3,254.8L127,256L126.1,255.5L125.8,253.4L123.2,250.8L123.6,250.1L126.3,250.5L125.7,249.6L127.1,248.6L125,248.6L123.5,243.8L124.3,242.9L125.9,238.7L127.4,237.6L125.9,236.5L128.6,234.7L129,233.2L127.8,232.5L128.3,231.1L126.5,228.8L126.6,224.2L125.9,220.9L124.7,221.6L122.2,221L122.6,218.3L124.2,217L126.9,216.1L129.4,217.1L130.1,218.7L131.5,217.8L130.4,216.7L128.9,213.5L129.5,211.9L127.8,209.6L127.9,208.1L126.8,205.5L127.6,204.6L124.4,203.1L122.5,203.9L121.4,205.1L120.6,203.2L119.3,203.2L117.2,201.5L116.3,201.8L115,204.1L112.3,205.4L111.7,203.6L107.9,202.3L111,200.4L110,199.8L107.9,200.1L104.3,199.3L106.5,197.7L106.6,196L108.8,192.7L111.7,191.1L114.6,190.8L113.1,189.8L111.6,189.9L110,188.9L109.9,187.9L112.9,181.5L112.3,177.8L109.2,176.8L105.3,174.1L104.8,175.8L103.7,176.4L102.7,173.6L100.2,171.8L100.2,170.2L99.2,171.6L97.3,172.9L93.1,173.1L91.8,172.2L91,173.7L88.2,174.1L86.7,175.2L84.4,175.5L82.1,176.6L76,180.2L73.5,183.5L70.4,186L68.1,185.9L67.8,188L63.8,188.9L62,190.1L61.3,187.1L68.2,184.2L67.5,182.5L69.8,179.9L63.3,179.9L63.2,177.5L66.2,176L65.7,174.2L66.2,172.8L69.6,171.1L74.3,164.7L75.3,161.8L73.7,159.5L70.3,157.1L70,155L68.8,157L66.4,156.5L62.1,156.2L59.1,159.6L57.3,161.1L53.8,166.7L52.4,167.2L46.2,170.5L43.1,171.9L40.7,174.2L39.1,177.2L38.7,179.6L36.5,182.5L34.9,183.3L31.5,183.2L27.6,184.9L25.8,182.9L24.5,182.4L21.4,183.8L19.4,188.2L18.7,191.7L19.9,194.8L21.2,196.5L24.2,198.4L30.5,199.8L33.6,199.3L35.3,200.6L36.3,202.7L37,205.8L35.9,206.7L35.5,211.4L37.4,213.3L39.5,214.3L41.4,214.5L45.1,214L46.6,212.6L46.6,211.1L49.9,208.9L51.7,207L51.1,206.1L57,203.8L60.6,205.4L62.6,207.3L64.7,207.6L67.7,209.4L71.6,209.7L72.7,208.4L76.1,210.3L79.2,209.9L80,210.3L78.9,211.6L79,213.7L77.4,215.3L78.2,217.2L76.1,218.9L74.9,218.6L73.9,217L71.2,217L65,220.3L59.9,222.4L57.6,222.2L58.7,224.7L57.3,224.5L56.2,226.2L56.2,228.8L52.7,230.5L52,229.7L52,227.9L50.2,228.3L49.1,229.5L50.2,231L51.4,231.5L48.7,233.4L46.4,236.6L44.7,237.4L42.3,240.8L41.2,241.6L40.2,244.4L38.6,245.9L38,248.2L38.4,249.7L40.2,249.7L43,252.1L47.5,254.1L51.2,256.6L51.9,258.2L54.1,265.8L55.4,268L56.8,271.6L58.4,274.8L58.8,277.2L58.3,279.8L59.9,281.2L63.5,282.7L64.8,283.9L64.8,286.3L65.9,287.5L68.1,288.5L70,290.6L70.4,293.4L68.2,293.3L64.2,291.2L61.8,291.4L59.7,291.1L57.5,288.8L54.2,287.7L50.2,289.7L48.4,290.1L50.3,290.5L54,288.9L56.6,289.5L57.4,291.8L60.7,293.2L62.5,294.5L64.2,296.5L67.9,298.8L69.4,301L70.5,304.5L69.2,305.1L66.3,305.5L63.7,307.5L60,309.5L58.8,311.8L57.9,312.3L53.4,311.8L51,313.3L52.2,313.8L53.9,313L55.6,315.4L58.9,315L61.9,313L64.1,313.3L65.2,314.1L68.2,317.5L73,319L70.9,320.3L68.1,323L66.1,324.3L68.3,324L69.9,322.7L71.3,322.7L71.6,324.3L71,329.2L70.2,329.2L68.6,327.5L66.4,327.8L65.4,329.2L68,330.9L67.5,334.2L65.7,335.9L67.2,339.7L63.3,341.6L62.6,340L61.2,340.7L59.5,344.2L57,344.5L58,346.1L56.2,348.1L55.1,350.4L55.5,351.7L54.5,353.9L52.6,356.1L51.3,356.9L49.7,359.7L49.1,362.6L47.6,363.8L46.6,363.4L45.5,360.4L44.5,361.8L43.1,361.1L43.7,363.3L45.4,364.3L46.6,367.1L44.3,368.4L41.5,370.9L37.7,370L39.2,371.9L41,372.2L43.4,371.5L43.8,372.7L42.6,375.6L42.5,377.1L43.4,379.1L43.1,380L41.1,378.8L39.2,378.7L37.7,379.4L39.4,381.8L36.3,381.9L35,383.2L35.5,384.8L34.9,385.8L31.7,387.4L32.6,388.3L31.9,389.9L30.7,390.4L27.5,390.6L25,389.8L24.1,391.7L22.1,391.8L22.5,392.9L24.3,393.1L24.7,394.9L22.1,397.9L20.9,397.9L19.6,400.2L17.6,400.2L17.6,401.5L16.4,403.5L16,401.9L13,403.6L10.9,402.7L10.4,405.3L7.5,406.6L8.4,407.6L6.5,408.8L6.2,411.1L5.6,411.9L3,411.4L1.9,412.6L0,413.2L0,0ZM360,103L359,104L357.2,106.7L355,108.3L354.7,111.3L353.3,110.1L353.5,107.9L356,105.7L359.3,101.2L360,99.9L360,103ZM147.1,362.9L145.5,364.2L142.4,365.7L142.8,367.2L141.5,368.2L141.6,369.6L139.8,370.3L140.7,367.5L140.7,365.8L141.6,365.6L143.4,363.6L142.9,362.3L144.6,363L146.6,360.9L147.1,359.8L148,360.7ZM161.4,341.8L160.4,342.9L158,341.3L159.9,339.8L162.1,339.2L164.3,337.6L163.7,339.1L161.2,341.2ZM179.5,311.7L178.5,311.9L179.4,307.9L180.1,306.2L181,306.2L180.7,308.3ZM169,286L168,286.5L167.7,284.3L168.1,281.8L170,281.5L170.4,284.4ZM268.1,203.9L267.4,203.5L267.9,201.4L267,201.3L267.7,198.8L270,196.4L269.4,200.1L270.9,200.2L269.9,202.7ZM227.2,256.4L225.9,257.7L224.8,257.6L224,256.3L226,253.7L228,252.7L226.9,254.8ZM144.8,248.9L144.7,250.3L143.3,249.5L142.5,249.9L142,247.9L143,247.2L144.4,247.8ZM123.9,271.8L122.9,271.9L122,270.5L124.1,268.4L128.3,267.1L130.8,267.6L131.2,268.6L130.5,270.1L127,271.6ZM70.4,296.4L69.4,296.8L66.3,295.6L64,294.2L62.5,292L65.6,292.7L66.9,294.3L69.7,295.5Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><text x="18" y="267.8" text-anchor="middle" style="font-size:15.3px;font-weight:700;letter-spacing:.2em" fill="#9AA6B4">清</text><text x="192" y="27.6" text-anchor="middle" style="font-size:13.6px;font-weight:700;letter-spacing:.2em" fill="#9AA6B4">ロシア</text><text x="136.8" y="160.9" text-anchor="middle" style="font-size:11.0px;font-weight:700;letter-spacing:.2em" fill="#9AA6B4">朝鮮(韓国)</text><defs><marker id="armj7n360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="armj7t360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="armj7k360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="armj7g360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><circle cx="179.3" cy="261.2" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="179.3" y="265.2" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">1</text><circle cx="131.8" cy="207.8" r="9" fill="#B4532A" stroke="#fff" stroke-width="1.2"/><text x="131.8" y="211.8" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">2</text><circle cx="117.0" cy="185.6" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="117.0" y="189.6" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">3</text><circle cx="63.0" cy="188.8" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="63.0" y="192.8" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">4</text><circle cx="89.2" cy="141.8" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="89.2" y="145.8" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">5</text><line x1="163.2" y1="257.7" x2="163.2" y2="237.7" stroke="#1F4E8C" stroke-width="1.2"/><circle cx="163.2" cy="257.7" r="3" fill="#1F4E8C"/><circle cx="163.2" cy="237.7" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="163.2" y="241.7" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">6</text><circle cx="66.7" cy="384.5" r="9" fill="#B4532A" stroke="#fff" stroke-width="1.2"/><text x="66.7" y="388.5" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">7</text><circle cx="127.6" cy="76.1" r="9" fill="#5A6878" stroke="#fff" stroke-width="1.2"/><text x="127.6" y="80.1" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">8</text><circle cx="320.4" cy="45.5" r="9" fill="#B4532A" stroke="#fff" stroke-width="1.2"/><text x="320.4" y="49.5" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">9</text><circle cx="75.6" cy="170.4" r="9" fill="#5A6878" stroke="#fff" stroke-width="1.2"/><text x="75.6" y="174.4" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">10</text><circle cx="285.2" cy="236.0" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="285.2" y="240.0" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">11</text></svg><ol class="mapl"><li><i class="n">1</i>下関<span class="pd">1895 下関条約</span></li><li><i class="k">2</i>漢城(ソウル)<span class="pd">1910 朝鮮総督府</span></li><li><i class="n">3</i>平壌<span class="pd">日清戦争の戦場</span></li><li><i class="n">4</i>旅順<span class="pd">1905年1月 陥落</span></li><li><i class="n">5</i>奉天<span class="pd">1905年3月 奉天会戦</span></li><li><i class="n">6</i>対馬沖<span class="pd">1905年5月 日本海海戦</span></li><li><i class="k">7</i>台湾<span class="pd">1895 日本の植民地に</span></li><li><i class="g">8</i>ハルビン<span class="pd">1909 伊藤博文が暗殺される</span></li><li><i class="k">9</i>樺太の南半分<span class="pd">1905 日本領に</span></li><li><i class="g">10</i>遼東半島<span class="pd">三国干渉で返還</span></li><li><i class="n">11</i>東京</li></ol><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">位置はおおよそ</p>
+</figure>
+<p>戦いは日本の勝利に終わり、1895年に<span class="rb">下関条約<span class="rt" aria-hidden="true">しものせきじょうやく</span></span>が結ばれた。清は朝鮮の独立を認め、<span class="rb">遼東半島<span class="rt" aria-hidden="true">りょうとうはんとう</span></span>・台湾などを日本にゆずり、多額の賠償金を支払った。</p>
+<p>しかし、ロシア・ドイツ・フランスが遼東半島を清に返すよう求め(<span class="rb">三国干渉<span class="rt" aria-hidden="true">さんごくかんしょう</span></span>)、日本はこれを受け入れた。台湾では日本の支配に抵抗する人々を武力でおさえ、植民地としての支配が始まった。</p>
+<p>同じ1895年、朝鮮では、日本の公使らが王宮に押し入り、ロシアに近づこうとしていた王妃(<span class="rb">閔妃<span class="rt" aria-hidden="true">びんひ</span></span>)を殺害する事件も起こっている。</p>
+<h2><span class="no">第3節</span>日露戦争</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1902年、ロシアに対抗して日英同盟を結んだ</li><li>1904年、日露戦争が始まった</li><li>1905年のポーツマス条約で講和したが、賠償金は得られなかった</li></ul></div>
+<p>三国干渉の後、ロシアは<span class="rb">満州<span class="rt" aria-hidden="true">まんしゅう</span></span>(中国東北部)に勢力をのばし、朝鮮にも影響力を強めた。日本は1902年、ロシアの南下を警戒するイギリスと<span class="rb">日英同盟<span class="rt" aria-hidden="true">にちえいどうめい</span></span>を結び、1904年2月、<span class="rb">日露戦争<span class="rt" aria-hidden="true">にちろせんそう</span></span>が始まった。</p>
+<p>日本は多くの犠牲を出しながら<span class="rb">旅順<span class="rt" aria-hidden="true">りょじゅん</span></span>を攻め落とし、<span class="rb">奉天<span class="rt" aria-hidden="true">ほうてん</span></span>の会戦に勝ち、<span class="rb">日本海海戦<span class="rt" aria-hidden="true">にほんかいかいせん</span></span>で<span class="rb">東郷平八郎<span class="rt" aria-hidden="true">とうごうへいはちろう</span></span>の率いる艦隊がロシアのバルチック艦隊を破った。</p>
+<p>しかし日本の国力も限界に達しており、1905年、アメリカの仲立ちでポーツマス条約が結ばれた。日本は、韓国での優越的な地位、旅順・<span class="rb">大連<span class="rt" aria-hidden="true">だいれん</span></span>の<span class="rb">租借権<span class="rt" aria-hidden="true">そしゃくけん</span></span>、南満州の鉄道の権利、<span class="rb">樺太<span class="rt" aria-hidden="true">からふと</span></span>の南半分を得たが、賠償金は得られなかった。</p>
+<p>重い税に耐えてきた国民の不満は爆発し、東京では<span class="rb">日比谷焼き打ち事件<span class="rt" aria-hidden="true">ひびややきうちじけん</span></span>が起こった。戦争中には、<span class="rb">与謝野晶子<span class="rt" aria-hidden="true">よさのあきこ</span></span>が戦地の弟を思う詩を発表し、<span class="rb">内村鑑三<span class="rt" aria-hidden="true">うちむらかんぞう</span></span>らが戦争に反対の声を上げた。</p>
+<h2><span class="no">第4節</span>韓国併合</h2>
+<div class="point"><b>この節のポイント</b><ul><li>日本は韓国の外交権・内政権を段階的に奪った</li><li>各地で義兵の抵抗が起こった</li><li>1910年、韓国を併合して植民地とした</li></ul></div>
+<p>日露戦争の後、日本は韓国の支配を強めていった。1905年には韓国の外交権を奪い、<span class="rb">統監府<span class="rt" aria-hidden="true">とうかんふ</span></span>を置いて<span class="rb">伊藤博文<span class="rt" aria-hidden="true">いとうひろぶみ</span></span>を初代の統監とした。1907年には内政の権限も奪い、韓国の軍隊を解散させた。</p>
+<p>これに対し、元兵士や民衆が各地で<span class="rb">義兵<span class="rt" aria-hidden="true">ぎへい</span></span>として立ち上がり、激しく抵抗したが、日本の軍隊によって鎮圧された。</p>
+<figure><p class="figt"><span>図7-5</span>韓国併合までの流れ</p>
+<ol class="steps"><li><span class="num k">1</span><span><b>1904年 日韓議定書・第1次日韓協約</b><span class="d">日露戦争中、韓国に日本の推薦する顧問を置かせる</span></span></li><li><span class="num k">2</span><span><b>1905年 第2次日韓協約</b><span class="d">韓国の外交権を奪い、統監府を置く。初代統監は伊藤博文</span></span></li><li><span class="num k">3</span><span><b>1907年 第3次日韓協約</b><span class="d">韓国の内政の権限も奪い、軍隊を解散させる。各地で義兵の抵抗が広がる</span></span></li><li><span class="num k">4</span><span><b>1909年</b><span class="d">伊藤博文がハルビンで安重根に暗殺される</span></span></li><li><span class="num k">5</span><span><b>1910年 韓国併合</b><span class="d">韓国を植民地とし、朝鮮総督府を置く。1945年まで35年間支配が続く</span></span></li></ol>
+</figure>
+<p>1909年、伊藤博文はハルビンの駅で、韓国の独立運動家<span class="rb">安重根<span class="rt" aria-hidden="true">アンジュングン</span></span>に暗殺された。翌1910年、日本は韓国を併合して植民地とし、<span class="rb">朝鮮総督府<span class="rt" aria-hidden="true">ちょうせんそうとくふ</span></span>を置いた。</p>
+<p>朝鮮では、土地の所有権を調べる事業によって土地を失う農民も多く、日本語の教育が進められるなど、人々は厳しい支配の下に置かれた。</p>
+<p>日本が欧米と対等な国をめざした歩みは、同時に、周りの国々を支配する歩みでもあったのである。</p>
+<section class="summary" aria-labelledby="pt"><h3 id="pt">この章の要点</h3><ul><li>条約改正は長く難航したが、1894年に陸奥宗光が領事裁判権を撤廃し、1911年に小村寿太郎が関税自主権を回復した。</li><li>1894年の日清戦争に勝った日本は、下関条約で台湾などを得たが、三国干渉で遼東半島を返還した。</li><li>1904年の日露戦争の後、ポーツマス条約で韓国での優越的地位などを得たが、賠償金はなく国民の不満が高まった。</li><li>日本は韓国の外交権・内政権を奪い、義兵の抵抗を鎮圧して、1910年に韓国を併合し植民地とした。</li></ul></section>
+<section class="column" aria-labelledby="col"><h3 id="col">コラム 「君死にたまふことなかれ」</h3>
+<p>日露戦争のさなかの1904年、歌人の与謝野晶子は、旅順を攻める軍にいた弟を思う詩「君死にたまふことなかれ」を雑誌に発表した。弟の命を案じ、家の跡を継ぐ弟に生きて帰ってほしいと願う率直な思いをうたったものである。</p>
+<p>評論家の<span class="rb">大町桂月<span class="rt" aria-hidden="true">おおまちけいげつ</span></span>は、天皇を中心とする国家の戦争を批判するものだとして晶子を激しく非難した。これに対し晶子は、まことの心を歌にしたまでだと反論した。</p>
+<p>国中が戦争に沸く中で、一人の家族として命の大切さを訴えた晶子の詩は、今も多くの人に読み継がれている。</p>
+</section>
+<div class="navs"><a href="mb_ch6.html">← 第6章</a><a href="index.html">目次</a><a href="mb_ch8.html">第8章 →</a></div>
+</main>
+<footer>第7章 スマホ版 ・ 全8章のうちの1章</footer>
+</div>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('rubyBtn');
+  b.addEventListener('click',function(){
+    var off=document.body.classList.toggle('noruby');
+    b.textContent=off?'ふりがな:なし':'ふりがな:あり';
+    b.setAttribute('aria-pressed',off?'false':'true');
+    if(!off&&window.fitRuby)window.fitRuby();
+  });
+})();
+</script>
+</body>
+</html>
