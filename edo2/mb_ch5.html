@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>改革と開国 第5章(スマホ版)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* スマホ優先の1カラム。カード枠をやめて画面幅を本文に使う。図は縦長に組み直す */
+  --paper:#FFFFFF; --ink:#1E2A3A; --sub:#5A6878; --navy:#1F4E8C; --teal:#2F7F86;
+  --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#D6E4F3;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.85;-webkit-text-size-adjust:100%}
+.wrap{max-width:520px;margin:0 auto}
+.topbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 20px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);font-size:13px;color:var(--sub)}
+.topbar button{font:inherit;font-size:13px;color:var(--navy);background:var(--sky);border:0;border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.topbar button:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+header.ch{background:var(--navy);color:#fff;padding:22px 20px 20px}
+header.ch .eyebrow{font-size:13px;letter-spacing:.15em;opacity:.85;margin:0 0 6px}
+header.ch h1{font-size:25px;line-height:1.4;font-weight:700;margin:0;text-wrap:balance}
+header.ch .lead{font-size:14.5px;line-height:1.7;margin:8px 0 0;opacity:.9}
+main{padding:0 20px 40px}
+h2{font-size:20px;line-height:1.5;font-weight:700;margin:40px 0 14px;padding-left:12px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{display:block;font-size:13px;color:var(--navy);font-weight:500}
+p{margin:0 0 1.15em}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.32em;transform:translateX(-50%);font-size:.5em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;letter-spacing:0;pointer-events:none}
+body.noruby .rt{display:none}
+.tl{list-style:none;margin:20px 0 0 6px;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:8px;padding:5px 0 5px 16px;font-size:15px;line-height:1.6}
+.tl li::before{content:"";position:absolute;left:-7px;top:12px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--navy)}
+.tl li.k::before{border-color:var(--teal)}
+.tl li.hl{font-weight:700}
+.tl li.hl::before{background:var(--navy)}
+.tl .y{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.tl li.k .y{color:var(--teal)}
+.tlnote{display:flex;gap:16px;font-size:12.5px;color:var(--sub);margin:8px 0 0 6px}
+.tlnote span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid var(--navy);margin-right:5px;vertical-align:-1px}
+.tlnote span.k::before{border-color:var(--teal)}
+.point{background:var(--sky);border-radius:10px;padding:14px 16px;margin:0 0 22px;font-size:15px;line-height:1.7}
+.point b{display:block;color:var(--navy);font-size:13px;margin-bottom:4px}
+.point ul{margin:0;padding-left:1.2em}
+figure{margin:26px -20px 28px;padding:16px 20px 12px;background:#F7FAFD;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+figure svg{display:block;width:100%;height:auto}
+.figt{font-size:15px;font-weight:700;margin:0 0 12px;line-height:1.5}
+.figt span{color:var(--navy);margin-right:8px}
+.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.back{margin-top:10px;font-size:14px;font-weight:700;color:var(--teal);display:flex;gap:6px;align-items:center}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+.summary{background:var(--sky);border-radius:10px;padding:16px 18px 10px;margin:36px 0 18px}
+.summary h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy)}
+.summary ul{margin:0;padding-left:1.2em;font-size:16px}
+.summary li{margin:0 0 .5em}
+.column{border:1.5px dashed #9AAABB;border-radius:10px;padding:16px 18px 4px;margin:18px 0 0}
+.column h3{color:var(--teal)}
+.column figure{margin:16px -18px 16px}
+footer{font-size:12.5px;color:var(--sub);text-align:center;padding:0 20px 40px}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+.tlh{font-size:15px;color:var(--navy);margin:1.6em 0 .2em}
+</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style></head>
+<body>
+<div class="wrap">
+<div class="topbar"><span>改革と開国 解説資料</span><button type="button" id="rubyBtn" aria-pressed="true">ふりがな:あり</button></div>
+<header class="ch">
+<p class="eyebrow">第五章 ・ 文化・文政期の文化</p>
+<h1>化政文化</h1>
+<p class="lead">江戸の庶民が楽しみ、育てた、笑いと粋の文化</p>
+</header>
+<main>
+<ol class="tl" aria-label="この章の年表"><li><span class="y">1765</span><span>鈴木春信が錦絵を始める</span></li><li><span class="y">1794</span><span>東洲斎写楽の役者絵</span></li><li class="hl"><span class="y">1802</span><span>十返舎一九『東海道中膝栗毛』</span></li><li><span class="y">1814</span><span>曲亭馬琴『南総里見八犬伝』の刊行が始まる</span></li><li class="k"><span class="y">1825</span><span>鶴屋南北『東海道四谷怪談』</span></li><li class="k"><span class="y">1830</span><span>お蔭参りが大流行</span></li><li class="hl"><span class="y">1831</span><span>葛飾北斎『富嶽三十六景』</span></li><li class="hl"><span class="y">1833</span><span>歌川広重『東海道五十三次』</span></li></ol>
+<figure><p class="figt"><span>図5-2</span>この章の登場人物</p>
+<div class="ppl"><div class="pg n"><h4>浮世絵</h4><ul><li><b><span class="rb">喜多川歌麿<span class="rt" aria-hidden="true">きたがわうたまろ</span></span>・<span class="rb">東洲斎写楽<span class="rt" aria-hidden="true">とうしゅうさいしゃらく</span></span></b><span class="pd">歌麿は美人画、写楽は役者絵で知られる</span></li><li><b><span class="rb">葛飾北斎<span class="rt" aria-hidden="true">かつしかほくさい</span></span>・<span class="rb">歌川広重<span class="rt" aria-hidden="true">うたがわひろしげ</span></span></b><span class="pd">北斎は『富嶽三十六景』、広重は『東海道五十三次』などの風景画を描いた</span></li></ul></div><div class="pg t"><h4>文学・芸能</h4><ul><li><b><span class="rb">十返舎一九<span class="rt" aria-hidden="true">じっぺんしゃいっく</span></span>・<span class="rb">式亭三馬<span class="rt" aria-hidden="true">しきていさんば</span></span></b><span class="pd">庶民の旅や暮らしをおもしろおかしく描いた</span></li><li><b><span class="rb">曲亭馬琴<span class="rt" aria-hidden="true">きょくていばきん</span></span></b><span class="pd">長編の読本『南総里見八犬伝』を28年かけて書き上げた</span></li><li><b><span class="rb">小林一茶<span class="rt" aria-hidden="true">こばやしいっさ</span></span></b><span class="pd">信濃の農民出身の俳人。弱いものや暮らしを温かく詠んだ</span></li></ul></div></div>
+</figure>
+<h2><span class="no">第1節</span>江戸の庶民が担った文化</h2>
+<div class="point"><b>この節のポイント</b><ul><li>文化・文政期を中心とする文化を化政文化という</li><li>江戸の庶民が担い手となった</li><li>皮肉や笑い、粋を好むところに特徴がある</li></ul></div>
+<p>11代<span class="rb">将軍家<span class="rt" aria-hidden="true">しょうぐんけ</span></span>斉の時代の、文化・文政の年号のころ(19世紀前半)を中心に栄えた文化を、<span class="rb">化政<span class="rt" aria-hidden="true">かせい</span></span>文化という。<span class="rb">元禄<span class="rt" aria-hidden="true">げんろく</span></span>文化が<span class="rb">上方<span class="rt" aria-hidden="true">かみがた</span></span>の豊かな町人を担い手としたのに対し、化政文化は江戸の庶民を中心に広がった。</p>
+<p>世の中を皮肉ったり笑い飛ばしたりする精神や、さっぱりとした「粋」を好むところに特徴がある。</p>
+<p>出版の技術が進み、本を安く借りて読むことのできる<span class="rb">貸本屋<span class="rt" aria-hidden="true">かしほんや</span></span>も増えて、多くの人が本や絵を楽しめるようになった。<span class="rb">寺子屋<span class="rt" aria-hidden="true">てらこや</span></span>で読み書きを学んだ庶民が、文化の受け手であると同時に、作り手にもなっていったのである。</p>
+<h2><span class="no">第2節</span>浮世絵の黄金時代</h2>
+<div class="point"><b>この節のポイント</b><ul><li>鈴木春信が多色刷りの錦絵を始めた</li><li>歌麿の美人画、写楽の役者絵が人気を集めた</li><li>北斎・広重の風景画が旅ブームと結びついた</li></ul></div>
+<p>浮世絵は、この時代に黄金期を迎えた。1765年ごろ、<span class="rb">鈴木春信<span class="rt" aria-hidden="true">すずきはるのぶ</span></span>が何色もの版を重ねて刷る<span class="rb">錦絵<span class="rt" aria-hidden="true">にしきえ</span></span>を始めると、色鮮やかな浮世絵が安く大量に出回るようになった。</p>
+<p><span class="rb">喜多川歌麿<span class="rt" aria-hidden="true">きたがわうたまろ</span></span>は女性の表情を大きくとらえた美人画で、<span class="rb">東洲斎写楽<span class="rt" aria-hidden="true">とうしゅうさいしゃらく</span></span>は役者の特徴を大胆に強調した役者絵で人気を集めた。</p>
+<figure><p class="figt"><span>図5-3</span>浮世絵の広がり</p>
+<div class="flow"><div class="fs s"><em>17世紀後半</em><b>菱川師宣が浮世絵を始める</b><span class="d">墨一色の版画から出発</span></div><div class="fs s"><em>1765年ごろ</em><b>鈴木春信の錦絵</b><span class="d">何色もの版木を重ねて刷る、多色刷りの版画</span></div><div class="pair"><div class="fs t"><em>18世紀末</em><b>歌麿の美人画・写楽の役者絵</b><span class="d">人物の表情を大きく描く</span></div><div class="fs t"><em>19世紀前半</em><b>北斎・広重の風景画</b><span class="d">旅ブームとともに、名所の風景が人気に</span></div></div><div class="fs dk"><b>安く大量に刷られ、庶民が気軽に買える</b><span class="d">のちにヨーロッパの画家たちにも影響を与えた</span></div></div>
+</figure>
+<p>19世紀に入ると、風景画が人気を集めた。<span class="rb">葛飾北斎<span class="rt" aria-hidden="true">かつしかほくさい</span></span>は、さまざまな場所から見た富士山を描いた『<span class="rb">富嶽三十六景<span class="rt" aria-hidden="true">ふがくさんじゅうろっけい</span></span>』を、<span class="rb">歌川広重<span class="rt" aria-hidden="true">うたがわひろしげ</span></span>は<span class="rb">東海道<span class="rt" aria-hidden="true">とうかいどう</span></span>の<span class="rb">宿場<span class="rt" aria-hidden="true">しゅくば</span></span>の風景を描いた『<span class="rb">東海道五十三次<span class="rt" aria-hidden="true">とうかいどうごじゅうさんつぎ</span></span>』を発表した。</p>
+<p>浮世絵はのちにヨーロッパに渡り、ゴッホやモネなどの画家にも影響を与えることになる。</p>
+<h2><span class="no">第3節</span>笑いと物語の文学</h2>
+<div class="point"><b>この節のポイント</b><ul><li>十返舎一九や式亭三馬が滑稽本を書いた</li><li>曲亭馬琴が長編の読本を書いた</li><li>小林一茶の俳諧や、川柳・狂歌が流行した</li></ul></div>
+<p>文学では、庶民の暮らしを笑いとともに描く<span class="rb">滑稽本<span class="rt" aria-hidden="true">こっけいぼん</span></span>が人気を集めた。<span class="rb">十返舎一九<span class="rt" aria-hidden="true">じっぺんしゃいっく</span></span>の『<span class="rb">東海道中膝栗毛<span class="rt" aria-hidden="true">とうかいどうちゅうひざくりげ</span></span>』は、<span class="rb">弥次郎兵衛<span class="rt" aria-hidden="true">やじろべえ</span></span>と<span class="rb">喜多八<span class="rt" aria-hidden="true">きたはち</span></span>の二人が東海道を旅しながら失敗を重ねる物語で、大ベストセラーとなった。</p>
+<p><span class="rb">式亭三馬<span class="rt" aria-hidden="true">しきていさんば</span></span>の『<span class="rb">浮世風呂<span class="rt" aria-hidden="true">うきよぶろ</span></span>』は、銭湯に集まる人々の会話を生き生きと描いた。</p>
+<p>一方、<span class="rb">曲亭馬琴<span class="rt" aria-hidden="true">きょくていばきん</span></span>は、8人の勇士が活躍する壮大な物語『<span class="rb">南総里見八犬伝<span class="rt" aria-hidden="true">なんそうさとみはっけんでん</span></span>』を28年かけて書き上げた。俳諧では、<span class="rb">信濃<span class="rt" aria-hidden="true">しなの</span></span>の<span class="rb">小林一茶<span class="rt" aria-hidden="true">こばやしいっさ</span></span>が「やせ蛙まけるな一茶是に有」のように、小さな生き物や庶民の暮らしを温かく詠んだ。</p>
+<p>五・七・五の形で世の中を風刺する<span class="rb">川柳<span class="rt" aria-hidden="true">せんりゅう</span></span>や、和歌の形を借りた<span class="rb">狂歌<span class="rt" aria-hidden="true">きょうか</span></span>も流行した。</p>
+<figure><p class="figt"><span>図5-4</span>化政期の文学と芸能</p>
+<div class="card n" style="margin-bottom:10px"><div class="hd">文学</div><div class="bd"><div class="rows"><div><b>滑稽本</b><span>十返舎一九『東海道中膝栗毛』、式亭三馬『浮世風呂』― 庶民の暮らしを笑いで描く</span></div><div><b>読本</b><span>曲亭馬琴『南総里見八犬伝』― 壮大な伝奇物語</span></div><div><b>俳諧・川柳・狂歌</b><span>小林一茶の俳諧、世の中を風刺する川柳や狂歌が流行</span></div></div></div></div><div class="card t" style="margin-bottom:10px"><div class="hd">芸能と娯楽</div><div class="bd"><div class="rows"><div><b>歌舞伎</b><span>鶴屋南北『東海道四谷怪談』など、怪談物が人気</span></div><div><b>寄席</b><span>落語や講談を楽しむ場が江戸の町に広がる</span></div><div><b>旅・祭り</b><span>伊勢参りや富くじ、相撲、縁日などが庶民の楽しみに</span></div></div></div></div>
+</figure>
+<h2><span class="no">第4節</span>旅と娯楽</h2>
+<div class="point"><b>この節のポイント</b><ul><li>伊勢参りなどの旅が庶民の間で盛んになった</li><li>1830年にはお蔭参りが大流行した</li><li>歌舞伎や寄席、相撲などが人々を楽しませた</li></ul></div>
+<p>街道が整い、世の中が落ち着くと、庶民の間でも旅が盛んになった。人々は、<span class="rb">伊勢<span class="rt" aria-hidden="true">いせ</span></span>神宮への<span class="rb">参詣<span class="rt" aria-hidden="true">さんけい</span></span>などを名目に、講という仲間でお金を積み立てて旅に出た。</p>
+<p>1830年には、数百万人もの人々が伊勢神宮に押し寄せる<span class="rb">お蔭参り<span class="rt" aria-hidden="true">おかげまいり</span></span>が起こっている。</p>
+<figure><p class="figt"><span>図5-5</span>東海道と伊勢参りの道</p>
+<svg viewBox="0 0 360 160" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>東海道と伊勢参りの道</title><desc>東海道には53の宿場があった。経路は模式図</desc><rect width="360" height="160" fill="#EAF2FB"/><path d="M0,39.6L0.2,39.4L0.2,37.1L0,37.2L0,32.2L0,32.2L0.2,32.2L1.3,31.9L2.7,30.1L3,29.2L4.9,28.1L4.3,29.5L4.1,30.9L5.5,31.6L6.3,32.2L6,33.6L6.3,34.6L6,35.5L6.8,35.7L7.4,35.5L7.9,34.8L8.5,33.2L8.5,34.9L8.2,36.7L8.5,37.9L9.9,38.4L12.1,38.6L12.9,38.4L15.1,37.3L15.7,36.2L17.3,34.8L19,33.6L20.6,34.4L20.3,34.9L18.4,35.7L17.9,38.4L17,39L18.7,39.5L22.8,38.6L24.8,38.6L25.9,37.8L26.7,36.5L26.7,34.6L24.5,35.7L23.6,34L22.3,33.5L23.4,31.9L25.9,31.1L26.7,31.7L27.2,33.2L28.9,33L30.3,34.8L31.4,35.2L33.3,34.4L32.5,34.1L31.9,33.3L30.8,31.3L31.1,30.6L31.9,30.5L32.7,31.3L33.6,30.8L35,30.3L34.7,29.7L33.6,28.4L33.3,27.1L33,26.6L31.9,25.4L31.6,24.3L32.5,24.1L33.9,25.2L34.7,26L35.8,26.6L38.5,26L39.1,27L39.9,27.6L41.3,26.6L42.1,25.5L43.8,25.8L44.6,25.4L44.6,24.3L43.2,23.1L44.1,19.8L43.8,18.7L42.7,18.8L42.7,16.1L44.6,15.2L47.4,12.8L48.5,14.5L48.5,15.3L49,16.8L49.6,18.5L49.3,19.6L48.5,19.6L47.9,20.8L49.3,21.7L49.6,22.8L51.2,22.5L51.8,20.9L52.3,20.4L52.3,18.5L53.2,17.4L53.2,14.9L53.7,13.3L53.7,11.7L52.6,9.9L51.8,8.3L51.2,7L49.6,5.8L46.8,2.7L45.4,1.5L45.6,0L360,0L360,31.4L359,31.4L358.4,27.9L355.9,25.4L352.9,22.7L352.1,23L351,21.9L348.5,21.6L346.3,22.5L347.7,24.9L345.7,26L344.3,27L344.1,26.2L343.2,26L342.4,25.4L341.9,25.4L340.8,24.7L340.2,25.5L339.9,27L338.8,26.2L338.6,24.7L337.5,24.7L337.2,26.5L336.1,28.1L335,26.6L335.2,24.4L334.4,23.3L333.9,25.4L334.7,28.2L335.8,30.1L335.8,31.3L336.9,34L336.1,35.2L336.1,36.7L335.2,37.6L332.8,39.2L330.6,41.1L328.4,41.4L326.7,40.8L325.6,41.1L325,42.1L326.4,42.7L327.8,43.5L328.4,44.1L328.1,45.4L328.4,47.1L327.5,47L325.6,46.2L324.5,47L325,48.3L326.1,49.4L325.9,52.9L325.6,54L325.6,55.5L325.3,56.7L326.1,57.8L326.7,56.7L327.5,57.3L328.9,59.5L331.9,59.8L332.8,61.2L331.4,62.8L331.9,63.8L331.4,65.2L328.6,65L326.7,66.5L326.4,67.9L327,69.6L327.8,70.6L328.4,71.5L326.7,72L324.8,71.5L323.7,72.3L322.8,72L322.6,71.4L322.8,70.3L322.8,68.4L321.7,65.7L323.7,64.7L323.1,64.1L322,63.6L321.5,62.2L319.3,59.5L319.3,58.7L318.7,57.8L317.9,57.6L317.3,55.7L316.2,56.3L314.6,56.2L312.9,56.5L311.5,55.2L307.4,54.8L301.1,56.2L297.5,56.8L293.6,57.9L289.7,60L287,62.7L286.7,67.4L287.8,71.9L285.1,70.6L282.6,74.4L281.7,77.5L281.5,79.6L284,80.1L283.4,81.8L283.1,83.5L282.3,84.8L283.4,87L285.9,87.8L286.7,90L287,93.5L286.4,96.6L284.8,97L283.4,98.1L282.6,99.3L282.3,100.6L281.5,102.5L280.4,104L279.8,105.3L279,106.3L277.9,106.6L277.1,107.5L275.7,109.6L276,110.7L275.4,111.3L274.9,112.5L274.6,114.1L275.1,117.3L274.3,117.7L273.8,117.7L272.9,117.1L271.3,116.3L267.7,119.3L265.2,120.7L263,122.3L261.9,121.7L260.8,120.7L260,119.5L258.3,117.6L258.9,116L257.8,114.9L256.7,114.3L256.4,113.5L256.4,111.8L256.1,109.9L257.2,109.1L257.5,108.1L258.6,107.8L257.2,105L256.4,102L257.2,100.6L257.5,99L257.5,96.8L256.9,95.9L257.5,94.6L258.6,93.5L259.7,93.3L258.3,91L257.8,88.8L257.5,86.5L258.6,84.3L259.4,82.1L262.4,82.4L264.7,82.9L266.3,82.8L267.7,82.8L268.8,81.8L264.7,77.2L263.3,75.3L260.8,73.3L256.1,72L252.5,71.7L247.8,73.8L244,73.9L241.5,75.6L239.6,79.9L237.4,81.7L237.1,84.5L237.9,85.4L237.9,83.5L239,82.8L239.8,83.1L238.5,86.5L235.1,88.4L232.1,89.9L227.2,92.4L226.3,93.6L225.8,95.1L224.9,96.3L224.4,98.2L224.4,99L225.2,100.9L224.1,102.6L223.3,103.4L221.6,106.6L218.3,108.9L215.6,111.4L214.5,116.3L213.9,118.1L214.5,119.9L216.4,120.4L217.5,121.7L216.9,122.5L213.6,121.8L202.9,116.8L196.5,115.7L191,115.7L183.3,118.2L175,115.4L168.1,114.8L164.6,114.8L155.2,115.7L148.6,117.6L133.4,122.9L129.8,122.6L126,123.7L124.8,123.9L123.7,123.9L124.3,122.8L124.8,122.1L125.7,120.3L126.5,117.6L128.2,115.9L130.4,118.4L130.9,119.6L131.7,118.8L131.7,118.4L133.1,117.7L134.2,117.1L135.3,116.6L137.8,115.1L141.1,112.9L142.5,112.2L144.2,109.7L145.5,110L145.5,111.9L145.3,113.5L145.8,113.7L146.4,112.1L146.4,110.2L148,110.7L148.6,110.2L146.4,109.2L147.2,107.5L147.5,106.4L147.2,105.8L145.3,103.6L143.9,102.5L143,102.9L141.4,102.5L139.7,101.8L138.4,103.1L137.5,102.6L137,106.1L135.6,106.7L135.6,104.8L134.5,105L133.4,104.4L131.7,104.4L130.4,104.7L129.3,105.5L128.2,104.7L126.5,105.5L124.8,105.2L124,104.8L122.6,103.1L120.7,100.9L119.3,100.3L119.6,97.9L121.3,94.1L121,91.8L120.2,92.9L119.3,95.4L118,97.6L117.4,99L116.9,100.7L116,105.6L116.9,106.7L117.7,108.3L119.6,109.4L120.4,111.4L120.4,113L118.5,112.7L116,111.6L113.3,110L111.6,108.9L110.8,107.7L110.5,106.3L111.3,104.5L111.6,102.8L112.2,101.4L112.2,100L111.6,98.1L110.5,96.6L109.4,96.6L108.9,94.4L108.9,90.3L109.1,88.9L109.7,87.2L110.5,85.6L111.6,83.9L112.2,82.3L113.3,80.5L113.5,78L113.8,76.3L112.7,76L111.6,78.8L111.1,80.9L110.5,79L110.5,77.5L109.4,77.2L110.2,81.7L108.3,82.1L108,80.1L107.2,80.1L107.2,82.4L105.5,82.8L103.6,82.1L103.1,82.4L101.4,82.1L98.1,84.5L96.4,86.1L95.6,87.5L95.6,88.1L95.1,89.5L95.3,90L96.7,90.2L95.3,91.1L95.6,92.9L94.8,95.1L93.1,98.4L89.3,103.3L86.8,106.6L86.2,110.7L85.7,114.4L86.8,116.3L87.9,117.1L87.3,119.5L87.3,120.4L88.2,121.8L89.6,122.3L92.9,122.3L94.5,122.8L95.6,123.9L97.8,126.2L103.6,130L107.5,131.7L108.3,132.5L109.1,132.2L110.2,132.2L111.3,132.5L111.9,133.1L112.4,134.2L113,136.1L113.5,137.1L114.6,137.4L116,137.4L116.9,138.3L116.9,139.4L116.3,142.7L115.2,142.2L114.4,142.2L113.5,142.5L113,143.3L113.3,143.9L113.8,144.6L114.6,144.7L115.7,144.7L114.4,145.8L113.5,147.2L114.1,148.2L114.6,149.7L114.9,151.5L114.6,152.9L113.8,153.5L111.1,154.4L110,154.8L108.6,154.6L106.9,154.1L105.3,153.3L105.3,152.2L106.4,151.9L108,152.2L110.5,153.5L110.2,152.9L110.2,152.1L110,151.6L111.1,152.2L111.6,150.4L110.8,149.1L109.4,148.6L107.8,149.1L108,149.7L107.8,150.4L107.8,151L105.3,149.1L103.9,150.2L101.7,150.7L99.8,150.2L100.3,148.8L101.4,146.9L100,146.6L97.8,147.4L95.6,148.5L97,149L97,150.1L96.2,151.2L93.7,152.1L92.6,153L91.2,153.2L89.8,151.6L89.6,152.2L89,152.7L89,153.5L86.8,152.4L86,152.2L85.7,153.3L85.1,154.3L84.6,154.8L85.4,156.3L84.6,156.3L82.1,155.5L78.8,157.7L78,158.7L75.5,158.7L72.7,160L0,160L0,128.1L0.8,127.5L1,125.9L1,123.9L1.3,121L0.5,118.7L0.2,116.5L1,113.3L0,113.9L0,39.6ZM360,77.6L358.1,79.1L356.5,79.1L354,81L351.5,82.8L351,83.9L350.4,85.6L349.6,86.9L349.6,88.4L349.3,90.2L348.8,91.3L346.8,93.3L343.2,93.8L342.4,93.5L341.3,93.8L340.2,94L339.9,93.5L338.8,92.9L338.8,90.7L337.7,89.9L335.5,88.9L333.6,88.8L333.3,88L333.3,86.9L334.4,86.9L336.6,87.2L337.7,86.9L338.6,86.4L339.1,85.6L340.2,85.4L341.6,85.9L342.1,85.4L342.4,84.7L342.1,83.4L341.3,82.6L339.7,82.1L339.7,81.2L340.5,80.2L340.8,79.1L340.8,78.2L339.9,76.4L339.7,75.3L339.9,72L338.6,69.8L338.8,68.7L338.6,67.3L338.8,66L341,64.6L342.1,63.6L342.1,61.6L340.8,59.2L340.8,57.1L335.5,55.2L335.5,54.8L337.2,54.9L338.8,53.8L338.8,52.1L339.9,50.9L340.5,49.4L344.1,50.5L345.2,49.2L345.2,47.8L344.6,44.9L345.7,44L347.9,43.2L349.3,41.9L351,41.6L352.9,40.2L354,38.6L357.9,33.6L359.2,34L359.8,32.5L360,31.7L360,77.6ZM296.4,141L297.2,140.3L298,139.2L298.8,138.9L298.8,140.5L298.6,143.5L297.5,146.5L296.4,147.7L295.3,146L295.3,144.9L296.1,141.6ZM114.4,131.6L114.9,130.9L115.5,131.1L115.5,131.7L115.2,132.5L114.1,133.1L113.5,133.6L113.3,132.8L112.7,132ZM114.1,128.3L114.6,127.6L115.7,127.5L115.2,128.3L115.2,128.9L114.1,129.2L113,130L111.6,130.3L111.1,129.8ZM107.2,96.2L108,96.2L109.1,97.6L109.1,98.7L108.3,99L108.3,99.6L107.8,99.6ZM307.7,105.2L309.3,105.9L310.2,107.4L310.7,109.1L311,111.3L310.7,113.5L310.4,114.6L309.6,114.8L307.9,114.8L303.3,112.4L302.7,110.8L302.7,106.4L303,103.6L306.6,104.4Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><path d="M59,35.8L66.6,47.1L62.8,59.3L52.1,71.5L42.1,79.9L37.5,86.5L36.8,81.8L40.6,73.4L46,64L48.3,53.7L52.1,42.4Z" fill="#CFE0F3" stroke="#9CBBE0" stroke-width=".8"/><defs><marker id="are2_5n360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="are2_5t360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="are2_5k360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="are2_5g360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><path d="M329.2,25.2 Q300.9,36.5 283.5,61.5" fill="none" stroke="#1F4E8C" stroke-width="2" marker-end="url(#are2_5n360)"/><path d="M271.6,68.7 Q250.6,70.7 234.7,84.6" fill="none" stroke="#1F4E8C" stroke-width="2" marker-end="url(#are2_5n360)"/><path d="M222.0,90.5 Q200.5,93.6 184.8,108.6" fill="none" stroke="#1F4E8C" stroke-width="2" marker-end="url(#are2_5n360)"/><path d="M172.5,108.1 Q151.7,85.0 121.7,77.0" fill="none" stroke="#1F4E8C" stroke-width="2" marker-end="url(#are2_5n360)"/><path d="M109.1,75.6 Q106.6,74.2 105.4,76.8" fill="none" stroke="#1F4E8C" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#are2_5n360)"/><path d="M91.8,79.5 Q63.0,72.9 35.3,83.2" fill="none" stroke="#1F4E8C" stroke-width="2" marker-end="url(#are2_5n360)"/><path d="M99.1,86.0 Q93.2,107.3 100.8,128.0" fill="none" stroke="#B4532A" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#are2_5k360)"/><circle cx="334.7" cy="20.8" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="334.7" y="24.8" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">1</text><circle cx="278.0" cy="65.9" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="278.0" y="69.9" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">2</text><circle cx="228.3" cy="87.4" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="228.3" y="91.4" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">3</text><circle cx="178.5" cy="111.7" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="178.5" y="115.7" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">4</text><circle cx="115.7" cy="73.4" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="115.7" y="77.4" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">5</text><line x1="98.8" y1="79" x2="98.8" y2="59.0" stroke="#1F4E8C" stroke-width="1.2"/><circle cx="98.8" cy="79" r="3" fill="#1F4E8C"/><circle cx="98.8" cy="59.0" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="98.8" y="63.0" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">6</text><circle cx="101.1" cy="135.0" r="9" fill="#B4532A" stroke="#fff" stroke-width="1.2"/><text x="101.1" y="139.0" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">7</text><circle cx="28.3" cy="83.7" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="28.3" y="87.7" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">8</text></svg><div class="legend"><span><i class="n"></i>東海道</span><span><i class="kd" style="border-color:#B4532A"></i>伊勢参りの道(おおよそ)</span></div><ol class="mapl"><li><i class="n">1</i>江戸・日本橋<span class="pd">東海道の起点</span></li><li><i class="n">2</i>箱根</li><li><i class="n">3</i>府中(駿府)</li><li><i class="n">4</i>浜松</li><li><i class="n">5</i>宮(熱田)<span class="pd">桑名へは海路</span></li><li><i class="n">6</i>桑名</li><li><i class="k">7</i>伊勢神宮<span class="pd">お蔭参りの目的地</span></li><li><i class="n">8</i>京都・三条大橋<span class="pd">東海道の終点</span></li></ol><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">東海道には53の宿場があった。経路は模式図</p>
+</figure>
+<p>江戸の町では、歌舞伎や、落語・<span class="rb">講談<span class="rt" aria-hidden="true">こうだん</span></span>を聞かせる<span class="rb">寄席<span class="rt" aria-hidden="true">よせ</span></span>が人々を楽しませた。歌舞伎では、<span class="rb">鶴屋南北<span class="rt" aria-hidden="true">つるやなんぼく</span></span>の『<span class="rb">東海道四谷怪談<span class="rt" aria-hidden="true">とうかいどうよつやかいだん</span></span>』などの怪談物が評判をとった。相撲や<span class="rb">富くじ<span class="rt" aria-hidden="true">とみくじ</span></span>、寺社の<span class="rb">縁日<span class="rt" aria-hidden="true">えんにち</span></span>なども、庶民の大きな楽しみであった。</p>
+<p>文化の担い手が広がったことは、のちに新しい時代を迎える社会の力にもなっていく。</p>
+<section class="summary" aria-labelledby="pt"><h3 id="pt">この章の要点</h3><ul><li>文化・文政期を中心に、江戸の庶民を担い手とする化政文化が栄え、皮肉や笑い、粋を好んだ。</li><li>浮世絵は錦絵によって黄金期を迎え、歌麿・写楽の人物画、北斎・広重の風景画が人気を集めた。</li><li>十返舎一九・式亭三馬の滑稽本、曲亭馬琴の読本、小林一茶の俳諧、川柳・狂歌などが流行した。</li><li>伊勢参りなどの旅や、歌舞伎・寄席・相撲などの娯楽が庶民に広がった。</li></ul></section>
+<section class="column" aria-labelledby="col"><h3 id="col">コラム 写楽は誰だったのか</h3>
+<p>東洲斎写楽は、1794年から翌年にかけてのわずか10か月ほどの間に、140点あまりの役者絵などを残して姿を消した。</p>
+<p>その正体は長い間謎とされ、有名な絵師や作家が別の名前で描いたのではないかという説がいくつも唱えられてきた。</p>
+<p>現在では、<span class="rb">阿波<span class="rt" aria-hidden="true">あわ</span></span>藩に仕えた能役者の<span class="rb">斎藤十郎兵衛<span class="rt" aria-hidden="true">さいとうじゅうろべえ</span></span>であったとする説が有力である。江戸時代の記録にそう書かれており、近年、十郎兵衛が実在したことを示す史料も見つかっている。</p>
+<p>ただし、なぜ短い期間で筆を絶ったのかなど、なお謎は残っている。</p>
+</section>
+<div class="navs"><a href="mb_ch4.html">← 第4章</a><a href="index.html">目次</a><a href="mb_ch6.html">第6章 →</a></div>
+</main>
+<footer>第5章 スマホ版 ・ 全8章のうちの1章</footer>
+</div>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('rubyBtn');
+  b.addEventListener('click',function(){
+    var off=document.body.classList.toggle('noruby');
+    b.textContent=off?'ふりがな:なし':'ふりがな:あり';
+    b.setAttribute('aria-pressed',off?'false':'true');
+    if(!off&&window.fitRuby)window.fitRuby();
+  });
+})();
+</script>
+</body>
+</html>

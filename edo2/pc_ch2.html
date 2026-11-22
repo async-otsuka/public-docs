@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>改革と開国 第2章</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style>.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+
+.cfig{background:#F7FAFD;border:1px solid #DCE4EE;border-radius:8px;padding:16px 18px}
+.ppl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ppl .pg{margin:0}
+.mapwrap{display:flex;gap:16px;align-items:flex-start}
+footer a{color:var(--navy)}
+.tlh{font-size:15px;color:var(--navy);margin:1.4em 0 .3em}
+</style><style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style><style>.figstatic{cursor:default}.figstatic:hover{border-color:#DCE4EE}</style></head>
+<body>
+<div class="page">
+<p class="series">改革と開国 解説資料</p>
+<article class="sheet">
+<div class="band">第二章 ・ 1745 ― 1786</div>
+<header class="ch">
+<h1>田沼時代と社会の変化</h1>
+<p class="lead">商業の力に目を向けた政治と、飢饉に苦しむ社会</p>
+</header>
+<div class="body">
+<figure><div class="figbtn figstatic"><svg viewBox="0 0 680 270" role="img"><title>図2-1 この章の年表</title><desc>1767 田沼意次が側用人に、1772 田沼が老中に、南鐐二朱銀、1782 天明の飢饉が始まる、1783 浅間山が大噴火、1784 田沼意知が江戸城で斬られる、1786 家治が死去、田沼が老中を退く、1787 江戸・大坂などで天明の打ちこわし</desc><rect x="50" y="146" width="580" height="8" rx="3" fill="#1F4E8C"/><line x1="60.0" y1="118" x2="60.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="60.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1767</text><text x="60.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">田沼意次が側用人に</text><circle cx="60.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="200.0" y1="118" x2="200.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="200.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1772</text><text x="200.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">田沼が老中に、南鐐二朱銀</text><circle cx="200.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="480.0" y1="118" x2="480.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="480.0" y="96" text-anchor="start" class="h" style="fill:#2F7F86">1782</text><text x="480.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">天明の飢饉が始まる</text><circle cx="480.0" cy="150" r="4.5" fill="#fff" stroke="#2F7F86" stroke-width="2"/><line x1="508.0" y1="154" x2="508.0" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="508.0" y="198" text-anchor="start" class="h" style="fill:#2F7F86">1783</text><text x="508.0" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">浅間山が大噴火</text><circle cx="508.0" cy="150" r="4.5" fill="#fff" stroke="#2F7F86" stroke-width="2"/><line x1="536.0" y1="78" x2="536.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="536.0" y="56" text-anchor="end" class="h" style="fill:#1F4E8C">1784</text><text x="536.0" y="72" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:400">田沼意知が江戸城で斬られる</text><circle cx="536.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="592.0" y1="154" x2="592.0" y2="226" stroke="#9AAABB" stroke-width=".8"/><text x="592.0" y="240" text-anchor="end" class="h" style="fill:#1F4E8C">1786</text><text x="592.0" y="256" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:700">家治が死去、田沼が老中を退く</text><circle cx="592.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="620.0" y1="40" x2="620.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="620.0" y="18" text-anchor="end" class="h" style="fill:#2F7F86">1787</text><text x="620.0" y="34" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:400">江戸・大坂などで天明の打ちこわし</text><circle cx="620.0" cy="150" r="4.5" fill="#fff" stroke="#2F7F86" stroke-width="2"/></svg></div><figcaption><span><b>図2-1</b>この章の年表</span></figcaption></figure>
+<figure><div class="cfig"><div class="ppl"><div class="pg n"><h4>政治の中心</h4><ul><li><b><span class="rb">徳川家治<span class="rt" aria-hidden="true">とくがわいえはる</span></span></b><span class="pd">10代将軍。田沼意次を重く用いた</span></li><li><b><span class="rb">田沼意次<span class="rt" aria-hidden="true">たぬまおきつぐ</span></span></b><span class="pd">600石の旗本から老中にまで出世し、商業の力を生かす政治を進めた</span></li><li><b><span class="rb">田沼意知<span class="rt" aria-hidden="true">たぬまおきとも</span></span></b><span class="pd">意次の子。若年寄となったが、江戸城内で斬られて死去</span></li></ul></div><div class="pg t"><h4>北方への関心</h4><ul><li><b><span class="rb">工藤平助<span class="rt" aria-hidden="true">くどうへいすけ</span></span></b><span class="pd">仙台藩の医師。『赤蝦夷風説考』でロシアの動きと蝦夷地の開発を説いた</span></li><li><b><span class="rb">最上徳内<span class="rt" aria-hidden="true">もがみとくない</span></span></b><span class="pd">幕府の調査隊に加わり、千島列島を調べた</span></li></ul></div></div></div><figcaption><span><b>図2-2</b>この章の登場人物</span></figcaption></figure>
+<h2><span class="no">第1節</span>田沼意次の登場</h2>
+<p>吉宗の後、9代<span class="rb">将軍家<span class="rt" aria-hidden="true">しょうぐんけ</span></span>重、10代将軍<span class="rb">徳川家治<span class="rt" aria-hidden="true">とくがわいえはる</span></span>の時代になると、<span class="rb">田沼意次<span class="rt" aria-hidden="true">たぬまおきつぐ</span></span>が政治の中心に立った。意次は600石の<span class="rb">旗本<span class="rt" aria-hidden="true">はたもと</span></span>の出身であったが、将軍の側近である<span class="rb">側用人<span class="rt" aria-hidden="true">そばようにん</span></span>となり、1772年には<span class="rb">老中<span class="rt" aria-hidden="true">ろうじゅう</span></span>となった。異例の出世である。この時期を田沼時代という。</p>
+<p>意次は、年貢を増やすことには限界があると考え、発展してきた商業の力を幕府の財政に生かそうとした。商人の同業者組合である<span class="rb">株仲間<span class="rt" aria-hidden="true">かぶなかま</span></span>を積極的に認め、営業の独占を許す代わりに、<span class="rb">運上<span class="rt" aria-hidden="true">うんじょう</span></span>や<span class="rb">冥加<span class="rt" aria-hidden="true">みょうが</span></span>という税を納めさせた。銅や朝鮮人参などを幕府が管理して取り引きさせる専売も行った。</p>
+<figure><div class="cfig"><div class="card t" style="margin-bottom:10px"><div class="hd">商業の力を財政に生かす</div><div class="bd"><div class="rows"><div><b>株仲間</b><span>商人の同業者組合を積極的に認め、代わりに運上・冥加という税を納めさせる</span></div><div><b>専売</b><span>銅・真鍮・朝鮮人参などを幕府の管理する組織で扱う</span></div><div><b>南鐐二朱銀(1772年)</b><span>金貨の単位で数える銀貨をつくり、金と銀の両方の経済圏をつなぐ</span></div><div><b>長崎貿易</b><span>銅や、干しあわびなどの海産物(俵物)の輸出を増やし、金銀を取り入れる</span></div></div></div></div><div class="card n" style="margin-bottom:10px"><div class="hd">土地の開発</div><div class="bd"><div class="rows"><div><b>印旛沼・手賀沼</b><span>下総の沼を干拓して新田にしようとする(洪水などで中止)</span></div><div><b>蝦夷地</b><span>調査隊を送り、開発やロシアとの交易の可能性を探る</span></div></div></div></div></div><figcaption><span><b>図2-3</b>田沼意次のおもな政策</span></figcaption></figure>
+<h2><span class="no">第2節</span>開発と貿易</h2>
+<p>1772年には、金貨の単位で数える銀貨である<span class="rb">南鐐二朱銀<span class="rt" aria-hidden="true">なんりょうにしゅぎん</span></span>をつくった。東日本の金と西日本の銀という二つの経済の仕組みを、一つにまとめていこうとする試みであった。長崎の貿易では、銅や、干しあわび・ふかひれなどの海産物(<span class="rb">俵物<span class="rt" aria-hidden="true">たわらもの</span></span>)の輸出を増やし、それまで流れ出ていた金や銀を逆に取り入れようとした。</p>
+<p>さらに意次は、<span class="rb">下総<span class="rt" aria-hidden="true">しもうさ</span></span>の<span class="rb">印旛沼<span class="rt" aria-hidden="true">いんばぬま</span></span>や<span class="rb">手賀沼<span class="rt" aria-hidden="true">てがぬま</span></span>を<span class="rb">干拓<span class="rt" aria-hidden="true">かんたく</span></span>して新田を開こうとした。また、仙台藩の医師<span class="rb">工藤平助<span class="rt" aria-hidden="true">くどうへいすけ</span></span>が『<span class="rb">赤蝦夷風説考<span class="rt" aria-hidden="true">あかえぞふうせつこう</span></span>』でロシアの南下と<span class="rb">蝦夷地<span class="rt" aria-hidden="true">えぞち</span></span>の開発の必要を説くと、蝦夷地に調査隊を送った。しかし、商人と結びついた政治は<span class="rb">賄賂<span class="rt" aria-hidden="true">わいろ</span></span>を生みやすく、意次は人々から批判を受けるようになった。</p>
+<h2><span class="no">第3節</span>天明の飢饉と田沼の失脚</h2>
+<p>1782年ごろから、冷害などによって東北地方を中心に大<span class="rb">飢饉<span class="rt" aria-hidden="true">ききん</span></span>が起こった(<span class="rb">天明<span class="rt" aria-hidden="true">てんめい</span></span>の飢饉)。1783年には<span class="rb">浅間山<span class="rt" aria-hidden="true">あさまやま</span></span>が大噴火し、火山灰が広い範囲の田畑を覆った。飢饉は数年にわたって続き、多くの餓死者が出た。</p>
+<p>1784年、<span class="rb">若年寄<span class="rt" aria-hidden="true">わかどしより</span></span>となっていた意次の子の<span class="rb">田沼意知<span class="rt" aria-hidden="true">たぬまおきとも</span></span>が、江戸城の中で旗本に斬られて亡くなった。人々の中には、これをはやしたてる者もいたという。1786年に将軍家治が亡くなると、意次は老中を辞めさせられ、領地の多くも取り上げられた。翌1787年には、米の値段の高騰に苦しむ人々が、江戸や<span class="rb">大坂<span class="rt" aria-hidden="true">おおさか</span></span>などで大規模な<span class="rb">打ちこわし<span class="rt" aria-hidden="true">うちこわし</span></span>を起こした。</p>
+<h2><span class="no">第4節</span>変わりゆく村と町</h2>
+<p>18世紀になると、農村にもお金を使う経済が深く入り込んだ。百姓は肥料や農具をお金で買い、商品作物を売って収入を得た。うまくいった百姓は、借金のかたに田畑を集めて地主となる一方、土地を失った百姓は<span class="rb">小作<span class="rt" aria-hidden="true">こさく</span></span>人や日雇いとなった。問屋が農家に原料や道具を貸して製品をつくらせる、<span class="rb">問屋制家内工業<span class="rt" aria-hidden="true">といやせいかないこうぎょう</span></span>も広がった。</p>
+<figure><div class="cfig"><div class="flow"><div class="fs s"><em>17世紀後半</em><b>代表越訴型一揆</b><span class="d">村の代表者が、領主の頭越しに上の役所へ直接訴える。代表者は処刑されることも多かった</span></div><div class="fs t"><em>18世紀</em><b>惣百姓一揆</b><span class="d">村や地域の百姓が大勢で団結し、年貢の軽減などを求めて城下に押し寄せる</span></div><div class="fs t"><em>都市では</em><b>打ちこわし</b><span class="d">米の値段が上がると、町の人々が米商人などの家を壊す</span></div><div class="fs dk"><em>幕末</em><b>世直し一揆</b><span class="d">貧しい人々が、社会を立て直すことを求めて立ち上がる(第8章)</span></div></div></div><figcaption><span><b>図2-4</b>百姓一揆の移り変わり</span></figcaption></figure>
+<p>村の中では、村役人の不正などをめぐって百姓どうしが争う<span class="rb">村方騒動<span class="rt" aria-hidden="true">むらかたそうどう</span></span>も起こった。また、年貢の重さや飢饉に苦しむ百姓は、村や地域で団結して一揆を起こした。都市では、米の値段が上がるたびに打ちこわしが起こった。こうした動きは、幕府や藩に新たな改革を迫ることになる。</p>
+<section class="points" aria-labelledby="pt">
+<h3 id="pt">この章の要点</h3>
+<ul>
+<li>田沼意次は旗本から老中にまで出世し、商業の力を財政に生かす政治を進めた(田沼時代)。</li>
+<li>株仲間を公認して税を納めさせ、南鐐二朱銀の発行、長崎貿易の拡大、印旛沼の干拓、蝦夷地の調査などに取り組んだ。</li>
+<li>天明の飢饉や浅間山の噴火が起こり、1786年に田沼は失脚した。翌年、江戸・大坂などで打ちこわしが起こった。</li>
+<li>農村にも貨幣経済が広がり、地主と小作人への分化が進んで、百姓一揆や打ちこわしが増えた。</li>
+</ul>
+</section>
+<section class="column" aria-labelledby="col">
+<h3 id="col">コラム 田沼意次は「賄賂政治家」だったのか</h3>
+<p>田沼意次は長い間、賄賂で政治を腐らせた人物として語られてきた。しかし、その評価の多くは、意次を追い落とした<span class="rb">松平定信<span class="rt" aria-hidden="true">まつだいらさだのぶ</span></span>の側の記録や、後の時代の悪評にもとづいている。</p>
+<p>近年は、年貢だけに頼る財政の限界に気づき、商業や貿易の力を取り入れようとした先見性のある政治家として、見直されている。当時は贈り物のやり取りが社会の習慣として広く行われており、意次だけが特別だったわけではないとする見方もある。とはいえ、飢饉への対応が十分でなかったことなど、批判されるべき点もあった。</p>
+</section>
+</div>
+</article>
+<div class="navs"><a href="pc_ch1.html">← 第1章</a><a href="index.html">目次</a><a href="pc_ch3.html">第3章 →</a></div>
+<footer>第2章 ・ 全8章のうちの1章</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn-zoom').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>

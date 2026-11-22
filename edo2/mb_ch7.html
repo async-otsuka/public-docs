@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>改革と開国 第7章(スマホ版)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* スマホ優先の1カラム。カード枠をやめて画面幅を本文に使う。図は縦長に組み直す */
+  --paper:#FFFFFF; --ink:#1E2A3A; --sub:#5A6878; --navy:#1F4E8C; --teal:#2F7F86;
+  --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#D6E4F3;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.85;-webkit-text-size-adjust:100%}
+.wrap{max-width:520px;margin:0 auto}
+.topbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 20px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);font-size:13px;color:var(--sub)}
+.topbar button{font:inherit;font-size:13px;color:var(--navy);background:var(--sky);border:0;border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.topbar button:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+header.ch{background:var(--navy);color:#fff;padding:22px 20px 20px}
+header.ch .eyebrow{font-size:13px;letter-spacing:.15em;opacity:.85;margin:0 0 6px}
+header.ch h1{font-size:25px;line-height:1.4;font-weight:700;margin:0;text-wrap:balance}
+header.ch .lead{font-size:14.5px;line-height:1.7;margin:8px 0 0;opacity:.9}
+main{padding:0 20px 40px}
+h2{font-size:20px;line-height:1.5;font-weight:700;margin:40px 0 14px;padding-left:12px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{display:block;font-size:13px;color:var(--navy);font-weight:500}
+p{margin:0 0 1.15em}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.32em;transform:translateX(-50%);font-size:.5em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;letter-spacing:0;pointer-events:none}
+body.noruby .rt{display:none}
+.tl{list-style:none;margin:20px 0 0 6px;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:8px;padding:5px 0 5px 16px;font-size:15px;line-height:1.6}
+.tl li::before{content:"";position:absolute;left:-7px;top:12px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--navy)}
+.tl li.k::before{border-color:var(--teal)}
+.tl li.hl{font-weight:700}
+.tl li.hl::before{background:var(--navy)}
+.tl .y{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.tl li.k .y{color:var(--teal)}
+.tlnote{display:flex;gap:16px;font-size:12.5px;color:var(--sub);margin:8px 0 0 6px}
+.tlnote span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid var(--navy);margin-right:5px;vertical-align:-1px}
+.tlnote span.k::before{border-color:var(--teal)}
+.point{background:var(--sky);border-radius:10px;padding:14px 16px;margin:0 0 22px;font-size:15px;line-height:1.7}
+.point b{display:block;color:var(--navy);font-size:13px;margin-bottom:4px}
+.point ul{margin:0;padding-left:1.2em}
+figure{margin:26px -20px 28px;padding:16px 20px 12px;background:#F7FAFD;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+figure svg{display:block;width:100%;height:auto}
+.figt{font-size:15px;font-weight:700;margin:0 0 12px;line-height:1.5}
+.figt span{color:var(--navy);margin-right:8px}
+.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.back{margin-top:10px;font-size:14px;font-weight:700;color:var(--teal);display:flex;gap:6px;align-items:center}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+.summary{background:var(--sky);border-radius:10px;padding:16px 18px 10px;margin:36px 0 18px}
+.summary h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy)}
+.summary ul{margin:0;padding-left:1.2em;font-size:16px}
+.summary li{margin:0 0 .5em}
+.column{border:1.5px dashed #9AAABB;border-radius:10px;padding:16px 18px 4px;margin:18px 0 0}
+.column h3{color:var(--teal)}
+.column figure{margin:16px -18px 16px}
+footer{font-size:12.5px;color:var(--sub);text-align:center;padding:0 20px 40px}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+.tlh{font-size:15px;color:var(--navy);margin:1.6em 0 .2em}
+</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style></head>
+<body>
+<div class="wrap">
+<div class="topbar"><span>改革と開国 解説資料</span><button type="button" id="rubyBtn" aria-pressed="true">ふりがな:あり</button></div>
+<header class="ch">
+<p class="eyebrow">第七章 ・ 1853 ― 1860</p>
+<h1>開国</h1>
+<p class="lead">黒船の来航から8年 ― 開国は政治と暮らしを大きく揺さぶった</p>
+</header>
+<main>
+<ol class="tl" aria-label="この章の年表"><li class="hl"><span class="y">1853</span><span>ペリーが浦賀に来航</span></li><li class="hl"><span class="y">1854</span><span>日米和親条約</span></li><li><span class="y">1856</span><span>ハリスが下田に着任</span></li><li class="hl"><span class="y">1858</span><span>日米修好通商条約、安政の大獄</span></li><li class="k"><span class="y">1859</span><span>横浜などで貿易が始まる</span></li><li><span class="y">1860</span><span>桜田門外の変、咸臨丸が太平洋を渡る</span></li></ol>
+<figure><p class="figt"><span>図7-2</span>この章の登場人物</p>
+<div class="ppl"><div class="pg n"><h4>幕府</h4><ul><li><b><span class="rb">阿部正弘<span class="rt" aria-hidden="true">あべまさひろ</span></span></b><span class="pd">老中首座。ペリー来航に際し、大名や幕臣に広く意見を求めた</span></li><li><b><span class="rb">井伊直弼<span class="rt" aria-hidden="true">いいなおすけ</span></span></b><span class="pd">彦根藩主で大老。勅許のないまま条約を結び、反対派を弾圧した</span></li><li><b><span class="rb">徳川家茂<span class="rt" aria-hidden="true">とくがわいえもち</span></span></b><span class="pd">14代将軍。紀伊藩主から迎えられた</span></li></ul></div><div class="pg t"><h4>外国</h4><ul><li><b>ペリー</b><span class="pd">アメリカ東インド艦隊の司令長官。開国を求める大統領の国書を届けた</span></li><li><b>ハリス</b><span class="pd">アメリカの初代総領事。通商条約の締結を求めた</span></li></ul></div><div class="pg g"><h4>反対派</h4><ul><li><b><span class="rb">徳川斉昭<span class="rt" aria-hidden="true">とくがわなりあき</span></span>・<span class="rb">一橋慶喜<span class="rt" aria-hidden="true">ひとつばしよしのぶ</span></span></b><span class="pd">将軍の跡継ぎに慶喜を推したが、井伊に退けられた</span></li><li><b><span class="rb">吉田松陰<span class="rt" aria-hidden="true">よしだしょういん</span></span>・<span class="rb">橋本左内<span class="rt" aria-hidden="true">はしもとさない</span></span></b><span class="pd">安政の大獄で処刑された</span></li></ul></div></div>
+</figure>
+<h2><span class="no">第1節</span>ペリーの来航</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1853年、ペリーが4隻の軍艦で浦賀に来航した</li><li>アメリカは捕鯨船や貿易船の寄港地を求めていた</li><li>幕府は大名や幕臣に広く意見を求めた</li></ul></div>
+<p>1853年6月、アメリカの東インド艦隊司令長官ペリーが、蒸気船を含む4隻の軍艦を率いて<span class="rb">浦賀<span class="rt" aria-hidden="true">うらが</span></span>に現れた。ペリーは、日本の開国を求める大統領の国書を幕府に受け取らせ、翌年に返事を聞きに来ると告げて去った。</p>
+<p>アメリカは、太平洋で操業する<span class="rb">捕鯨<span class="rt" aria-hidden="true">ほげい</span></span>船や、中国との貿易船が立ち寄る港を必要としていた。</p>
+<p><span class="rb">老中<span class="rt" aria-hidden="true">ろうじゅう</span></span>首座の<span class="rb">阿部正弘<span class="rt" aria-hidden="true">あべまさひろ</span></span>は、この問題を朝廷に報告するとともに、大名や幕臣にも広く意見を求めた。それまで外交は幕府だけで決めてきたため、これは異例のことであった。</p>
+<p>結果として、朝廷や大名が政治に口を出すきっかけをつくり、幕府の権威は揺らいでいく。同じ年、ロシアの使節プチャーチンも長崎に来航した。</p>
+<h2><span class="no">第2節</span>日米和親条約</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1854年、ペリーが再び来航し、日米和親条約が結ばれた</li><li>下田と箱館が開かれた</li><li>イギリス・ロシア・オランダとも同様の条約を結んだ</li></ul></div>
+<p>1854年1月、ペリーは7隻の艦隊を率いて再び来航した。幕府は交渉の末、3月に<span class="rb">日米和親条約<span class="rt" aria-hidden="true">にちべいわしんじょうやく</span></span>を結んだ。この条約で、<span class="rb">下田<span class="rt" aria-hidden="true">しもだ</span></span>と<span class="rb">箱館<span class="rt" aria-hidden="true">はこだて</span></span>の2港を開き、アメリカ船に水や食料、燃料を与えることなどを認めた。200年以上続いた「<span class="rb">鎖国<span class="rt" aria-hidden="true">さこく</span></span>」の体制は、ここで終わりを告げた。</p>
+<figure><p class="figt"><span>図7-3</span>開国と開港地</p>
+<svg viewBox="0 0 360 356" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>開国と開港地</title><desc>兵庫の実際の開港は1868年、新潟は1869年に遅れた。下田は横浜の開港後に閉じられた</desc><rect width="360" height="356" fill="#EAF2FB"/><path d="M314.5,0L319,3.2L323.6,3.3L335.6,15.3L331.2,17.9L321.4,14.9L316.5,20.5L313.5,26.3L306.7,30L303.4,28.1L302.3,24.1L305.5,11.1L304.1,5.1L299.4,0.4L299.3,0L314.5,0ZM337.8,31.9L344.3,30.7L342.7,42.5L343.6,56.7L344.5,61L349.8,66.2L354.1,73.1L359.7,91.9L359.3,105.5L357.1,117.3L350.2,122.3L347,130.2L344.7,143.4L334.3,145.8L330.1,152.8L329.1,160.1L331.3,169.2L332.3,177.6L330.3,194.5L325.2,200L320.4,212.4L318.9,222.1L320.3,228.2L324.3,235.8L327.6,240.2L320.9,242.4L315.6,247.7L314.4,256.3L312.7,259.4L304.1,264.4L300.1,269.3L296.6,267.2L297.8,265.4L297.4,255.3L304.9,246.7L302.1,242.1L297.6,242.5L295.7,248.3L292.3,251.3L295,256.9L291.9,260.7L287.3,255.2L280.8,255.9L276.9,262.3L277.1,267.2L274.1,275L270.7,278.8L266.7,276.3L267.9,266.6L270.8,264.9L265.5,261.4L261.4,262.7L254.8,271.1L250.2,279.9L244.2,278.3L231.7,277.5L217.8,280.3L224.3,276.1L223.9,273.7L217,273.9L212.7,272.5L211.8,263.6L207.1,266.3L202.6,277L204.9,280.1L212.5,285.5L211.8,289.4L202.9,291.7L196.7,294.5L184.8,315.9L178.4,318.5L171.5,316.1L168.3,310.3L163.5,304.2L162.1,300.4L161.3,290.6L166.1,287.4L169.5,283.2L170.4,279.1L168.7,277.8L159.6,278.7L150.9,273.9L146.5,273.8L135.6,276.3L128.7,282.3L113.6,285.6L104.9,290.2L101.4,289.2L90.9,292.1L84.2,288.4L81,289.4L78.9,292.8L76.2,306.3L64.6,298.9L56.9,300L49.9,302.5L45.3,299.9L40.8,301.5L40,291.5L43.3,287L53.4,286.3L60.7,279.2L67.9,275.3L73.9,269.3L79.5,264.9L89.9,254.9L92.1,251L98.6,247.7L108.5,246.1L111.6,249.6L118.6,247.7L125.6,248.3L135.8,246.7L142.7,243.5L155,242.3L163.5,239.4L166.1,240.2L165.1,244.8L167.8,247.2L178,248L184.4,244.3L189.9,238.6L187.4,230.7L191.7,222.4L197.6,217.5L207.3,203.8L208.8,196.3L207.9,187.4L211.5,180.7L225.3,175.6L225.7,178.7L220.4,184.3L213.9,188.3L215.8,193.6L216.4,200.4L219.6,202.6L225.9,202.8L230.8,196.3L242.3,192.2L254,186.6L260.6,180.3L265.2,174.2L270.3,163.9L280.7,157.9L285.2,153L287.4,143.6L290.3,136.2L296.7,125.8L299.9,112.9L303.4,106.1L304,93.5L300.8,88.4L294.9,87.1L299.7,83.2L302.8,72.3L300.2,61.5L303.2,56.4L306.7,55.7L310.5,52.1L312.2,46L311.5,40.1L313.5,37.5L320.4,38.7L322,50.3L325.4,52.5L329.4,48.5L334.6,50.7L336.5,49.1L338.8,42.3L336.9,36.9L325.4,40.9L327.2,29.9L329.4,26.9L334.2,28.7ZM139.9,291.7L147.9,292.8L147.9,299.2L150.9,306.9L145.4,310.1L140.5,314.3L136.6,320.1L134.9,326.7L128.4,319.8L125.4,318.2L119,317.6L109,322.8L103.7,334.2L101.3,335.7L100.1,340.6L97,343.7L90.5,343.4L92.4,338.5L86.2,338.1L84.4,333.2L86.7,325.1L83.6,323.8L83.8,320.4L74.5,323.5L90.5,311.4L94.6,301L100.5,297.6L104.7,303.2L117.5,300.1L119.3,296L118.2,292.2L121.2,292.4L128.1,288.6L131.7,288.2ZM29.2,356L32.8,348.3L28.8,347L30.8,344.3L30.1,341L25.4,332L21.2,329.1L18,331.6L19.5,340.3L23.8,340.3L24.2,345.4L21.4,346.3L15.9,343.1L7.7,349.9L9.4,344.6L5.5,339.5L5.1,333.2L9.5,338.9L14.2,340.3L11.5,334.4L2.3,327.1L4.6,322.7L9.9,324.2L9.4,320.1L16.4,317.3L19.2,314.6L24.9,313.4L28.4,306.4L35,303.2L41.8,305.1L44.9,312L48.3,314.4L48.3,314.4L55.2,315.1L60,312.7L63.2,314.4L63.6,317.9L58.6,325.8L69,326.5L67.7,331.1L70.6,333.6L69.4,336.1L72.2,338L71.3,340.6L64.2,349.2L61.7,356L29.2,356ZM22.1,0L21.2,0.6L16.3,6L10.8,15.3L7.4,18.9L5.3,27.3L7.6,34.6L6.1,41.5L7,48.8L6,51.7L0,54.5L0,0ZM254.7,164.7L252.9,163.5L254.1,158.5L251.9,158.4L253.7,152.3L259.3,146.6L257.8,155.4L261.3,155.8L259.1,161.7ZM289.1,0L287.5,4.6L287.5,4.6L286,0L286.1,0L289.1,0ZM156.4,290.6L153.3,293.6L150.6,293.4L148.8,290.5L153.6,284.2L158.5,281.7L155.7,286.8Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><defs><marker id="are2_7n360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="are2_7t360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="are2_7k360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="are2_7g360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><line x1="294.3" y1="257.3" x2="311.6" y2="247.3" stroke="#B4532A" stroke-width="1.2"/><circle cx="294.3" cy="257.3" r="3" fill="#B4532A"/><circle cx="311.6" cy="247.3" r="9" fill="#B4532A" stroke="#fff" stroke-width="1.2"/><text x="311.6" y="251.3" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">1</text><circle cx="271.9" cy="277.0" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="271.9" y="281.0" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">2</text><circle cx="323.4" cy="16.7" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="323.4" y="20.7" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">3</text><line x1="292" y1="250.2" x2="292.0" y2="230.2" stroke="#2F7F86" stroke-width="1.2"/><circle cx="292" cy="250.2" r="3" fill="#2F7F86"/><circle cx="292.0" cy="230.2" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="292.0" y="234.2" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">4</text><circle cx="10.7" cy="343.8" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="10.7" y="347.8" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">5</text><circle cx="274.8" cy="161.1" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="274.8" y="165.1" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">6</text><circle cx="163.6" cy="277.0" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="163.6" y="281.0" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">7</text><line x1="295.8" y1="241.7" x2="278.5" y2="251.7" stroke="#5A6878" stroke-width="1.2"/><circle cx="295.8" cy="241.7" r="3" fill="#5A6878"/><circle cx="278.5" cy="251.7" r="9" fill="#5A6878" stroke="#fff" stroke-width="1.2"/><text x="278.5" y="255.7" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">8</text></svg><div class="legend"><span><i class="sq"></i>日米和親条約(1854年)で開港</span><span><i class="sqt"></i>日米修好通商条約(1858年)で開港</span></div><ol class="mapl"><li><i class="k">1</i>浦賀<span class="pd">1853 ペリー来航</span></li><li><i class="n">2</i>下田<span class="pd">和親条約で開港</span></li><li><i class="n">3</i>箱館<span class="pd">和親条約で開港</span></li><li><i class="t">4</i>神奈川(横浜)<span class="pd">通商条約で開港</span></li><li><i class="t">5</i>長崎<span class="pd">通商条約で開港</span></li><li><i class="t">6</i>新潟<span class="pd">通商条約で開港</span></li><li><i class="t">7</i>兵庫(神戸)<span class="pd">通商条約で開港</span></li><li><i class="g">8</i>江戸</li></ol><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">兵庫の実際の開港は1868年、新潟は1869年に遅れた。下田は横浜の開港後に閉じられた</p>
+</figure>
+<p>幕府は続いて、イギリス・ロシア・オランダとも同じような条約を結んだ。ロシアとの条約では、千島列島の<span class="rb">択捉<span class="rt" aria-hidden="true">えとろふ</span></span>島と<span class="rb">得撫<span class="rt" aria-hidden="true">うるっぷ</span></span>島の間を国境とし、<span class="rb">樺太<span class="rt" aria-hidden="true">からふと</span></span>は両国の人々が住む土地として境界を定めなかった。</p>
+<h2><span class="no">第3節</span>日米修好通商条約</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1858年、井伊直弼は勅許のないまま日米修好通商条約を結んだ</li><li>5港を開き、自由な貿易を認めた</li><li>領事裁判権を認め、関税自主権のない不平等条約だった</li></ul></div>
+<p>1856年、アメリカの総領事ハリスが下田に着任し、自由な貿易を認める通商条約を結ぶよう強く求めた。老中の<span class="rb">堀田正睦<span class="rt" aria-hidden="true">ほったまさよし</span></span>は朝廷の許可(<span class="rb">勅許<span class="rt" aria-hidden="true">ちょっきょ</span></span>)を得ようとしたが、外国を嫌う<span class="rb">孝明天皇<span class="rt" aria-hidden="true">こうめいてんのう</span></span>は許さなかった。</p>
+<p>1858年、<span class="rb">大老<span class="rt" aria-hidden="true">たいろう</span></span>となった<span class="rb">井伊直弼<span class="rt" aria-hidden="true">いいなおすけ</span></span>は、勅許のないまま<span class="rb">日米修好通商条約<span class="rt" aria-hidden="true">にちべいしゅうこうつうしょうじょうやく</span></span>を結んだ。この条約で、箱館・神奈川・長崎・新潟・兵庫の5港が開かれ、自由な貿易が認められた。</p>
+<p>しかし、日本で罪を犯した外<span class="rb">国人<span class="rt" aria-hidden="true">こくじん</span></span>を日本の法で裁けない<span class="rb">領事裁判権<span class="rt" aria-hidden="true">りょうじさいばんけん</span></span>を認め、日本には<span class="rb">関税自主権<span class="rt" aria-hidden="true">かんぜいじしゅけん</span></span>がないなど、日本にとって不平等な内容を含んでいた。</p>
+<p>幕府は、オランダ・ロシア・イギリス・フランスとも同様の条約を結んだ(安政の五か国条約)。</p>
+<figure><p class="figt"><span>図7-4</span>二つの条約</p>
+<div class="flow"><div class="pair"><div class="fs s"><em>1854年 日米和親条約</em><b>下田・箱館を開く</b><span class="d">アメリカ船に水・食料・燃料を与える。アメリカに最恵国待遇を認める</span></div><div class="fs t"><em>1858年 日米修好通商条約</em><b>神奈川・長崎・新潟・兵庫・箱館を開く</b><span class="d">自由な貿易を認め、外国人が住む居留地を設ける</span></div></div><div class="fs dk"><em>不平等な点</em><b>領事裁判権を認める</b><span class="d">日本で罪を犯した外国人を、日本の法で裁けない</span></div><div class="fs dk"><em>不平等な点</em><b>関税自主権がない</b><span class="d">輸入品にかける税の率を、日本だけで決められない</span></div></div>
+</figure>
+<h2><span class="no">第4節</span>安政の大獄と桜田門外の変</h2>
+<div class="point"><b>この節のポイント</b><ul><li>将軍の跡継ぎをめぐって対立が起きた</li><li>井伊直弼は反対派を厳しく処罰した(安政の大獄)</li><li>1860年、井伊は桜田門外で暗殺された</li></ul></div>
+<p>同じころ、病弱な13代<span class="rb">将軍家<span class="rt" aria-hidden="true">しょうぐんけ</span></span>定の跡継ぎをめぐって対立が起きていた。水戸の<span class="rb">徳川斉昭<span class="rt" aria-hidden="true">とくがわなりあき</span></span>らは、斉昭の子の<span class="rb">一橋慶喜<span class="rt" aria-hidden="true">ひとつばしよしのぶ</span></span>を推し、井伊直弼らは<span class="rb">紀伊<span class="rt" aria-hidden="true">きい</span></span>藩主の<span class="rb">徳川慶福<span class="rt" aria-hidden="true">とくがわよしとみ</span></span>を推した。</p>
+<p>井伊は慶福を跡継ぎに決め、慶福は家茂と名を改めて14代将軍となった。</p>
+<p>井伊は、条約の調印や跡継ぎの決定に反対した大名や公家、武士らを厳しく処罰した。長州藩の<span class="rb">吉田松陰<span class="rt" aria-hidden="true">よしだしょういん</span></span>や<span class="rb">越前<span class="rt" aria-hidden="true">えちぜん</span></span>藩の<span class="rb">橋本左内<span class="rt" aria-hidden="true">はしもとさない</span></span>らは処刑された。これを<span class="rb">安政の大獄<span class="rt" aria-hidden="true">あんせいのたいごく</span></span>という。</p>
+<p>1860年3月、井伊は江戸城の桜田門の外で、水戸藩を<span class="rb">脱藩<span class="rt" aria-hidden="true">だっぱん</span></span>した浪士らに襲われ、命を落とした(<span class="rb">桜田門外の変<span class="rt" aria-hidden="true">さくらだもんがいのへん</span></span>)。幕府の最高責任者が<span class="rb">白昼<span class="rt" aria-hidden="true">はくちゅう</span></span>に殺されたこの事件で、幕府の権威は大きく傷ついた。</p>
+<figure><p class="figt"><span>図7-5</span>貿易が始まって起きたこと</p>
+<div class="card t" style="margin-bottom:10px"><div class="hd">1859年から貿易が始まる</div><div class="bd"><div class="rows"><div><b>相手</b><span>イギリスが最大。港は横浜が中心</span></div><div><b>輸出</b><span>生糸・茶など。生糸の値段が上がり、国内の織物業は原料不足に</span></div><div><b>輸入</b><span>毛織物・綿織物・武器など</span></div><div><b>金の流出</b><span>金と銀の交換比率が外国と違ったため、大量の金貨が海外に流れ出る</span></div><div><b>物価</b><span>幕府は小判の質を落として対応し(万延小判)、物価が急に上がる</span></div></div></div></div>
+</figure>
+<section class="summary" aria-labelledby="pt"><h3 id="pt">この章の要点</h3><ul><li>1853年、ペリーが浦賀に来航して開国を求め、幕府は大名などに広く意見を求めた。</li><li>1854年に日米和親条約を結んで下田・箱館を開き、「鎖国」の体制は終わった。</li><li>1858年、井伊直弼は勅許のないまま日米修好通商条約を結んだ。領事裁判権を認め、関税自主権のない不平等条約だった。</li><li>井伊は安政の大獄で反対派を弾圧したが、1860年に桜田門外の変で暗殺され、幕府の権威は大きく傷ついた。貿易の開始で物価も急に上がった。</li></ul></section>
+<section class="column" aria-labelledby="col"><h3 id="col">コラム 「泰平の眠りをさます上喜撰」</h3>
+<p>ペリー来航の騒ぎを詠んだものとして、「泰平の眠りをさます<span class="rb">上喜撰<span class="rt" aria-hidden="true">じょうきせん</span></span> たった四杯で夜も寝られず」という<span class="rb">狂歌<span class="rt" aria-hidden="true">きょうか</span></span>がよく知られている。上喜撰は上等なお茶の銘柄で、「蒸気船」にかけている。</p>
+<p>お茶を4杯飲んで眠れなくなるように、たった4隻の蒸気船で世の中が大騒ぎになった、という皮肉である。</p>
+<p>ただし、この狂歌はペリー来航の当時の記録には見当たらず、明治時代になってからつくられたものではないかとする研究もある。来航の当時、人々が黒船をひと目見ようと浦賀に押し寄せたことは確かな記録に残っている。</p>
+<p>人々の反応は、恐れと好奇心が入りまじったものだったようである。</p>
+</section>
+<div class="navs"><a href="mb_ch6.html">← 第6章</a><a href="index.html">目次</a><a href="mb_ch8.html">第8章 →</a></div>
+</main>
+<footer>第7章 スマホ版 ・ 全8章のうちの1章</footer>
+</div>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('rubyBtn');
+  b.addEventListener('click',function(){
+    var off=document.body.classList.toggle('noruby');
+    b.textContent=off?'ふりがな:なし':'ふりがな:あり';
+    b.setAttribute('aria-pressed',off?'false':'true');
+    if(!off&&window.fitRuby)window.fitRuby();
+  });
+})();
+</script>
+</body>
+</html>

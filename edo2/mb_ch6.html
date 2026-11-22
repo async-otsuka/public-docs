@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>改革と開国 第6章(スマホ版)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* スマホ優先の1カラム。カード枠をやめて画面幅を本文に使う。図は縦長に組み直す */
+  --paper:#FFFFFF; --ink:#1E2A3A; --sub:#5A6878; --navy:#1F4E8C; --teal:#2F7F86;
+  --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#D6E4F3;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.85;-webkit-text-size-adjust:100%}
+.wrap{max-width:520px;margin:0 auto}
+.topbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 20px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);font-size:13px;color:var(--sub)}
+.topbar button{font:inherit;font-size:13px;color:var(--navy);background:var(--sky);border:0;border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.topbar button:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+header.ch{background:var(--navy);color:#fff;padding:22px 20px 20px}
+header.ch .eyebrow{font-size:13px;letter-spacing:.15em;opacity:.85;margin:0 0 6px}
+header.ch h1{font-size:25px;line-height:1.4;font-weight:700;margin:0;text-wrap:balance}
+header.ch .lead{font-size:14.5px;line-height:1.7;margin:8px 0 0;opacity:.9}
+main{padding:0 20px 40px}
+h2{font-size:20px;line-height:1.5;font-weight:700;margin:40px 0 14px;padding-left:12px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{display:block;font-size:13px;color:var(--navy);font-weight:500}
+p{margin:0 0 1.15em}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.32em;transform:translateX(-50%);font-size:.5em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;letter-spacing:0;pointer-events:none}
+body.noruby .rt{display:none}
+.tl{list-style:none;margin:20px 0 0 6px;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:8px;padding:5px 0 5px 16px;font-size:15px;line-height:1.6}
+.tl li::before{content:"";position:absolute;left:-7px;top:12px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--navy)}
+.tl li.k::before{border-color:var(--teal)}
+.tl li.hl{font-weight:700}
+.tl li.hl::before{background:var(--navy)}
+.tl .y{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.tl li.k .y{color:var(--teal)}
+.tlnote{display:flex;gap:16px;font-size:12.5px;color:var(--sub);margin:8px 0 0 6px}
+.tlnote span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid var(--navy);margin-right:5px;vertical-align:-1px}
+.tlnote span.k::before{border-color:var(--teal)}
+.point{background:var(--sky);border-radius:10px;padding:14px 16px;margin:0 0 22px;font-size:15px;line-height:1.7}
+.point b{display:block;color:var(--navy);font-size:13px;margin-bottom:4px}
+.point ul{margin:0;padding-left:1.2em}
+figure{margin:26px -20px 28px;padding:16px 20px 12px;background:#F7FAFD;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+figure svg{display:block;width:100%;height:auto}
+.figt{font-size:15px;font-weight:700;margin:0 0 12px;line-height:1.5}
+.figt span{color:var(--navy);margin-right:8px}
+.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.back{margin-top:10px;font-size:14px;font-weight:700;color:var(--teal);display:flex;gap:6px;align-items:center}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+.summary{background:var(--sky);border-radius:10px;padding:16px 18px 10px;margin:36px 0 18px}
+.summary h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy)}
+.summary ul{margin:0;padding-left:1.2em;font-size:16px}
+.summary li{margin:0 0 .5em}
+.column{border:1.5px dashed #9AAABB;border-radius:10px;padding:16px 18px 4px;margin:18px 0 0}
+.column h3{color:var(--teal)}
+.column figure{margin:16px -18px 16px}
+footer{font-size:12.5px;color:var(--sub);text-align:center;padding:0 20px 40px}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+.tlh{font-size:15px;color:var(--navy);margin:1.6em 0 .2em}
+</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style></head>
+<body>
+<div class="wrap">
+<div class="topbar"><span>改革と開国 解説資料</span><button type="button" id="rubyBtn" aria-pressed="true">ふりがな:あり</button></div>
+<header class="ch">
+<p class="eyebrow">第六章 ・ 1825 ― 1843</p>
+<h1>天保の改革と雄藩</h1>
+<p class="lead">飢饉と一揆、外国船 ― 内外の危機に揺れる幕府と、力をつける藩</p>
+</header>
+<main>
+<ol class="tl" aria-label="この章の年表"><li><span class="y">1825</span><span>異国船打払令</span></li><li class="k"><span class="y">1833</span><span>天保の飢饉が始まる</span></li><li class="hl"><span class="y">1837</span><span>大塩平八郎の乱、モリソン号事件</span></li><li><span class="y">1839</span><span>蛮社の獄</span></li><li class="k"><span class="y">1840</span><span>アヘン戦争が始まる</span></li><li class="hl"><span class="y">1841</span><span>水野忠邦が天保の改革を始める</span></li><li><span class="y">1842</span><span>天保の薪水給与令</span></li><li class="hl"><span class="y">1843</span><span>上知令が失敗し、忠邦が失脚</span></li></ol>
+<figure><p class="figt"><span>図6-2</span>この章の登場人物</p>
+<div class="ppl"><div class="pg n"><h4>改革と抵抗</h4><ul><li><b><span class="rb">水野忠邦<span class="rt" aria-hidden="true">みずのただくに</span></span></b><span class="pd">老中。12代将軍家慶のもとで天保の改革を進めた</span></li><li><b><span class="rb">大塩平八郎<span class="rt" aria-hidden="true">おおしおへいはちろう</span></span></b><span class="pd">大坂町奉行所の元与力で、陽明学者。飢饉に苦しむ人々を救うため挙兵した</span></li><li><b><span class="rb">渡辺崋山<span class="rt" aria-hidden="true">わたなべかざん</span></span>・<span class="rb">高野長英<span class="rt" aria-hidden="true">たかのちょうえい</span></span></b><span class="pd">幕府の外国船への対応を批判し、蛮社の獄で処罰された</span></li></ul></div><div class="pg t"><h4>改革に成功した藩</h4><ul><li><b><span class="rb">調所広郷<span class="rt" aria-hidden="true">ずしょひろさと</span></span></b><span class="pd">薩摩藩の家老。莫大な借金を整理し、財政を立て直した</span></li><li><b><span class="rb">村田清風<span class="rt" aria-hidden="true">むらたせいふう</span></span></b><span class="pd">長州藩の改革を指導した</span></li><li><b><span class="rb">鍋島直正<span class="rt" aria-hidden="true">なべしまなおまさ</span></span></b><span class="pd">佐賀藩主。反射炉を築き、大砲をつくった</span></li></ul></div></div>
+</figure>
+<h2><span class="no">第1節</span>外国船への対応</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1825年、幕府は異国船打払令を出した</li><li>1837年、アメリカ船モリソン号を砲撃した</li><li>批判した渡辺崋山・高野長英は処罰された(蛮社の獄)</li></ul></div>
+<p>19世紀になると、イギリスやアメリカの船が、日本の近海にたびたび姿を見せるようになった。<span class="rb">捕鯨<span class="rt" aria-hidden="true">ほげい</span></span>船が水や食料を求めて上陸することもあった。</p>
+<p>幕府は1825年に<span class="rb">異国船打払令<span class="rt" aria-hidden="true">いこくせんうちはらいれい</span></span>を出し、清とオランダ以外の外国船は、ためらわずに撃退するよう命じた。</p>
+<p>1837年、日本人の漂流民を送り届けようとしたアメリカの商船モリソン号が、<span class="rb">浦賀<span class="rt" aria-hidden="true">うらが</span></span>と<span class="rb">薩摩<span class="rt" aria-hidden="true">さつま</span></span>の<span class="rb">山川<span class="rt" aria-hidden="true">やまかわ</span></span>で砲撃を受けて引き返した。</p>
+<p><span class="rb">蘭学<span class="rt" aria-hidden="true">らんがく</span></span>者の<span class="rb">渡辺崋山<span class="rt" aria-hidden="true">わたなべかざん</span></span>と<span class="rb">高野長英<span class="rt" aria-hidden="true">たかのちょうえい</span></span>は、この対応を批判する書物を書いたため、1839年に幕府に処罰された。これを<span class="rb">蛮社の獄<span class="rt" aria-hidden="true">ばんしゃのごく</span></span>という。</p>
+<h2><span class="no">第2節</span>天保の飢饉と大塩平八郎の乱</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1833年から天保の飢饉が起こった</li><li>各地で百姓一揆や打ちこわしが続いた</li><li>1837年、大塩平八郎が大坂で挙兵した</li></ul></div>
+<p>1833年ごろから、天候不順による<span class="rb">天保<span class="rt" aria-hidden="true">てんぽう</span></span>の<span class="rb">飢饉<span class="rt" aria-hidden="true">ききん</span></span>が全国を襲った。多くの人が飢えに苦しみ、各地で百姓一揆や<span class="rb">打ちこわし<span class="rt" aria-hidden="true">うちこわし</span></span>が続いた。1836年には、<span class="rb">甲斐<span class="rt" aria-hidden="true">かい</span></span>や<span class="rb">三河<span class="rt" aria-hidden="true">みかわ</span></span>で大規模な一揆が起こった。</p>
+<figure><p class="figt"><span>図6-3</span>天保期のおもなできごとと改革に成功した藩</p>
+<svg viewBox="0 0 360 262" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>天保期のおもなできごとと改革に成功した藩</title><desc>位置はおおよそ。モリソン号は浦賀と薩摩の山川で砲撃を受けた</desc><rect width="360" height="262" fill="#EAF2FB"/><path d="M351.9,0L351.7,2L354,11.8L355,20.7L352.9,38.7L347.4,44.7L342.4,57.8L340.7,68.3L342.2,74.8L346.4,82.9L350,87.5L342.8,89.9L337.1,95.6L335.9,104.8L334,108.1L324.8,113.4L320.6,118.6L316.9,116.5L318.2,114.5L317.8,103.7L325.7,94.5L322.7,89.6L318,90L315.9,96.2L312.3,99.4L315.2,105.4L311.9,109.5L306.9,103.6L300,104.4L295.8,111.2L296,116.5L292.8,124.7L289.2,128.8L285,126.1L286.2,115.8L289.3,113.9L283.6,110.2L279.3,111.6L272.2,120.6L267.4,130L260.9,128.3L247.5,127.5L232.7,130.5L239.7,126L239.2,123.4L231.8,123.6L227.3,122.1L226.3,112.6L221.3,115.4L216.4,126.9L219,130.3L227,136L226.3,140.1L216.7,142.6L210.2,145.6L197.5,168.4L190.6,171.2L183.2,168.7L179.9,162.5L174.6,156L173.2,151.9L172.3,141.5L177.4,138L181.1,133.6L182.1,129.2L180.2,127.8L170.5,128.7L161.2,123.6L156.5,123.4L144.8,126.2L137.5,132.5L121.4,136.1L112.1,141L108.3,139.9L97.1,143L89.9,139.1L86.6,140.1L84.3,143.7L81.4,158.2L69,150.3L60.8,151.5L53.4,154.1L48.4,151.4L43.6,153.1L42.7,142.4L46.3,137.6L57,136.8L64.9,129.3L72.5,125.1L78.9,118.6L84.9,114L96,103.3L98.4,99.1L105.3,95.6L115.9,93.9L119.3,97.6L126.7,95.6L134.2,96.2L145.1,94.5L152.5,91.2L165.6,89.8L174.6,86.7L177.4,87.6L176.4,92.5L179.3,95L190.2,95.9L197,92L202.9,85.9L200.2,77.5L204.8,68.5L211.1,63.3L221.5,48.7L223.1,40.7L222.2,31.1L225.9,24L240.7,18.6L241.1,21.9L235.5,27.9L228.5,32.2L230.6,37.8L231.2,45.1L234.6,47.5L241.3,47.6L246.5,40.7L258.8,36.3L271.3,30.3L278.4,23.6L283.3,17.1L288.7,6.1L299.3,0L351.9,0ZM149.5,142.6L158,143.8L158,150.6L161.2,158.9L155.4,162.2L150.1,166.7L146,172.9L144.1,180L137.2,172.6L134,170.9L127.1,170.3L116.5,175.9L110.8,188.1L108.2,189.7L107,194.9L103.6,198.1L96.7,197.8L98.8,192.6L92.1,192.1L90.1,186.9L92.7,178.3L89.4,176.9L89.6,173.2L79.6,176.6L96.7,163.7L101.1,152.5L107.4,148.9L111.8,154.9L125.6,151.5L127.5,147.2L126.2,143.2L129.5,143.3L136.9,139.3L140.7,138.9ZM51.6,166.9L59,167.6L64.1,165L67.5,166.9L68,170.6L62.7,179L73.7,179.8L72.3,184.7L75.4,187.4L74.2,190L77.2,192.1L76.2,194.8L68.6,204L63.5,217.5L60.3,229.8L60.3,237.5L56.6,247.1L48.4,246L47.3,248.1L49.1,252.5L43.2,257.7L36.5,261.2L39.7,252L37.1,240.9L39.4,239.9L39.3,236.2L35.5,235.8L31.6,245.1L35.2,252L33.5,255.2L21.6,251.2L19.9,247L24.4,245.5L25.3,240L21.1,233.9L21.9,231L21.3,222.3L25.2,220.4L29.6,214.5L35.1,203.1L30.8,201.7L32.9,198.8L32.2,195.3L27.1,185.7L22.7,182.6L19.2,185.3L20.8,194.6L25.4,194.5L25.9,200L22.9,200.9L17,197.5L8.3,204.8L10,199.1L5.8,193.7L5.5,186.9L10.2,193L15.1,194.6L12.3,188.3L2.5,180.4L4.9,175.7L10.6,177.3L10,173L17.6,169.9L20.6,167.1L26.7,165.8L30.3,158.3L37.4,154.9L44.7,156.9L47.9,164.3ZM17.9,217.2L15.5,218.5L14.7,213L15.7,206.6L20.6,205.9L21.6,213.2ZM278.2,0L276.8,3.7L272.1,6.9L272.1,6.9L270.2,5.7L271.5,0.3L269.1,0.2L269.2,0L278.2,0ZM167.1,141.5L163.8,144.6L160.9,144.4L159,141.3L164.1,134.6L169.3,132L166.3,137.4Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><defs><marker id="are2_6n360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="are2_6t360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="are2_6k360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="are2_6g360" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><circle cx="184.6" cy="126.5" r="9" fill="#B4532A" stroke="#fff" stroke-width="1.2"/><text x="184.6" y="130.5" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">1</text><circle cx="278.8" cy="24.5" r="9" fill="#B4532A" stroke="#fff" stroke-width="1.2"/><text x="278.8" y="28.5" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">2</text><circle cx="314.5" cy="105.8" r="9" fill="#5A6878" stroke="#fff" stroke-width="1.2"/><text x="314.5" y="109.8" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">3</text><line x1="316" y1="89.2" x2="316.0" y2="69.2" stroke="#1F4E8C" stroke-width="1.2"/><circle cx="316" cy="89.2" r="3" fill="#1F4E8C"/><circle cx="316.0" cy="69.2" r="9" fill="#1F4E8C" stroke="#fff" stroke-width="1.2"/><text x="316.0" y="73.2" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">4</text><circle cx="34.8" cy="254.5" r="9" fill="#5A6878" stroke="#fff" stroke-width="1.2"/><text x="34.8" y="258.5" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">5</text><line x1="32.6" y1="240.1" x2="32.6" y2="220.1" stroke="#2F7F86" stroke-width="1.2"/><circle cx="32.6" cy="240.1" r="3" fill="#2F7F86"/><circle cx="32.6" cy="220.1" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="32.6" y="224.1" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">6</text><circle cx="58.5" cy="136.9" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="58.5" y="140.9" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">7</text><circle cx="24.6" cy="179.9" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="24.6" y="183.9" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">8</text><circle cx="337.5" cy="63.0" r="9" fill="#2F7F86" stroke="#fff" stroke-width="1.2"/><text x="337.5" y="67.0" text-anchor="middle" style="font-size:11px;font-weight:700" fill="#fff">9</text></svg><div class="legend"><span><i class="sq" style="background:#B4532A"></i>乱</span><span><i class="sq" style="background:#5A6878"></i>外国船</span><span><i class="sqt"></i>改革に成功した藩など</span></div><ol class="mapl"><li><i class="k">1</i>大坂<span class="pd">1837 大塩平八郎の乱</span></li><li><i class="k">2</i>越後・柏崎<span class="pd">1837 生田万の乱</span></li><li><i class="g">3</i>浦賀<span class="pd">1837 モリソン号を砲撃</span></li><li><i class="n">4</i>江戸<span class="pd">天保の改革</span></li><li><i class="g">5</i>山川</li><li><i class="t">6</i>薩摩(調所広郷)</li><li><i class="t">7</i>長州(村田清風)</li><li><i class="t">8</i>佐賀(鍋島直正)</li><li><i class="t">9</i>水戸(徳川斉昭)</li></ol><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">位置はおおよそ。モリソン号は浦賀と薩摩の山川で砲撃を受けた</p>
+</figure>
+<p>1837年、<span class="rb">大坂<span class="rt" aria-hidden="true">おおさか</span></span><span class="rb">町奉行<span class="rt" aria-hidden="true">まちぶぎょう</span></span>所の元<span class="rb">与力<span class="rt" aria-hidden="true">よりき</span></span>で、<span class="rb">陽明学<span class="rt" aria-hidden="true">ようめいがく</span></span>者の<span class="rb">大塩平八郎<span class="rt" aria-hidden="true">おおしおへいはちろう</span></span>が、弟子たちと兵を挙げた。大塩は、飢えた人々を救おうとしない役人や、米を買い占める大商人を批判し、自分の蔵書を売って貧しい人々に分け与えていた。</p>
+<p>乱は半日で鎮圧されたが、大坂の町の多くが焼けた。幕府の直轄都市で、元役人が反乱を起こしたことは、幕府に大きな衝撃を与えた。同じ年、<span class="rb">越後<span class="rt" aria-hidden="true">えちご</span></span>の<span class="rb">柏崎<span class="rt" aria-hidden="true">かしわざき</span></span>でも、<span class="rb">国学<span class="rt" aria-hidden="true">こくがく</span></span>者の<span class="rb">生田万<span class="rt" aria-hidden="true">いくたよろず</span></span>が大塩にならって兵を挙げている。</p>
+<h2><span class="no">第3節</span>天保の改革</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1841年、老中水野忠邦が天保の改革を始めた</li><li>厳しい倹約令を出し、株仲間を解散させた</li><li>上知令に反対が強く、忠邦は失脚した</li></ul></div>
+<p>1841年、<span class="rb">大御所<span class="rt" aria-hidden="true">おおごしょ</span></span>の家斉が亡くなると、12代将軍<span class="rb">徳川家慶<span class="rt" aria-hidden="true">とくがわいえよし</span></span>のもとで、<span class="rb">老中<span class="rt" aria-hidden="true">ろうじゅう</span></span>の<span class="rb">水野忠邦<span class="rt" aria-hidden="true">みずのただくに</span></span>が改革に乗り出した。これを天保の改革という。忠邦は、<span class="rb">享保<span class="rt" aria-hidden="true">きょうほう</span></span>・<span class="rb">寛政<span class="rt" aria-hidden="true">かんせい</span></span>の改革を手本に、厳しい倹約令を出してぜいたくを禁じた。</p>
+<p><span class="rb">人情本<span class="rt" aria-hidden="true">にんじょうぼん</span></span>の作者<span class="rb">為永春水<span class="rt" aria-hidden="true">ためながしゅんすい</span></span>らを処罰し、江戸の歌舞伎の芝居小屋を町の外れの<span class="rb">浅草<span class="rt" aria-hidden="true">あさくさ</span></span>に移した。</p>
+<figure><p class="figt"><span>図6-4</span>天保の改革のおもな政策</p>
+<div class="card n" style="margin-bottom:10px"><div class="hd">天保の改革(1841〜1843年)</div><div class="bd"><div class="rows"><div><b>倹約令</b><span>ぜいたくを厳しく禁じ、派手な着物や料理、出版物を取り締まる</span></div><div><b>株仲間の解散</b><span>物価が上がるのは株仲間が商品を独占しているためと考え、解散させる</span></div><div><b>人返しの法</b><span>江戸に出てきた百姓を村に帰らせる</span></div><div><b>上知令</b><span>江戸・大坂周辺の大名・旗本の領地を幕府の直轄地にしようとする。反対にあい撤回</span></div></div></div></div>
+</figure>
+<p>物価を下げるため<span class="rb">株仲間<span class="rt" aria-hidden="true">かぶなかま</span></span>を解散させたが、商品の流通が混乱して、かえって効果は上がらなかった。江戸に出てきた百姓を村に帰らせる<span class="rb">人返しの法<span class="rt" aria-hidden="true">ひとがえしのほう</span></span>も出した。</p>
+<p>1840年に始まったアヘン戦争で清がイギリスに敗れたことを知ると、1842年には異国船打払令を改め、外国船に水や燃料を与えて帰らせることにした(天保の<span class="rb">薪水給与令<span class="rt" aria-hidden="true">しんすいきゅうよれい</span></span>)。</p>
+<p>1843年、忠邦は江戸・大坂周辺の土地を幕府の直轄地にしようとする<span class="rb">上知令<span class="rt" aria-hidden="true">あげちれい</span></span>を出したが、大名や<span class="rb">旗本<span class="rt" aria-hidden="true">はたもと</span></span>の強い反対にあって撤回し、老中を辞めさせられた。改革は、わずか2年あまりで失敗に終わった。</p>
+<h2><span class="no">第4節</span>雄藩の登場</h2>
+<div class="point"><b>この節のポイント</b><ul><li>薩摩・長州・佐賀などの藩は改革に成功した</li><li>借金の整理や専売、貿易で財政を立て直した</li><li>力をつけた雄藩は、幕末の政治を動かしていく</li></ul></div>
+<p>幕府の改革が失敗する一方で、改革に成功して力をつけた藩もあった。薩摩藩では<span class="rb">調所広郷<span class="rt" aria-hidden="true">ずしょひろさと</span></span>が、500万両にのぼる借金を長い年月をかけて返す形に改め、<span class="rb">奄美<span class="rt" aria-hidden="true">あまみ</span></span>の黒砂糖の専売や、<span class="rb">琉球<span class="rt" aria-hidden="true">りゅうきゅう</span></span>を通じた貿易で利益をあげた。</p>
+<p>長州藩では<span class="rb">村田清風<span class="rt" aria-hidden="true">むらたせいふう</span></span>が借金を整理し、<span class="rb">下関<span class="rt" aria-hidden="true">しものせき</span></span>に立ち寄る船の荷を預かる仕事で利益を得た。</p>
+<figure><p class="figt"><span>図6-5</span>雄藩の改革</p>
+<div class="card t" style="margin-bottom:10px"><div class="hd">改革に成功し、力をつけた藩</div><div class="bd"><div class="rows"><div><b>薩摩藩</b><span>調所広郷が500万両の借金を長期返済に変え、奄美の黒砂糖の専売や琉球を通じた貿易で利益をあげる</span></div><div><b>長州藩</b><span>村田清風が借金を整理し、下関で他国の船の荷を預かって利益をあげる</span></div><div><b>佐賀藩</b><span>鍋島直正が反射炉を築いて大砲をつくり、西洋式の軍備を整える</span></div><div><b>水戸藩</b><span>徳川斉昭が藩校の弘道館を開き、改革を進める</span></div></div></div></div>
+</figure>
+<p>佐賀藩では、藩主の<span class="rb">鍋島直正<span class="rt" aria-hidden="true">なべしまなおまさ</span></span>が<span class="rb">反射炉<span class="rt" aria-hidden="true">はんしゃろ</span></span>を築いて大砲をつくるなど、西洋の技術を取り入れて軍備を整えた。水戸藩でも、藩主の<span class="rb">徳川斉昭<span class="rt" aria-hidden="true">とくがわなりあき</span></span>が改革を進めた。</p>
+<p>このように力をつけた藩は<span class="rb">雄藩<span class="rt" aria-hidden="true">ゆうはん</span></span>と呼ばれ、やがて幕末の政治に大きな発言力をもつようになる。</p>
+<section class="summary" aria-labelledby="pt"><h3 id="pt">この章の要点</h3><ul><li>幕府は1825年に異国船打払令を出し、1837年にモリソン号を砲撃した。批判した渡辺崋山・高野長英は蛮社の獄で処罰された。</li><li>天保の飢饉で一揆や打ちこわしが続き、1837年に大坂で大塩平八郎の乱が起こった。</li><li>水野忠邦の天保の改革は、倹約令・株仲間の解散・人返しの法・上知令などを進めたが、2年あまりで失敗した。</li><li>薩摩・長州・佐賀などは藩の改革に成功して力をつけ、雄藩と呼ばれた。</li></ul></section>
+<section class="column" aria-labelledby="col"><h3 id="col">コラム 大塩平八郎はなぜ立ち上がったのか</h3>
+<p>大塩平八郎は、大坂町奉行所の与力として、不正を厳しく取り締まった有能な役人であった。役人を辞めてからは、自宅に塾を開いて陽明学を教えていた。陽明学は、正しいと知ったことは行動に移すべきだと説く学問である。</p>
+<p>天保の飢饉で大坂の町に飢えた人々があふれても、奉行所は米を江戸に送り、大商人は米を買い占めていた。大塩は救済を訴えたが聞き入れられず、蔵書を売って人々に施した後、ついに兵を挙げた。</p>
+<p>乱そのものは失敗したが、大塩の名は「大塩様」として人々の間で語り継がれた。</p>
+</section>
+<div class="navs"><a href="mb_ch5.html">← 第5章</a><a href="index.html">目次</a><a href="mb_ch7.html">第7章 →</a></div>
+</main>
+<footer>第6章 スマホ版 ・ 全8章のうちの1章</footer>
+</div>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('rubyBtn');
+  b.addEventListener('click',function(){
+    var off=document.body.classList.toggle('noruby');
+    b.textContent=off?'ふりがな:なし':'ふりがな:あり';
+    b.setAttribute('aria-pressed',off?'false':'true');
+    if(!off&&window.fitRuby)window.fitRuby();
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>改革と開国 第1章</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style>.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+
+.cfig{background:#F7FAFD;border:1px solid #DCE4EE;border-radius:8px;padding:16px 18px}
+.ppl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ppl .pg{margin:0}
+.mapwrap{display:flex;gap:16px;align-items:flex-start}
+footer a{color:var(--navy)}
+.tlh{font-size:15px;color:var(--navy);margin:1.4em 0 .3em}
+</style><style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style><style>.figstatic{cursor:default}.figstatic:hover{border-color:#DCE4EE}</style></head>
+<body>
+<div class="page">
+<p class="series">改革と開国 解説資料</p>
+<article class="sheet">
+<div class="band">第一章 ・ 1716 ― 1745</div>
+<header class="ch">
+<h1>享保の改革</h1>
+<p class="lead">「米将軍」吉宗による、幕府の立て直し</p>
+</header>
+<div class="body">
+<figure><div class="figbtn figstatic"><svg viewBox="0 0 680 270" role="img"><title>図1-1 この章の年表</title><desc>1716 吉宗が8代将軍に、1719 相対済し令、1721 目安箱を置く、1722 上げ米の制、小石川養生所、1723 足高の制、1732 享保の飢饉、1742 公事方御定書、1745 吉宗が将軍職を家重に譲る</desc><rect x="50" y="146" width="580" height="8" rx="3" fill="#1F4E8C"/><line x1="60.0" y1="118" x2="60.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="60.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1716</text><text x="60.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">吉宗が8代将軍に</text><circle cx="60.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="117.9" y1="154" x2="117.9" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="117.9" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1719</text><text x="117.9" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">相対済し令</text><circle cx="117.9" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="156.6" y1="78" x2="156.6" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="156.6" y="56" text-anchor="start" class="h" style="fill:#2F7F86">1721</text><text x="156.6" y="72" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">目安箱を置く</text><circle cx="156.6" cy="150" r="4.5" fill="#fff" stroke="#2F7F86" stroke-width="2"/><line x1="175.9" y1="118" x2="175.9" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="175.9" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1722</text><text x="175.9" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">上げ米の制、小石川養生所</text><circle cx="175.9" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="195.2" y1="154" x2="195.2" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="195.2" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1723</text><text x="195.2" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">足高の制</text><circle cx="195.2" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="369.0" y1="118" x2="369.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="369.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1732</text><text x="369.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">享保の飢饉</text><circle cx="369.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="562.1" y1="118" x2="562.1" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="562.1" y="96" text-anchor="start" class="h" style="fill:#2F7F86">1742</text><text x="562.1" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">公事方御定書</text><circle cx="562.1" cy="150" r="4.5" fill="#fff" stroke="#2F7F86" stroke-width="2"/><line x1="620.0" y1="154" x2="620.0" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="620.0" y="198" text-anchor="end" class="h" style="fill:#1F4E8C">1745</text><text x="620.0" y="214" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:400">吉宗が将軍職を家重に譲る</text><circle cx="620.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/></svg></div><figcaption><span><b>図1-1</b>この章の年表</span></figcaption></figure>
+<figure><div class="cfig"><div class="ppl"><div class="pg n"><h4>将軍</h4><ul><li><b><span class="rb">徳川吉宗<span class="rt" aria-hidden="true">とくがわよしむね</span></span></b><span class="pd">紀伊藩主から8代将軍に。家康の時代を手本に、幕府の立て直しに取り組んだ</span></li></ul></div><div class="pg t"><h4>改革を支えた人々</h4><ul><li><b><span class="rb">大岡忠相<span class="rt" aria-hidden="true">おおおかただすけ</span></span></b><span class="pd">江戸町奉行。町火消の組織や裁判の基準づくりにかかわった</span></li><li><b><span class="rb">青木昆陽<span class="rt" aria-hidden="true">あおきこんよう</span></span></b><span class="pd">蘭学を学んだ学者。飢饉に備えて甘藷(さつまいも)の栽培を広めた</span></li><li><b><span class="rb">小川笙船<span class="rt" aria-hidden="true">おがわしょうせん</span></span></b><span class="pd">町医者。目安箱に投書し、小石川養生所の設立につながった</span></li></ul></div></div></div><figcaption><span><b>図1-2</b>この章の登場人物</span></figcaption></figure>
+<h2><span class="no">第1節</span>紀伊から来た将軍</h2>
+<p>1716年、7代将軍の家継が幼くして亡くなり、徳川<span class="rb">将軍家<span class="rt" aria-hidden="true">しょうぐんけ</span></span>の本家の血筋が途絶えた。8代将軍に迎えられたのは、<span class="rb">御三家<span class="rt" aria-hidden="true">ごさんけ</span></span>の一つ<span class="rb">紀伊<span class="rt" aria-hidden="true">きい</span></span>藩の藩主であった<span class="rb">徳川吉宗<span class="rt" aria-hidden="true">とくがわよしむね</span></span>である。</p>
+<p>このころ幕府の財政は苦しかった。鉱山からの金銀の産出は減り、<span class="rb">元禄<span class="rt" aria-hidden="true">げんろく</span></span>期の出費や物価の上昇もあって、<span class="rb">旗本<span class="rt" aria-hidden="true">はたもと</span></span>や<span class="rb">御家人<span class="rt" aria-hidden="true">ごけにん</span></span>に給与を払うことさえ難しくなっていた。吉宗は、家康の時代の政治を手本に、30年近くにわたって幕府の立て直しに取り組んだ。これを<span class="rb">享保<span class="rt" aria-hidden="true">きょうほう</span></span>の改革という。</p>
+<h2><span class="no">第2節</span>財政の立て直し</h2>
+<p>吉宗はまず倹約を命じ、自らも質素な暮らしを示した。1722年には<span class="rb">上げ米<span class="rt" aria-hidden="true">あげまい</span></span>の制を定め、大名に<span class="rb">石高<span class="rt" aria-hidden="true">こくだか</span></span>1万石につき100石の米を納めさせた。その代わりに、<span class="rb">参勤交代<span class="rt" aria-hidden="true">さんきんこうたい</span></span>で江戸にいる期間を1年から半年に縮めた。将軍が大名に頭を下げて頼むような、異例の政策であった。</p>
+<figure><div class="cfig"><div class="flow"><div class="pair"><div class="fs s"><em>支出を減らす</em><b>倹約令</b><span class="d">将軍自ら質素な暮らしを示し、幕府の出費を抑える</span></div><div class="fs t"><em>収入を増やす</em><b>上げ米・定免法・新田開発</b><span class="d">大名から米を出させ、年貢の取り方を改め、田畑を増やす</span></div></div><div class="fs "><em>人材を生かす</em><b>足高の制</b><span class="d">家柄が低くても能力のある者を高い役職に就ける</span></div><div class="fs dk"><b>幕府の財政は一時的に立ち直る</b><span class="d">一方で、年貢が重くなった百姓の不満は高まった</span></div></div></div><figcaption><span><b>図1-3</b>財政を立て直す三つの柱</span></figcaption></figure>
+<p>年貢の取り方も改めた。その年の作柄を調べて年貢を決めるやり方から、一定の期間は同じ額を納めさせる<span class="rb">定免法<span class="rt" aria-hidden="true">じょうめんほう</span></span>に変え、年貢の率も引き上げた。商人の資金も使って<span class="rb">新田開発<span class="rt" aria-hidden="true">しんでんかいはつ</span></span>を進めた結果、幕府の年貢の収入は大きく増えた。また、<span class="rb">足高の制<span class="rt" aria-hidden="true">たしだかのせい</span></span>を定め、家柄が低くても能力のある者を高い役職に就けられるようにした。江戸<span class="rb">町奉行<span class="rt" aria-hidden="true">まちぶぎょう</span></span>に取り立てられた<span class="rb">大岡忠相<span class="rt" aria-hidden="true">おおおかただすけ</span></span>は、その代表である。</p>
+<h2><span class="no">第3節</span>目安箱と公事方御定書</h2>
+<p>1721年、吉宗は江戸城の門前などに<span class="rb">目安箱<span class="rt" aria-hidden="true">めやすばこ</span></span>を置き、庶民からの意見を直接投書させた。町医者の<span class="rb">小川笙船<span class="rt" aria-hidden="true">おがわしょうせん</span></span>が貧しい病人のための施設を求める投書をしたことから、翌年、<span class="rb">小石川養生所<span class="rt" aria-hidden="true">こいしかわようじょうしょ</span></span>がつくられた。</p>
+<p>吉宗はまた、裁判や刑罰の基準をまとめた<span class="rb">公事方御定書<span class="rt" aria-hidden="true">くじかたおさだめがき</span></span>をつくらせ、1742年に完成させた。役人によって判決がまちまちになることを防ぐためである。江戸では、大岡忠相のもとで町人による消防の組織(<span class="rb">町火消<span class="rt" aria-hidden="true">まちびけし</span></span>)が整えられた。</p>
+<figure><div class="cfig"><div class="card t" style="margin-bottom:10px"><div class="hd">財政</div><div class="bd"><div class="rows"><div><b>上げ米の制(1722年)</b><span>大名に石高1万石につき100石の米を納めさせ、代わりに参勤交代の江戸滞在を半年に縮める</span></div><div><b>定免法</b><span>豊作・不作にかかわらず、一定の年貢を納めさせる</span></div><div><b>新田開発</b><span>商人の資金も使って新しい田畑を開かせる</span></div></div></div></div><div class="card n" style="margin-bottom:10px"><div class="hd">政治・社会</div><div class="bd"><div class="rows"><div><b>目安箱(1721年)</b><span>庶民の意見を直接投書させる</span></div><div><b>公事方御定書(1742年)</b><span>裁判や刑罰の基準をまとめる</span></div><div><b>町火消</b><span>江戸の町人による消防の組織をつくる</span></div></div></div></div><div class="card g" style="margin-bottom:10px"><div class="hd">学問・産業</div><div class="bd"><div class="rows"><div><b>漢訳洋書の輸入をゆるめる</b><span>キリスト教に関係のない、中国語に訳された西洋の本の輸入を認める</span></div><div><b>甘藷・さとうきび</b><span>飢饉に備えた作物や、輸入に頼っていた品の国産化を進める</span></div></div></div></div></div><figcaption><span><b>図1-4</b>享保の改革のおもな政策</span></figcaption></figure>
+<h2><span class="no">第4節</span>「米将軍」と改革の影</h2>
+<p>年貢の米を売ってお金に換える武士にとって、米の値段は暮らしを左右する問題であった。吉宗は<span class="rb">大坂<span class="rt" aria-hidden="true">おおさか</span></span>の<span class="rb">堂島<span class="rt" aria-hidden="true">どうじま</span></span>の米市場を公に認めるなどして、米の値段の安定に努め、「米将軍」と呼ばれた。また、キリスト教に関係のない漢訳洋書の輸入をゆるめ、<span class="rb">青木昆陽<span class="rt" aria-hidden="true">あおきこんよう</span></span>らに<span class="rb">甘藷<span class="rt" aria-hidden="true">かんしょ</span></span>(さつまいも)の栽培を研究させるなど、実用的な学問や産業を奨励した。</p>
+<p>しかし、年貢の引き上げは百姓の暮らしを圧迫した。1732年には、西日本でいなごなどの害虫が大発生して享保の<span class="rb">飢饉<span class="rt" aria-hidden="true">ききん</span></span>が起こり、多くの人が飢えた。翌年、江戸では米の値段が上がり、人々が米商人の家を襲う<span class="rb">打ちこわし<span class="rt" aria-hidden="true">うちこわし</span></span>が初めて起こった。1745年、吉宗は将軍職を子の<span class="rb">徳川家重<span class="rt" aria-hidden="true">とくがわいえしげ</span></span>に譲ったが、その後も<span class="rb">大御所<span class="rt" aria-hidden="true">おおごしょ</span></span>として政治を見守った。</p>
+<section class="points" aria-labelledby="pt">
+<h3 id="pt">この章の要点</h3>
+<ul>
+<li>1716年、紀伊藩主の吉宗が8代将軍となり、家康の時代を手本に享保の改革を進めた。</li>
+<li>上げ米の制・定免法・新田開発で年貢の収入を増やし、足高の制で能力のある人材を登用した。</li>
+<li>目安箱を置いて庶民の意見を聞き、公事方御定書で裁判の基準を定めた。</li>
+<li>年貢の引き上げは百姓の暮らしを圧迫し、享保の飢饉の後、江戸で初めての打ちこわしが起こった。</li>
+</ul>
+</section>
+<section class="column" aria-labelledby="col">
+<h3 id="col">コラム 目安箱には何が入っていたのか</h3>
+<p>目安箱は、毎月決まった日に江戸城の<span class="rb">評定所<span class="rt" aria-hidden="true">ひょうじょうしょ</span></span>の門前に置かれた。投書には名前と住所を書く必要があり、名前のない投書は読まずに焼き捨てられた。箱には鍵がかけられ、将軍自らが開けて読んだとされる。</p>
+<p>投書の中には、小石川養生所の設立のように政策につながったもののほか、幕府の政治への批判もあった。吉宗は自分への批判にも目を通したと伝えられる。目安箱は、将軍が庶民の声を直接聞くという姿勢を示すものでもあった。</p>
+</section>
+</div>
+</article>
+<div class="navs"><a href="index.html">← 目次</a><a href="index.html">目次</a><a href="pc_ch2.html">第2章 →</a></div>
+<footer>第1章 ・ 全8章のうちの1章</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn-zoom').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>
