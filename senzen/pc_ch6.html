@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>デモクラシーと戦争の時代 第6章</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style>.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+
+.cfig{background:#F7FAFD;border:1px solid #DCE4EE;border-radius:8px;padding:16px 18px}
+.ppl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ppl .pg{margin:0}
+.mapwrap{display:flex;gap:16px;align-items:flex-start}
+footer a{color:var(--navy)}
+.tlh{font-size:15px;color:var(--navy);margin:1.4em 0 .3em}
+</style><style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style><style>.figstatic{cursor:default}.figstatic:hover{border-color:#DCE4EE}</style></head>
+<body>
+<div class="page">
+<p class="series">デモクラシーと戦争の時代 解説資料</p>
+<article class="sheet">
+<div class="band">第六章 ・ 1931 ― 1936</div>
+<header class="ch">
+<h1>満州事変と軍部の台頭</h1>
+<p class="lead">軍の独断で始まった戦いが、日本を国際社会から孤立させていく</p>
+</header>
+<div class="body">
+<figure><div class="figbtn figstatic"><svg viewBox="0 0 680 270" role="img"><title>図6-1 この章の年表</title><desc>1931 柳条湖事件、満州事変、1932 満州国の建国、五・一五事件、1933 国際連盟を脱退、1935 天皇機関説事件、1936 二・二六事件、1936 日独防共協定</desc><rect x="50" y="146" width="580" height="8" rx="3" fill="#1F4E8C"/><line x1="60.0" y1="118" x2="60.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="60.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1931</text><text x="60.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">柳条湖事件、満州事変</text><circle cx="60.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="172.0" y1="154" x2="172.0" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="172.0" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1932</text><text x="172.0" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">満州国の建国、五・一五事件</text><circle cx="172.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="284.0" y1="118" x2="284.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="284.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1933</text><text x="284.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">国際連盟を脱退</text><circle cx="284.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="508.0" y1="118" x2="508.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="508.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1935</text><text x="508.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">天皇機関説事件</text><circle cx="508.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="620.0" y1="154" x2="620.0" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="620.0" y="198" text-anchor="end" class="h" style="fill:#1F4E8C">1936</text><text x="620.0" y="214" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:700">二・二六事件</text><circle cx="620.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="620.0" y1="78" x2="620.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="620.0" y="56" text-anchor="end" class="h" style="fill:#1F4E8C">1936</text><text x="620.0" y="72" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:400">日独防共協定</text><circle cx="620.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/></svg></div><figcaption><span><b>図6-1</b>この章の年表</span></figcaption></figure>
+<figure><div class="cfig"><div class="ppl"><div class="pg k"><h4>軍部</h4><ul><li><b><span class="rb">石原莞爾<span class="rt" aria-hidden="true">いしわらかんじ</span></span></b><span class="pd">関東軍の参謀。柳条湖事件を計画し、満州事変を指導した</span></li><li><b><span class="rb">二・二六事件<span class="rt" aria-hidden="true">に・にろくじけん</span></span>の青年将校たち</b><span class="pd">天皇中心の国家改造を唱えた陸軍の若い将校。政府の要人を殺害した</span></li></ul></div><div class="pg n"><h4>政治と外交</h4><ul><li><b><span class="rb">犬養毅<span class="rt" aria-hidden="true">いぬかいつよし</span></span></b><span class="pd">首相。五・一五事件で海軍の青年将校らに殺害された</span></li><li><b><span class="rb">松岡洋右<span class="rt" aria-hidden="true">まつおかようすけ</span></span></b><span class="pd">国際連盟総会の日本の代表。総会の場から退場し、連盟脱退を告げた</span></li><li><b><span class="rb">溥儀<span class="rt" aria-hidden="true">ふぎ</span></span></b><span class="pd">清朝最後の皇帝。満州国の執政、のちに皇帝とされた</span></li></ul></div></div></div><figcaption><span><b>図6-2</b>この章の登場人物</span></figcaption></figure>
+<h2><span class="no">第1節</span>満州事変</h2>
+<p><span class="rb">日露戦争<span class="rt" aria-hidden="true">にちろせんそう</span></span>以来、日本は<span class="rb">満州<span class="rt" aria-hidden="true">まんしゅう</span></span>(中国東北部)に鉄道などの権益をもち、<span class="rb">関東軍<span class="rt" aria-hidden="true">かんとうぐん</span></span>を置いていた。中国で国権回復の動きが強まると、関東軍の中には、満州を中国から切り離して日本の支配下に置こうとする考えが広がった。</p>
+<p>1931年9月18日、関東軍は<span class="rb">奉天<span class="rt" aria-hidden="true">ほうてん</span></span>の近くの<span class="rb">柳条湖<span class="rt" aria-hidden="true">りゅうじょうこ</span></span>で南満州鉄道の線路を爆破し、これを中国軍のしわざとして軍事行動を始めた(<span class="rb">満州事変<span class="rt" aria-hidden="true">まんしゅうじへん</span></span>)。若槻内閣は戦いを広げない方針をとったが、関東軍はこれを無視して戦線を広げ、数か月のうちに満州の大部分を占領した。国民の多くは、新聞の報道もあって、軍の行動を支持した。</p>
+<figure><div class="figbtn figstatic"><svg viewBox="0 0 640 778" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>満州事変と満州国</title><desc>位置・範囲はおおよそ</desc><rect width="640" height="778" fill="#EAF2FB"/><path d="M640,613.2L638.3,613.6L628.8,618.5L625,617.5L613.6,620.6L606.3,616.6L603,617.6L600.6,621.3L597.7,636L585.1,627.9L576.8,629.2L569.3,631.9L564.2,629.1L559.4,630.8L558.5,620L562.1,615.1L573,614.3L580.9,606.7L588.7,602.5L595.2,595.9L601.3,591.2L612.5,580.3L615,576L622,572.5L632.8,570.8L636.1,574.5L640,573.5L640,613.2ZM640,650.4L633.3,653.9L627.6,666.3L624.9,667.9L623.7,673.2L620.3,676.5L613.2,676.2L615.3,671L608.6,670.4L606.6,665.1L609.2,656.4L605.8,655L606,651.3L595.9,654.6L613.2,641.6L617.7,630.2L624.1,626.6L628.6,632.6L640,629.9L640,650.4ZM567.5,644.8L575,645.5L580.2,642.9L583.6,644.8L584.1,648.6L578.7,657.1L589.9,657.9L588.5,662.9L591.6,665.6L590.4,668.3L593.4,670.4L592.4,673.1L584.8,682.5L579.6,696.2L576.3,708.6L576.3,716.5L572.5,726.2L564.2,725.1L563.1,727.2L565,731.7L558.9,736.9L552.2,740.5L555.4,731.1L552.7,719.9L555.1,718.9L555,715.1L551.2,714.7L547.2,724.2L550.8,731.2L549.1,734.4L537,730.3L535.3,726.1L539.9,724.5L540.8,719L536.5,712.8L537.3,709.9L536.8,701L540.7,699.1L545.2,693.1L550.7,681.5L546.3,680.1L548.5,677.2L547.8,673.6L542.6,663.9L538.1,660.7L534.6,663.5L536.2,672.9L540.9,672.8L541.4,678.4L538.3,679.3L532.4,675.9L523.5,683.3L525.3,677.5L521,672L520.7,665.1L525.4,671.3L530.5,672.9L527.6,666.5L517.7,658.5L520.1,653.7L525.9,655.4L525.3,651L533,647.9L536,645L542.2,643.7L545.9,636.1L553.1,632.6L560.5,634.7L563.7,642.2ZM640,278.5L629.4,282.9L624.3,278.2L620.2,278.9L615.3,275.3L608.3,273.9L602.6,275L603.6,259.8L602.9,256.6L594.1,264.9L589,266L593.5,258.1L586.8,259.1L578,270.2L574.2,277.6L571.1,279.7L566.9,285.9L552.8,284.7L556.8,290.4L553.5,298.7L550.6,300.9L545,299.7L538.1,304.7L532.8,310.5L526.9,320.6L523.2,324.5L520.8,333.5L523.4,341.5L521.7,349L522.7,356.9L521.6,360L510.1,365.4L502.9,375L494.6,380.5L490.2,382.2L487.3,387.1L477.8,393.6L467.2,395.3L464.2,399.4L454.8,404L453.5,407.5L454.2,417L449,423.6L449.4,427.2L461.6,432.2L467.4,439.7L476.1,445.8L480,450.7L487.7,468.5L494.9,480L501.1,488.2L510,504.1L512.6,512.5L514.3,524.9L513.1,529L513.4,535.5L511.8,541.2L512.2,551.7L513.8,553.4L517.4,551.7L517.1,555.7L512.6,573L506.2,585.1L498.9,588.2L488.3,587.4L484.3,588.2L481.4,591.4L482.2,597L471.2,594.5L469.5,591.2L459.3,593.7L457.1,596.2L460.2,600.3L456.9,603.8L453.4,598.1L449.7,598.8L449.2,601.8L452,606.3L447.2,612.4L442.5,609.3L445.2,604.9L444.8,601.3L438,607L433.8,613.3L429.4,610.6L424.9,614.7L424,617.9L421.7,616.7L420.9,611.3L414.2,604.4L415.3,602.7L422.2,603.5L420.6,601.3L424.4,598.7L419,598.8L414.9,586.1L417.1,583.7L421.2,572.8L425.1,570.2L421.1,567.2L428.2,562.6L429.3,558.6L426.1,556.7L427.5,553.1L422.7,547.2L422.9,535.2L421.1,526.8L418,528.4L411.5,526.9L412.6,519.9L416.9,516.5L423.9,514.1L430.3,516.9L432,520.9L435.7,518.5L433,515.8L429.1,507.3L430.6,503.3L426.2,497.3L426.4,493.2L423.5,486.7L425.6,484.1L417.4,480.3L412.2,482.3L409.5,485.6L407.4,480.6L404,480.5L398.6,476L396.3,476.9L392.8,482.8L385.8,486.4L384.4,481.7L374.3,478.2L382.3,473.2L379.8,471.8L374.5,472.4L365,470.4L370.8,466.3L370.9,461.9L376.7,453.3L384.3,449L391.9,448.2L387.9,445.8L383.9,445.9L379.9,443.4L379.5,440.7L387.4,424L385.9,414.4L377.7,411.8L367.6,405L366.3,409.2L363.4,410.8L360.8,403.7L354.2,399L354.4,394.6L351.8,398.2L346.7,401.6L335.9,402.3L332.6,399.9L330.3,403.8L323.1,404.7L319.3,407.8L313.2,408.4L307.2,411.4L291.4,420.8L284.8,429.5L276.7,435.7L270.9,435.5L270.1,441L259.7,443.3L254.9,446.4L253.1,438.8L271,431.2L269.4,426.7L275.4,420L258.4,420.1L258.2,413.6L265.9,409.8L264.6,405.1L265.9,401.4L274.8,397.1L286.9,380.5L289.5,373L285.4,367L276.6,360.6L275.8,355.2L272.5,360.5L266.5,359.1L255.2,358.2L247.4,367.1L242.6,371L233.5,385.7L230.1,386.8L213.9,395.6L205.8,399.1L199.5,405.2L195.4,413L194.3,419.2L188.6,426.7L184.5,428.9L175.7,428.5L165.4,432.9L160.7,427.8L157.3,426.4L149.4,430.2L144.1,441.5L142.3,450.6L145.3,458.7L148.8,463.1L156.6,468.2L173.1,471.7L181.1,470.5L185.4,473.8L188.1,479.3L190,487.3L187,489.7L185.9,501.8L190.8,507L196.3,509.4L201.4,509.9L211.1,508.8L215,504.9L214.9,501.1L223.4,495.4L228.3,490.4L226.6,488.2L242,482.1L251.3,486.3L256.6,491.3L261.9,492.1L269.7,496.8L279.8,497.4L282.8,494.1L291.5,499L299.7,498.1L301.8,499L298.8,502.4L299.3,507.8L294.9,512.2L297.2,516.9L291.6,521.4L288.5,520.7L286,516.5L278.8,516.4L262.7,525.1L249.4,530.5L243.4,530.1L246.5,536.5L242.8,536L239.8,540.5L239.8,547.2L230.8,551.6L228.8,549.4L228.8,544.9L224.2,545.8L221.5,549.1L224.2,553L227.5,554.3L220.3,559L214.3,567.4L209.8,569.5L203.8,578.4L200.7,580.5L198.4,587.7L194.1,591.6L192.5,597.8L193.6,601.6L198.2,601.5L205.6,607.9L217.4,613L226.9,619.6L228.6,623.5L234.3,643.5L237.8,649.1L241.5,658.5L245.7,666.8L246.6,673.1L245.2,679.9L249.4,683.5L258.9,687.5L262.3,690.6L262.3,696.7L265.1,699.9L270.9,702.5L275.8,708.1L276.8,715.3L271,714.9L260.7,709.6L254.3,710.2L248.9,709.1L243.2,703.2L234.8,700.4L224.3,705.6L219.6,706.7L224.5,707.8L234.1,703.6L240.8,705L243.1,711L251.5,714.7L256.1,718L260.7,723.3L270.4,729.3L274.3,735L277.1,744L273.8,745.7L266.2,746.8L259.4,751.9L249.7,757L246.6,763L244.2,764.4L232.5,763.2L226.2,767L229.5,768.3L234,766.3L238.3,772.4L246.8,771.4L254.8,766.3L260.4,767L263.2,769.1L271,777.9L271.1,778L0,778L0,0L640,0ZM560.7,762.9L558,763.3L560.3,753L562.3,748.5L564.5,748.6L563.7,754ZM533.3,695.9L530.8,697.2L530,691.6L531,685.1L536,684.4L537,691.8ZM470.3,599.4L470,603.1L466.5,600.9L464.4,602.1L463,596.8L465.6,595.1L469.5,596.6ZM416.1,659L413.4,659.3L411,655.7L416.4,650.2L427.5,646.8L433.9,648.1L434.9,650.8L433.1,654.6L424,658.5ZM276.7,723L274.1,724L266,720.9L260.3,717.4L256.4,711.5L264.2,713.3L267.7,717.7L275,720.8ZM287.7,778L281.8,776.8L280.1,772.1L284.5,772.2L291.1,776.1L290.4,778L287.7,778Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><text x="374.6" y="102.5" text-anchor="middle" style="font-size:17.0px;font-weight:700;letter-spacing:.2em" fill="#9AA6B4">満州国</text><text x="109.3" y="592" text-anchor="middle" style="font-size:15.0px;font-weight:700;letter-spacing:.2em" fill="#9AA6B4">中華民国</text><defs><marker id="arsz6n640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="arsz6t640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="arsz6k640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="arsz6g640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><circle cx="326.9" cy="319.1" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="318.9" y="323.1" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="318.9" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">柳条湖(奉天の近く)</tspan><tspan x="318.9" dy="14.5" style="font-size:11.0px" fill="#5A6878">1931年9月 鉄道爆破</tspan></text><circle cx="384.6" cy="232.2" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="392.6" y="236.2" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="392.6" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">新京(長春)</tspan><tspan x="392.6" dy="14.5" style="font-size:11.0px" fill="#5A6878">満州国の首都</tspan></text><circle cx="425.5" cy="149.9" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="433.5" y="153.9" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="433.5" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">ハルビン</tspan></text><circle cx="268.5" cy="439.6" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="260.5" y="443.6" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="260.5" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">大連・旅順</tspan><tspan x="260.5" dy="14.5" style="font-size:11.0px" fill="#5A6878">関東州(日本の租借地)</tspan></text><circle cx="264.4" cy="732.6" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="272.4" y="736.6" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="272.4" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">上海</tspan><tspan x="272.4" dy="14.5" style="font-size:11.0px" fill="#5A6878">1932 上海事変</tspan></text><circle cx="153.9" cy="355.3" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="145.9" y="359.3" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="145.9" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">熱河</tspan><tspan x="145.9" dy="14.5" style="font-size:11.0px" fill="#5A6878">1933 満州国に編入</tspan></text><circle cx="106.1" cy="399.2" r="4.5" fill="#5A6878" stroke="#fff" stroke-width="1.5"/><text x="106.1" y="416.2" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="106.1" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">北京</tspan></text><circle cx="436.4" cy="492.5" r="4.5" fill="#5A6878" stroke="#fff" stroke-width="1.5"/><text x="444.4" y="496.5" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="444.4" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">京城(朝鮮)</tspan></text></svg></div><div style=margin-top:6px><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">位置・範囲はおおよそ</p></div><figcaption><span><b>図6-3</b>満州事変と満州国</span></figcaption></figure>
+<h2><span class="no">第2節</span>満州国と国際連盟の脱退</h2>
+<p>1932年3月、関東軍は清朝最後の皇帝であった<span class="rb">溥儀<span class="rt" aria-hidden="true">ふぎ</span></span>を執政として、<span class="rb">満州国<span class="rt" aria-hidden="true">まんしゅうこく</span></span>をつくらせた。満州国は独立国とされたが、実際の権力は関東軍と日本人の役人が握っていた。日本からは、農民などが開拓団として移り住んだ。</p>
+<figure><div class="cfig"><div class="flow"><div class="fs dk"><em>1931年9月</em><b>柳条湖事件</b><span class="d">関東軍が南満州鉄道の線路を爆破し、中国軍のしわざとして軍事行動を始める</span></div><div class="fs s"><em>1932年3月</em><b>満州国の建国</b><span class="d">溥儀を執政とするが、実権は関東軍と日本人の役人が握る</span></div><div class="fs t"><em>1932年</em><b>リットン調査団の報告</b><span class="d">日本の軍事行動を自衛とは認めず、満州国も認めない。一方で日本の権益にも配慮</span></div><div class="fs dk"><em>1933年2〜3月</em><b>国際連盟総会が報告にもとづく勧告を採択(賛成42、反対は日本のみ)</b><span class="d">日本は国際連盟からの脱退を通告</span></div></div></div><figcaption><span><b>図6-4</b>国際連盟の脱退まで</span></figcaption></figure>
+<p>中国の訴えを受けた<span class="rb">国際連盟<span class="rt" aria-hidden="true">こくさいれんめい</span></span>は、イギリスのリットンを団長とする調査団を送った。調査団の報告は、日本の軍事行動を自衛とは認めず、満州国も認めなかった。1933年、国際連盟の総会が報告にもとづく勧告を賛成多数で採択すると、日本の代表の<span class="rb">松岡洋右<span class="rt" aria-hidden="true">まつおかようすけ</span></span>は会場から退場し、日本は国際連盟からの脱退を通告した。日本は国際社会から孤立する道を歩み始めた。</p>
+<h2><span class="no">第3節</span>五・一五事件と政党内閣の終わり</h2>
+<p>国内では、政党や<span class="rb">財閥<span class="rt" aria-hidden="true">ざいばつ</span></span>への不満を背景に、軍人や右翼によるテロが相次いだ。1932年5月15日、海軍の青年将校らが首相官邸を襲い、<span class="rb">犬養毅<span class="rt" aria-hidden="true">いぬかいつよし</span></span>首相を殺害した(<span class="rb">五・一五事件<span class="rt" aria-hidden="true">ご・いちごじけん</span></span>)。犬養の後は、海軍大将の<span class="rb">斎藤実<span class="rt" aria-hidden="true">さいとうまこと</span></span>が首相となり、1924年から続いてきた<span class="rb">政党内閣<span class="rt" aria-hidden="true">せいとうないかく</span></span>は途絶えた。</p>
+<p>言論や学問への圧力も強まった。1935年、<span class="rb">美濃部達吉<span class="rt" aria-hidden="true">みのべたつきち</span></span>の<span class="rb">天皇機関説<span class="rt" aria-hidden="true">てんのうきかんせつ</span></span>は、天皇の神聖を損なうものだとして議会などで攻撃され、政府は天皇機関説を否定する声明を出した。かつて広く認められていた学説が、政治の力によって否定されたのである。</p>
+<h2><span class="no">第4節</span>二・二六事件</h2>
+<p>1936年2月26日の早朝、天皇中心の国家改造をめざす陸軍の青年将校たちが、約1400人の兵を率いて首相官邸などを襲った。大蔵大臣の<span class="rb">高橋是清<span class="rt" aria-hidden="true">たかはしこれきよ</span></span>や内大臣の斎藤実らが殺害され、東京の中心部は4日間にわたって占拠された。天皇が反乱軍の鎮圧を強く求めたこともあって、反乱は鎮圧され、首謀者たちは処刑された(<span class="rb">二・二六事件<span class="rt" aria-hidden="true">に・にろくじけん</span></span>)。</p>
+<figure><div class="cfig"><div class="card k" style="margin-bottom:10px"><div class="hd">政党内閣の終わりと軍部の台頭</div><div class="bd"><div class="rows"><div><b>1932年5月15日 五・一五事件</b><span>海軍の青年将校らが首相官邸を襲い、犬養毅首相を殺害。政党内閣が途絶える</span></div><div><b>1935年 天皇機関説事件</b><span>美濃部達吉の学説が攻撃され、政府は天皇機関説を否定する</span></div><div><b>1936年2月26日 二・二六事件</b><span>陸軍の青年将校が約1400人の兵を率いて首相官邸などを襲い、高橋是清らを殺害。4日後に鎮圧</span></div><div><b>その後</b><span>軍部の発言力が強まり、軍部大臣を現役の軍人に限る制度が復活する</span></div></div></div></div></div><figcaption><span><b>図6-5</b>軍人によるテロとクーデター</span></figcaption></figure>
+<p>この事件の後、陸軍は軍内部の統制を強めると同時に、政治への発言力をいっそう強めた。軍部大臣を現役の軍人に限る制度が復活し、軍部の同意がなければ内閣をつくることも続けることも難しくなった。同じ1936年、日本はドイツと<span class="rb">日独防共協定<span class="rt" aria-hidden="true">にちどくぼうきょうきょうてい</span></span>を結び、国際社会の中で、同じく孤立していたドイツに近づいていった。</p>
+<section class="points" aria-labelledby="pt">
+<h3 id="pt">この章の要点</h3>
+<ul>
+<li>1931年、関東軍は柳条湖事件を起こして満州事変を始め、政府の不拡大方針を無視して満州を占領した。</li>
+<li>1932年に満州国がつくられたが、リットン調査団は日本の行動を認めず、日本は1933年に国際連盟を脱退した。</li>
+<li>1932年の五・一五事件で犬養首相が殺され、政党内閣が途絶えた。1935年には天皇機関説が否定された。</li>
+<li>1936年の二・二六事件の後、軍部の発言力が強まり、日本はドイツに近づいた。</li>
+</ul>
+</section>
+<section class="column" aria-labelledby="col">
+<h3 id="col">コラム 満蒙開拓団のその後</h3>
+<p>満州国がつくられると、日本政府は農村の貧しさを解決し、満州の支配を固めるため、農民を開拓団として送り出した。<span class="rb">満蒙開拓団<span class="rt" aria-hidden="true">まんもうかいたくだん</span></span>として満州に渡った人は約27万人にのぼるとされる。開拓地の多くは、中国の人々から安く買い上げたり取り上げたりした土地であった。</p>
+<p>1945年8月、ソ連軍が満州に攻め込むと、開拓団の人々は逃げ場を失い、戦闘や<span class="rb">集団自決<span class="rt" aria-hidden="true">しゅうだんじけつ</span></span>、飢えや病気で多くの人が亡くなった。混乱の中で親とはぐれ、中国の人々に育てられた子どもたちは「中国<span class="rb">残留孤児<span class="rt" aria-hidden="true">ざんりゅうこじ</span></span>」と呼ばれ、戦後長く、肉親を探し続けることになった。</p>
+</section>
+</div>
+</article>
+<div class="navs"><a href="pc_ch5.html">← 第5章</a><a href="index.html">目次</a><a href="pc_ch7.html">第7章 →</a></div>
+<footer>第6章 ・ 全8章のうちの1章</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn-zoom').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>

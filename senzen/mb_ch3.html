@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>デモクラシーと戦争の時代 第3章(スマホ版)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* スマホ優先の1カラム。カード枠をやめて画面幅を本文に使う。図は縦長に組み直す */
+  --paper:#FFFFFF; --ink:#1E2A3A; --sub:#5A6878; --navy:#1F4E8C; --teal:#2F7F86;
+  --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#D6E4F3;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.85;-webkit-text-size-adjust:100%}
+.wrap{max-width:520px;margin:0 auto}
+.topbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 20px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);font-size:13px;color:var(--sub)}
+.topbar button{font:inherit;font-size:13px;color:var(--navy);background:var(--sky);border:0;border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.topbar button:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+header.ch{background:var(--navy);color:#fff;padding:22px 20px 20px}
+header.ch .eyebrow{font-size:13px;letter-spacing:.15em;opacity:.85;margin:0 0 6px}
+header.ch h1{font-size:25px;line-height:1.4;font-weight:700;margin:0;text-wrap:balance}
+header.ch .lead{font-size:14.5px;line-height:1.7;margin:8px 0 0;opacity:.9}
+main{padding:0 20px 40px}
+h2{font-size:20px;line-height:1.5;font-weight:700;margin:40px 0 14px;padding-left:12px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{display:block;font-size:13px;color:var(--navy);font-weight:500}
+p{margin:0 0 1.15em}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.32em;transform:translateX(-50%);font-size:.5em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;letter-spacing:0;pointer-events:none}
+body.noruby .rt{display:none}
+.tl{list-style:none;margin:20px 0 0 6px;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:8px;padding:5px 0 5px 16px;font-size:15px;line-height:1.6}
+.tl li::before{content:"";position:absolute;left:-7px;top:12px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--navy)}
+.tl li.k::before{border-color:var(--teal)}
+.tl li.hl{font-weight:700}
+.tl li.hl::before{background:var(--navy)}
+.tl .y{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+.tl li.k .y{color:var(--teal)}
+.tlnote{display:flex;gap:16px;font-size:12.5px;color:var(--sub);margin:8px 0 0 6px}
+.tlnote span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;border:2px solid var(--navy);margin-right:5px;vertical-align:-1px}
+.tlnote span.k::before{border-color:var(--teal)}
+.point{background:var(--sky);border-radius:10px;padding:14px 16px;margin:0 0 22px;font-size:15px;line-height:1.7}
+.point b{display:block;color:var(--navy);font-size:13px;margin-bottom:4px}
+.point ul{margin:0;padding-left:1.2em}
+figure{margin:26px -20px 28px;padding:16px 20px 12px;background:#F7FAFD;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+figure svg{display:block;width:100%;height:auto}
+.figt{font-size:15px;font-weight:700;margin:0 0 12px;line-height:1.5}
+.figt span{color:var(--navy);margin-right:8px}
+.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.back{margin-top:10px;font-size:14px;font-weight:700;color:var(--teal);display:flex;gap:6px;align-items:center}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+.summary{background:var(--sky);border-radius:10px;padding:16px 18px 10px;margin:36px 0 18px}
+.summary h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy)}
+.summary ul{margin:0;padding-left:1.2em;font-size:16px}
+.summary li{margin:0 0 .5em}
+.column{border:1.5px dashed #9AAABB;border-radius:10px;padding:16px 18px 4px;margin:18px 0 0}
+.column h3{color:var(--teal)}
+.column figure{margin:16px -18px 16px}
+footer{font-size:12.5px;color:var(--sub);text-align:center;padding:0 20px 40px}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+.tlh{font-size:15px;color:var(--navy);margin:1.6em 0 .2em}
+</style>
+<style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style></head>
+<body>
+<div class="wrap">
+<div class="topbar"><span>デモクラシーと戦争の時代 解説資料</span><button type="button" id="rubyBtn" aria-pressed="true">ふりがな:あり</button></div>
+<header class="ch">
+<p class="eyebrow">第三章 ・ 1919 ― 1931</p>
+<h1>国際協調と植民地支配</h1>
+<p class="lead">大国の一員となった日本 ― 国際協調の陰で、植民地の人々は抵抗を続けた</p>
+</header>
+<main>
+<ol class="tl" aria-label="この章の年表"><li class="hl"><span class="y">1919</span><span>パリ講和会議、三・一独立運動、五・四運動</span></li><li><span class="y">1920</span><span>国際連盟に加盟(常任理事国)</span></li><li class="k"><span class="y">1920</span><span>朝鮮で産米増殖計画</span></li><li class="hl"><span class="y">1921</span><span>ワシントン会議(〜1922年)</span></li><li><span class="y">1922</span><span>山東省の権益を中国に返す</span></li><li><span class="y">1928</span><span>不戦条約</span></li></ol>
+<figure><p class="figt"><span>図3-2</span>この章の登場人物</p>
+<div class="ppl"><div class="pg n"><h4>日本の外交</h4><ul><li><b><span class="rb">西園寺公望<span class="rt" aria-hidden="true">さいおんじきんもち</span></span></b><span class="pd">パリ講和会議の首席全権</span></li><li><b><span class="rb">新渡戸稲造<span class="rt" aria-hidden="true">にとべいなぞう</span></span></b><span class="pd">国際連盟の事務次長として国際協調に尽くした</span></li><li><b><span class="rb">幣原喜重郎<span class="rt" aria-hidden="true">しではらきじゅうろう</span></span></b><span class="pd">外務大臣。欧米との協調と中国への内政不干渉を進めた(幣原外交)</span></li></ul></div><div class="pg t"><h4>独立と抗議を求めた人々</h4><ul><li><b>朝鮮の人々</b><span class="pd">1919年3月1日、独立を宣言し、朝鮮全土で「独立万歳」を叫んだ</span></li><li><b>中国の学生・民衆</b><span class="pd">1919年5月4日、山東省の権益の返還を求めて立ち上がった</span></li></ul></div></div>
+</figure>
+<h2><span class="no">第1節</span>パリ講和会議と国際連盟</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1919年、パリ講和会議でベルサイユ条約が結ばれた</li><li>日本は山東省の権益と南洋諸島の委任統治を得た</li><li>1920年、国際連盟の常任理事国となった</li></ul></div>
+<p>1919年、第一次世界大戦の講和会議がパリで開かれ、ベルサイユ条約が結ばれた。日本は戦勝国として<span class="rb">西園寺公望<span class="rt" aria-hidden="true">さいおんじきんもち</span></span>らを送り、中国の<span class="rb">山東省<span class="rt" aria-hidden="true">さんとうしょう</span></span>の旧ドイツの権益を受け継ぎ、赤道より北の<span class="rb">南洋諸島<span class="rt" aria-hidden="true">なんようしょとう</span></span>を<span class="rb">委任統治<span class="rt" aria-hidden="true">いにんとうち</span></span>することになった。</p>
+<p>日本は、<span class="rb">国際連盟<span class="rt" aria-hidden="true">こくさいれんめい</span></span>の規約に人種による差別をなくす規定を入れるよう提案したが、認められなかった。</p>
+<p>1920年には、アメリカのウィルソン大統領の提案で国際連盟が発足した。日本はイギリス・フランス・イタリアとともに常任理事国となり、<span class="rb">新渡戸稲造<span class="rt" aria-hidden="true">にとべいなぞう</span></span>が事務次長を務めた。</p>
+<p>日本は世界の大国の一員として、国際協調の体制の中に位置づけられたのである。</p>
+<h2><span class="no">第2節</span>三・一独立運動と五・四運動</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1919年3月1日、朝鮮で独立運動が起こった</li><li>日本は武力で鎮圧し、多数の死傷者が出た</li><li>中国では山東省の返還を求める五・四運動が起こった</li></ul></div>
+<p>第一次世界大戦後、民族のことは民族自身が決めるという「民族自決」の考えが世界に広がった。1919年3月1日、日本の植民地であった朝鮮の<span class="rb">京城<span class="rt" aria-hidden="true">けいじょう</span></span>(ソウル)で、宗教指導者らが独立宣言を発表した。</p>
+<p>人々は「独立万歳」を叫んで行進し、運動はたちまち朝鮮全土に広がった。日本は軍隊や警察を出してこれを鎮圧し、多数の死者や負傷者、逮捕者が出た(<span class="rb">三・一独立運動<span class="rt" aria-hidden="true">さん・いちどくりつうんどう</span></span>)。</p>
+<figure><p class="figt"><span>図3-3</span>1919年 ― 朝鮮と中国の民衆の運動</p>
+<div class="flow"><div class="pair"><div class="fs t"><em>朝鮮 三・一独立運動</em><b>3月1日、京城(ソウル)で独立宣言</b><span class="d">運動は朝鮮全土に広がるが、日本の軍隊・警察が武力で鎮圧し、多数の死傷者が出る</span></div><div class="fs t"><em>中国 五・四運動</em><b>5月4日、北京の学生が抗議</b><span class="d">パリ講和会議で山東省の権益が日本に渡ることに反対し、全国に広がる</span></div></div><div class="fs "><em>朝鮮統治の変化</em><b>武力による支配から「文化政治」へ</b><span class="d">言論や集会を一部認める一方、日本への同化を進める</span></div><div class="fs dk"><b>支配への抵抗は、その後も続いた</b></div></div>
+</figure>
+<p>この後、日本は朝鮮での武力による支配をゆるめ、言論や集会を一部認める「文<span class="rb">化政<span class="rt" aria-hidden="true">かせい</span></span>治」に切り替えた。しかし、日本への同化を進める方針は変わらなかった。</p>
+<p>米の生産を増やして日本に送る<span class="rb">産米増殖計画<span class="rt" aria-hidden="true">さんまいぞうしょくけいかく</span></span>が進められ、朝鮮の農民の暮らしは苦しくなった。中国でも同じ年の5月4日、山東省の権益が日本に渡ることに抗議する学生の運動が起こり、全国に広がった(<span class="rb">五・四運動<span class="rt" aria-hidden="true">ご・しうんどう</span></span>)。</p>
+<h2><span class="no">第3節</span>ワシントン会議と協調外交</h2>
+<div class="point"><b>この節のポイント</b><ul><li>1921〜1922年、ワシントン会議が開かれた</li><li>海軍の軍縮や、中国に関する取り決めが結ばれた</li><li>幣原外交のもとで国際協調が進められた</li></ul></div>
+<p>1921年から翌年にかけて、アメリカの呼びかけでワシントン会議が開かれた。この会議で、太平洋の現状維持を約束する<span class="rb">四か国条約<span class="rt" aria-hidden="true">よんかこくじょうやく</span></span>が結ばれ、<span class="rb">日英同盟<span class="rt" aria-hidden="true">にちえいどうめい</span></span>は廃止された。</p>
+<p>中国の主権と領土を尊重する<span class="rb">九か国条約<span class="rt" aria-hidden="true">きゅうかこくじょうやく</span></span>や、主力艦の保有を制限する海軍軍縮条約も結ばれた。日本は山東省の旧ドイツ権益の大部分を中国に返した。</p>
+<figure><p class="figt"><span>図3-4</span>ワシントン会議(1921〜1922年)</p>
+<div class="card n" style="margin-bottom:10px"><div class="hd">アメリカの呼びかけで開かれた国際会議</div><div class="bd"><div class="rows"><div><b>四か国条約</b><span>太平洋の島々の現状維持を約束。これにより日英同盟は廃止される</span></div><div><b>九か国条約</b><span>中国の主権と領土の尊重、各国の経済活動の機会均等を約束</span></div><div><b>海軍軍縮条約</b><span>主力艦の保有量を、アメリカ・イギリス各5に対して日本3などと定める</span></div><div><b>山東省</b><span>日本は旧ドイツの権益の大部分を中国に返す</span></div></div></div></div>
+</figure>
+<p>1920年代の日本は、外務大臣<span class="rb">幣原喜重郎<span class="rt" aria-hidden="true">しではらきじゅうろう</span></span>のもとで、欧米との協調と、中国への内政不干渉を重んじる外交を進めた(<span class="rb">協調外交<span class="rt" aria-hidden="true">きょうちょうがいこう</span></span>)。1928年には、戦争を国家の政策の手段としないことを約束する<span class="rb">不戦条約<span class="rt" aria-hidden="true">ふせんじょうやく</span></span>にも参加した。</p>
+<p>しかし、軍部などの中には、こうした外交を「軟弱」と批判する声も強まっていった。</p>
+<h2><span class="no">第4節</span>植民地の人々</h2>
+<div class="point"><b>この節のポイント</b><ul><li>朝鮮・台湾では日本への同化が進められた</li><li>多くの朝鮮の人々が仕事を求めて日本に渡った</li><li>差別や厳しい労働に苦しむ人々も多かった</li></ul></div>
+<p>台湾や朝鮮では、日本人が政治や経済の重要な地位を占め、学校では日本語の教育が進められた。鉄道や工場など、近代的な施設もつくられたが、それは日本の利益のためのものという性格が強かった。</p>
+<p>朝鮮では、土地を失ったり、暮らしが苦しくなったりした農民の中から、仕事を求めて日本や<span class="rb">満州<span class="rt" aria-hidden="true">まんしゅう</span></span>に渡る人々が増えた。日本に渡った人々の多くは、厳しい条件のもとで働き、差別に苦しんだ。</p>
+<p>国際協調の時代は、植民地の人々にとっては、支配が続く時代でもあった。</p>
+<section class="summary" aria-labelledby="pt"><h3 id="pt">この章の要点</h3><ul><li>パリ講和会議で日本は山東省の権益と南洋諸島の委任統治を得て、国際連盟の常任理事国となった。</li><li>1919年、朝鮮で三・一独立運動が起こったが、日本は武力で鎮圧した。中国では五・四運動が起こった。</li><li>ワシントン会議で海軍軍縮や中国に関する取り決めが結ばれ、日英同盟は廃止された。日本は協調外交を進めた。</li><li>朝鮮・台湾では日本への同化が進められ、仕事を求めて日本に渡った朝鮮の人々も差別に苦しんだ。</li></ul></section>
+<section class="column" aria-labelledby="col"><h3 id="col">コラム 否決された人種差別撤廃の提案</h3>
+<p><span class="rb">パリ講和会議<span class="rt" aria-hidden="true">パリこうわかいぎ</span></span>で日本は、国際連盟の規約に、人種や国籍による差別をしないという内容を入れるよう提案した。当時、アメリカでは日本人の移民が排斥され、日本人は欧米で差別を受けていたからである。</p>
+<p>提案は会議で多数の賛成を得たが、議長を務めたアメリカのウィルソン大統領が、重要な問題は全会一致が必要だとして採用しなかった。一方で日本自身は、植民地の朝鮮や台湾の人々を差別する立場にあった。</p>
+<p>この提案は、日本が欧米と対等であることを求めながら、アジアの人々を対等に扱っていなかったという、当時の日本の矛盾も映し出している。</p>
+</section>
+<div class="navs"><a href="mb_ch2.html">← 第2章</a><a href="index.html">目次</a><a href="mb_ch4.html">第4章 →</a></div>
+</main>
+<footer>第3章 スマホ版 ・ 全8章のうちの1章</footer>
+</div>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('rubyBtn');
+  b.addEventListener('click',function(){
+    var off=document.body.classList.toggle('noruby');
+    b.textContent=off?'ふりがな:なし':'ふりがな:あり';
+    b.setAttribute('aria-pressed',off?'false':'true');
+    if(!off&&window.fitRuby)window.fitRuby();
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>デモクラシーと戦争の時代 第4章</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style>.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+
+.cfig{background:#F7FAFD;border:1px solid #DCE4EE;border-radius:8px;padding:16px 18px}
+.ppl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ppl .pg{margin:0}
+.mapwrap{display:flex;gap:16px;align-items:flex-start}
+footer a{color:var(--navy)}
+.tlh{font-size:15px;color:var(--navy);margin:1.4em 0 .3em}
+</style><style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style><style>.figstatic{cursor:default}.figstatic:hover{border-color:#DCE4EE}</style></head>
+<body>
+<div class="page">
+<p class="series">デモクラシーと戦争の時代 解説資料</p>
+<article class="sheet">
+<div class="band">第四章 ・ 1915 ― 1929</div>
+<header class="ch">
+<h1>関東大震災と大正の暮らし・文化</h1>
+<p class="lead">大都市の誕生と大衆文化、そして震災があらわにした社会の暗部</p>
+</header>
+<div class="body">
+<figure><div class="figbtn figstatic"><svg viewBox="0 0 680 270" role="img"><title>図4-1 この章の年表</title><desc>1915 芥川龍之介『羅生門』、1918 このころ大衆文化が広がり始める、1923 関東大震災、1924 甲子園球場が完成、1925 ラジオ放送が始まる、1929 小林多喜二『蟹工船』</desc><rect x="50" y="146" width="580" height="8" rx="3" fill="#1F4E8C"/><line x1="60.0" y1="118" x2="60.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="60.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1915</text><text x="60.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">芥川龍之介『羅生門』</text><circle cx="60.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="180.0" y1="154" x2="180.0" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="180.0" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1918</text><text x="180.0" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">このころ大衆文化が広がり始める</text><circle cx="180.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="380.0" y1="118" x2="380.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="380.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1923</text><text x="380.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">関東大震災</text><circle cx="380.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="420.0" y1="154" x2="420.0" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="420.0" y="198" text-anchor="start" class="h" style="fill:#2F7F86">1924</text><text x="420.0" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">甲子園球場が完成</text><circle cx="420.0" cy="150" r="4.5" fill="#fff" stroke="#2F7F86" stroke-width="2"/><line x1="460.0" y1="118" x2="460.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="460.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1925</text><text x="460.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">ラジオ放送が始まる</text><circle cx="460.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="620.0" y1="78" x2="620.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="620.0" y="56" text-anchor="end" class="h" style="fill:#1F4E8C">1929</text><text x="620.0" y="72" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:400">小林多喜二『蟹工船』</text><circle cx="620.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/></svg></div><figcaption><span><b>図4-1</b>この章の年表</span></figcaption></figure>
+<figure><div class="cfig"><div class="ppl"><div class="pg n"><h4>震災と復興</h4><ul><li><b><span class="rb">後藤新平<span class="rt" aria-hidden="true">ごとうしんぺい</span></span></b><span class="pd">内務大臣・帝都復興院総裁として、東京の復興計画を立てた</span></li></ul></div><div class="pg t"><h4>文学</h4><ul><li><b><span class="rb">武者小路実篤<span class="rt" aria-hidden="true">むしゃのこうじさねあつ</span></span>・<span class="rb">志賀直哉<span class="rt" aria-hidden="true">しがなおや</span></span></b><span class="pd">人道主義・理想主義を掲げる白樺派の作家</span></li><li><b><span class="rb">芥川龍之介<span class="rt" aria-hidden="true">あくたがわりゅうのすけ</span></span></b><span class="pd">『羅生門』『鼻』など、古典に題材をとった短編小説を書いた</span></li><li><b><span class="rb">小林多喜二<span class="rt" aria-hidden="true">こばやしたきじ</span></span></b><span class="pd">プロレタリア文学の作家。『蟹工船』で労働者の過酷な姿を描いた</span></li></ul></div></div></div><figcaption><span><b>図4-2</b>この章の登場人物</span></figcaption></figure>
+<h2><span class="no">第1節</span>都市の新しい暮らし</h2>
+<p>第一次世界大戦後、東京や大阪などの都市は大きく発展した。会社や役所に勤めて給料を受け取るサラリーマンが増え、タイピストや電話交換手、バスの車掌などとして働く女性は「<span class="rb">職業婦人<span class="rt" aria-hidden="true">しょくぎょうふじん</span></span>」と呼ばれた。</p>
+<figure><div class="cfig"><div class="card n" style="margin-bottom:10px"><div class="hd">大正から昭和初めの都市</div><div class="bd"><div class="rows"><div><b>働き方</b><span>会社に勤める「サラリーマン」や、タイピスト・電話交換手などの「職業婦人」が増える</span></div><div><b>住まいと食</b><span>洋風の応接間をもつ文化住宅。カレーライス・とんかつ・コロッケなどの洋食</span></div><div><b>買い物と交通</b><span>都心のデパート。郊外と都心を結ぶ私鉄と、そのターミナル駅のデパート</span></div></div></div></div><div class="card t" style="margin-bottom:10px"><div class="hd">大衆文化</div><div class="bd"><div class="rows"><div><b>メディア</b><span>発行部数100万部を超える新聞。1925年にラジオ放送。雑誌『キング』、1冊1円の「円本」</span></div><div><b>娯楽</b><span>映画(活動写真)、宝塚の少女歌劇、野球(甲子園での中等学校野球)</span></div></div></div></div></div><figcaption><span><b>図4-3</b>都市の新しい暮らし</span></figcaption></figure>
+<p>郊外には、洋風の応接間をもつ<span class="rb">文化住宅<span class="rt" aria-hidden="true">ぶんかじゅうたく</span></span>が建てられ、私鉄で都心へ通う暮らしが広がった。大阪では、私鉄の経営者の<span class="rb">小林一三<span class="rt" aria-hidden="true">こばやしいちぞう</span></span>が、沿線に住宅地や遊園地、<span class="rb">宝塚<span class="rt" aria-hidden="true">たからづか</span></span>の少女歌劇をつくり、ターミナル駅にデパートを開いた。カレーライスやとんかつ、コロッケなどの洋食も、人々の食卓に広まっていった。</p>
+<h2><span class="no">第2節</span>大衆文化と文学</h2>
+<p>教育が広がり、多くの人が字を読めるようになると、新聞や雑誌が大量に発行された。発行部数が100万部を超える新聞も現れ、1冊1円で全集を売る「<span class="rb">円本<span class="rt" aria-hidden="true">えんぽん</span></span>」も人気を集めた。1925年にはラジオ放送が始まり、ニュースや音楽、野球の中継が家庭に届くようになった。映画も人々の大きな楽しみとなった。</p>
+<p>文学では、<span class="rb">武者小路実篤<span class="rt" aria-hidden="true">むしゃのこうじさねあつ</span></span>や<span class="rb">志賀直哉<span class="rt" aria-hidden="true">しがなおや</span></span>らの<span class="rb">白樺派<span class="rt" aria-hidden="true">しらかばは</span></span>が、人間の生き方を理想主義的に描いた。<span class="rb">芥川龍之介<span class="rt" aria-hidden="true">あくたがわりゅうのすけ</span></span>は、古典に題材をとった知的な短編小説で人気を集めた。昭和の初めには、労働者の立場から社会の矛盾を描くプロレタリア文学が生まれ、<span class="rb">小林多喜二<span class="rt" aria-hidden="true">こばやしたきじ</span></span>は『<span class="rb">蟹工船<span class="rt" aria-hidden="true">かにこうせん</span></span>』で、過酷な労働を強いられる人々の姿を描いた。</p>
+<h2><span class="no">第3節</span>関東大震災</h2>
+<p>1923年9月1日の昼前、<span class="rb">相模<span class="rt" aria-hidden="true">さがみ</span></span>湾北西部を震源とするマグニチュード7.9の大地震が関東地方を襲った。ちょうど昼食の準備で火を使う時間だったため、各地で火災が発生し、強い風にあおられて燃え広がった。東京や横浜の市街の多くが焼け、死者・行方不明者は約10万5千人にのぼった。その約9割は火災によるものとされる。</p>
+<figure><div class="figbtn figstatic"><svg viewBox="0 0 640 555" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>関東大震災の被害</title><desc>1923年9月1日 午前11時58分、マグニチュード7.9。死者・行方不明者は約10万5千人とされる。位置はおおよそ</desc><rect width="640" height="555" fill="#EAF2FB"/><path d="M640,267.8L634.4,286.8L640,303.3L640,358.1L640,358.1L639.9,360L637.1,371.7L631.7,381L620.9,379.5L614.1,389.6L615.5,397.3L610,402.8L603.3,401.2L600.5,395L593.8,402L584.3,400.4L578.9,410.5L565.3,409.8L547.7,408.2L539.6,405.9L528.7,417.5L527.4,427.6L517.9,435.4L509.7,435.4L497.5,444.7L485.3,453.3L482.6,458.7L479.9,467.2L475.9,473.4L475.9,481.2L474.5,489.7L471.8,495.2L462.3,505.2L444.7,507.6L440.6,506L435.2,507.6L429.8,508.3L428.4,506L423,502.9L423,492.1L417.6,488.2L406.7,483.5L397.3,482.8L395.9,478.9L395.9,473.4L401.3,473.4L412.2,475L417.6,473.4L421.6,471.1L424.4,467.2L429.8,466.5L436.6,468.8L439.3,466.5L440.6,462.6L439.3,456.4L435.2,452.5L427.1,450.2L427.1,445.5L431.1,440.8L432.5,435.4L432.5,430.7L428.4,422.2L427.1,416.8L428.4,400.4L421.6,389.6L423,384.1L421.6,377.1L423,370.9L433.8,363.9L439.3,359.2L439.3,349.1L432.5,337.4L432.5,327.3L406.7,318L406.7,315.6L414.9,316.4L423,310.9L423,302.4L428.4,296.9L431.1,289.1L448.8,294.6L454.2,288.3L454.2,281.3L451.5,267.3L456.9,262.6L467.7,258.7L474.5,252.5L482.6,250.9L492.1,243.9L497.5,236.1L516.5,211.9L523.3,213.4L526,206.4L527.4,200.9L521.9,200.9L519.2,183.7L507,171.2L492.1,157.9L488.1,159.5L482.6,154L470.4,152.4L459.6,157.1L466.4,168.9L456.9,174.3L450.1,179L448.8,175.1L444.7,174.3L440.6,171.2L437.9,171.2L432.5,168.1L429.8,172L428.4,179L423,175.1L421.6,168.1L416.2,168.1L414.9,176.7L409.4,184.5L404,177.5L405.4,166.5L401.3,161L398.6,171.2L402.7,185.3L408.1,194.7L408.1,200.1L413.5,213.4L409.4,219.7L409.4,226.7L405.4,231.4L393.2,239.2L382.3,248.6L371.5,250.1L363.4,247L357.9,248.6L355.2,253.2L362,256.4L368.8,260.3L371.5,263.4L370.1,269.6L371.5,278.2L367.4,277.4L357.9,273.5L352.5,277.4L355.2,283.7L360.7,289.1L359.3,306.3L357.9,311.7L357.9,319.5L356.6,325L360.7,330.4L363.4,325L367.4,328.1L374.2,339L389.1,340.5L393.2,347.5L386.4,355.3L389.1,360L386.4,367L372.9,366.2L363.4,373.2L362,380.2L364.7,388.8L368.8,393.4L371.5,398.1L363.4,400.4L353.9,398.1L348.5,402L344.4,400.4L343,397.3L344.4,391.9L344.4,382.6L339,369.3L348.5,364.7L345.7,361.6L340.3,359.2L337.6,352.2L326.8,339L326.8,335.1L324.1,330.4L320,329.6L317.3,320.3L311.9,323.4L303.7,322.6L295.6,324.2L288.8,318L268.5,315.6L237.3,322.6L219.7,325.7L200.7,331.2L181.8,341.3L168.2,354.6L166.8,377.9L172.3,399.7L158.7,393.4L146.5,412.1L142.5,427.6L141.1,437.7L153.3,440.1L150.6,448.6L149.2,457.1L145.2,463.4L150.6,474.2L162.8,478.1L166.8,489L168.2,506L165.5,521.5L157.4,523.1L150.6,528.5L146.5,534.7L145.2,540.9L141.1,550.2L137.7,555L19.7,555L19.7,555L17.8,547.8L21.8,540.9L23.2,533.1L23.2,522.3L20.5,517.6L23.2,511.4L28.6,506L34,505.2L27.3,493.6L24.5,482.8L23.2,471.9L28.6,461L32.7,450.2L47.6,451.7L58.4,454L66.6,453.3L73.3,453.3L78.8,448.6L58.4,426.1L51.6,416.8L39.4,406.7L16.4,400.4L0,399L0,0L640,0Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><defs><marker id="arsz4n640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="arsz4t640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="arsz4k640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="arsz4g640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><circle cx="225.9" cy="347.4" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="225.9" y="364.4" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="225.9" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">震源</tspan><tspan x="225.9" dy="14.5" style="font-size:11.0px" fill="#5A6878">相模湾北西部</tspan></text><circle cx="402.8" cy="148.6" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="410.8" y="146.6" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="410.8" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">東京</tspan><tspan x="410.8" dy="14.5" style="font-size:11.0px" fill="#5A6878">大火災で市街の多くが焼失</tspan></text><circle cx="353.9" cy="259.7" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="361.9" y="263.7" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="361.9" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">横浜</tspan><tspan x="361.9" dy="14.5" style="font-size:11.0px" fill="#5A6878">大きな被害</tspan></text><circle cx="169.4" cy="347.4" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="161.4" y="351.4" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="161.4" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">小田原</tspan></text><circle cx="320" cy="315.1" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="320.0" y="332.1" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="320.0" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">鎌倉</tspan></text></svg></div><div style=margin-top:6px><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">1923年9月1日 午前11時58分、マグニチュード7.9。死者・行方不明者は約10万5千人とされる。位置はおおよそ</p></div><figcaption><span><b>図4-4</b>関東大震災の被害</span></figcaption></figure>
+<h2><span class="no">第4節</span>震災の混乱と復興</h2>
+<p>震災の混乱の中で、「朝鮮人が暴動を起こした」「井戸に毒を入れた」などの根拠のない<span class="rb">流言<span class="rt" aria-hidden="true">りゅうげん</span></span>が広がった。住民がつくった<span class="rb">自警団<span class="rt" aria-hidden="true">じけいだん</span></span>や、軍隊・警察などによって、多くの朝鮮人や、朝鮮人と間違えられた中国人・日本人が殺された。内閣府の中央防災会議の報告書は、虐殺という表現が当てはまる例が多かったとし、犠牲者の数は震災による死者数の1〜数パーセントにあたると推計している。</p>
+<p>また、混乱に乗じて、労働運動の指導者たちが警察署で軍隊に殺され(<span class="rb">亀戸事件<span class="rt" aria-hidden="true">かめいどじけん</span></span>)、無政府主義者の<span class="rb">大杉栄<span class="rt" aria-hidden="true">おおすぎさかえ</span></span>と<span class="rb">伊藤野枝<span class="rt" aria-hidden="true">いとうのえ</span></span>らが<span class="rb">憲兵<span class="rt" aria-hidden="true">けんぺい</span></span>に殺害された。震災後、内務大臣の<span class="rb">後藤新平<span class="rt" aria-hidden="true">ごとうしんぺい</span></span>を中心に、広い道路や公園を備えた東京の復興計画が進められた。一方、震災で多くの銀行が抱えた損失は、のちの<span class="rb">金融恐慌<span class="rt" aria-hidden="true">きんゆうきょうこう</span></span>の原因の一つとなる。</p>
+<section class="points" aria-labelledby="pt">
+<h3 id="pt">この章の要点</h3>
+<ul>
+<li>都市ではサラリーマンや職業婦人が増え、文化住宅や洋食、私鉄やデパートなど暮らしが変わった。</li>
+<li>新聞・雑誌・ラジオなどの大衆文化が広がり、白樺派や芥川龍之介、プロレタリア文学などが生まれた。</li>
+<li>1923年の関東大震災では火災が広がり、死者・行方不明者は約10万5千人にのぼった。</li>
+<li>震災の混乱の中で流言が広がり、多くの朝鮮人・中国人が殺された。後藤新平のもとで東京の復興が進められた。</li>
+</ul>
+</section>
+<section class="column" aria-labelledby="col">
+<h3 id="col">コラム 流言はなぜ広がったのか</h3>
+<p>震災直後の朝鮮人への暴力は、地震や火事のような自然の災害ではなく、人の手による災害であった。電気や電話が止まり、新聞も出せない中で、確かめようのない噂が人から人へ伝わり、警察などの公的な機関がそれを広めてしまった例もあった。その背景には、植民地支配のもとで生まれた朝鮮の人々への差別や偏見、<span class="rb">三・一独立運動<span class="rt" aria-hidden="true">さん・いちどくりつうんどう</span></span>以後の警戒心があったと考えられている。</p>
+<p>内閣府の中央防災会議は、この出来事を災害の教訓として報告書にまとめ、災害時の流言や差別への備えの大切さを指摘している。大きな災害のたびにインターネット上で根拠のない噂が広がる現代にとっても、重い教訓である。</p>
+</section>
+</div>
+</article>
+<div class="navs"><a href="pc_ch3.html">← 第3章</a><a href="index.html">目次</a><a href="pc_ch5.html">第5章 →</a></div>
+<footer>第4章 ・ 全8章のうちの1章</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn-zoom').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>

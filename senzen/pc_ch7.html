@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>デモクラシーと戦争の時代 第7章</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style>.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+
+.cfig{background:#F7FAFD;border:1px solid #DCE4EE;border-radius:8px;padding:16px 18px}
+.ppl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ppl .pg{margin:0}
+.mapwrap{display:flex;gap:16px;align-items:flex-start}
+footer a{color:var(--navy)}
+.tlh{font-size:15px;color:var(--navy);margin:1.4em 0 .3em}
+</style><style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style><style>.figstatic{cursor:default}.figstatic:hover{border-color:#DCE4EE}</style></head>
+<body>
+<div class="page">
+<p class="series">デモクラシーと戦争の時代 解説資料</p>
+<article class="sheet">
+<div class="band">第七章 ・ 1937 ― 1945</div>
+<header class="ch">
+<h1>日中戦争と太平洋戦争</h1>
+<p class="lead">中国との戦争は世界大戦へと広がり、アジア・太平洋の多くの人々の命を奪った</p>
+</header>
+<div class="body">
+<figure><div class="figbtn figstatic"><svg viewBox="0 0 680 270" role="img"><title>図7-1 この章の年表</title><desc>1937 盧溝橋事件、日中戦争が始まる、1938 国家総動員法、1940 日独伊三国同盟、大政翼賛会、1941 南部仏印進駐、太平洋戦争が始まる(12月8日)、1942 ミッドウェー海戦、1944 サイパン島が陥落、1945 東京大空襲、沖縄戦、原爆投下、敗戦</desc><rect x="50" y="146" width="580" height="8" rx="3" fill="#1F4E8C"/><line x1="60.0" y1="118" x2="60.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="60.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1937</text><text x="60.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">盧溝橋事件、日中戦争が始まる</text><circle cx="60.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="130.0" y1="154" x2="130.0" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="130.0" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1938</text><text x="130.0" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">国家総動員法</text><circle cx="130.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="270.0" y1="118" x2="270.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="270.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1940</text><text x="270.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">日独伊三国同盟、大政翼賛会</text><circle cx="270.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="340.0" y1="154" x2="340.0" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="340.0" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1941</text><text x="340.0" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">南部仏印進駐、太平洋戦争が始まる(12月8日)</text><circle cx="340.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="410.0" y1="78" x2="410.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="410.0" y="56" text-anchor="start" class="h" style="fill:#1F4E8C">1942</text><text x="410.0" y="72" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">ミッドウェー海戦</text><circle cx="410.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="550.0" y1="118" x2="550.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="550.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1944</text><text x="550.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">サイパン島が陥落</text><circle cx="550.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="620.0" y1="154" x2="620.0" y2="226" stroke="#9AAABB" stroke-width=".8"/><text x="620.0" y="240" text-anchor="end" class="h" style="fill:#1F4E8C">1945</text><text x="620.0" y="256" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:700">東京大空襲、沖縄戦、原爆投下、敗戦</text><circle cx="620.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/></svg></div><figcaption><span><b>図7-1</b>この章の年表</span></figcaption></figure>
+<figure><div class="cfig"><div class="ppl"><div class="pg n"><h4>日本</h4><ul><li><b><span class="rb">近衛文麿<span class="rt" aria-hidden="true">このえふみまろ</span></span></b><span class="pd">日中戦争が始まったときの首相。のちに大政翼賛会をつくった</span></li><li><b><span class="rb">東条英機<span class="rt" aria-hidden="true">とうじょうひでき</span></span></b><span class="pd">陸軍大将。太平洋戦争を始めたときの首相</span></li><li><b><span class="rb">鈴木貫太郎<span class="rt" aria-hidden="true">すずきかんたろう</span></span></b><span class="pd">戦争末期の首相。ポツダム宣言の受諾を決めた</span></li></ul></div><div class="pg t"><h4>相手国</h4><ul><li><b><span class="rb">蔣介石<span class="rt" aria-hidden="true">しょうかいせき</span></span></b><span class="pd">中華民国の国民政府の指導者。首都を重慶に移して抗戦を続けた</span></li><li><b>ローズヴェルト</b><span class="pd">アメリカ大統領。日本への石油の輸出を禁じ、太平洋戦争を指導した</span></li></ul></div></div></div><figcaption><span><b>図7-2</b>この章の登場人物</span></figcaption></figure>
+<h2><span class="no">第1節</span>日中戦争</h2>
+<p>1937年7月、北京郊外の<span class="rb">盧溝橋<span class="rt" aria-hidden="true">ろこうきょう</span></span>で日本軍と中国軍が衝突した(盧溝橋事件)。<span class="rb">近衛文麿<span class="rt" aria-hidden="true">このえふみまろ</span></span>内閣は、はじめ不拡大の方針をとったが、軍の要求に押されて兵力を増やし、戦いは上海にも広がって、全面的な<span class="rb">日中戦争<span class="rt" aria-hidden="true">にっちゅうせんそう</span></span>となった。中国では、対立していた国民党と共産党が協力して日本と戦う態勢をつくった。</p>
+<p>1937年12月、日本軍は<span class="rb">国民政府<span class="rt" aria-hidden="true">こくみんせいふ</span></span>の首都<span class="rb">南京<span class="rt" aria-hidden="true">ナンキン</span></span>を占領した。その前後に、日本軍は捕虜や一般の人々を多数殺害し、略奪や暴行も行った(南京事件)。日本政府も、非戦闘員の殺害や略奪行為などがあったことは否定できないとしているが、犠牲者の数については、研究者の間でも数万人から20万人程度までさまざまな推計があり、中国は30万人と主張している。国民政府は首都を奥地の<span class="rb">重慶<span class="rt" aria-hidden="true">じゅうけい</span></span>に移して抵抗を続け、戦争は長期化した。</p>
+<h2><span class="no">第2節</span>太平洋戦争への道</h2>
+<p>1939年、ヨーロッパでドイツが第二次世界大戦を始めた。日本は、石油やゴムなどの資源を得るため東南アジアへの進出を図り、1940年にフランス領インドシナ(<span class="rb">仏印<span class="rt" aria-hidden="true">ふついん</span></span>)の北部に軍を進め、ドイツ・イタリアと<span class="rb">日独伊三国同盟<span class="rt" aria-hidden="true">にちどくいさんごくどうめい</span></span>を結んだ。アメリカやイギリスとの対立は決定的になった。</p>
+<figure><div class="cfig"><ol class="steps"><li><span class="num k">1</span><span><b>1937年 日中戦争</b><span class="d">戦争は長引き、終わりが見えなくなる</span></span></li><li><span class="num k">2</span><span><b>1939年 第二次世界大戦</b><span class="d">ヨーロッパでドイツが戦争を始め、フランスなどを破る</span></span></li><li><span class="num k">3</span><span><b>1940年 北部仏印進駐・日独伊三国同盟</b><span class="d">資源を求めて南へ進み、アメリカ・イギリスと対立を深める</span></span></li><li><span class="num k">4</span><span><b>1941年7月 南部仏印進駐</b><span class="d">アメリカは日本への石油の輸出を禁止する</span></span></li><li><span class="num k">5</span><span><b>1941年11月 ハル・ノート</b><span class="d">アメリカが中国などからの撤兵を求め、日米交渉は行き詰まる</span></span></li><li><span class="num k">6</span><span><b>1941年12月8日 開戦</b><span class="d">マレー半島への上陸と、ハワイの真珠湾への攻撃で太平洋戦争が始まる</span></span></li></ol></div><figcaption><span><b>図7-3</b>太平洋戦争への道</span></figcaption></figure>
+<p>1941年7月、日本が仏印の南部にも軍を進めると、アメリカは日本への石油の輸出を全面的に禁止した。日米の交渉は続けられたが、11月にアメリカが中国などからの撤兵を求める案(ハル・ノート)を示すと、<span class="rb">東条英機<span class="rt" aria-hidden="true">とうじょうひでき</span></span>内閣は開戦を決めた。12月8日、日本軍はイギリス領のマレー半島に上陸し、ハワイの<span class="rb">真珠湾<span class="rt" aria-hidden="true">しんじゅわん</span></span>のアメリカ艦隊を攻撃して、<span class="rb">太平洋戦争<span class="rt" aria-hidden="true">たいへいようせんそう</span></span>が始まった。</p>
+<h2><span class="no">第3節</span>戦局の悪化</h2>
+<p>開戦から半年ほどの間に、日本軍は東南アジアから太平洋の島々にかけての広い地域を占領した。しかし1942年6月、ミッドウェー海戦で主力の航空母艦4隻を失うと、戦局は逆転した。1943年にはガダルカナル島から撤退し、各地で守備隊が全滅した。</p>
+<figure><div class="figbtn figstatic"><svg viewBox="0 0 640 547" role="img" style="font-family:'Noto Sans JP',sans-serif"><title>アジア・太平洋戦争のおもな場所</title><desc>ハワイの真珠湾(1941年12月8日)とミッドウェー島(1942年6月)は地図の範囲の東にある。位置はおおよそ</desc><rect width="640" height="547" fill="#EAF2FB"/><path d="M293.9,530.1L286.6,532L290,522.7L299.4,517.3L315.4,513.9L315.5,517.4L299.4,523.6ZM280.8,512.4L279.5,517.2L266.7,519.7L255.3,518.6L262.1,513.6L267.4,516.2ZM158.9,501.1L175.3,501.9L177.2,498.4L193,502.5L196.1,508.1L208.9,509.7L219.4,514.8L209.6,518.1L200.2,514.6L183.7,514.2L165.8,509.4L156,509.6L140.4,506L138.9,502.3L131.1,501.7L137,493.5L147.3,494L157.7,498ZM528.9,489.9L514.1,497.1L497.7,492.2L498.4,489.6L518.9,489.7L526,483.7L525.1,478.7L531.9,479.9ZM345.4,469.5L348.5,476.1L341.3,472.5L323.4,472.1L325.4,467.4L336,467ZM538.8,481.5L536.1,483.8L532.5,475.5L517.7,466.5L520,464.4L531.1,470.8ZM376.7,452.9L379.1,466.7L387.9,471.9L395,462.8L404.8,457.6L412.4,457.6L426.1,463.7L435.2,465.3L465.8,476.1L476.4,484.8L477.7,489.8L491.9,495.1L494,499.7L486.1,500.6L488,506.3L495.7,512L501.2,521.1L518.8,531.4L510.1,532.3L494.2,530L482.7,519.7L478.3,512.2L467.2,508.4L454.7,513.7L455.8,520.1L449.1,523L435.5,521.2L427.9,514.1L406.3,515.1L409.9,508.1L415.3,505.7L409,489.2L392.4,481.9L385.4,481.2L372.6,473.3L366.8,478.2L364.8,471.4L358.3,467.2L372.9,462L360.4,462L357,456.9L349.4,455.3L345.8,451.1L361.6,446.3L375.3,449.8ZM300.7,431L293.9,439.5L257.6,441.1L256.4,447.5L264,455.1L268.6,451.3L284.5,448.4L276.4,456.1L268.9,459.4L276.9,470.3L275.4,473.2L283,483.1L283,488.7L275.1,488.3L279.2,481.2L270.8,484.6L269.8,478.9L263.7,473.9L264.3,465.5L258.6,468.1L259.7,490.4L250.6,489.1L253,481.2L251.7,472.9L245.5,467L256.3,438.3L263.6,431.9L270.2,434.4L290.8,435.3L299.2,429.1ZM330.1,433.4L329.7,440.9L325.3,440.1L325.1,450.8L319.1,434.5L323.7,424.5ZM135,493.1L125.5,493.3L118.3,486.1L107.4,479.1L97.3,467L86.5,448.7L79,441.5L73.4,427.5L65.7,422.2L61.2,414.8L45.9,400.6L45.2,396.3L63.9,398.3L82.7,416L90.8,425.2L99.5,425.3L111.6,438.3L118.1,442.2L114.7,449.2L122.6,452.4L127.1,463.1L133.3,463.8L137.5,469.2ZM237.9,427.5L247.4,435.4L237.3,436.4L234.8,450L226.6,455.8L226.4,464.3L223.1,477.4L221.9,474.3L212.2,478.2L208.8,473L198.4,469.7L188.3,472.8L185.2,468.7L172.6,468.2L171.3,456.7L162.9,447L162.7,431.6L167.8,426L174.1,428.9L180.6,427.3L182.3,420.1L196.2,416.6L206.6,404.4L231.5,383.8L236.3,391.9L249,396.9L242.7,400.7L244.2,404.9L237.9,407.8L233.1,415.5L239.3,423.6ZM310.4,371L311.8,381.6L308.9,389.4L305.8,380.7L301.8,385.1L304.5,391.4L302.1,395.4L292,390.4L289.6,384.2L292.2,380.1L286.8,376L273.8,384.1L275.7,374.3L285.8,368.6L288.8,372.5L296.7,366.3L302.7,366.1L302.2,359.4L309.1,363.5ZM303,338.5L305.4,348.2L298.8,345.9L301,354.2L297,356.2L292.7,344.3L297.7,345L292.4,335.1L300.6,335.3ZM267.3,282.4L272.5,284.9L277.5,295L275.2,302.4L270.2,305.4L270.8,319.5L279.1,319.5L289.7,324.3L290.8,335.3L281,326.4L278.8,329.6L273.4,324.3L261.4,323.7L256.6,313.9L255,301.5L258.4,304.5L259.3,290.5L262.1,282.4ZM173.6,280.8L166.2,285.1L159.2,282.4L158.9,274.6L163.1,270.5L177.4,268.2L179.3,271.6ZM266,243.3L262.4,250.9L256.9,236.2L261.9,227L268.8,219.9L272.7,222.7ZM380.9,132.7L377.2,142.4L373.7,139.2L367.1,147.5L361.5,144.6L366.3,133.6L374.7,130.5ZM435,101.3L433.3,115.1L428.8,122.5L417.9,127.4L402.9,128L390.8,139.8L385,135.8L384.7,128.1L369.8,130.4L359.7,135.3L349.7,135.4L358.4,143L352.7,160.1L347.2,164.3L343,160.5L345.2,151.4L336.3,141.5L344.4,138.3L348.8,131.9L363.7,119.4L380.6,116.3L389.8,118.4L398.7,99.6L404.4,104.7L421.8,89.7L427.1,76.3L425.7,63.8L429.3,56.7L438.3,54.6L443,70.2L442.7,79.2L434.9,90.2ZM460,22.1L466,24.6L472.1,19.6L474,32.8L461.3,36L453.8,47.5L440.4,39.6L435.8,52.2L426.3,52.4L425.1,41L429.3,32L438.4,31.3L443.5,5.5L453.5,18.1ZM408.4,0L382.9,31.2L371.5,38.1L360.8,32.6L344.7,44.2L338.5,52.1L338.8,60.2L320.3,72.8L319,78.8L327.3,85.4L336.7,105.1L336.8,117.3L333.6,123.1L319,129.4L311.3,130.2L312,116.7L308.2,105.7L314.5,104L308.7,94.8L296.2,90.9L302,76.9L292.4,70.9L280.5,74.1L265,82.3L267.8,72.9L274.5,65.4L270,59.5L252.9,71.2L247.7,78.4L239.3,78.9L234.9,84L239.5,91.4L246.4,93.2L246.7,98L253.5,101.1L263,93.5L276.1,97.9L277.5,103.6L265.4,106.5L253.1,117.5L248.8,124.9L258,130.5L261.3,140.7L272.3,157.7L272.1,165.1L266.8,167.8L273.9,176.2L270.4,191.9L265.6,192.7L252.5,215.7L244.5,226.9L220.9,243.4L211.3,244.4L206.1,248.5L203.1,245.5L198.3,250.1L177.4,256.1L174.5,265.8L169.7,266.3L169.5,256.1L158,253.2L142.6,262.5L135.5,271.1L133.7,277.4L148.2,298.6L155.9,304L161.1,311.2L165,327.5L163.9,342.8L147,354.2L129.4,369.4L126.3,363.9L128.6,358L122.3,353.1L115.2,351.8L107.4,338.3L99.7,334.3L92.4,334.5L93.7,327.6L86.2,327.6L85.5,337.3L78.1,357.7L78.7,363.9L84.3,364.2L89.3,379.5L99.2,385.4L110.6,395.9L114.2,401.6L115.2,419.3L121.4,432.1L115.4,432.6L97.2,419.5L91.3,409.5L87,397.7L87.9,391.5L81.2,380.3L72.6,371.3L69.5,371.6L74.8,344.8L71.9,339.7L72.6,330.1L69.1,325.6L64.8,303.9L61.1,296.5L45.8,307.3L35.8,304.4L38.7,293.4L36.9,285L17.8,258L12.1,243.5L4.2,243.2L2.3,252.1L0,251.6L0,0Z" fill="#F7F5EF" stroke="#C9C2B0" stroke-width=".8"/><defs><marker id="arsz7n640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F4E8C"/></marker><marker id="arsz7t640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2F7F86"/></marker><marker id="arsz7k640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B4532A"/></marker><marker id="arsz7g640" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5A6878"/></marker></defs><circle cx="223.6" cy="71.8" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="231.6" y="75.8" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="231.6" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">盧溝橋</tspan><tspan x="231.6" dy="14.5" style="font-size:11.0px" fill="#5A6878">1937 日中戦争の始まり</tspan></text><circle cx="268.5" cy="162.3" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="276.5" y="166.3" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="276.5" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">上海</tspan></text><circle cx="245.6" cy="154" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="237.6" y="158.0" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="237.6" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">南京</tspan><tspan x="237.6" dy="14.5" style="font-size:11.0px" fill="#5A6878">1937年12月 占領</tspan></text><circle cx="141.2" cy="178.9" r="4.5" fill="#5A6878" stroke="#fff" stroke-width="1.5"/><text x="133.2" y="182.9" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="133.2" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">重慶</tspan><tspan x="133.2" dy="14.5" style="font-size:11.0px" fill="#5A6878">国民政府の拠点</tspan></text><circle cx="135.3" cy="259.5" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="127.3" y="263.5" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="127.3" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">仏印</tspan><tspan x="127.3" dy="14.5" style="font-size:11.0px" fill="#5A6878">1940〜41 進駐</tspan></text><circle cx="117.9" cy="431.6" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="125.9" y="435.6" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="125.9" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">シンガポール</tspan><tspan x="125.9" dy="14.5" style="font-size:11.0px" fill="#5A6878">1942 占領</tspan></text><circle cx="264.4" cy="317.1" r="4.5" fill="#B4532A" stroke="#fff" stroke-width="1.5"/><text x="272.4" y="321.1" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="272.4" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">フィリピン</tspan></text><circle cx="597.3" cy="525.4" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="589.3" y="529.4" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="589.3" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">ガダルカナル島</tspan><tspan x="589.3" dy="14.5" style="font-size:11.0px" fill="#5A6878">1942〜43</tspan></text><circle cx="475.7" cy="311.8" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="483.7" y="315.8" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="483.7" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">サイパン島</tspan><tspan x="483.7" dy="14.5" style="font-size:11.0px" fill="#5A6878">1944 陥落</tspan></text><circle cx="437.9" cy="224.7" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="445.9" y="228.7" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="445.9" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">硫黄島</tspan><tspan x="445.9" dy="14.5" style="font-size:11.0px" fill="#5A6878">1945</tspan></text><circle cx="322.6" cy="209.4" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="314.6" y="213.4" text-anchor="end" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="314.6" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">沖縄</tspan><tspan x="314.6" dy="14.5" style="font-size:11.0px" fill="#5A6878">1945 沖縄戦</tspan></text><circle cx="362.3" cy="130.2" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="362.3" y="106.7" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="362.3" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">広島</tspan><tspan x="362.3" dy="14.5" style="font-size:11.0px" fill="#5A6878">8月6日 原爆</tspan></text><circle cx="340.2" cy="147" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="340.2" y="164.0" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="340.2" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">長崎</tspan><tspan x="340.2" dy="14.5" style="font-size:11.0px" fill="#5A6878">8月9日 原爆</tspan></text><circle cx="424.7" cy="116.8" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="432.7" y="120.8" text-anchor="start" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="432.7" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">東京</tspan><tspan x="432.7" dy="14.5" style="font-size:11.0px" fill="#5A6878">1945年3月10日 大空襲</tspan></text><circle cx="33.6" cy="224.3" r="4.5" fill="#1F4E8C" stroke="#fff" stroke-width="1.5"/><text x="35.2" y="241.3" text-anchor="middle" stroke="#F7F5EF" stroke-width="3" paint-order="stroke" stroke-linejoin="round"><tspan x="35.2" dy="0" style="font-size:12.5px;font-weight:700" fill="#1E2A3A">インパール</tspan><tspan x="35.2" dy="14.5" style="font-size:11.0px" fill="#5A6878">1944</tspan></text></svg></div><div style=margin-top:6px><p style="font-size:12.5px;color:#5A6878;margin:6px 0 0">ハワイの真珠湾(1941年12月8日)とミッドウェー島(1942年6月)は地図の範囲の東にある。位置はおおよそ</p></div><figcaption><span><b>図7-4</b>アジア・太平洋戦争のおもな場所</span></figcaption></figure>
+<p>1944年7月、サイパン島が陥落すると、日本の本土はアメリカの爆撃機の行動範囲に入り、東条内閣は総辞職した。この年の秋からは、飛行機ごと敵艦に体当たりする特別攻撃(<span class="rb">特攻<span class="rt" aria-hidden="true">とっこう</span></span>)も始まり、多くの若者が命を落とした。</p>
+<h2><span class="no">第4節</span>敗戦</h2>
+<p>1945年3月10日の<span class="rb">東京大空襲<span class="rt" aria-hidden="true">とうきょうだいくうしゅう</span></span>では、一夜で約10万人が亡くなったとされる。空襲は全国の都市に広がった。4月にはアメリカ軍が沖縄本島に上陸し、住民を巻き込んだ激しい地上戦が約3か月続いた。</p>
+<figure><div class="cfig"><div class="flow"><div class="fs dk"><em>3月10日</em><b>東京大空襲</b><span class="d">一夜で約10万人が亡くなったとされる。空襲は全国の都市に広がる</span></div><div class="fs dk"><em>4〜6月</em><b>沖縄戦</b><span class="d">住民を巻き込んだ地上戦。県民の4人に1人が亡くなったとされる</span></div><div class="fs "><em>7月26日</em><b>ポツダム宣言</b><span class="d">アメリカ・イギリス・中国が日本に無条件降伏を求める</span></div><div class="pair"><div class="fs dk"><em>8月6日・9日</em><b>広島・長崎に原子爆弾</b><span class="d">その年の末までに、広島で約14万人、長崎で約7万人が亡くなったとされる</span></div><div class="fs dk"><em>8月8日</em><b>ソ連が宣戦</b><span class="d">翌日から満州・朝鮮・樺太などに攻め込む</span></div></div><div class="fs t"><em>8月14〜15日</em><b>ポツダム宣言の受諾</b><span class="d">15日、天皇がラジオ放送で国民に敗戦を知らせる</span></div><div class="fs t"><em>9月2日</em><b>降伏文書に調印</b></div></div></div><figcaption><span><b>図7-5</b>敗戦までの1945年</span></figcaption></figure>
+<p>7月、アメリカ・イギリス・中国は<span class="rb">ポツダム宣言<span class="rt" aria-hidden="true">ポツダムせんげん</span></span>を発表し、日本に無条件降伏を求めた。日本政府がすぐに受け入れなかったため、8月6日に広島、9日に長崎に原子爆弾が投下された。8月8日にはソ連が日本に宣戦し、<span class="rb">満州<span class="rt" aria-hidden="true">まんしゅう</span></span>などに攻め込んだ。8月14日、日本はポツダム宣言の受け入れを決め、15日、天皇がラジオ放送で国民に敗戦を伝えた。9月2日、日本は<span class="rb">降伏文書<span class="rt" aria-hidden="true">こうふくぶんしょ</span></span>に調印した。日中戦争から8年、<span class="rb">満州事変<span class="rt" aria-hidden="true">まんしゅうじへん</span></span>から数えれば14年に及ぶ戦争は、こうして終わった。</p>
+<section class="points" aria-labelledby="pt">
+<h3 id="pt">この章の要点</h3>
+<ul>
+<li>1937年の盧溝橋事件から日中戦争が始まり、日本軍は南京占領の際に多くの中国の人々を殺害した(南京事件)。</li>
+<li>日本は資源を求めて東南アジアに進出し、日独伊三国同盟を結んで、1941年12月に太平洋戦争を始めた。</li>
+<li>1942年のミッドウェー海戦から戦局が悪化し、1944年のサイパン陥落後、本土への空襲が始まった。</li>
+<li>1945年、東京大空襲・沖縄戦・原爆投下・ソ連の参戦を経て、日本はポツダム宣言を受け入れて降伏した。</li>
+</ul>
+</section>
+<section class="column" aria-labelledby="col">
+<h3 id="col">コラム 戦争はいつ終わったのか</h3>
+<p>日本では8月15日を「終戦の日」としている。天皇のラジオ放送で、国民が敗戦を知った日である。しかし、日本が降伏文書に調印したのは9月2日であり、アメリカなど多くの国では、この日を対日戦勝の日としている。</p>
+<p>また、8月15日の後も戦闘は終わらなかった。ソ連軍は、満州や<span class="rb">樺太<span class="rt" aria-hidden="true">からふと</span></span>で攻撃を続け、千島列島は8月の終わりから9月の初めにかけて占領された。満州や樺太では、逃げまどう多くの民間人が犠牲になり、約57万人の日本人がシベリアなどに連行されて、厳しい労働を強いられた(シベリア<span class="rb">抑留<span class="rt" aria-hidden="true">よくりゅう</span></span>)。戦争の終わり方は、人や場所によって大きく異なっていたのである。</p>
+</section>
+</div>
+</article>
+<div class="navs"><a href="pc_ch6.html">← 第6章</a><a href="index.html">目次</a><a href="pc_ch8.html">第8章 →</a></div>
+<footer>第7章 ・ 全8章のうちの1章</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn-zoom').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>

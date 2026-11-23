@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>デモクラシーと戦争の時代 第2章</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 教科書風:白い紙面に紺(北朝・幕府)と青緑(南朝)。1カラムの読み物に図を差し込む */
+  --paper:#FFFFFF; --wash:#F3F6FA; --ink:#1E2A3A; --sub:#5A6878;
+  --navy:#1F4E8C; --teal:#2F7F86; --sky:#EAF2FB; --tealbg:#E6F3F3; --line:#9AAABB;
+  --font-body:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;
+  --font-display:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--wash);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.95;-webkit-text-size-adjust:100%}
+.page{max-width:800px;margin:0 auto;padding:32px 16px 64px}
+.sheet{background:var(--paper);border:1px solid #DCE4EE;border-radius:10px;overflow:hidden}
+.series{font-size:13px;color:var(--sub);letter-spacing:.08em;margin:0 0 10px 4px}
+.band{background:var(--navy);color:#fff;padding:10px 28px;font-size:13px;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+header.ch{padding:26px 28px 8px}
+header.ch h1{font-family:var(--font-display);font-size:30px;font-weight:700;line-height:1.4;margin:0;text-wrap:balance}
+header.ch .lead{color:var(--sub);font-size:15px;margin:6px 0 0}
+.body{padding:0 28px 32px}
+.body p{margin:0 0 1.1em;max-width:40em}
+h2{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.5;margin:2.4em 0 .9em;padding:2px 0 2px 14px;border-left:5px solid var(--navy);text-wrap:balance}
+h2 .no{color:var(--navy);font-size:14px;font-weight:500;margin-right:10px;font-variant-numeric:tabular-nums}
+.rb{position:relative;display:inline;white-space:nowrap}
+.rt{position:absolute;left:50%;bottom:100%;margin-bottom:-.3em;transform:translateX(-50%);font-size:.55em;line-height:1;white-space:nowrap;color:var(--sub);font-weight:400;pointer-events:none}
+figure{margin:1.6em 0 2em}
+.figbtn{display:block;width:100%;padding:12px;background:var(--paper);border:1px solid #DCE4EE;border-radius:8px;cursor:zoom-in;font:inherit;color:inherit;text-align:left;overflow-x:auto}
+.figbtn:hover{border-color:var(--line)}
+.figbtn:focus-visible{outline:3px solid #8DB4E2;outline-offset:2px}
+.figbtn svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13.5px;color:var(--sub);margin-top:8px;line-height:1.6}
+figcaption b{color:var(--navy);font-weight:700;margin-right:8px}
+figcaption .hint{font-size:12px;color:var(--line)}
+svg text{font-family:var(--font-body)}
+svg .h{font-size:14px;font-weight:700;fill:var(--ink)}
+svg .b{font-size:13px;fill:var(--ink)}
+svg .s{font-size:12px;fill:var(--sub)}
+svg .xs{font-size:11px;fill:var(--sub)}
+svg .n{fill:var(--navy)} svg .tl{fill:var(--teal)} svg .w{fill:#fff}
+.points{background:var(--sky);border-radius:8px;padding:18px 22px 14px;margin:2.6em 0 1.6em}
+.points h3,.column h3{margin:0 0 8px;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.05em}
+.points ul{margin:0;padding-left:1.3em}
+.points li{margin:0 0 .5em}
+.column{border:1.5px dashed var(--line);border-radius:8px;padding:18px 22px 6px;margin:1.6em 0 0}
+.column h3{color:var(--teal)}
+.column p{max-width:none}
+footer{font-size:12.5px;color:var(--sub);text-align:center;margin-top:22px}
+.zoom{position:fixed;inset:0;background:rgba(20,30,45,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.zoom.on{display:flex}
+.zoom .box{background:#fff;border-radius:10px;max-width:1200px;width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.zoom .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #DCE4EE;font-size:14px;color:var(--navy);font-weight:700}
+.zoom .bar button{font:inherit;font-weight:500;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer}
+.zoom .bar button:focus-visible{outline:3px solid #8DB4E2}
+.zoom .inner{overflow:auto;padding:16px}
+.zoom .inner svg{display:block;width:100%;min-width:900px;height:auto}
+@media (max-width:520px){
+  header.ch h1{font-size:24px}
+  .body,header.ch{padding-left:18px;padding-right:18px}
+  .band{padding-left:18px}
+}
+</style>
+<style>.steps{list-style:none;margin:14px 0 0;padding:0}
+.steps li{display:grid;grid-template-columns:26px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.steps li:first-child{border-top:0}
+.num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.num.n{background:var(--navy)}
+.num.sq{border-radius:5px}
+.steps .d,.fs .d,.card .d{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--sub);margin:6px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--teal);vertical-align:4px;margin-right:5px}
+.legend i.n{border-color:var(--navy)}
+.legend i.nd{border-top:3px dashed var(--navy)}
+.legend i.td{border-top:3px dashed var(--teal)}
+.legend i.sq{width:11px;height:11px;border:0;background:var(--navy);border-radius:3px;vertical-align:-1px}
+.legend i.sqt{width:11px;height:11px;border:0;background:var(--teal);border-radius:3px;vertical-align:-1px}
+.flow{display:flex;flex-direction:column;gap:22px}
+.fs{position:relative;background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;line-height:1.6}
+.fs+.fs::before,.flow>.pair+.fs::before,.flow>.grp+.fs::before,.flow>.fs+.pair::before,.flow>.fs+.grp::before{content:"";position:absolute;top:-17px;left:50%;width:9px;height:9px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:translateX(-50%) rotate(45deg)}
+.fs.s{background:var(--sky);border-color:#C9DCF0}
+.fs.t{background:var(--tealbg);border-color:#BFDCDC}
+.fs.dk{background:var(--navy);border-color:var(--navy);color:#fff}
+.fs.dk .d{color:#D6E4F3}
+.fs em{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--navy)}
+.fs.t em{color:var(--teal)}
+.fs b{font-weight:700}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair>.fs::before{display:none}
+.grp{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.grp h4{margin:0 0 6px;font-size:13px;color:var(--navy)}
+.rows{display:grid;gap:6px}
+.rows>div{display:grid;grid-template-columns:6.5em 1fr;gap:8px;font-size:14.5px;line-height:1.55;padding:6px 0;border-top:1px solid var(--line)}
+.rows>div:first-child{border-top:0}
+.rows b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--sky);color:var(--navy);line-height:1.6}
+.chip.t{background:var(--tealbg);color:var(--teal)}
+.chip.dk{background:var(--navy);color:#fff}
+.card{border-radius:8px;overflow:hidden;border:1px solid var(--navy);background:#fff}
+.card.t{border-color:var(--teal)}
+.card .hd{background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:6px 12px}
+.card.t .hd{background:var(--teal)}
+.card .bd{padding:4px 12px 8px}
+.card .bd .rows>div{grid-template-columns:5.5em 1fr}
+.card.t .rows b{color:var(--teal)}
+.vs{text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--sub);border-radius:999px;padding:1px 12px;width:max-content;margin:-4px auto}
+
+.pg{border:1px solid #D6E4F3;border-top:4px solid var(--navy);border-radius:8px;padding:8px 12px 6px;background:#fff;margin-bottom:10px}
+.pg.t{border-top-color:var(--teal)} .pg.g{border-top-color:#9AAABB} .pg.k{border-top-color:#B4532A}
+.pg h4{margin:0 0 2px;font-size:13px;color:var(--navy)} .pg.t h4{color:var(--teal)} .pg.g h4{color:#5A6878} .pg.k h4{color:#B4532A}
+.pg ul{list-style:none;margin:0;padding:0}
+.pg li{padding:6px 0;border-top:1px solid #E3EAF3;font-size:14.5px;line-height:1.6}
+.pg li:first-child{border-top:0}
+.pg li b{display:block;font-size:15px}
+.pg li .pd{display:block;font-size:13px;color:var(--sub);line-height:1.55}
+.mapl{list-style:none;margin:10px 0 0;padding:0;font-size:14px;line-height:1.55}
+.mapl li{padding:5px 0 5px 32px;position:relative;border-top:1px solid #E3EAF3}
+.mapl li:first-child{border-top:0}
+.mapl li i{position:absolute;left:0;top:6px;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:12px;font-weight:700;text-align:center;line-height:22px}
+.mapl li i.t{background:var(--teal)} .mapl li i.k{background:#B4532A}
+.mapl li .pd{display:block;font-size:12.5px;color:var(--sub)}
+.navs{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:18px 0 0;font-size:14px}
+.navs a{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-weight:700}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:14px;padding-left:12px;border-left:2px solid #D6E4F3}
+.tree li{padding:3px 0;font-size:15px;line-height:1.55}
+.tree .sh{display:inline-block;min-width:2.2em;margin-right:6px;font-size:12px;font-weight:700;color:#fff;background:var(--navy);border-radius:4px;text-align:center;padding:0 4px}
+.tree .sh.t{background:var(--teal)}
+.tree small{color:var(--sub);font-size:12.5px;margin-left:6px}
+.chs{list-style:none;margin:0;padding:0}
+.chs>li{border:1px solid #D6E4F3;border-left:4px solid var(--navy);border-radius:6px;padding:10px 14px;margin:0 0 10px;background:#fff}
+.chs>li>a{color:var(--navy);font-weight:700;text-decoration:none}
+.chs li ul{list-style:disc;margin:6px 0 0;padding-left:1.2em;font-size:14.5px;line-height:2}
+
+.cfig{background:#F7FAFD;border:1px solid #DCE4EE;border-radius:8px;padding:16px 18px}
+.ppl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ppl .pg{margin:0}
+.mapwrap{display:flex;gap:16px;align-items:flex-start}
+footer a{color:var(--navy)}
+.tlh{font-size:15px;color:var(--navy);margin:1.4em 0 .3em}
+</style><style id="oldios">
+.zoom{top:0;right:0;bottom:0;left:0}
+.topbar{position:-webkit-sticky}
+.pair{grid-gap:10px}.rows{grid-gap:6px}.rows>div,.tl li{grid-gap:8px}.steps li{grid-gap:10px}
+ul{grid-gap:10px}li{grid-gap:2px}
+.nofg .flow>*+*{margin-top:22px}
+.nofg .chips>*,.nofg .l>*{margin:0 8px 8px 0}
+.nofg .legend>*{margin:0 16px 6px 0}
+.nofg .tlnote>*+*,.nofg .topbar>*+*,.nofg .zoom .bar>*+*,.nofg figcaption>*+*{margin-left:12px}
+.nofg .back>*+*{margin-left:6px}
+</style><script>
+(function(){if(window.NodeList&&!NodeList.prototype.forEach){NodeList.prototype.forEach=Array.prototype.forEach;}
+try{var d=document.createElement('div');d.style.display='flex';d.style.flexDirection='column';d.style.rowGap='1px';
+d.appendChild(document.createElement('div'));d.appendChild(document.createElement('div'));
+document.documentElement.appendChild(d);var ok=d.scrollHeight===1;d.parentNode.removeChild(d);
+if(!ok)document.documentElement.className+=' nofg';}catch(e){}})();
+</script><style>.ppl{grid-gap:10px}.pg ul{margin:0}</style><style>.figstatic{cursor:default}.figstatic:hover{border-color:#DCE4EE}</style></head>
+<body>
+<div class="page">
+<p class="series">デモクラシーと戦争の時代 解説資料</p>
+<article class="sheet">
+<div class="band">第二章 ・ 1916 ― 1925</div>
+<header class="ch">
+<h1>大正デモクラシー</h1>
+<p class="lead">政党が政治を担い、さまざまな人々が権利を求めて声を上げた</p>
+</header>
+<div class="body">
+<figure><div class="figbtn figstatic"><svg viewBox="0 0 680 270" role="img"><title>図2-1 この章の年表</title><desc>1916 吉野作造が民本主義を唱える、1918 原敬の政党内閣、1920 新婦人協会、第1回メーデー、1922 全国水平社、日本農民組合、1924 第二次護憲運動、1925 普通選挙法と治安維持法</desc><rect x="50" y="146" width="580" height="8" rx="3" fill="#1F4E8C"/><line x1="60.0" y1="118" x2="60.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="60.0" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1916</text><text x="60.0" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">吉野作造が民本主義を唱える</text><circle cx="60.0" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="184.4" y1="154" x2="184.4" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="184.4" y="198" text-anchor="start" class="h" style="fill:#1F4E8C">1918</text><text x="184.4" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:700">原敬の政党内閣</text><circle cx="184.4" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/><line x1="308.9" y1="118" x2="308.9" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="308.9" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1920</text><text x="308.9" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">新婦人協会、第1回メーデー</text><circle cx="308.9" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="433.3" y1="154" x2="433.3" y2="184" stroke="#9AAABB" stroke-width=".8"/><text x="433.3" y="198" text-anchor="start" class="h" style="fill:#2F7F86">1922</text><text x="433.3" y="214" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">全国水平社、日本農民組合</text><circle cx="433.3" cy="150" r="4.5" fill="#fff" stroke="#2F7F86" stroke-width="2"/><line x1="557.8" y1="118" x2="557.8" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="557.8" y="96" text-anchor="start" class="h" style="fill:#1F4E8C">1924</text><text x="557.8" y="112" text-anchor="start" class="s" style="fill:#1E2A3A;font-weight:400">第二次護憲運動</text><circle cx="557.8" cy="150" r="4.5" fill="#fff" stroke="#1F4E8C" stroke-width="2"/><line x1="620.0" y1="78" x2="620.0" y2="146" stroke="#9AAABB" stroke-width=".8"/><text x="620.0" y="56" text-anchor="end" class="h" style="fill:#1F4E8C">1925</text><text x="620.0" y="72" text-anchor="end" class="s" style="fill:#1E2A3A;font-weight:700">普通選挙法と治安維持法</text><circle cx="620.0" cy="150" r="4.5" fill="#1F4E8C" stroke="#1F4E8C" stroke-width="2"/></svg></div><figcaption><span><b>図2-1</b>この章の年表</span></figcaption></figure>
+<figure><div class="cfig"><div class="ppl"><div class="pg n"><h4>政治</h4><ul><li><b><span class="rb">原敬<span class="rt" aria-hidden="true">はらたかし</span></span></b><span class="pd">立憲政友会の総裁。爵位をもたない「平民宰相」として初の本格的な政党内閣をつくった</span></li><li><b><span class="rb">加藤高明<span class="rt" aria-hidden="true">かとうたかあき</span></span></b><span class="pd">護憲三派内閣の首相。普通選挙法を成立させた</span></li></ul></div><div class="pg t"><h4>思想と運動</h4><ul><li><b><span class="rb">吉野作造<span class="rt" aria-hidden="true">よしのさくぞう</span></span></b><span class="pd">民衆の意向にもとづく政治(民本主義)を唱えた</span></li><li><b><span class="rb">美濃部達吉<span class="rt" aria-hidden="true">みのべたつきち</span></span></b><span class="pd">天皇は国家の最高機関であるとする天皇機関説を唱えた</span></li><li><b><span class="rb">平塚らいてう<span class="rt" aria-hidden="true">ひらつからいちょう</span></span>・<span class="rb">市川房枝<span class="rt" aria-hidden="true">いちかわふさえ</span></span></b><span class="pd">新婦人協会をつくり、女性の政治参加を求めた</span></li></ul></div></div></div><figcaption><span><b>図2-2</b>この章の登場人物</span></figcaption></figure>
+<h2><span class="no">第1節</span>民本主義と天皇機関説</h2>
+<p>大正時代には、政治に民衆の意向を反映させようとする考え方が広まった。この風潮を大正デモクラシーという。その理論的な支えとなったのが、政治学者の<span class="rb">吉野作造<span class="rt" aria-hidden="true">よしのさくぞう</span></span>が唱えた<span class="rb">民本主義<span class="rt" aria-hidden="true">みんぽんしゅぎ</span></span>である。吉野は、天皇が主権をもつ憲法のもとでも、政治の目的は民衆の幸福にあり、政策は民衆の意向にもとづいて決めるべきだと説いた。</p>
+<p>憲法学者の<span class="rb">美濃部達吉<span class="rt" aria-hidden="true">みのべたつきち</span></span>は、国家を一つの法人と考え、天皇はその最高機関として、憲法にしたがって統治権を行使するという<span class="rb">天皇機関説<span class="rt" aria-hidden="true">てんのうきかんせつ</span></span>を唱えた。これは、議会や政党が政治の中心となることを理論づけるものとなった。</p>
+<h2><span class="no">第2節</span>原敬の政党内閣</h2>
+<p><span class="rb">米騒動<span class="rt" aria-hidden="true">こめそうどう</span></span>で寺内内閣が倒れると、1918年9月、<span class="rb">立憲政友会<span class="rt" aria-hidden="true">りっけんせいゆうかい</span></span>の総裁<span class="rb">原敬<span class="rt" aria-hidden="true">はらたかし</span></span>が首相となった。陸軍・海軍・外務の大臣以外は、すべて政友会の党員で占める、初めての本格的な<span class="rb">政党内閣<span class="rt" aria-hidden="true">せいとうないかく</span></span>である。原は<span class="rb">華族<span class="rt" aria-hidden="true">かぞく</span></span>の<span class="rb">爵位<span class="rt" aria-hidden="true">しゃくい</span></span>をもたなかったことから、「<span class="rb">平民宰相<span class="rt" aria-hidden="true">へいみんさいしょう</span></span>」と呼ばれて人気を集めた。</p>
+<p>原内閣は、選挙権の資格を直接国税3円以上に引き下げ、鉄道の建設や高等教育の拡充などを進めた。しかし、すべての成人男子に選挙権を与える普通選挙には慎重であった。1921年、原は東京駅で青年に刺されて亡くなった。</p>
+<h2><span class="no">第3節</span>広がる社会運動</h2>
+<p>大正デモクラシーの時代には、さまざまな人々が自らの権利を求めて声を上げた。労働者は団結して<span class="rb">労働組合<span class="rt" aria-hidden="true">ろうどうくみあい</span></span>をつくり、賃金の引き上げなどを求める<span class="rb">労働争議<span class="rt" aria-hidden="true">ろうどうそうぎ</span></span>を起こした。1920年には、日本で初めてのメーデーが開かれた。農村では、地主に<span class="rb">小作<span class="rt" aria-hidden="true">こさく</span></span>料の引き下げを求める<span class="rb">小作争議<span class="rt" aria-hidden="true">こさくそうぎ</span></span>が増えた。</p>
+<figure><div class="cfig"><div class="card t" style="margin-bottom:10px"><div class="hd">さまざまな人々が声を上げた</div><div class="bd"><div class="rows"><div><b>労働者</b><span>友愛会が日本労働総同盟に発展。1920年に第1回メーデー。労働争議が増える</span></div><div><b>農民</b><span>小作料の引き下げを求める小作争議が増え、1922年に日本農民組合ができる</span></div><div><b>被差別部落の人々</b><span>1922年に全国水平社をつくり、差別をなくす運動を自らの手で始める</span></div><div><b>女性</b><span>1920年に新婦人協会。女性が政治演説会に参加することが認められる</span></div><div><b>社会主義</b><span>1922年に日本共産党が非合法のうちにつくられる</span></div></div></div></div></div><figcaption><span><b>図2-3</b>広がる社会運動</span></figcaption></figure>
+<p>1922年には、差別に苦しんできた被差別部落の人々が<span class="rb">全国水平社<span class="rt" aria-hidden="true">ぜんこくすいへいしゃ</span></span>をつくり、自らの力で差別をなくす運動を始めた。女性の地位の向上をめざす運動も進み、<span class="rb">平塚らいてう<span class="rt" aria-hidden="true">ひらつからいちょう</span></span>や<span class="rb">市川房枝<span class="rt" aria-hidden="true">いちかわふさえ</span></span>らは1920年に<span class="rb">新婦人協会<span class="rt" aria-hidden="true">しんふじんきょうかい</span></span>をつくって、女性の政治活動を禁じた法律の改正を勝ち取った。</p>
+<h2><span class="no">第4節</span>普通選挙法と治安維持法</h2>
+<p>1924年、政党の力を無視した内閣ができると、三つの政党が協力して第二次<span class="rb">護憲運動<span class="rt" aria-hidden="true">ごけんうんどう</span></span>を起こした。選挙に勝った護憲三派は、<span class="rb">加藤高明<span class="rt" aria-hidden="true">かとうたかあき</span></span>を首相とする内閣をつくった。以後、1932年まで、<span class="rb">衆議院<span class="rt" aria-hidden="true">しゅうぎいん</span></span>で多数を占める政党の党首が内閣をつくる慣例が続いた(<span class="rb">憲政の常道<span class="rt" aria-hidden="true">けんせいのじょうどう</span></span>)。</p>
+<figure><div class="cfig"><div class="flow"><div class="pair"><div class="fs t"><em>普通選挙法</em><b>満25歳以上のすべての男子に選挙権</b><span class="d">納税額の制限がなくなり、有権者は約4倍に</span></div><div class="fs dk"><em>治安維持法</em><b>国体の変革や私有財産制度の否定をめざす結社を取り締まる</b><span class="d">のちに社会運動や言論を広く弾圧する道具となる</span></div></div><div class="fs "><em>残された課題</em><b>女性には選挙権がなかった</b><span class="d">女性の参政権は1945年まで実現しなかった</span></div></div></div><figcaption><span><b>図2-4</b>普通選挙法と治安維持法(1925年)</span></figcaption></figure>
+<p>1925年、加藤内閣は<span class="rb">普通選挙法<span class="rt" aria-hidden="true">ふつうせんきょほう</span></span>を成立させ、満25歳以上のすべての男子に選挙権を与えた。有権者はそれまでの約4倍に増えた。しかし同じ年、政府は<span class="rb">治安維持法<span class="rt" aria-hidden="true">ちあんいじほう</span></span>を定め、天皇制(<span class="rb">国体<span class="rt" aria-hidden="true">こくたい</span></span>)を変えたり、私有財産制度を否定したりすることをめざす結社を取り締まることにした。普通選挙によって社会主義の勢力が議会に進出することを警戒したのである。治安維持法は、のちに社会運動や言論を広く弾圧する道具となっていく。</p>
+<section class="points" aria-labelledby="pt">
+<h3 id="pt">この章の要点</h3>
+<ul>
+<li>吉野作造の民本主義や美濃部達吉の天皇機関説が、政治に民衆の意向を反映させる考えを支えた(大正デモクラシー)。</li>
+<li>1918年、原敬が初めての本格的な政党内閣をつくった。</li>
+<li>労働争議・小作争議が増え、1922年に全国水平社がつくられた。女性の地位向上を求める運動も進んだ。</li>
+<li>1925年に普通選挙法で満25歳以上の男子に選挙権が与えられたが、同時に治安維持法がつくられた。</li>
+</ul>
+</section>
+<section class="column" aria-labelledby="col">
+<h3 id="col">コラム 「人間に光あれ」― 水平社宣言</h3>
+<p>1922年3月、京都で開かれた全国水平社の創立大会では、水平社宣言が読み上げられた。宣言は、差別を受けてきた人々が、他人の同情や恩恵にすがるのではなく、自らの力で人間としての尊厳を取り戻そうと呼びかけるものであった。</p>
+<p>宣言は「人の世に熱あれ、人間に光あれ」という言葉で結ばれている。日本で最初の人権宣言ともいわれるこの文章は、その後の差別をなくす運動の出発点となった。</p>
+</section>
+</div>
+</article>
+<div class="navs"><a href="pc_ch1.html">← 第1章</a><a href="index.html">目次</a><a href="pc_ch3.html">第3章 →</a></div>
+<footer>第2章 ・ 全8章のうちの1章</footer>
+</div>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-labelledby="zoomTitle">
+<div class="box">
+<div class="bar"><span id="zoomTitle"></span><button type="button" id="zoomClose">閉じる</button></div>
+<div class="inner" id="zoomInner"></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var zoom=document.getElementById('zoom'), inner=document.getElementById('zoomInner'),
+      title=document.getElementById('zoomTitle'), closeBtn=document.getElementById('zoomClose'), last=null;
+  function close(){zoom.classList.remove('on');inner.innerHTML='';if(last)last.focus();}
+  document.querySelectorAll('.figbtn-zoom').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svg=btn.querySelector('svg'); last=btn;
+      var cap=btn.parentNode.querySelector('figcaption span');
+      title.textContent=cap?cap.textContent:'';
+      inner.innerHTML=''; inner.appendChild(svg.cloneNode(true));
+      zoom.classList.add('on'); closeBtn.focus();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  zoom.addEventListener('click',function(e){if(e.target===zoom)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&zoom.classList.contains('on'))close();});
+})();
+</script>
+<script>
+(function(){
+  /* ふりがなの幅を漢字の幅に合わせる:短い読みは均等に広げ、長い読みは少し詰める */
+  function fitRuby(){
+    document.querySelectorAll('.rb').forEach(function(r){
+      var rt=r.querySelector('.rt'); if(!rt) return;
+      rt.style.letterSpacing=''; rt.style.transform='translateX(-50%)';
+      var base=r.firstChild, bw;
+      if(base&&base.nodeType===3){var g=document.createRange();g.selectNodeContents(base);bw=g.getBoundingClientRect().width;}else{bw=r.getBoundingClientRect().width;}
+      var tw=rt.getBoundingClientRect().width, n=rt.textContent.length;
+      if(!bw||!tw) return;
+      if(tw<bw-1){var gap=(bw-tw)/n; rt.style.letterSpacing=gap+'px'; rt.style.transform='translateX(calc(-50% + '+(gap/2)+'px))';}
+      else if(tw>bw+1){rt.style.transform='translateX(-50%) scaleX('+Math.max(.78,bw/tw)+')';}
+    });
+  }
+  window.fitRuby=fitRuby;
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fitRuby);
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fitRuby,150);});
+})();
+</script>
+</body>
+</html>
